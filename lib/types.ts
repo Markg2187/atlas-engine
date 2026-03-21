@@ -1,5 +1,6 @@
 // ============================================================
 // Atlas Engine - TypeScript Database Types
+// Updated: added new schema v2 columns
 // ============================================================
 
 export type UserRole = 'super_admin' | 'location_admin' | 'staff'
@@ -10,6 +11,13 @@ export type ProtocolStatus = 'active' | 'completed' | 'paused' | 'cancelled'
 export type ArticleSourceType = 'substack' | 'internal' | 'research' | 'guide'
 export type AnimalType = 'dog' | 'cat' | 'horse' | 'other'
 export type DoseFrequency = 'daily' | 'weekly' | 'twice_weekly' | 'three_times_weekly'
+
+// ── NEW v2 types ──────────────────────────────────────────────
+export type ScheduleType = 'monthly-ramp' | 'weekly-titration' | 'nightly-cycle' | 'burst-cycle' | 'weekly-flat' | 'daily-cycle'
+export type DeliveryForm = 'subq' | 'capsule' | 'intranasal' | 'topical' | 'iv' | 'im' | 'transdermal'
+export type TitrationUnit = 'week' | 'month' | 'day' | 'cycle' | 'ongoing'
+export type ResourceType = 'article' | 'pdf' | 'youtube' | 'pubmed' | 'warning' | 'study' | 'protocol' | 'video' | 'link'
+export type ResourceSpecies = 'human' | 'veterinary' | 'both'
 
 export interface Location {
   id: string
@@ -31,7 +39,6 @@ export interface UserProfile {
   avatar_url: string | null
   created_at: string
   updated_at: string
-  // joined
   location?: Location
 }
 
@@ -55,7 +62,6 @@ export interface Client {
   assigned_to: string | null
   created_at: string
   updated_at: string
-  // joined
   location?: Location
   assigned_staff?: UserProfile
 }
@@ -92,6 +98,11 @@ export interface Peptide {
   is_active: boolean
   is_brand_product: boolean
   brand: string | null
+  // ── NEW v2 columns ──
+  schedule_type: ScheduleType
+  default_delivery_form: DeliveryForm
+  available_forms: DeliveryForm[]
+  species: ResourceSpecies
   created_at: string
   updated_at: string
   // joined
@@ -100,6 +111,7 @@ export interface Peptide {
   warnings?: PeptideWarning[]
   studies?: PeptideStudy[]
   recon?: PeptideRecon
+  resources?: PeptideResource[]
 }
 
 export interface PeptideDosing {
@@ -109,6 +121,16 @@ export interface PeptideDosing {
   dose: string
   notes: string | null
   sort_order: number
+  // ── NEW v2 columns ──
+  delivery_form: DeliveryForm
+  titration_unit: TitrationUnit
+  vial_mg: number | null
+  recommended_bac_ml: number | null
+  concentration_mg_ml: number | null
+  dilution_note: string | null
+  speed_gentle: string | null
+  speed_standard: string | null
+  speed_accelerated: string | null
 }
 
 export interface PeptideBenefit {
@@ -156,6 +178,41 @@ export interface PeptideRecon {
   premixed_notes: string | null
 }
 
+// ── NEW: Knowledge Brain resource ─────────────────────────────
+export interface PeptideResource {
+  id: string
+  peptide_id: string
+  resource_type: ResourceType
+  title: string
+  url: string | null
+  body_text: string | null
+  summary: string | null
+  source_name: string | null
+  published_date: string | null
+  tags: string[]
+  delivery_form: DeliveryForm | null
+  species: ResourceSpecies
+  is_warning: boolean
+  is_featured: boolean
+  is_clinician_only: boolean
+  is_sendable: boolean
+  send_count: number
+  uploaded_by: string | null
+  location_id: string | null
+  created_at: string
+  updated_at: string
+}
+
+// ── NEW: Resource send tracking ───────────────────────────────
+export interface PeptideResourceSend {
+  id: string
+  resource_id: string
+  client_id: string
+  sent_by: string | null
+  sent_at: string
+  delivery_method: 'email' | 'sms' | 'in_app' | 'pdf'
+}
+
 export interface Protocol {
   id: string
   condition_name: string
@@ -170,7 +227,6 @@ export interface Protocol {
   tagline: string | null
   created_at: string
   updated_at: string
-  // joined
   months?: ProtocolMonth[]
 }
 
@@ -181,7 +237,6 @@ export interface ProtocolMonth {
   title: string
   clinical_note: string | null
   sort_order: number
-  // joined
   rows?: ProtocolMonthRow[]
 }
 
@@ -215,7 +270,6 @@ export interface ClientProtocol {
   show_warnings: boolean
   created_at: string
   updated_at: string
-  // joined
   protocol?: Protocol
   client?: Client
   assigned_by_profile?: UserProfile
@@ -316,4 +370,17 @@ export interface CalcResult {
   unitsU100: number
   volumeMl: number
   vialsNeeded: number
+}
+
+// ── NEW: Smart reconstitution calc result ─────────────────────
+export interface ReconResult {
+  concentrationMgMl: number
+  concentrationMcgMl: number
+  volumePerDoseMl: number
+  unitsPerDoseU100: number
+  dosesPerVial: number
+  vialsNeeded30Days: number
+  vialsNeeded90Days: number
+  dilutionWarning: string | null
+  isDiluted: boolean
 }
