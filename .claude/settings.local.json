@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx create-next-app@latest . --typescript --tailwind --eslint --app --src-dir=false --import-alias=\"@/*\" --use-npm)",
+      "Bash(mv PROMPT.md /tmp/PROMPT.md)",
+      "Bash(npx create-next-app@latest /tmp/atlas-engine-build --typescript --tailwind --eslint --app --src-dir=false --import-alias=\"@/*\" --use-npm)",
+      "Bash(pkill -f create-next-app)",
+      "Bash(mkdir -p /tmp/atlas-engine-build)",
+      "Read(//tmp/**)",
+      "Bash(yes)",
+      "Bash(npx create-next-app@latest . --typescript --tailwind --eslint --app --no-src-dir --import-alias=\"@/*\" --use-npm)",
+      "Bash(sudo chown:*)",
+      "Bash(npx create-next-app@latest . --typescript --tailwind --eslint --app --no-src-dir --import-alias=\"@/*\" --use-npm -- --cache /tmp/npm-cache)",
+      "Bash(npm config:*)",
+      "Bash(npm install:*)",
+      "Bash(npx shadcn-ui@latest init)",
+      "Bash(npx shadcn@latest init)"
+    ]
+  }
+}
