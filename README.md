@@ -1,8 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Atlas Engine
 
-## Getting Started
+**Peptide Protocol Management Platform**
 
-First, run the development server:
+A full-stack clinical management application for peptide therapy practices. Built with Next.js 16, Supabase, and a custom dark design system.
+
+---
+
+## Tech Stack
+
+- **Framework:** Next.js 16 (App Router, RSC)
+- **Database:** Supabase (PostgreSQL + RLS)
+- **Auth:** Supabase Auth
+- **Styling:** Tailwind CSS v4 + custom Atlas Engine design system
+- **UI Components:** shadcn/ui
+- **PDF Generation:** @react-pdf/renderer
+- **Email:** Resend
+- **Forms:** React Hook Form + Zod
+
+---
+
+## Setup
+
+### 1. Install dependencies
+
+```bash
+npm install
+```
+
+### 2. Environment variables
+
+```bash
+cp .env.local.example .env.local
+```
+
+Fill in your Supabase and Resend credentials.
+
+### 3. Database setup
+
+Run in Supabase SQL editor (in order):
+1. `supabase/migrations/001_schema.sql`
+2. `supabase/migrations/002_rls.sql`
+3. `supabase/seed.sql` (optional)
+
+### 4. Create super admin user
+
+In Supabase Auth, create a user, then:
+
+```sql
+insert into user_profiles (id, full_name, role)
+values ('<user-uuid>', 'Your Name', 'super_admin');
+```
+
+### 5. Run development server
+
+```bash
 
 ```bash
 npm run dev

@@ -7,9 +7,9 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-sans);
-  --font-mono: var(--font-geist-mono);
-  --font-heading: var(--font-sans);
+  --font-sans: var(--font-dm-sans), DM Sans, system-ui, sans-serif;
+  --font-mono: var(--font-dm-mono), DM Mono, monospace;
+  --font-heading: var(--font-playfair), Playfair Display, Georgia, serif;
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -43,88 +43,379 @@
   --radius-md: calc(var(--radius) * 0.8);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) * 1.4);
-  --radius-2xl: calc(var(--radius) * 1.8);
-  --radius-3xl: calc(var(--radius) * 2.2);
-  --radius-4xl: calc(var(--radius) * 2.6);
 }
 
+/* Atlas Engine Dark Theme - Forced */
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --background: #0b1120;
+  --foreground: #ccd9ee;
+  --card: #0f1a2e;
+  --card-foreground: #ccd9ee;
+  --popover: #0f1a2e;
+  --popover-foreground: #ccd9ee;
+  --primary: #e8c96e;
+  --primary-foreground: #0b1120;
+  --secondary: #142035;
+  --secondary-foreground: #ccd9ee;
+  --muted: #142035;
+  --muted-foreground: #6e88b0;
+  --accent: #1e3055;
+  --accent-foreground: #ccd9ee;
+  --destructive: #e05a6a;
+  --border: #1e3055;
+  --input: #1e3055;
+  --ring: #e8c96e;
+  --chart-1: #e8c96e;
+  --chart-2: #54c7a2;
+  --chart-3: #6e88b0;
+  --chart-4: #e8b86d;
+  --chart-5: #e05a6a;
+  --radius: 0.5rem;
+  --sidebar: #0f1a2e;
+  --sidebar-foreground: #ccd9ee;
+  --sidebar-primary: #e8c96e;
+  --sidebar-primary-foreground: #0b1120;
+  --sidebar-accent: #142035;
+  --sidebar-accent-foreground: #ccd9ee;
+  --sidebar-border: #1e3055;
+  --sidebar-ring: #e8c96e;
+
+  /* Atlas Engine custom tokens */
+  --atlas-bg: #0b1120;
+  --atlas-surface: #0f1a2e;
+  --atlas-surface2: #142035;
+  --atlas-border: #1e3055;
+  --atlas-gold: #e8c96e;
+  --atlas-gold2: #c9a84c;
+  --atlas-text: #ccd9ee;
+  --atlas-text-dim: #6e88b0;
+  --atlas-success: #54c7a2;
+  --atlas-warning: #e8b86d;
+  --atlas-danger: #e05a6a;
 }
 
+/* Force dark mode on .dark class too */
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  --background: #0b1120;
+  --foreground: #ccd9ee;
+  --card: #0f1a2e;
+  --card-foreground: #ccd9ee;
+  --popover: #0f1a2e;
+  --popover-foreground: #ccd9ee;
+  --primary: #e8c96e;
+  --primary-foreground: #0b1120;
+  --secondary: #142035;
+  --secondary-foreground: #ccd9ee;
+  --muted: #142035;
+  --muted-foreground: #6e88b0;
+  --accent: #1e3055;
+  --accent-foreground: #ccd9ee;
+  --destructive: #e05a6a;
+  --border: #1e3055;
+  --input: #1e3055;
+  --ring: #e8c96e;
+  --chart-1: #e8c96e;
+  --chart-2: #54c7a2;
+  --chart-3: #6e88b0;
+  --chart-4: #e8b86d;
+  --chart-5: #e05a6a;
+  --sidebar: #0f1a2e;
+  --sidebar-foreground: #ccd9ee;
+  --sidebar-primary: #e8c96e;
+  --sidebar-primary-foreground: #0b1120;
+  --sidebar-accent: #142035;
+  --sidebar-accent-foreground: #ccd9ee;
+  --sidebar-border: #1e3055;
+  --sidebar-ring: #e8c96e;
 }
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
-  body {
-    @apply bg-background text-foreground;
-  }
+
   html {
-    @apply font-sans;
+    @apply h-full;
+    background-color: #0b1120;
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-background text-foreground min-h-full;
+    font-family: 'DM Sans', system-ui, sans-serif;
+    background-color: #0b1120;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+
+  code, pre, .font-mono {
+    font-family: 'DM Mono', monospace;
+  }
+}
+
+/* Atlas Engine Utility Classes */
+@layer utilities {
+  .gold-border-top {
+    border-top: 2px solid #e8c96e;
+  }
+
+  .gold-border {
+    border: 1px solid #e8c96e;
+  }
+
+  .atlas-card {
+    background-color: #0f1a2e;
+    border: 1px solid #1e3055;
+    border-top: 2px solid #e8c96e;
+    border-radius: 0.5rem;
+  }
+
+  .atlas-surface {
+    background-color: #0f1a2e;
+    border: 1px solid #1e3055;
+    border-radius: 0.5rem;
+  }
+
+  .atlas-surface2 {
+    background-color: #142035;
+  }
+
+  .font-heading {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+
+  .font-data {
+    font-family: 'DM Mono', monospace;
+  }
+
+  .text-gold {
+    color: #e8c96e;
+  }
+
+  .text-dim {
+    color: #6e88b0;
+  }
+
+  .text-atlas {
+    color: #ccd9ee;
+  }
+
+  .text-success {
+    color: #54c7a2;
+  }
+
+  .text-warning {
+    color: #e8b86d;
+  }
+
+  .text-danger {
+    color: #e05a6a;
+  }
+
+  .bg-atlas-bg {
+    background-color: #0b1120;
+  }
+
+  .bg-atlas-surface {
+    background-color: #0f1a2e;
+  }
+
+  .bg-atlas-surface2 {
+    background-color: #142035;
+  }
+
+  .border-atlas {
+    border-color: #1e3055;
+  }
+
+  .badge-gold {
+    background-color: rgba(232, 201, 110, 0.15);
+    color: #e8c96e;
+    border: 1px solid rgba(232, 201, 110, 0.3);
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    padding: 2px 8px;
+    border-radius: 9999px;
+  }
+
+  .badge-success {
+    background-color: rgba(84, 199, 162, 0.15);
+    color: #54c7a2;
+    border: 1px solid rgba(84, 199, 162, 0.3);
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    padding: 2px 8px;
+    border-radius: 9999px;
+  }
+
+  .badge-warning {
+    background-color: rgba(232, 184, 109, 0.15);
+    color: #e8b86d;
+    border: 1px solid rgba(232, 184, 109, 0.3);
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    padding: 2px 8px;
+    border-radius: 9999px;
+  }
+
+  .badge-danger {
+    background-color: rgba(224, 90, 106, 0.15);
+    color: #e05a6a;
+    border: 1px solid rgba(224, 90, 106, 0.3);
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    padding: 2px 8px;
+    border-radius: 9999px;
+  }
+
+  .badge-dim {
+    background-color: rgba(110, 136, 176, 0.15);
+    color: #6e88b0;
+    border: 1px solid rgba(110, 136, 176, 0.3);
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    padding: 2px 8px;
+    border-radius: 9999px;
+  }
+
+  .stat-value {
+    font-family: 'DM Mono', monospace;
+    font-size: 2rem;
+    font-weight: 500;
+    color: #ccd9ee;
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #6e88b0;
+  }
+
+  .nav-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.375rem;
+    font-size: 0.875rem;
+    color: #6e88b0;
+    transition: all 0.15s;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  .nav-item:hover {
+    color: #ccd9ee;
+    background-color: #142035;
+  }
+
+  .nav-item.active {
+    color: #e8c96e;
+    background-color: rgba(232, 201, 110, 0.1);
+  }
+
+  .input-atlas {
+    background-color: #142035;
+    border: 1px solid #1e3055;
+    border-radius: 0.375rem;
+    color: #ccd9ee;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+    width: 100%;
+  }
+
+  .input-atlas:focus {
+    outline: none;
+    border-color: #e8c96e;
+    box-shadow: 0 0 0 1px rgba(232, 201, 110, 0.3);
+  }
+
+  .input-atlas::placeholder {
+    color: #6e88b0;
+  }
+
+  .btn-gold {
+    background-color: #e8c96e;
+    color: #0b1120;
+    font-weight: 600;
+    padding: 0.5rem 1.25rem;
+    border-radius: 0.375rem;
+    border: none;
+    cursor: pointer;
+    font-size: 0.875rem;
+    transition: background-color 0.15s;
+  }
+
+  .btn-gold:hover {
+    background-color: #c9a84c;
+  }
+
+  .btn-outline {
+    background-color: transparent;
+    color: #ccd9ee;
+    font-weight: 500;
+    padding: 0.5rem 1.25rem;
+    border-radius: 0.375rem;
+    border: 1px solid #1e3055;
+    cursor: pointer;
+    font-size: 0.875rem;
+    transition: all 0.15s;
+  }
+
+  .btn-outline:hover {
+    border-color: #e8c96e;
+    color: #e8c96e;
+  }
+
+  .table-atlas th {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #6e88b0;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #1e3055;
+    text-align: left;
+  }
+
+  .table-atlas td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid rgba(30, 48, 85, 0.5);
+    color: #ccd9ee;
+    font-size: 0.875rem;
+  }
+
+  .table-atlas tr:hover td {
+    background-color: rgba(20, 32, 53, 0.5);
+  }
+
+  /* Scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #0b1120;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #1e3055;
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #6e88b0;
+  }
+
+  /* Selection */
+  ::selection {
+    background-color: rgba(232, 201, 110, 0.2);
+    color: #e8c96e;
   }
 }
