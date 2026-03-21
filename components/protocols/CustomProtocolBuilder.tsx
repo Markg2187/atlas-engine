@@ -4,7 +4,9 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { X, Search, Check, ChevronRight, ChevronLeft, Wrench, AlertTriangle } from "lucide-react";
 import { createClient } from "@/lib/supabase/client";
-import type { Peptide, DeliveryForm, ScheduleType } from "@/lib/types";
+import type { Peptide } from "@/lib/types";
+type DeliveryForm = 'subq' | 'capsule' | 'intranasal' | 'topical' | 'iv' | 'im' | 'transdermal';
+type ScheduleType = 'monthly-ramp' | 'weekly-titration' | 'nightly-cycle' | 'burst-cycle' | 'weekly-flat' | 'daily-cycle';
 import { toast } from "sonner";
 
 // ─── Speed config ─────────────────────────────────────────────
