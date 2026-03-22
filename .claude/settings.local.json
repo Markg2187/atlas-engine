@@ -55,7 +55,8 @@
       "Bash(grep -E \"\\\\.\\(ts|tsx\\)$\")",
       "Bash(vercel --prod)",
       "Bash(npx vercel:*)",
-      "Bash(node -e \":*)"
+      "Bash(node -e \":*)",
+      "Bash(find /Users/mark/Desktop/atlas-engine/app -name *.tsx)"
     ]
   }
 }

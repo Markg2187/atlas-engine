@@ -1,9 +1,10 @@
 import { createClient } from "@/lib/supabase/server";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { ArrowLeft, Edit2, FileText, Syringe, FlaskConical, MessageSquare, Package, BookLock } from "lucide-react";
-import { formatDistanceToNow, format } from "date-fns";
+import { ArrowLeft, FileText, Syringe, FlaskConical, MessageSquare, Package, BookLock } from "lucide-react";
+import { format } from "date-fns";
 import AssignProtocolSheet from "@/components/protocols/AssignProtocolSheet";
+import ClientActions from "@/components/clients/ClientActions";
 
 export default async function ClientProfilePage({
   params,
@@ -53,6 +54,8 @@ export default async function ClientProfilePage({
       ? { bg: "rgba(84,199,162,0.15)", color: "#54c7a2", border: "rgba(84,199,162,0.3)" }
       : client.status === "onboarding"
       ? { bg: "rgba(232,201,110,0.15)", color: "#e8c96e", border: "rgba(232,201,110,0.3)" }
+      : client.status === "archived"
+      ? { bg: "rgba(224,90,106,0.12)", color: "#e05a6a", border: "rgba(224,90,106,0.3)" }
       : { bg: "rgba(110,136,176,0.15)", color: "#6e88b0", border: "rgba(110,136,176,0.3)" };
 
   return (
@@ -101,6 +104,11 @@ export default async function ClientProfilePage({
             </div>
           </div>
         </div>
+        <ClientActions
+          clientId={client.id}
+          clientStatus={client.status}
+          clientName={`${client.first_name} ${client.last_name}`}
+        />
       </div>
 
       {/* Main grid */}

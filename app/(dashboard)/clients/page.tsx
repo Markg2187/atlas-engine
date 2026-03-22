@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/client";
-import { Search, Plus, Filter, ChevronDown } from "lucide-react";
+import { Search, Plus, ChevronDown, Archive } from "lucide-react";
 import NewClientModal from "@/components/clients/NewClientModal";
 import type { Client } from "@/lib/types";
 
@@ -13,6 +13,7 @@ export default function ClientsPage() {
   const [search, setSearch] = useState("");
   const [statusFilter, setStatusFilter] = useState<string>("all");
   const [showModal, setShowModal] = useState(false);
+  const [showArchived, setShowArchived] = useState(false);
   const supabase = createClient();
 
   const fetchClients = useCallback(async () => {
@@ -24,6 +25,8 @@ export default function ClientsPage() {
 
     if (statusFilter !== "all") {
       query = query.eq("status", statusFilter);
+    } else if (!showArchived) {
+      query = query.neq("status", "archived");
     }
 
     if (search) {
@@ -35,7 +38,7 @@ export default function ClientsPage() {
     const { data } = await query;
     setClients((data as Client[]) || []);
     setLoading(false);
-  }, [search, statusFilter]);
+  }, [search, statusFilter, showArchived]);
 
   useEffect(() => {
     fetchClients();
@@ -56,6 +59,11 @@ export default function ClientsPage() {
       bg: "rgba(232,201,110,0.15)",
       color: "#e8c96e",
       border: "rgba(232,201,110,0.3)",
+    },
+    archived: {
+      bg: "rgba(224,90,106,0.12)",
+      color: "#e05a6a",
+      border: "rgba(224,90,106,0.3)",
     },
   };
 
@@ -137,6 +145,20 @@ export default function ClientsPage() {
             style={{ color: "#6e88b0" }}
           />
         </div>
+        <button
+          onClick={() => { setShowArchived((v) => !v); setStatusFilter("all"); }}
+          className="flex items-center gap-1.5 px-3 py-2.5 rounded-lg text-sm whitespace-nowrap transition-all"
+          style={{
+            backgroundColor: showArchived ? "rgba(224,90,106,0.12)" : "#142035",
+            color: showArchived ? "#e05a6a" : "#6e88b0",
+            border: `1px solid ${showArchived ? "rgba(224,90,106,0.35)" : "#1e3055"}`,
+            fontFamily: "'DM Mono', monospace",
+            fontSize: "0.75rem",
+          }}
+        >
+          <Archive size={13} />
+          {showArchived ? "Hide Archived" : "Show Archived"}
+        </button>
       </div>
 
       {/* Table */}

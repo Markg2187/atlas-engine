@@ -4,7 +4,7 @@
 // ============================================================
 
 export type UserRole = 'super_admin' | 'location_admin' | 'staff'
-export type ClientStatus = 'active' | 'inactive' | 'onboarding'
+export type ClientStatus = 'active' | 'inactive' | 'onboarding' | 'archived'
 export type ClientSex = 'male' | 'female' | 'other'
 export type PeptideRoute = 'subcutaneous' | 'intramuscular' | 'intranasal' | 'oral' | 'topical' | 'intravenous' | 'pre-mixed'
 export type ProtocolStatus = 'active' | 'completed' | 'paused' | 'cancelled'
