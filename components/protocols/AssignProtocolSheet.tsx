@@ -10,6 +10,8 @@ import { toast } from "sonner";
 interface AssignProtocolSheetProps {
   clientId: string;
   clientWeightLbs: number | null;
+  label?: string;
+  onBeforeAssign?: () => Promise<void>;
 }
 
 const categoryColors: Record<string, string> = {
@@ -26,7 +28,7 @@ const categoryColors: Record<string, string> = {
   "Musculoskeletal/Autoimmune": "#e8c96e",
 };
 
-export default function AssignProtocolSheet({ clientId, clientWeightLbs }: AssignProtocolSheetProps) {
+export default function AssignProtocolSheet({ clientId, clientWeightLbs, label, onBeforeAssign }: AssignProtocolSheetProps) {
   const router = useRouter();
   const [open, setOpen] = useState(false);
   const [protocols, setProtocols] = useState<Protocol[]>([]);
@@ -82,6 +84,10 @@ export default function AssignProtocolSheet({ clientId, clientWeightLbs }: Assig
         data: { user },
       } = await supabase.auth.getUser();
 
+      if (onBeforeAssign) {
+        await onBeforeAssign();
+      }
+
       const { error } = await supabase.from("client_protocols").insert({
         client_id: clientId,
         protocol_id: selected.id,
@@ -122,7 +128,7 @@ export default function AssignProtocolSheet({ clientId, clientWeightLbs }: Assig
           e.currentTarget.style.backgroundColor = "transparent";
         }}
       >
-        Assign Protocol →
+        {label ?? "Assign Protocol →"}
       </button>
 
       {open && (

@@ -2,16 +2,17 @@
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { Archive, ArchiveRestore, Trash2 } from "lucide-react";
+import { Archive, ArchiveRestore, Trash2, Edit2 } from "lucide-react";
 import { createClient } from "@/lib/supabase/client";
 
 interface ClientActionsProps {
   clientId: string;
   clientStatus: string;
   clientName: string;
+  client?: any;
 }
 
-export default function ClientActions({ clientId, clientStatus, clientName }: ClientActionsProps) {
+export default function ClientActions({ clientId, clientStatus, clientName, client }: ClientActionsProps) {
   const router = useRouter();
   const supabase = createClient();
   const [role, setRole] = useState<string | null>(null);
@@ -19,6 +20,20 @@ export default function ClientActions({ clientId, clientStatus, clientName }: Cl
   const [showDeleteDialog, setShowDeleteDialog] = useState(false);
   const [deleteConfirm, setDeleteConfirm] = useState("");
   const [deleting, setDeleting] = useState(false);
+
+  // Edit profile state
+  const [showEditModal, setShowEditModal] = useState(false);
+  const [saving, setSaving] = useState(false);
+  const [editForm, setEditForm] = useState({
+    first_name: "",
+    last_name: "",
+    email: "",
+    phone: "",
+    date_of_birth: "",
+    sex: "",
+    weight_lbs: "",
+    allergies: "",
+  });
 
   useEffect(() => {
     async function getRole() {
@@ -33,6 +48,41 @@ export default function ClientActions({ clientId, clientStatus, clientName }: Cl
     }
     getRole();
   }, []);
+
+  function openEditModal() {
+    setEditForm({
+      first_name: client?.first_name || "",
+      last_name: client?.last_name || "",
+      email: client?.email || "",
+      phone: client?.phone || "",
+      date_of_birth: client?.date_of_birth || "",
+      sex: client?.sex || "",
+      weight_lbs: client?.weight_lbs != null ? String(client.weight_lbs) : "",
+      allergies: client?.allergies || "",
+    });
+    setShowEditModal(true);
+  }
+
+  async function handleSaveEdit() {
+    setSaving(true);
+    try {
+      const updates: Record<string, any> = {
+        first_name: editForm.first_name,
+        last_name: editForm.last_name,
+        email: editForm.email,
+        phone: editForm.phone,
+        date_of_birth: editForm.date_of_birth || null,
+        sex: editForm.sex || null,
+        weight_lbs: editForm.weight_lbs ? parseFloat(editForm.weight_lbs) : null,
+        allergies: editForm.allergies || null,
+      };
+      await supabase.from("clients").update(updates).eq("id", clientId);
+      setShowEditModal(false);
+      router.refresh();
+    } finally {
+      setSaving(false);
+    }
+  }
 
   async function handleArchive() {
     setArchiving(true);
@@ -51,9 +101,49 @@ export default function ClientActions({ clientId, clientStatus, clientName }: Cl
 
   const isArchived = clientStatus === "archived";
 
+  const inputStyle: React.CSSProperties = {
+    width: "100%",
+    padding: "8px 12px",
+    borderRadius: "8px",
+    backgroundColor: "#142035",
+    border: "1px solid #1e3055",
+    color: "#ccd9ee",
+    fontSize: "14px",
+    outline: "none",
+    fontFamily: "inherit",
+    boxSizing: "border-box",
+  };
+
+  const labelStyle: React.CSSProperties = {
+    display: "block",
+    fontSize: "11px",
+    textTransform: "uppercase" as const,
+    letterSpacing: "0.08em",
+    color: "#6e88b0",
+    fontFamily: "'DM Mono', monospace",
+    marginBottom: "4px",
+  };
+
   return (
     <>
       <div className="flex items-center gap-2">
+        {/* Edit Profile button */}
+        <button
+          onClick={openEditModal}
+          className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs transition-all"
+          style={{
+            backgroundColor: "rgba(232,201,110,0.1)",
+            color: "#e8c96e",
+            border: "1px solid rgba(232,201,110,0.3)",
+            fontFamily: "'DM Mono', monospace",
+          }}
+          onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "rgba(232,201,110,0.18)")}
+          onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "rgba(232,201,110,0.1)")}
+        >
+          <Edit2 size={13} />
+          Edit Profile
+        </button>
+
         <button
           onClick={handleArchive}
           disabled={archiving}
@@ -89,6 +179,161 @@ export default function ClientActions({ clientId, clientStatus, clientName }: Cl
           </button>
         )}
       </div>
+
+      {/* Edit Profile Modal */}
+      {showEditModal && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center"
+          style={{ backgroundColor: "rgba(0,0,0,0.75)" }}
+          onClick={(e) => { if (e.target === e.currentTarget) setShowEditModal(false); }}
+        >
+          <div
+            style={{
+              backgroundColor: "#0f1a2e",
+              border: "1px solid #1e3055",
+              borderTop: "2px solid #e8c96e",
+              borderRadius: "12px",
+              padding: "24px",
+              width: "100%",
+              maxWidth: "520px",
+              margin: "16px",
+              maxHeight: "90vh",
+              overflowY: "auto",
+            }}
+          >
+            <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "20px" }}>
+              <Edit2 size={17} style={{ color: "#e8c96e" }} />
+              <h3 style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#ccd9ee", fontSize: "18px", fontWeight: 700, margin: 0 }}>
+                Edit Profile
+              </h3>
+            </div>
+
+            {/* first_name + last_name side by side */}
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px", marginBottom: "12px" }}>
+              <div>
+                <label style={labelStyle}>First Name</label>
+                <input
+                  type="text"
+                  value={editForm.first_name}
+                  onChange={(e) => setEditForm({ ...editForm, first_name: e.target.value })}
+                  style={inputStyle}
+                />
+              </div>
+              <div>
+                <label style={labelStyle}>Last Name</label>
+                <input
+                  type="text"
+                  value={editForm.last_name}
+                  onChange={(e) => setEditForm({ ...editForm, last_name: e.target.value })}
+                  style={inputStyle}
+                />
+              </div>
+            </div>
+
+            <div style={{ marginBottom: "12px" }}>
+              <label style={labelStyle}>Email</label>
+              <input
+                type="text"
+                value={editForm.email}
+                onChange={(e) => setEditForm({ ...editForm, email: e.target.value })}
+                style={inputStyle}
+              />
+            </div>
+
+            <div style={{ marginBottom: "12px" }}>
+              <label style={labelStyle}>Phone</label>
+              <input
+                type="text"
+                value={editForm.phone}
+                onChange={(e) => setEditForm({ ...editForm, phone: e.target.value })}
+                style={inputStyle}
+              />
+            </div>
+
+            <div style={{ marginBottom: "12px" }}>
+              <label style={labelStyle}>Date of Birth</label>
+              <input
+                type="date"
+                value={editForm.date_of_birth}
+                onChange={(e) => setEditForm({ ...editForm, date_of_birth: e.target.value })}
+                style={inputStyle}
+              />
+            </div>
+
+            <div style={{ marginBottom: "12px" }}>
+              <label style={labelStyle}>Sex</label>
+              <select
+                value={editForm.sex}
+                onChange={(e) => setEditForm({ ...editForm, sex: e.target.value })}
+                style={{ ...inputStyle }}
+              >
+                <option value="">— Select —</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+
+            <div style={{ marginBottom: "12px" }}>
+              <label style={labelStyle}>Weight (lbs)</label>
+              <input
+                type="number"
+                value={editForm.weight_lbs}
+                onChange={(e) => setEditForm({ ...editForm, weight_lbs: e.target.value })}
+                style={inputStyle}
+              />
+            </div>
+
+            <div style={{ marginBottom: "20px" }}>
+              <label style={labelStyle}>Allergies</label>
+              <input
+                type="text"
+                value={editForm.allergies}
+                onChange={(e) => setEditForm({ ...editForm, allergies: e.target.value })}
+                style={inputStyle}
+              />
+            </div>
+
+            <div style={{ display: "flex", gap: "8px" }}>
+              <button
+                onClick={() => setShowEditModal(false)}
+                style={{
+                  flex: 1,
+                  padding: "10px",
+                  borderRadius: "8px",
+                  backgroundColor: "#142035",
+                  color: "#6e88b0",
+                  border: "1px solid #1e3055",
+                  cursor: "pointer",
+                  fontSize: "14px",
+                }}
+                onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#1e3055")}
+                onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#142035")}
+              >
+                Cancel
+              </button>
+              <button
+                onClick={handleSaveEdit}
+                disabled={saving}
+                style={{
+                  flex: 1,
+                  padding: "10px",
+                  borderRadius: "8px",
+                  backgroundColor: "#e8c96e",
+                  color: "#0b1120",
+                  border: "none",
+                  cursor: saving ? "not-allowed" : "pointer",
+                  fontSize: "14px",
+                  fontWeight: 600,
+                  opacity: saving ? 0.8 : 1,
+                }}
+              >
+                {saving ? "Saving..." : "Save Changes"}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       {showDeleteDialog && (
         <div
