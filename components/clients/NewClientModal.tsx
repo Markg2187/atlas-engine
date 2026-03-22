@@ -401,13 +401,19 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
       p.category.toLowerCase().includes("stack") ||
       p.category.toLowerCase().includes("signature")
   );
-  const matchedStacks = (() => {
-    if (selectedGoals.length === 0) return signatureStacks;
+  const { goalMatchedStacks, otherStacks } = (() => {
+    if (selectedGoals.length === 0) {
+      return { goalMatchedStacks: signatureStacks, otherStacks: [] as typeof signatureStacks };
+    }
     const cats = selectedGoals.flatMap((g) => GOAL_CATEGORY_MAP[g] || []);
-    return signatureStacks
-      .map((p) => ({ p, score: cats.filter((c) => p.category === c).length }))
-      .sort((a, b) => b.score - a.score)
-      .map((x) => x.p);
+    const scored = signatureStacks.map((p) => ({
+      p,
+      score: cats.filter((c) => p.category === c).length,
+    }));
+    return {
+      goalMatchedStacks: scored.filter((x) => x.score > 0).sort((a, b) => b.score - a.score).map((x) => x.p),
+      otherStacks: scored.filter((x) => x.score === 0).map((x) => x.p),
+    };
   })();
 
   const conditionMatchedProtocols = allProtocols.filter(
@@ -964,11 +970,12 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
                       >
                         {c}
                         <button
-                          onClick={() =>
-                            setAddedConditions((prev) =>
-                              prev.filter((x) => x !== c)
-                            )
-                          }
+                          type="button"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setAddedConditions((prev) => prev.filter((x) => x !== c));
+                          }}
+                          style={{ lineHeight: 1, cursor: "pointer" }}
                         >
                           <X size={9} />
                         </button>
@@ -1052,8 +1059,14 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
                                 return (
                                   <button
                                     key={p.id}
-                                    onClick={() => addCondition(p.condition_name)}
-                                    disabled={already}
+                                    type="button"
+                                    onClick={() => {
+                                      if (already) {
+                                        setAddedConditions((prev) => prev.filter((x) => x !== p.condition_name));
+                                      } else {
+                                        addCondition(p.condition_name);
+                                      }
+                                    }}
                                     className="w-full text-left px-5 py-2 flex items-center justify-between border-t"
                                     style={{
                                       borderColor: "rgba(30,48,85,0.4)",
@@ -1062,12 +1075,10 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
                                         : "transparent",
                                     }}
                                     onMouseEnter={(e) => {
-                                      if (!already)
-                                        e.currentTarget.style.backgroundColor = "#142035";
+                                      e.currentTarget.style.backgroundColor = already ? "rgba(224,90,106,0.06)" : "#142035";
                                     }}
                                     onMouseLeave={(e) => {
-                                      if (!already)
-                                        e.currentTarget.style.backgroundColor = "transparent";
+                                      e.currentTarget.style.backgroundColor = already ? "rgba(84,199,162,0.04)" : "transparent";
                                     }}
                                   >
                                     <div className="flex-1 min-w-0">
@@ -1350,50 +1361,68 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
                 </p>
               ) : (
                 <>
-                  {/* Signature stacks */}
-                  <div>
-                    <p style={labelStyle}>✦ CA Peptide Labs Signature Stacks</p>
-                    {matchedStacks.length === 0 ? (
-                      <p className="text-xs" style={{ color: "#6e88b0" }}>
-                        No signature stacks available
-                      </p>
-                    ) : (
-                      <div className="space-y-2">
-                        {matchedStacks.map((p, idx) => (
-                          <ProtocolCard
-                            key={p.id}
-                            protocol={p}
-                            accentColor="#e8c96e"
-                            accentBg="rgba(232,201,110,0.05)"
-                            badge={
-                              idx === 0 && selectedGoals.length > 0
-                                ? "Best Match"
-                                : undefined
-                            }
-                          />
-                        ))}
-                      </div>
-                    )}
-                  </div>
-
-                  {/* Condition-matched protocols */}
+                  {/* 1. Condition-matched protocols — always first */}
                   {conditionMatchedProtocols.length > 0 && (
                     <div>
                       <p style={labelStyle}>Condition Protocols</p>
                       <div className="space-y-2">
-                        {conditionMatchedProtocols.map((p) => (
+                        {conditionMatchedProtocols.map((p, idx) => (
                           <ProtocolCard
                             key={p.id}
                             protocol={p}
                             accentColor="#54c7a2"
                             accentBg="rgba(84,199,162,0.05)"
+                            badge={idx === 0 ? "Best Match" : undefined}
                           />
                         ))}
                       </div>
                     </div>
                   )}
 
-                  {/* Custom option */}
+                  {/* 2. Goal-matched signature stacks */}
+                  {goalMatchedStacks.length > 0 && (
+                    <div>
+                      <p style={labelStyle}>✦ CA Peptide Labs Signature Stacks</p>
+                      <div className="space-y-2">
+                        {goalMatchedStacks.map((p, idx) => (
+                          <ProtocolCard
+                            key={p.id}
+                            protocol={p}
+                            accentColor="#e8c96e"
+                            accentBg="rgba(232,201,110,0.05)"
+                            badge={
+                              idx === 0 && conditionMatchedProtocols.length === 0
+                                ? "Best Match"
+                                : undefined
+                            }
+                          />
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* 3. Other signature stacks (no goal match, or no goals selected) */}
+                  {otherStacks.length > 0 && (
+                    <div>
+                      <p style={labelStyle}>
+                        {goalMatchedStacks.length > 0
+                          ? "Other Signature Stacks"
+                          : "✦ CA Peptide Labs Signature Stacks"}
+                      </p>
+                      <div className="space-y-2">
+                        {otherStacks.map((p) => (
+                          <ProtocolCard
+                            key={p.id}
+                            protocol={p}
+                            accentColor="#e8c96e"
+                            accentBg="rgba(232,201,110,0.05)"
+                          />
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* 4. Custom option — always last */}
                   <div>
                     <p style={labelStyle}>Custom</p>
                     <div
