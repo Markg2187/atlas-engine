@@ -150,7 +150,9 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
   // Step 2 — Goals & Conditions
   const [selectedGoals, setSelectedGoals] = useState<string[]>([]);
   const [conditionSearch, setConditionSearch] = useState("");
-  const [conditionResults, setConditionResults] = useState<Protocol[]>([]);
+  const [browseProtocols, setBrowseProtocols] = useState<Protocol[]>([]);
+  const [browseLoading, setBrowseLoading] = useState(false);
+  const [expandedCategories, setExpandedCategories] = useState<Set<string>>(new Set());
   const [addedConditions, setAddedConditions] = useState<string[]>([]);
   const [selectedFlags, setSelectedFlags] = useState<string[]>([]);
 
@@ -202,23 +204,21 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [step]);
 
+  // Load all protocols for the browse panel when step 2 opens
   useEffect(() => {
-    if (conditionSearch.trim().length < 2) {
-      setConditionResults([]);
-      return;
-    }
-    const t = setTimeout(() => {
-      supabase
-        .from("protocols")
-        .select("id,condition_name,category,primary_peptide,adjunct_peptides,is_featured,tagline")
-        .ilike("condition_name", `%${conditionSearch}%`)
-        .eq("is_active", true)
-        .limit(6)
-        .then(({ data }) => setConditionResults((data as Protocol[]) || []));
-    }, 250);
-    return () => clearTimeout(t);
+    if (step !== 1 || browseProtocols.length > 0) return;
+    setBrowseLoading(true);
+    supabase
+      .from("protocols")
+      .select("id,condition_name,category,primary_peptide,adjunct_peptides,is_featured,tagline")
+      .eq("is_active", true)
+      .order("condition_name")
+      .then(({ data }) => {
+        setBrowseProtocols((data as Protocol[]) || []);
+        setBrowseLoading(false);
+      });
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [conditionSearch]);
+  }, [step]);
 
   // ── Handlers ──────────────────────────────────────────────────────────────
 
@@ -269,8 +269,15 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
   function addCondition(name: string) {
     if (!addedConditions.includes(name))
       setAddedConditions((prev) => [...prev, name]);
-    setConditionSearch("");
-    setConditionResults([]);
+  }
+
+  function toggleCategory(cat: string) {
+    setExpandedCategories((prev) => {
+      const next = new Set(prev);
+      if (next.has(cat)) next.delete(cat);
+      else next.add(cat);
+      return next;
+    });
   }
 
   function getPeptideRisk(peptideName: string): string | null {
@@ -366,8 +373,8 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
     setFirstName(""); setLastName(""); setEmail(""); setPhone("");
     setDob(""); setSex("");
     setScreeningPhone(""); setScreeningRecord(null); setScreeningNotFound(false);
-    setSelectedGoals([]); setAddedConditions([]); setConditionSearch([].toString());
-    setSelectedFlags([]);
+    setSelectedGoals([]); setAddedConditions([]); setConditionSearch("");
+    setBrowseProtocols([]); setExpandedCategories(new Set()); setSelectedFlags([]);
     setWeightLbs(""); setMedications(""); setAllergies(""); setAdminNotes("");
     setAllProtocols([]); setSelectedProtocol(null);
     setPaymentStatus("unpaid"); setCreatedClientId(null);
@@ -375,14 +382,18 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
 
   // ── Derived ───────────────────────────────────────────────────────────────
 
-  const signatureStacks = allProtocols.filter((p) => p.is_featured);
+  const signatureStacks = allProtocols.filter(
+    (p) =>
+      p.is_featured ||
+      p.category.toLowerCase().includes("stack") ||
+      p.category.toLowerCase().includes("signature")
+  );
   const matchedStacks = (() => {
-    if (selectedGoals.length === 0) return signatureStacks.slice(0, 2);
+    if (selectedGoals.length === 0) return signatureStacks;
     const cats = selectedGoals.flatMap((g) => GOAL_CATEGORY_MAP[g] || []);
     return signatureStacks
       .map((p) => ({ p, score: cats.filter((c) => p.category === c).length }))
       .sort((a, b) => b.score - a.score)
-      .slice(0, 2)
       .map((x) => x.p);
   })();
 
@@ -926,70 +937,13 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
                 </div>
               </div>
 
-              {/* Conditions search */}
+              {/* Conditions browse */}
               <div>
                 <label style={labelStyle}>Health Conditions</label>
-                <div className="relative">
-                  <Search
-                    size={13}
-                    className="absolute left-3 top-1/2 -translate-y-1/2"
-                    style={{ color: "#6e88b0" }}
-                  />
-                  <input
-                    style={{ ...inputStyle, paddingLeft: "2.25rem" }}
-                    value={conditionSearch}
-                    onChange={(e) => setConditionSearch(e.target.value)}
-                    placeholder="Search conditions..."
-                    className="focus:outline-none"
-                  />
-                </div>
 
-                {conditionResults.length > 0 && (
-                  <div
-                    className="mt-1 rounded-lg overflow-hidden"
-                    style={{ border: "1px solid #1e3055" }}
-                  >
-                    {conditionResults.map((p) => (
-                      <button
-                        key={p.id}
-                        onClick={() => addCondition(p.condition_name)}
-                        className="w-full text-left px-4 py-2.5 border-b flex items-center justify-between transition-colors"
-                        style={{
-                          borderColor: "rgba(30,48,85,0.5)",
-                          backgroundColor: "transparent",
-                        }}
-                        onMouseEnter={(e) =>
-                          (e.currentTarget.style.backgroundColor = "#142035")
-                        }
-                        onMouseLeave={(e) =>
-                          (e.currentTarget.style.backgroundColor = "transparent")
-                        }
-                      >
-                        <div>
-                          <p
-                            className="text-xs font-medium"
-                            style={{ color: "#ccd9ee" }}
-                          >
-                            {p.condition_name}
-                          </p>
-                          <p
-                            className="text-xs"
-                            style={{
-                              color: "#6e88b0",
-                              fontFamily: "'DM Mono', monospace",
-                            }}
-                          >
-                            {p.category}
-                          </p>
-                        </div>
-                        <Plus size={13} style={{ color: "#54c7a2" }} />
-                      </button>
-                    ))}
-                  </div>
-                )}
-
+                {/* Selected chips */}
                 {addedConditions.length > 0 && (
-                  <div className="flex flex-wrap gap-1.5 mt-2">
+                  <div className="flex flex-wrap gap-1.5 mb-2">
                     {addedConditions.map((c) => (
                       <span
                         key={c}
@@ -1013,6 +967,128 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
                         </button>
                       </span>
                     ))}
+                  </div>
+                )}
+
+                {/* Search filter */}
+                <div className="relative mb-2">
+                  <Search
+                    size={13}
+                    className="absolute left-3 top-1/2 -translate-y-1/2"
+                    style={{ color: "#6e88b0" }}
+                  />
+                  <input
+                    style={{ ...inputStyle, paddingLeft: "2.25rem" }}
+                    value={conditionSearch}
+                    onChange={(e) => setConditionSearch(e.target.value)}
+                    placeholder="Filter conditions..."
+                    className="focus:outline-none"
+                  />
+                </div>
+
+                {/* Category accordion */}
+                {browseLoading ? (
+                  <p className="text-xs py-3 text-center" style={{ color: "#6e88b0" }}>
+                    Loading...
+                  </p>
+                ) : (
+                  <div
+                    className="rounded-lg overflow-hidden"
+                    style={{ border: "1px solid #1e3055", maxHeight: "260px", overflowY: "auto" }}
+                  >
+                    {(() => {
+                      const term = conditionSearch.toLowerCase();
+                      const filtered = browseProtocols.filter(
+                        (p) =>
+                          !term ||
+                          p.condition_name.toLowerCase().includes(term) ||
+                          p.category.toLowerCase().includes(term) ||
+                          p.primary_peptide.toLowerCase().includes(term)
+                      );
+                      const grouped = filtered.reduce(
+                        (acc: Record<string, Protocol[]>, p) => {
+                          if (!acc[p.category]) acc[p.category] = [];
+                          acc[p.category].push(p);
+                          return acc;
+                        },
+                        {}
+                      );
+                      const cats = Object.keys(grouped).sort();
+                      if (cats.length === 0)
+                        return (
+                          <p className="text-xs px-4 py-3" style={{ color: "#6e88b0" }}>
+                            No conditions match
+                          </p>
+                        );
+                      return cats.map((cat) => {
+                        const open = expandedCategories.has(cat) || !!conditionSearch;
+                        return (
+                          <div key={cat} style={{ borderBottom: "1px solid #1e3055" }}>
+                            <button
+                              className="w-full flex items-center justify-between px-4 py-2.5 text-left"
+                              style={{ backgroundColor: "#0f1a2e" }}
+                              onClick={() => toggleCategory(cat)}
+                            >
+                              <span
+                                className="text-xs font-medium"
+                                style={{ color: "#6e88b0", fontFamily: "'DM Mono', monospace" }}
+                              >
+                                {cat}
+                              </span>
+                              <span className="text-xs" style={{ color: "#4a6080" }}>
+                                {grouped[cat].length} · {open ? "▲" : "▼"}
+                              </span>
+                            </button>
+                            {open &&
+                              grouped[cat].map((p) => {
+                                const already = addedConditions.includes(p.condition_name);
+                                return (
+                                  <button
+                                    key={p.id}
+                                    onClick={() => addCondition(p.condition_name)}
+                                    disabled={already}
+                                    className="w-full text-left px-5 py-2 flex items-center justify-between border-t"
+                                    style={{
+                                      borderColor: "rgba(30,48,85,0.4)",
+                                      backgroundColor: already
+                                        ? "rgba(84,199,162,0.04)"
+                                        : "transparent",
+                                    }}
+                                    onMouseEnter={(e) => {
+                                      if (!already)
+                                        e.currentTarget.style.backgroundColor = "#142035";
+                                    }}
+                                    onMouseLeave={(e) => {
+                                      if (!already)
+                                        e.currentTarget.style.backgroundColor = "transparent";
+                                    }}
+                                  >
+                                    <div className="flex-1 min-w-0">
+                                      <p
+                                        className="text-xs font-medium"
+                                        style={{ color: already ? "#54c7a2" : "#ccd9ee" }}
+                                      >
+                                        {p.condition_name}
+                                      </p>
+                                      <p
+                                        className="text-xs mt-0.5"
+                                        style={{ color: "#6e88b0", fontFamily: "'DM Mono', monospace", fontSize: "0.6rem" }}
+                                      >
+                                        {p.primary_peptide}
+                                      </p>
+                                    </div>
+                                    {already ? (
+                                      <Check size={12} style={{ color: "#54c7a2", flexShrink: 0 }} />
+                                    ) : (
+                                      <Plus size={12} style={{ color: "#6e88b0", flexShrink: 0 }} />
+                                    )}
+                                  </button>
+                                );
+                              })}
+                          </div>
+                        );
+                      });
+                    })()}
                   </div>
                 )}
               </div>
