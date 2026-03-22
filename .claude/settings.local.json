@@ -54,7 +54,8 @@
       "Bash(grep -E \"\\\\.\\(ts|tsx|js|jsx\\)$\")",
       "Bash(grep -E \"\\\\.\\(ts|tsx\\)$\")",
       "Bash(vercel --prod)",
-      "Bash(npx vercel:*)"
+      "Bash(npx vercel:*)",
+      "Bash(node -e \":*)"
     ]
   }
 }

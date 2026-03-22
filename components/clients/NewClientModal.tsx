@@ -30,8 +30,6 @@ interface Protocol {
   category: string;
   primary_peptide: string;
   adjunct_peptides: string[] | null;
-  is_featured: boolean;
-  tagline: string | null;
 }
 
 interface ScreeningRecord {
@@ -195,7 +193,7 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
     setProtocolsLoading(true);
     supabase
       .from("protocols")
-      .select("id,condition_name,category,primary_peptide,adjunct_peptides,is_featured,tagline")
+      .select("id,condition_name,category,primary_peptide,adjunct_peptides")
       .eq("is_active", true)
       .then(({ data }) => {
         setAllProtocols((data as Protocol[]) || []);
@@ -210,7 +208,7 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
     setBrowseLoading(true);
     supabase
       .from("protocols")
-      .select("id,condition_name,category,primary_peptide,adjunct_peptides,is_featured,tagline")
+      .select("id,condition_name,category,primary_peptide,adjunct_peptides")
       .eq("is_active", true)
       .order("condition_name")
       .then(({ data }) => {
@@ -384,7 +382,6 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
 
   const signatureStacks = allProtocols.filter(
     (p) =>
-      p.is_featured ||
       p.category.toLowerCase().includes("stack") ||
       p.category.toLowerCase().includes("signature")
   );
@@ -399,7 +396,8 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
 
   const conditionMatchedProtocols = allProtocols.filter(
     (p) =>
-      !p.is_featured &&
+      !p.category.toLowerCase().includes("stack") &&
+      !p.category.toLowerCase().includes("signature") &&
       addedConditions.some((c) =>
         p.condition_name.toLowerCase().includes(c.toLowerCase())
       )
@@ -540,19 +538,12 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
               >
                 {protocol.condition_name}
               </p>
-              {protocol.tagline && (
-                <p className="text-xs mt-0.5" style={{ color: "#6e88b0" }}>
-                  {protocol.tagline}
-                </p>
-              )}
-              {!protocol.tagline && (
-                <p
-                  className="text-xs mt-0.5"
-                  style={{ color: "#6e88b0", fontFamily: "'DM Mono', monospace" }}
-                >
-                  {protocol.primary_peptide} · {protocol.category}
-                </p>
-              )}
+              <p
+                className="text-xs mt-0.5"
+                style={{ color: "#6e88b0", fontFamily: "'DM Mono', monospace" }}
+              >
+                {protocol.primary_peptide} · {protocol.category}
+              </p>
             </div>
             <div
               className="w-5 h-5 rounded-full flex-shrink-0 flex items-center justify-center"
