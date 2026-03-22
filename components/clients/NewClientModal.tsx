@@ -329,6 +329,10 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
       const goalsArray = selectedGoals.map(
         (g) => GOAL_TILES.find((t) => t.id === g)?.label || g
       );
+      const healthConditions = [
+        ...addedConditions,
+        ...selectedFlags.filter((f) => f !== "None"),
+      ];
       const { data: client, error } = await supabase
         .from("clients")
         .insert({
@@ -341,8 +345,7 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
           sex: sex || null,
           weight_lbs: weightLbs ? parseFloat(weightLbs) : null,
           goals: goalsArray.length > 0 ? goalsArray : null,
-          health_conditions:
-            addedConditions.length > 0 ? addedConditions : null,
+          health_conditions: healthConditions.length > 0 ? healthConditions : null,
           current_medications: medications
             ? medications
                 .split(",")
@@ -356,6 +359,19 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
         .select("id")
         .single();
       if (error) throw error;
+
+      if (selectedProtocol) {
+        const today = new Date().toISOString().split("T")[0];
+        await supabase.from("client_protocols").insert({
+          client_id: client.id,
+          protocol_id: selectedProtocol.protocol.id,
+          start_date: today,
+          status: "active",
+          current_month: 1,
+          total_months: 3,
+        });
+      }
+
       setCreatedClientId(client.id);
       setStep(5);
       toast.success("Client created");
