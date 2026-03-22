@@ -52,7 +52,9 @@
       "Bash(cat \"/Users/mark/Desktop/atlas-engine/app/\\(dashboard\\)/knowledge-base/[slug]/page.tsx\")",
       "Bash(npx next:*)",
       "Bash(grep -E \"\\\\.\\(ts|tsx|js|jsx\\)$\")",
-      "Bash(grep -E \"\\\\.\\(ts|tsx\\)$\")"
+      "Bash(grep -E \"\\\\.\\(ts|tsx\\)$\")",
+      "Bash(vercel --prod)",
+      "Bash(npx vercel:*)"
     ]
   }
 }
