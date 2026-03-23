@@ -242,7 +242,7 @@ interface SelectedPeptide {
 const inputStyle = {
   backgroundColor: "#f5f3ee",
   border: "1px solid #e8e0d0",
-  color: "#0f1a2e",
+  color: "#1a2744",
   borderRadius: "0.5rem",
   padding: "0.625rem 0.875rem",
   fontSize: "0.875rem",
@@ -383,9 +383,9 @@ export default function CustomProtocolBuilder() {
       <button
         onClick={() => setOpen(true)}
         className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition-all"
-        style={{ backgroundColor: "#f5f3ee", color: "#0f1a2e", border: "1px solid #e8e0d0", fontFamily: "'DM Mono', monospace" }}
+        style={{ backgroundColor: "#f5f3ee", color: "#1a2744", border: "1px solid #e8e0d0", fontFamily: "'DM Mono', monospace" }}
         onMouseEnter={e => { e.currentTarget.style.backgroundColor = "#e8e0d0"; e.currentTarget.style.borderColor = "#c9973a"; e.currentTarget.style.color = "#c9973a"; }}
-        onMouseLeave={e => { e.currentTarget.style.backgroundColor = "#f5f3ee"; e.currentTarget.style.borderColor = "#e8e0d0"; e.currentTarget.style.color = "#0f1a2e"; }}
+        onMouseLeave={e => { e.currentTarget.style.backgroundColor = "#f5f3ee"; e.currentTarget.style.borderColor = "#e8e0d0"; e.currentTarget.style.color = "#1a2744"; }}
       >
         <Wrench size={14} /> Build Custom Protocol
       </button>
@@ -400,7 +400,7 @@ export default function CustomProtocolBuilder() {
               style={{ borderColor: "#e8e0d0", borderTop: "3px solid #c9973a" }}>
               <div>
                 <h2 className="text-lg font-semibold flex items-center gap-2"
-                  style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#0f1a2e" }}>
+                  style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#1a2744" }}>
                   <Wrench size={16} style={{ color: "#c9973a" }} /> Build Custom Protocol
                 </h2>
                 <p className="text-xs mt-0.5" style={{ color: "#5a6a7a", fontFamily: "'DM Mono', monospace" }}>
@@ -408,7 +408,7 @@ export default function CustomProtocolBuilder() {
                 </p>
               </div>
               <button onClick={handleClose} className="p-2 rounded-lg" style={{ color: "#5a6a7a" }}
-                onMouseEnter={e => (e.currentTarget.style.color = "#0f1a2e")}
+                onMouseEnter={e => (e.currentTarget.style.color = "#1a2744")}
                 onMouseLeave={e => (e.currentTarget.style.color = "#5a6a7a")}>
                 <X size={18} />
               </button>
@@ -450,7 +450,7 @@ export default function CustomProtocolBuilder() {
 
                 {/* Speed explainer */}
                 <div className="rounded-lg p-4 space-y-3" style={{ backgroundColor: "#f5f3ee", border: "1px solid #e8e0d0" }}>
-                  <p className="text-xs font-medium" style={{ color: "#0f1a2e" }}>How titration speeds work</p>
+                  <p className="text-xs font-medium" style={{ color: "#1a2744" }}>How titration speeds work</p>
                   {SPEEDS.map(s => (
                     <div key={s.value} className="flex items-start gap-2">
                       <span className="text-sm leading-none mt-0.5">{s.emoji}</span>
@@ -478,7 +478,7 @@ export default function CustomProtocolBuilder() {
                     <input autoFocus value={search} onChange={e => setSearch(e.target.value)}
                       placeholder="Search peptides..."
                       className="w-full pl-9 pr-4 py-2.5 rounded-lg text-sm focus:outline-none"
-                      style={{ backgroundColor: "#f5f3ee", border: "1px solid #e8e0d0", color: "#0f1a2e" }} />
+                      style={{ backgroundColor: "#f5f3ee", border: "1px solid #e8e0d0", color: "#1a2744" }} />
                   </div>
                   {selected.length > 0 && (
                     <p className="text-xs mt-2" style={{ color: "#54c7a2", fontFamily: "'DM Mono', monospace" }}>
@@ -514,7 +514,7 @@ export default function CustomProtocolBuilder() {
                                 onMouseLeave={e => { if (!isSelected) e.currentTarget.style.backgroundColor = "transparent"; }}>
                                 <div className="flex items-start justify-between gap-3">
                                   <div className="flex-1 min-w-0">
-                                    <p className="text-sm font-medium" style={{ color: isSelected ? "#54c7a2" : "#0f1a2e" }}>
+                                    <p className="text-sm font-medium" style={{ color: isSelected ? "#54c7a2" : "#1a2744" }}>
                                       {p.name}
                                     </p>
                                     <p className="text-xs mt-0.5" style={{ color: "#5a6a7a", fontFamily: "'DM Mono', monospace" }}>
@@ -559,7 +559,7 @@ export default function CustomProtocolBuilder() {
                             {/* Peptide header */}
                             <div className="flex items-center justify-between px-4 py-3"
                               style={{ backgroundColor: "#f5f3ee", borderBottom: "1px solid #e8e0d0" }}>
-                              <p className="text-sm font-medium" style={{ color: "#0f1a2e" }}>{sp.peptide.name}</p>
+                              <p className="text-sm font-medium" style={{ color: "#1a2744" }}>{sp.peptide.name}</p>
                               <button onClick={() => setSelected(prev => prev.filter(s => s.peptide.id !== sp.peptide.id))}
                                 style={{ color: "#5a6a7a" }}
                                 onMouseEnter={e => (e.currentTarget.style.color = "#e05a6a")}
@@ -657,7 +657,7 @@ export default function CustomProtocolBuilder() {
                 <div className="flex gap-3 px-6 py-4 border-t flex-shrink-0" style={{ borderColor: "#e8e0d0" }}>
                   <button onClick={() => setStep(1)}
                     className="flex-1 py-3 rounded-lg font-semibold text-sm flex items-center justify-center gap-2"
-                    style={{ backgroundColor: "#f5f3ee", color: "#0f1a2e", border: "1px solid #e8e0d0" }}>
+                    style={{ backgroundColor: "#f5f3ee", color: "#1a2744", border: "1px solid #e8e0d0" }}>
                     <ChevronLeft size={15} /> Back
                   </button>
                   <button onClick={() => { if (selected.length > 0) setStep(3); else toast.error("Select at least one peptide"); }}
@@ -691,7 +691,7 @@ export default function CustomProtocolBuilder() {
                       <div className="flex items-center justify-between px-4 py-3 border-b"
                         style={{ backgroundColor: "#f5f3ee", borderColor: "#e8e0d0" }}>
                         <div>
-                          <p className="text-sm font-medium" style={{ color: "#0f1a2e" }}>{sp.peptide.name}</p>
+                          <p className="text-sm font-medium" style={{ color: "#1a2744" }}>{sp.peptide.name}</p>
                           <p className="text-xs" style={{ color: "#5a6a7a", fontFamily: "'DM Mono', monospace" }}>
                             {DELIVERY_LABELS[sp.deliveryForm] || sp.deliveryForm}
                           </p>
@@ -734,7 +734,7 @@ export default function CustomProtocolBuilder() {
                 <div className="flex gap-3 pt-2">
                   <button onClick={() => setStep(2)}
                     className="flex-1 py-3 rounded-lg font-semibold text-sm flex items-center justify-center gap-2"
-                    style={{ backgroundColor: "#f5f3ee", color: "#0f1a2e", border: "1px solid #e8e0d0" }}>
+                    style={{ backgroundColor: "#f5f3ee", color: "#1a2744", border: "1px solid #e8e0d0" }}>
                     <ChevronLeft size={15} /> Back
                   </button>
                   <button onClick={handleSave} disabled={saving}

@@ -241,7 +241,7 @@ export default function ClientProfileClient({
 
   const titleStyle: React.CSSProperties = {
     fontFamily: "'Playfair Display', Georgia, serif",
-    color: "#0f1a2e",
+    color: "#1a2744",
     fontSize: "15px",
     fontWeight: 600,
     display: "flex",
@@ -280,7 +280,7 @@ export default function ClientProfileClient({
     borderRadius: "8px",
     backgroundColor: "#f5f3ee",
     border: "1px solid #e8e0d0",
-    color: "#0f1a2e",
+    color: "#1a2744",
     fontSize: "14px",
     outline: "none",
     fontFamily: "inherit",
@@ -323,7 +323,7 @@ export default function ClientProfileClient({
             <h1
               style={{
                 fontFamily: "'Playfair Display', Georgia, serif",
-                color: "#0f1a2e",
+                color: "#1a2744",
                 fontSize: "28px",
                 fontWeight: 700,
                 margin: 0,
@@ -396,7 +396,7 @@ export default function ClientProfileClient({
               ].map(([label, value]) => (
                 <div key={label}>
                   <span style={labelStyle}>{label}</span>
-                  <span style={{ fontSize: "14px", color: "#0f1a2e" }}>{value}</span>
+                  <span style={{ fontSize: "14px", color: "#1a2744" }}>{value}</span>
                 </div>
               ))}
             </div>
@@ -532,7 +532,7 @@ export default function ClientProfileClient({
                             textAlign: "left",
                             padding: "8px 12px",
                             fontSize: "13px",
-                            color: "#0f1a2e",
+                            color: "#1a2744",
                             backgroundColor: "transparent",
                             border: "none",
                             borderBottom: "1px solid #e8e0d0",
@@ -576,7 +576,7 @@ export default function ClientProfileClient({
                         <span
                           style={{
                             fontSize: "13px",
-                            color: isResolved ? "#5a6a7a" : "#0f1a2e",
+                            color: isResolved ? "#5a6a7a" : "#1a2744",
                             textDecoration: isResolved ? "line-through" : "none",
                           }}
                         >
@@ -632,7 +632,7 @@ export default function ClientProfileClient({
                 <p style={{ fontSize: "12px", color: "#e8b86d", fontWeight: 600, marginBottom: "4px", fontFamily: "'DM Mono', monospace", textTransform: "uppercase", letterSpacing: "0.08em" }}>
                   Safety note — persists on every visit
                 </p>
-                <p style={{ fontSize: "13px", color: "#0f1a2e", margin: 0 }}>
+                <p style={{ fontSize: "13px", color: "#1a2744", margin: 0 }}>
                   {flaggedConditions.join(", ")}. Review contraindicated peptides before prescribing.
                 </p>
               </div>
@@ -757,7 +757,7 @@ export default function ClientProfileClient({
 
                   <div style={{ marginBottom: "8px" }}>
                     <span style={labelStyle}>Primary Peptide</span>
-                    <p style={{ fontSize: "14px", color: "#0f1a2e", margin: 0 }}>{activeProtocol.protocol.primary_peptide}</p>
+                    <p style={{ fontSize: "14px", color: "#1a2744", margin: 0 }}>{activeProtocol.protocol.primary_peptide}</p>
                   </div>
 
                   {activeProtocol.protocol.adjunct_peptides && activeProtocol.protocol.adjunct_peptides.length > 0 && (
@@ -800,7 +800,7 @@ export default function ClientProfileClient({
                           Clinical Notes
                         </span>
                       </div>
-                      <p style={{ fontSize: "13px", color: "#0f1a2e", lineHeight: "1.6", margin: 0 }}>
+                      <p style={{ fontSize: "13px", color: "#1a2744", lineHeight: "1.6", margin: 0 }}>
                         {activeProtocol.protocol.clinical_notes}
                       </p>
                     </div>
@@ -890,7 +890,7 @@ export default function ClientProfileClient({
                         }}
                       >
                         <div style={{ flex: 1, minWidth: 0 }}>
-                          <p style={{ fontSize: "14px", color: "#0f1a2e", margin: "0 0 2px", fontWeight: 500 }}>
+                          <p style={{ fontSize: "14px", color: "#1a2744", margin: "0 0 2px", fontWeight: 500 }}>
                             {item.protocol?.condition_name || "—"}
                           </p>
                           <p style={{ fontSize: "12px", color: "#c9973a", margin: "0 0 4px", fontFamily: "'DM Mono', monospace" }}>
@@ -989,7 +989,7 @@ export default function ClientProfileClient({
                         </span>
                         <span style={{ fontSize: "11px", color: "#5a6a7a" }}>by {currentUserName}</span>
                       </div>
-                      <p style={{ fontSize: "13px", color: "#0f1a2e", lineHeight: "1.5", margin: 0 }}>
+                      <p style={{ fontSize: "13px", color: "#1a2744", lineHeight: "1.5", margin: 0 }}>
                         {note.subjective_response}
                       </p>
                     </div>
@@ -1126,7 +1126,7 @@ export default function ClientProfileClient({
                         </p>
                       )}
                       {ci.subjective_response && (
-                        <p style={{ fontSize: "13px", color: "#0f1a2e", lineHeight: "1.5", margin: 0 }}>
+                        <p style={{ fontSize: "13px", color: "#1a2744", lineHeight: "1.5", margin: 0 }}>
                           {ci.subjective_response}
                         </p>
                       )}
@@ -1176,8 +1176,8 @@ export default function ClientProfileClient({
                   <tbody>
                     {labResults.map((lab: any) => (
                       <tr key={lab.id} style={{ borderBottom: "1px solid rgba(232,224,208,0.5)" }}>
-                        <td style={{ padding: "10px 16px", fontSize: "13px", color: "#0f1a2e" }}>{lab.test_name}</td>
-                        <td style={{ padding: "10px 16px", fontSize: "13px", color: "#0f1a2e", fontFamily: "'DM Mono', monospace" }}>
+                        <td style={{ padding: "10px 16px", fontSize: "13px", color: "#1a2744" }}>{lab.test_name}</td>
+                        <td style={{ padding: "10px 16px", fontSize: "13px", color: "#1a2744", fontFamily: "'DM Mono', monospace" }}>
                           {lab.result_value} {lab.unit}
                         </td>
                         <td style={{ padding: "10px 16px", fontSize: "13px", color: "#5a6a7a" }}>{lab.reference_range || "—"}</td>

@@ -192,7 +192,7 @@ export default function SignatureStackCard({
                 </div>
                 <p
                   className="text-xs leading-relaxed"
-                  style={{ color: "#0f1a2e" }}
+                  style={{ color: "#1a2744" }}
                 >
                   {protocol.clinical_notes}
                 </p>
@@ -234,7 +234,7 @@ export default function SignatureStackCard({
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.backgroundColor = "#e8e0d0";
-              e.currentTarget.style.color = "#0f1a2e";
+              e.currentTarget.style.color = "#1a2744";
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.backgroundColor = "#f5f3ee";

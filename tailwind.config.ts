@@ -12,12 +12,12 @@ const config: Config = {
       colors: {
         // Atlas Engine Design System
         "atlas-bg": "#0b1120",
-        "atlas-surface": "#0f1a2e",
+        "atlas-surface": "#1a2744",
         "atlas-surface2": "#f5f3ee",
         "atlas-border": "#e8e0d0",
         "atlas-gold": "#c9973a",
         "atlas-gold2": "#a87c2e",
-        "atlas-text": "#0f1a2e",
+        "atlas-text": "#1a2744",
         "atlas-text-dim": "#5a6a7a",
         "atlas-success": "#54c7a2",
         "atlas-warning": "#e8b86d",

@@ -432,7 +432,7 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
   const inputStyle: React.CSSProperties = {
     backgroundColor: "#f5f3ee",
     border: "1px solid #e8e0d0",
-    color: "#0f1a2e",
+    color: "#1a2744",
     borderRadius: "0.5rem",
     padding: "0.625rem 0.875rem",
     fontSize: "0.875rem",
@@ -484,7 +484,7 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
         <div className="flex-1 min-w-0">
           <p
             className="text-xs font-medium"
-            style={{ color: enabled ? "#0f1a2e" : "#5a6a7a" }}
+            style={{ color: enabled ? "#1a2744" : "#5a6a7a" }}
           >
             {name}
           </p>
@@ -554,7 +554,7 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
               <p
                 className="text-sm font-semibold"
                 style={{
-                  color: isSelected ? accentColor : "#0f1a2e",
+                  color: isSelected ? accentColor : "#1a2744",
                   fontFamily: "'Playfair Display', Georgia, serif",
                 }}
               >
@@ -623,7 +623,7 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
               className="text-xl font-semibold"
               style={{
                 fontFamily: "'Playfair Display', Georgia, serif",
-                color: "#0f1a2e",
+                color: "#1a2744",
               }}
             >
               New Client Intake
@@ -640,7 +640,7 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
               onClick={onClose}
               className="p-2 rounded-lg"
               style={{ color: "#5a6a7a" }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = "#0f1a2e")}
+              onMouseEnter={(e) => (e.currentTarget.style.color = "#1a2744")}
               onMouseLeave={(e) => (e.currentTarget.style.color = "#5a6a7a")}
             >
               <X size={18} />
@@ -810,7 +810,7 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
                     className="px-4 py-2 rounded-lg text-xs font-semibold flex-shrink-0 transition-colors"
                     style={{
                       backgroundColor: "#e8e0d0",
-                      color: "#0f1a2e",
+                      color: "#1a2744",
                       border: "1px solid #2a4066",
                       fontFamily: "'DM Mono', monospace",
                       opacity: screeningLoading ? 0.7 : 1,
@@ -931,7 +931,7 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
                         <p
                           className="text-xs font-medium leading-tight"
                           style={{
-                            color: active ? "#c9973a" : "#0f1a2e",
+                            color: active ? "#c9973a" : "#1a2744",
                             fontFamily: "'DM Mono', monospace",
                           }}
                         >
@@ -1084,7 +1084,7 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
                                     <div className="flex-1 min-w-0">
                                       <p
                                         className="text-xs font-medium"
-                                        style={{ color: already ? "#54c7a2" : "#0f1a2e" }}
+                                        style={{ color: already ? "#54c7a2" : "#1a2744" }}
                                       >
                                         {p.condition_name}
                                       </p>
@@ -1229,7 +1229,7 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
                   className="flex-1 py-3 rounded-lg font-semibold text-sm flex items-center justify-center gap-2"
                   style={{
                     backgroundColor: "#f5f3ee",
-                    color: "#0f1a2e",
+                    color: "#1a2744",
                     border: "1px solid #e8e0d0",
                   }}
                 >
@@ -1332,7 +1332,7 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
                   className="flex-1 py-3 rounded-lg font-semibold text-sm flex items-center justify-center gap-2"
                   style={{
                     backgroundColor: "#f5f3ee",
-                    color: "#0f1a2e",
+                    color: "#1a2744",
                     border: "1px solid #e8e0d0",
                   }}
                 >
@@ -1446,7 +1446,7 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
                       className="flex-1 py-3 rounded-lg font-semibold text-sm flex items-center justify-center gap-2"
                       style={{
                         backgroundColor: "#f5f3ee",
-                        color: "#0f1a2e",
+                        color: "#1a2744",
                         border: "1px solid #e8e0d0",
                       }}
                     >
@@ -1545,7 +1545,7 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
                     </span>
                     <span
                       style={{
-                        color: "#0f1a2e",
+                        color: "#1a2744",
                         textAlign: "right",
                         fontSize: "0.8rem",
                       }}
@@ -1600,7 +1600,7 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
                   className="flex-1 py-3 rounded-lg font-semibold text-sm flex items-center justify-center gap-2"
                   style={{
                     backgroundColor: "#f5f3ee",
-                    color: "#0f1a2e",
+                    color: "#1a2744",
                     border: "1px solid #e8e0d0",
                   }}
                 >
@@ -1645,7 +1645,7 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
                   className="text-xl font-semibold mb-1"
                   style={{
                     fontFamily: "'Playfair Display', Georgia, serif",
-                    color: "#0f1a2e",
+                    color: "#1a2744",
                   }}
                 >
                   {firstName} {lastName}
@@ -1694,7 +1694,7 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
                     >
                       {label}
                     </span>
-                    <span style={{ color: "#0f1a2e", fontSize: "0.8rem" }}>
+                    <span style={{ color: "#1a2744", fontSize: "0.8rem" }}>
                       {value}
                     </span>
                   </div>
@@ -1718,7 +1718,7 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
                   className="w-full py-3 rounded-lg font-semibold text-sm flex items-center justify-center gap-2"
                   style={{
                     backgroundColor: "#f5f3ee",
-                    color: "#0f1a2e",
+                    color: "#1a2744",
                     border: "1px solid #e8e0d0",
                   }}
                 >

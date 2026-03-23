@@ -107,7 +107,7 @@ export default function ClientActions({ clientId, clientStatus, clientName, clie
     borderRadius: "8px",
     backgroundColor: "#f5f3ee",
     border: "1px solid #e8e0d0",
-    color: "#0f1a2e",
+    color: "#1a2744",
     fontSize: "14px",
     outline: "none",
     fontFamily: "inherit",
@@ -203,7 +203,7 @@ export default function ClientActions({ clientId, clientStatus, clientName, clie
           >
             <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "20px" }}>
               <Edit2 size={17} style={{ color: "#c9973a" }} />
-              <h3 style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#0f1a2e", fontSize: "18px", fontWeight: 700, margin: 0 }}>
+              <h3 style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#1a2744", fontSize: "18px", fontWeight: 700, margin: 0 }}>
                 Edit Profile
               </h3>
             </div>
@@ -359,7 +359,7 @@ export default function ClientActions({ clientId, clientStatus, clientName, clie
               </h3>
             </div>
 
-            <p className="text-sm mb-3 leading-relaxed" style={{ color: "#0f1a2e" }}>
+            <p className="text-sm mb-3 leading-relaxed" style={{ color: "#1a2744" }}>
               You are permanently deleting <strong>{clientName}</strong> and all associated records.
             </p>
 
@@ -391,7 +391,7 @@ export default function ClientActions({ clientId, clientStatus, clientName, clie
               style={{
                 backgroundColor: "#f5f3ee",
                 border: `1px solid ${deleteConfirm === "DELETE" ? "#e05a6a" : "#e8e0d0"}`,
-                color: "#0f1a2e",
+                color: "#1a2744",
                 fontFamily: "'DM Mono', monospace",
                 letterSpacing: "0.05em",
               }}

@@ -85,7 +85,7 @@ function ClientCard({
         >
           <p
             style={{
-              color: "#0f1a2e",
+              color: "#1a2744",
               fontWeight: 600,
               fontSize: "13px",
               lineHeight: 1.3,
@@ -277,7 +277,7 @@ export default function DashboardClient({
           <h1
             style={{
               fontFamily: "'Playfair Display', Georgia, serif",
-              color: "#0f1a2e",
+              color: "#1a2744",
               fontSize: "28px",
               fontWeight: 700,
               margin: "0 0 3px 0",
@@ -288,8 +288,8 @@ export default function DashboardClient({
           <p
             style={{
               color: "#5a6a7a",
-              fontSize: "12px",
-              fontFamily: "'DM Mono', monospace",
+              fontSize: "13px",
+              fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
               margin: 0,
             }}
           >
@@ -308,16 +308,15 @@ export default function DashboardClient({
                     key={loc.id ?? "all"}
                     onClick={() => setSelectedLocationId(loc.id)}
                     style={{
-                      padding: "4px 12px",
+                      padding: "5px 14px",
                       borderRadius: "999px",
-                      fontSize: "11px",
-                      fontFamily: "'DM Mono', monospace",
+                      fontSize: "13px",
+                      fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+                      fontWeight: 600,
                       cursor: "pointer",
-                      border: `1px solid ${active ? "#c9973a" : "#e8e0d0"}`,
-                      backgroundColor: active
-                        ? "rgba(201,151,58,0.12)"
-                        : "#f5f3ee",
-                      color: active ? "#c9973a" : "#5a6a7a",
+                      border: `1.5px solid ${active ? "#c9973a" : "#d4c9b8"}`,
+                      backgroundColor: active ? "rgba(201,151,58,0.12)" : "#ffffff",
+                      color: active ? "#c9973a" : "#1a2744",
                       transition: "all 0.15s",
                     }}
                   >
@@ -399,7 +398,7 @@ export default function DashboardClient({
             <div
               style={{
                 fontFamily: "'DM Mono', monospace",
-                color: "#0f1a2e",
+                color: "#1a2744",
                 fontSize: "30px",
                 fontWeight: 700,
                 lineHeight: 1,
@@ -409,11 +408,10 @@ export default function DashboardClient({
             </div>
             <div
               style={{
-                fontFamily: "'DM Mono', monospace",
+                fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
                 color: "#5a6a7a",
-                fontSize: "10px",
-                textTransform: "uppercase",
-                letterSpacing: "0.08em",
+                fontSize: "12px",
+                fontWeight: 600,
                 marginTop: "6px",
               }}
             >
@@ -428,7 +426,7 @@ export default function DashboardClient({
         <h2
           style={{
             fontFamily: "'Playfair Display', Georgia, serif",
-            color: "#0f1a2e",
+            color: "#1a2744",
             fontSize: "17px",
             fontWeight: 600,
             margin: "0 0 12px 0",
@@ -474,19 +472,19 @@ export default function DashboardClient({
                 >
                   <span
                     style={{
-                      fontFamily: "'DM Mono', monospace",
-                      fontSize: "10px",
-                      textTransform: "uppercase",
-                      letterSpacing: "0.08em",
-                      color: col.color,
+                      fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+                      fontSize: "13px",
+                      fontWeight: 700,
+                      color: "#1a2744",
                     }}
                   >
                     {col.label}
                   </span>
                   <span
                     style={{
-                      fontFamily: "'DM Mono', monospace",
+                      fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
                       fontSize: "11px",
+                      fontWeight: 600,
                       color: "#5a6a7a",
                       backgroundColor: "#f5f3ee",
                       padding: "1px 7px",
@@ -578,7 +576,7 @@ export default function DashboardClient({
               <h3
                 style={{
                   fontFamily: "'Playfair Display', Georgia, serif",
-                  color: "#0f1a2e",
+                  color: "#1a2744",
                   fontWeight: 600,
                   fontSize: "15px",
                   margin: 0,
@@ -603,50 +601,37 @@ export default function DashboardClient({
           <div
             style={{
               display: "flex",
+              gap: "6px",
+              padding: "10px 12px",
               borderBottom: "1px solid #e8e0d0",
               backgroundColor: "#ffffff",
+              flexWrap: "wrap",
             }}
           >
             {(
               [
-                { key: "1-3", label: "1–3 days", dot: "#e05a6a" },
-                { key: "4-10", label: "4–10 days", dot: "#e8b86d" },
-                { key: "11-14", label: "11–14 days", dot: "#5a6a7a" },
-                { key: "all", label: "All", dot: "#8a7a5a" },
-              ] as { key: ReupFilter; label: string; dot: string }[]
+                { key: "1-3", label: "1–3 days", bg: "#c0392b", color: "#ffffff", border: "#c0392b" },
+                { key: "4-10", label: "4–10 days", bg: "#faeeda", color: "#854f0b", border: "#fac775" },
+                { key: "11-14", label: "11–14 days", bg: "#e6f1fb", color: "#185fa5", border: "#b5d4f4" },
+                { key: "all", label: "All", bg: "#f5f3ee", color: "#3a4a5a", border: "#d4c9b8" },
+              ] as { key: ReupFilter; label: string; bg: string; color: string; border: string }[]
             ).map((tab) => (
               <button
                 key={tab.key}
                 onClick={() => setReupFilter(tab.key)}
                 style={{
-                  flex: 1,
-                  padding: "8px 4px",
-                  fontSize: "10px",
-                  fontFamily: "'DM Mono', monospace",
+                  padding: "5px 12px",
+                  borderRadius: "999px",
+                  fontSize: "12px",
+                  fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+                  fontWeight: 700,
                   cursor: "pointer",
-                  border: "none",
-                  borderBottom:
-                    reupFilter === tab.key
-                      ? `2px solid ${tab.dot}`
-                      : "2px solid transparent",
-                  backgroundColor: "transparent",
-                  color: reupFilter === tab.key ? "#0f1a2e" : "#5a6a7a",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  gap: "5px",
-                  transition: "color 0.15s",
+                  border: `1.5px solid ${reupFilter === tab.key ? tab.border : "#e8e0d0"}`,
+                  backgroundColor: reupFilter === tab.key ? tab.bg : "#ffffff",
+                  color: reupFilter === tab.key ? tab.color : "#5a6a7a",
+                  transition: "all 0.15s",
                 }}
               >
-                <span
-                  style={{
-                    width: "6px",
-                    height: "6px",
-                    borderRadius: "50%",
-                    backgroundColor: tab.dot,
-                    flexShrink: 0,
-                  }}
-                />
                 {tab.label}
               </button>
             ))}
@@ -690,7 +675,7 @@ export default function DashboardClient({
                     <div style={{ flex: 1, minWidth: 0 }}>
                       <p
                         style={{
-                          color: "#0f1a2e",
+                          color: "#1a2744",
                           fontSize: "13px",
                           fontWeight: 500,
                           margin: "0 0 2px 0",
@@ -808,7 +793,7 @@ export default function DashboardClient({
             <h3
               style={{
                 fontFamily: "'Playfair Display', Georgia, serif",
-                color: "#0f1a2e",
+                color: "#1a2744",
                 fontWeight: 600,
                 fontSize: "15px",
                 margin: 0,

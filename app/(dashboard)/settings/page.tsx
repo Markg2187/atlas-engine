@@ -29,7 +29,7 @@ export default async function SettingsPage() {
       <div className="mb-8">
         <h1
           className="text-3xl font-bold"
-          style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#0f1a2e" }}
+          style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#1a2744" }}
         >
           Settings
         </h1>
@@ -51,7 +51,7 @@ export default async function SettingsPage() {
           <div className="px-6 py-4 border-b" style={{ borderColor: "#e8e0d0" }}>
             <h2
               className="font-semibold flex items-center gap-2"
-              style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#0f1a2e" }}
+              style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#1a2744" }}
             >
               <User size={16} style={{ color: "#c9973a" }} />
               Profile
@@ -68,7 +68,7 @@ export default async function SettingsPage() {
                   : "?"}
               </div>
               <div>
-                <p className="font-medium" style={{ color: "#0f1a2e" }}>
+                <p className="font-medium" style={{ color: "#1a2744" }}>
                   {profile?.full_name || "Unknown User"}
                 </p>
                 <p className="text-sm" style={{ color: "#5a6a7a" }}>{user.email}</p>
@@ -101,7 +101,7 @@ export default async function SettingsPage() {
                   style={{
                     backgroundColor: "#f5f3ee",
                     border: "1px solid #e8e0d0",
-                    color: "#0f1a2e",
+                    color: "#1a2744",
                   }}
                   readOnly
                 />
@@ -142,7 +142,7 @@ export default async function SettingsPage() {
             <div className="px-6 py-4 border-b" style={{ borderColor: "#e8e0d0" }}>
               <h2
                 className="font-semibold flex items-center gap-2"
-                style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#0f1a2e" }}
+                style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#1a2744" }}
               >
                 <Building2 size={16} style={{ color: "#54c7a2" }} />
                 Your Location
@@ -160,7 +160,7 @@ export default async function SettingsPage() {
                     <p className="text-xs uppercase tracking-widest mb-0.5" style={{ fontFamily: "'DM Mono', monospace", color: "#5a6a7a" }}>
                       {label}
                     </p>
-                    <p className="text-sm" style={{ color: "#0f1a2e" }}>{value || "—"}</p>
+                    <p className="text-sm" style={{ color: "#1a2744" }}>{value || "—"}</p>
                   </div>
                 ))}
               </div>
@@ -181,7 +181,7 @@ export default async function SettingsPage() {
             <div className="px-6 py-4 border-b" style={{ borderColor: "#e8e0d0" }}>
               <h2
                 className="font-semibold flex items-center gap-2"
-                style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#0f1a2e" }}
+                style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#1a2744" }}
               >
                 <Shield size={16} style={{ color: "#e8b86d" }} />
                 All Locations (Super Admin)
@@ -196,7 +196,7 @@ export default async function SettingsPage() {
                     style={{ backgroundColor: "#f5f3ee", border: "1px solid #e8e0d0" }}
                   >
                     <div>
-                      <p className="font-medium text-sm" style={{ color: "#0f1a2e" }}>{loc.name}</p>
+                      <p className="font-medium text-sm" style={{ color: "#1a2744" }}>{loc.name}</p>
                       <p className="text-xs" style={{ color: "#5a6a7a" }}>
                         {loc.city}, {loc.state} · {loc.owner_name}
                       </p>
@@ -229,7 +229,7 @@ export default async function SettingsPage() {
         >
           <h3
             className="font-semibold mb-4 flex items-center gap-2"
-            style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#0f1a2e" }}
+            style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#1a2744" }}
           >
             <BookOpen size={16} style={{ color: "#c9973a" }} />
             Platform Information
@@ -245,7 +245,7 @@ export default async function SettingsPage() {
                 <span style={{ color: "#5a6a7a", fontFamily: "'DM Mono', monospace", fontSize: "0.75rem" }}>
                   {label}
                 </span>
-                <span style={{ color: "#0f1a2e", fontFamily: "'DM Mono', monospace", fontSize: "0.75rem" }}>
+                <span style={{ color: "#1a2744", fontFamily: "'DM Mono', monospace", fontSize: "0.75rem" }}>
                   {value}
                 </span>
               </div>

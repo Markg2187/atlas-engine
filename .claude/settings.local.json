@@ -65,7 +65,9 @@
       "Bash(cd /Users/mark/Desktop/atlas-engine grep -n \"#54c7a2\" components/clients/ClientProfileClient.tsx)",
       "Bash(cd /Users/mark/Desktop/atlas-engine grep -rn \"#4a6080\" --include=\"*.tsx\" --include=\"*.ts\")",
       "Bash(cd /Users/mark/Desktop/atlas-engine grep -n \"backgroundColor\\\\|color:\" app/\\\\\\(auth\\\\\\)/login/page.tsx)",
-      "Bash(cd /Users/mark/Desktop/atlas-engine echo \"=== Checking for old gold #e8c96e ===\" grep -rn \"#e8c96e\" --include=\"*.tsx\" --include=\"*.ts\")"
+      "Bash(cd /Users/mark/Desktop/atlas-engine echo \"=== Checking for old gold #e8c96e ===\" grep -rn \"#e8c96e\" --include=\"*.tsx\" --include=\"*.ts\")",
+      "Bash(perl -pi -e 's/\"\"#0f1a2e\"\"/\"\"#1a2744\"\"/g' components/dashboard/DashboardClient.tsx)",
+      "Bash(perl -pi -e 's/#0f1a2e/#1a2744/g' app/globals.css)"
     ]
   }
 }

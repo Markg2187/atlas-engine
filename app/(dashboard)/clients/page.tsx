@@ -88,7 +88,7 @@ export default function ClientsPage() {
         <div>
           <h1
             className="text-3xl font-bold"
-            style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#0f1a2e" }}
+            style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#1a2744" }}
           >
             Clients
           </h1>
@@ -131,7 +131,7 @@ export default function ClientsPage() {
             style={{
               backgroundColor: "#f5f3ee",
               border: "1px solid #e8e0d0",
-              color: "#0f1a2e",
+              color: "#1a2744",
             }}
             onFocus={(e) => (e.target.style.borderColor = "#c9973a")}
             onBlur={(e) => (e.target.style.borderColor = "#e8e0d0")}
@@ -145,7 +145,7 @@ export default function ClientsPage() {
             style={{
               backgroundColor: "#f5f3ee",
               border: "1px solid #e8e0d0",
-              color: "#0f1a2e",
+              color: "#1a2744",
             }}
           >
             <option value="all">All Status</option>
@@ -240,9 +240,9 @@ export default function ClientsPage() {
                         <Link href={`/clients/${client.id}`}>
                           <p
                             className="font-medium transition-colors"
-                            style={{ color: "#0f1a2e" }}
+                            style={{ color: "#1a2744" }}
                             onMouseEnter={(e) => (e.currentTarget.style.color = "#c9973a")}
-                            onMouseLeave={(e) => (e.currentTarget.style.color = "#0f1a2e")}
+                            onMouseLeave={(e) => (e.currentTarget.style.color = "#1a2744")}
                           >
                             {client.first_name} {client.last_name}
                           </p>
@@ -255,7 +255,7 @@ export default function ClientsPage() {
                         </Link>
                       </td>
                       <td className="px-6 py-4">
-                        <p className="text-sm" style={{ color: "#0f1a2e" }}>
+                        <p className="text-sm" style={{ color: "#1a2744" }}>
                           {client.email ?? "—"}
                         </p>
                         <p className="text-xs" style={{ color: "#5a6a7a", fontFamily: "'DM Mono', monospace" }}>

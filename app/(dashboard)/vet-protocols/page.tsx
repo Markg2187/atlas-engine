@@ -37,7 +37,7 @@ export default async function VetProtocolsPage() {
       <div className="mb-8">
         <h1
           className="text-3xl font-bold"
-          style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#0f1a2e" }}
+          style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#1a2744" }}
         >
           Veterinary Protocols
         </h1>
@@ -74,8 +74,8 @@ export default async function VetProtocolsPage() {
                   style={{ backgroundColor: "#e8e0d0" }}
                 />
                 <h2
-                  className="text-xs uppercase tracking-widest px-3 flex items-center gap-2"
-                  style={{ fontFamily: "'DM Mono', monospace", color, flexShrink: 0 }}
+                  className="px-3 flex items-center gap-2"
+                  style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", fontSize: "15px", fontWeight: 700, color: "#1a2744", flexShrink: 0 }}
                 >
                   <span>{emoji}</span>
                   {animal.toUpperCase()}
@@ -94,29 +94,29 @@ export default async function VetProtocolsPage() {
                     style={{
                       backgroundColor: "#ffffff",
                       border: "1px solid #e8e0d0",
-                      borderTop: `2px solid ${color}`,
+                      borderTop: `3px solid ${color}`,
                     }}
                   >
                     <h3
-                      className="text-lg font-semibold mb-2"
-                      style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#0f1a2e" }}
+                      className="mb-2"
+                      style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#1a2744", fontSize: "15px", fontWeight: 700 }}
                     >
                       {protocol!.condition_name}
                     </h3>
 
                     <div className="mb-3">
-                      <p className="text-xs uppercase tracking-widest mb-1" style={{ fontFamily: "'DM Mono', monospace", color: "#5a6a7a" }}>
-                        Primary Peptide
+                      <p className="mb-1" style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", fontSize: "11px", fontWeight: 700, textTransform: "uppercase", color: "#5a4a3a" }}>
+                        Primary peptide
                       </p>
-                      <p className="text-sm font-medium" style={{ color }}>
+                      <p className="font-medium" style={{ color, fontSize: "13px" }}>
                         {protocol!.primary_peptide}
                       </p>
                     </div>
 
                     {protocol!.adjunct_peptides && protocol!.adjunct_peptides.length > 0 && (
                       <div className="mb-3">
-                        <p className="text-xs uppercase tracking-widest mb-1.5" style={{ fontFamily: "'DM Mono', monospace", color: "#5a6a7a" }}>
-                          Adjunct
+                        <p className="mb-1.5" style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", fontSize: "11px", fontWeight: 700, textTransform: "uppercase", color: "#5a4a3a" }}>
+                          Adjunct peptides
                         </p>
                         <div className="flex flex-wrap gap-1.5">
                           {protocol!.adjunct_peptides.map((p: string) => (
@@ -142,10 +142,10 @@ export default async function VetProtocolsPage() {
                         className="p-3 rounded-lg mb-3"
                         style={{ backgroundColor: "#f5f3ee", border: "1px solid #e8e0d0" }}
                       >
-                        <p className="text-xs uppercase tracking-widest mb-1" style={{ fontFamily: "'DM Mono', monospace", color: "#5a6a7a" }}>
+                        <p className="mb-1" style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", fontSize: "11px", fontWeight: 700, textTransform: "uppercase", color: "#5a4a3a" }}>
                           Dosing
                         </p>
-                        <p className="text-sm" style={{ color: "#0f1a2e", fontFamily: "'DM Mono', monospace" }}>
+                        <p style={{ color: "#3a4a5a", fontSize: "13px" }}>
                           {protocol!.dosing_notes}
                         </p>
                       </div>
@@ -154,19 +154,19 @@ export default async function VetProtocolsPage() {
                     {protocol!.dose_per_kg_mcg && protocol!.dose_per_kg_mcg > 0 && (
                       <div className="flex gap-4 mb-3">
                         <div>
-                          <p className="text-xs uppercase tracking-widest mb-0.5" style={{ fontFamily: "'DM Mono', monospace", color: "#5a6a7a" }}>
+                          <p className="mb-0.5" style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", fontSize: "11px", fontWeight: 700, textTransform: "uppercase", color: "#5a4a3a" }}>
                             Dose per kg
                           </p>
-                          <p className="text-sm font-medium" style={{ color: "#c9973a", fontFamily: "'DM Mono', monospace" }}>
+                          <p className="font-medium" style={{ color: "#c9973a", fontFamily: "'DM Mono', monospace", fontSize: "13px" }}>
                             {protocol!.dose_per_kg_mcg} mcg/kg
                           </p>
                         </div>
                         {protocol!.cycle_length && (
                           <div>
-                            <p className="text-xs uppercase tracking-widest mb-0.5" style={{ fontFamily: "'DM Mono', monospace", color: "#5a6a7a" }}>
+                            <p className="mb-0.5" style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", fontSize: "11px", fontWeight: 700, textTransform: "uppercase", color: "#5a4a3a" }}>
                               Cycle
                             </p>
-                            <p className="text-sm" style={{ color: "#0f1a2e", fontFamily: "'DM Mono', monospace" }}>
+                            <p style={{ color: "#3a4a5a", fontSize: "13px" }}>
                               {protocol!.cycle_length}
                             </p>
                           </div>
@@ -175,7 +175,7 @@ export default async function VetProtocolsPage() {
                     )}
 
                     {protocol!.clinical_notes && (
-                      <p className="text-xs leading-relaxed" style={{ color: "#5a6a7a" }}>
+                      <p className="leading-relaxed" style={{ color: "#3a4a5a", fontSize: "13px" }}>
                         {protocol!.clinical_notes}
                       </p>
                     )}

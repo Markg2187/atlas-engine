@@ -65,7 +65,7 @@ export default function LoginPage() {
         >
           <h2
             className="text-xl font-semibold mb-6"
-            style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#0f1a2e" }}
+            style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#1a2744" }}
           >
             Sign In
           </h2>
@@ -88,7 +88,7 @@ export default function LoginPage() {
                 style={{
                   backgroundColor: "#f5f3ee",
                   border: "1px solid #e8e0d0",
-                  color: "#0f1a2e",
+                  color: "#1a2744",
                 }}
                 onFocus={(e) => {
                   e.target.style.borderColor = "#c9973a";
@@ -118,7 +118,7 @@ export default function LoginPage() {
                 style={{
                   backgroundColor: "#f5f3ee",
                   border: "1px solid #e8e0d0",
-                  color: "#0f1a2e",
+                  color: "#1a2744",
                 }}
                 onFocus={(e) => {
                   e.target.style.borderColor = "#c9973a";

@@ -134,7 +134,7 @@ const s = {
   input: {
     backgroundColor: "#f5f3ee",
     border: "1px solid #e8e0d0",
-    color: "#0f1a2e",
+    color: "#1a2744",
     borderRadius: "0.5rem",
     padding: "0.5rem 0.75rem",
     fontSize: "0.875rem",
@@ -211,7 +211,7 @@ function SyringeIndicator({ units, syringe, reason }: { units: number; syringe: 
   return (
     <div style={s.result}>
       <p style={s.resultLabel}>Recommended syringe</p>
-      <p style={{ ...s.resultValue, color: "#0f1a2e", fontSize: "0.8rem", marginBottom: "0.5rem" }}>{reason}</p>
+      <p style={{ ...s.resultValue, color: "#1a2744", fontSize: "0.8rem", marginBottom: "0.5rem" }}>{reason}</p>
       <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
         <div style={{ flex: 1, height: "8px", backgroundColor: "#ffffff", borderRadius: "4px", overflow: "hidden" }}>
           <div style={{ width: `${pct}%`, height: "100%", backgroundColor: color, borderRadius: "4px", transition: "width 0.3s ease" }} />
@@ -270,7 +270,7 @@ export default function ReconstitutionCalculator({
       <div style={{ ...s.sectionHeader, borderTop: "3px solid #c9973a" }}>
         <Calculator size={15} style={{ color: "#c9973a" }} />
         <div style={{ flex: 1 }}>
-          <p style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#0f1a2e", fontWeight: 600, fontSize: "0.95rem" }}>
+          <p style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#1a2744", fontWeight: 600, fontSize: "0.95rem" }}>
             {peptideName ? `${peptideName} — Reconstitution` : "Reconstitution Calculator"}
           </p>
           <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.65rem", color: "#5a6a7a" }}>

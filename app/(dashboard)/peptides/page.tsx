@@ -28,7 +28,7 @@ export default async function PeptidesPage() {
       <div className="mb-8">
         <h1
           className="text-3xl font-bold"
-          style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#0f1a2e" }}
+          style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#1a2744" }}
         >
           Peptide Library
         </h1>
@@ -139,7 +139,7 @@ export default async function PeptidesPage() {
                       >
                         Half-life
                       </p>
-                      <p className="text-xs font-medium" style={{ color: "#0f1a2e", fontFamily: "'DM Mono', monospace" }}>
+                      <p className="text-xs font-medium" style={{ color: "#1a2744", fontFamily: "'DM Mono', monospace" }}>
                         {peptide.half_life}
                       </p>
                     </div>
@@ -152,7 +152,7 @@ export default async function PeptidesPage() {
                       >
                         Cycle
                       </p>
-                      <p className="text-xs font-medium" style={{ color: "#0f1a2e", fontFamily: "'DM Mono', monospace" }}>
+                      <p className="text-xs font-medium" style={{ color: "#1a2744", fontFamily: "'DM Mono', monospace" }}>
                         {peptide.cycle_length}
                       </p>
                     </div>

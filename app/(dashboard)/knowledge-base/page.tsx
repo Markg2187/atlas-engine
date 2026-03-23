@@ -27,7 +27,7 @@ export default async function KnowledgeBasePage() {
         <div>
           <h1
             className="text-3xl font-bold"
-            style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#0f1a2e" }}
+            style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#1a2744" }}
           >
             Knowledge Base
           </h1>
@@ -90,7 +90,7 @@ export default async function KnowledgeBasePage() {
 
                   <h3
                     className="font-semibold text-base mb-2 leading-snug"
-                    style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#0f1a2e" }}
+                    style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#1a2744" }}
                   >
                     {article.title}
                   </h3>
@@ -148,7 +148,7 @@ export default async function KnowledgeBasePage() {
           <BookOpen size={40} className="mx-auto mb-4" style={{ color: "#e8e0d0" }} />
           <h3
             className="text-xl font-semibold mb-2"
-            style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#0f1a2e" }}
+            style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#1a2744" }}
           >
             No Articles Yet
           </h3>

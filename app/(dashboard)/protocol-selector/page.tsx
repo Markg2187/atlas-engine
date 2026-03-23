@@ -53,7 +53,7 @@ export default async function ProtocolSelectorPage() {
         <div>
           <h1
             className="text-3xl font-bold"
-            style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#0f1a2e" }}
+            style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#1a2744" }}
           >
             Protocol Selector
           </h1>

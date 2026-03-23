@@ -92,19 +92,21 @@ const DISCOUNT_PRESETS = [
 // ─── Styles ───────────────────────────────────────────────────
 const inp = {
   backgroundColor: "#f5f3ee", border: "1px solid #e8e0d0",
-  color: "#0f1a2e", borderRadius: "0.5rem",
+  color: "#1a2744", borderRadius: "0.5rem",
   padding: "0.625rem 0.75rem", fontSize: "1rem",
   fontFamily: "'DM Mono', monospace", width: "100%",
   WebkitAppearance: "none" as const,
 } as React.CSSProperties;
 
 const lbl = {
-  fontFamily: "'DM Mono', monospace", fontSize: "0.65rem",
-  letterSpacing: "0.08em", textTransform: "uppercase" as const,
-  color: "#5a6a7a", display: "block", marginBottom: "0.375rem",
+  fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+  fontSize: "0.75rem",
+  fontWeight: 600,
+  textTransform: "uppercase" as const,
+  color: "#5a4a3a", display: "block", marginBottom: "0.375rem",
 };
 const res = {
-  backgroundColor: "#f5f3ee", border: "1px solid #e8e0d0",
+  backgroundColor: "#ffffff", border: "1.5px solid #d4c9b8",
   borderRadius: "0.5rem", padding: "0.75rem 1rem",
 } as React.CSSProperties;
 
@@ -208,7 +210,7 @@ export default function CalculatorPage() {
   return (
     <div>
       <div className="mb-8">
-        <h1 className="text-3xl font-bold" style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#0f1a2e" }}>Peptide Calculator</h1>
+        <h1 className="text-3xl font-bold" style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#1a2744" }}>Peptide Calculator</h1>
         <p className="mt-1 text-sm" style={{ color: "#5a6a7a" }}>Reconstitution · Syringe units · Pricing & margin · Supply planning</p>
       </div>
 
@@ -218,7 +220,7 @@ export default function CalculatorPage() {
         <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem" }}>
           {PRESETS.map((p, i) => (
             <button key={p.name} onClick={() => selectPreset(i)}
-              style={{ padding: "0.375rem 0.875rem", borderRadius: "1rem", fontSize: "0.875rem", fontFamily: "'DM Mono', monospace", cursor: "pointer", border: "1px solid", backgroundColor: activePreset === i ? "rgba(201,151,58,0.15)" : "#f5f3ee", color: activePreset === i ? "#c9973a" : "#5a6a7a", borderColor: activePreset === i ? "#c9973a" : "#e8e0d0" }}>
+              style={{ padding: "0.375rem 0.875rem", borderRadius: "1rem", fontSize: "13px", fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", fontWeight: 600, cursor: "pointer", border: "1.5px solid", backgroundColor: activePreset === i ? "rgba(201,151,58,0.12)" : "#ffffff", color: activePreset === i ? "#c9973a" : "#1a2744", borderColor: activePreset === i ? "#c9973a" : "#d4c9b8" }}>
               {p.name}
             </button>
           ))}
@@ -229,7 +231,7 @@ export default function CalculatorPage() {
         {/* LEFT: Inputs */}
         <div className="rounded-xl overflow-hidden" style={{ backgroundColor: "#ffffff", border: "1px solid #e8e0d0", borderTop: "3px solid #c9973a" }}>
           <div style={{ padding: "0.75rem 1.25rem", borderBottom: "1px solid #e8e0d0" }}>
-            <p style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#0f1a2e", fontWeight: 600, fontSize: "0.95rem" }}>
+            <p style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#1a2744", fontWeight: 600, fontSize: "0.95rem" }}>
               {PRESETS[activePreset].name} — Reconstitution
             </p>
           </div>
@@ -336,28 +338,28 @@ export default function CalculatorPage() {
         {/* RIGHT: Results */}
         <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
           <div style={res}>
-            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.6rem", color: "#5a6a7a", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "0.25rem" }}>Concentration</p>
-            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "1rem", color: "#0f1a2e", fontWeight: 600 }}>{r.concMgMl.toFixed(2)} mg/ml ({r.concMcgMl.toFixed(0)} mcg/ml)</p>
+            <p style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", fontSize: "11px", fontWeight: 600, color: "#5a4a3a", textTransform: "uppercase", marginBottom: "0.25rem" }}>Concentration</p>
+            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "1rem", color: "#1a2744", fontWeight: 600 }}>{r.concMgMl.toFixed(2)} mg/ml ({r.concMcgMl.toFixed(0)} mcg/ml)</p>
           </div>
 
-          <div style={{ ...res, border: "1px solid #c9973a" }}>
-            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.6rem", color: "#5a6a7a", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "0.25rem" }}>Draw on syringe (U-100)</p>
-            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "2rem", fontWeight: 700, color: "#c9973a", lineHeight: 1 }}>
-              {r.unitsU100.toFixed(1)} <span style={{ fontSize: "0.875rem", color: "#5a6a7a" }}>units</span>
+          <div style={{ ...res, border: "2px solid #c9973a" }}>
+            <p style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", fontSize: "11px", fontWeight: 600, color: "#5a4a3a", textTransform: "uppercase", marginBottom: "0.25rem" }}>Draw on syringe (U-100)</p>
+            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "2.5rem", fontWeight: 800, color: "#c9973a", lineHeight: 1 }}>
+              {r.unitsU100.toFixed(1)} <span style={{ fontSize: "0.875rem", color: "#5a6a7a", fontWeight: 400 }}>units</span>
             </p>
             <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.75rem", color: "#5a6a7a", marginTop: "0.25rem" }}>= {r.volumeMl.toFixed(3)} ml</p>
           </div>
 
           <div style={res}>
-            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.6rem", color: "#5a6a7a", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "0.25rem" }}>Recommended syringe</p>
-            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.9rem", color: "#0f1a2e" }}>{r.syringe} syringe</p>
-            <div style={{ marginTop: "0.5rem", height: "8px", backgroundColor: "#ffffff", borderRadius: "4px", overflow: "hidden" }}>
+            <p style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", fontSize: "11px", fontWeight: 600, color: "#5a4a3a", textTransform: "uppercase", marginBottom: "0.25rem" }}>Recommended syringe</p>
+            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.9rem", color: "#1a2744" }}>{r.syringe} syringe</p>
+            <div style={{ marginTop: "0.5rem", height: "8px", backgroundColor: "#f5f3ee", borderRadius: "4px", overflow: "hidden" }}>
               <div style={{ height: "100%", width: `${Math.min(100, (r.unitsU100 / r.syringeMax) * 100)}%`, backgroundColor: "#54c7a2", borderRadius: "4px" }} />
             </div>
           </div>
 
           <div style={res}>
-            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.6rem", color: "#5a6a7a", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "0.25rem" }}>Doses per vial</p>
+            <p style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", fontSize: "11px", fontWeight: 600, color: "#5a4a3a", textTransform: "uppercase", marginBottom: "0.25rem" }}>Doses per vial</p>
             <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "1.5rem", fontWeight: 700, color: "#54c7a2" }}>{r.dosesPerVial} doses</p>
           </div>
 
@@ -391,7 +393,7 @@ export default function CalculatorPage() {
           style={{ padding: "1rem 1.25rem", display: "flex", alignItems: "center", justifyContent: "space-between", background: "none", border: "none", borderBottom: showPricing ? "1px solid #e8e0d0" : "none", cursor: "pointer" }}>
           <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
             <DollarSign size={16} style={{ color: "#54c7a2" }} />
-            <p style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#0f1a2e", fontWeight: 600, fontSize: "1rem" }}>
+            <p style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#1a2744", fontWeight: 600, fontSize: "1rem" }}>
               Pricing & Margin — {PRESETS[activePreset].name}
             </p>
           </div>
@@ -451,7 +453,7 @@ export default function CalculatorPage() {
                 <label style={lbl}>Apply discount</label>
                 <div style={{ display: "flex", flexWrap: "wrap", gap: "0.375rem", marginBottom: "0.5rem" }}>
                   <button onClick={() => setDiscountPct(0)}
-                    style={{ padding: "0.375rem 0.75rem", borderRadius: "1rem", fontSize: "0.8rem", fontFamily: "'DM Mono', monospace", cursor: "pointer", border: "1px solid", backgroundColor: discountPct === 0 ? "#f5f3ee" : "transparent", color: discountPct === 0 ? "#0f1a2e" : "#8a7a5a", borderColor: discountPct === 0 ? "#5a6a7a" : "#e8e0d0" }}>
+                    style={{ padding: "0.375rem 0.75rem", borderRadius: "1rem", fontSize: "0.8rem", fontFamily: "'DM Mono', monospace", cursor: "pointer", border: "1px solid", backgroundColor: discountPct === 0 ? "#f5f3ee" : "transparent", color: discountPct === 0 ? "#1a2744" : "#8a7a5a", borderColor: discountPct === 0 ? "#5a6a7a" : "#e8e0d0" }}>
                     None
                   </button>
                   {DISCOUNT_PRESETS.map(p => (
@@ -522,7 +524,7 @@ export default function CalculatorPage() {
                       </div>
                     )}
                     <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "0.375rem" }}>
-                      <span style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.9rem", color: "#0f1a2e", fontWeight: 600 }}>Client pays</span>
+                      <span style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.9rem", color: "#1a2744", fontWeight: 600 }}>Client pays</span>
                       <span style={{ fontFamily: "'DM Mono', monospace", fontSize: "1.25rem", color: "#c9973a", fontWeight: 700 }}>{money((discountPct > 0 ? discountedPrice : retail) * vialsForQuote)}</span>
                     </div>
                     <div style={{ display: "flex", justifyContent: "space-between", paddingTop: "0.375rem", borderTop: "1px solid #e8e0d0" }}>
@@ -560,7 +562,7 @@ export default function CalculatorPage() {
       <div className="rounded-xl overflow-hidden" style={{ backgroundColor: "#ffffff", border: "1px solid #e8e0d0", borderTop: "2px solid #5a6a7a" }}>
         <div style={{ padding: "0.75rem 1.25rem", borderBottom: "1px solid #e8e0d0", display: "flex", alignItems: "center", gap: "0.5rem" }}>
           <Scale size={16} style={{ color: "#5a6a7a" }} />
-          <p style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#0f1a2e", fontWeight: 600, fontSize: "1rem" }}>Weight-based dose</p>
+          <p style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#1a2744", fontWeight: 600, fontSize: "1rem" }}>Weight-based dose</p>
         </div>
         <div style={{ padding: "1rem 1.25rem", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem" }}>
           <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>

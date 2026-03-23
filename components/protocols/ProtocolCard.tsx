@@ -21,13 +21,13 @@ export default function ProtocolCard({ protocol, accentColor, brandedPeptideName
       style={{
         backgroundColor: "#ffffff",
         border: "1px solid #e8e0d0",
-        borderTop: `2px solid ${accentColor}`,
+        borderTop: `3px solid ${accentColor}`,
       }}
     >
       <div className="flex items-start justify-between mb-3">
         <h3
-          className="font-semibold text-base leading-tight"
-          style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#0f1a2e" }}
+          className="leading-tight"
+          style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#1a2744", fontSize: "16px", fontWeight: 700 }}
         >
           {protocol.condition_name}
         </h3>
@@ -35,10 +35,10 @@ export default function ProtocolCard({ protocol, accentColor, brandedPeptideName
 
       <div className="mb-3">
         <p
-          className="text-xs uppercase tracking-widest mb-1"
-          style={{ fontFamily: "'DM Mono', monospace", color: "#5a6a7a" }}
+          className="mb-1"
+          style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", fontSize: "11px", fontWeight: 700, textTransform: "uppercase", color: "#5a4a3a" }}
         >
-          Primary
+          Primary peptide
         </p>
         <p className="text-sm font-medium" style={{ color: "#c9973a" }}>
           {protocol.primary_peptide}
@@ -48,10 +48,10 @@ export default function ProtocolCard({ protocol, accentColor, brandedPeptideName
       {protocol.adjunct_peptides && protocol.adjunct_peptides.length > 0 && (
         <div className="mb-4">
           <p
-            className="text-xs uppercase tracking-widest mb-1.5"
-            style={{ fontFamily: "'DM Mono', monospace", color: "#5a6a7a" }}
+            className="mb-1.5"
+            style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", fontSize: "11px", fontWeight: 700, textTransform: "uppercase", color: "#5a4a3a" }}
           >
-            Adjunct
+            Adjunct peptides
           </p>
           <div className="flex flex-wrap gap-1.5">
             {protocol.adjunct_peptides.map((p) => (
@@ -74,7 +74,7 @@ export default function ProtocolCard({ protocol, accentColor, brandedPeptideName
 
       {protocol.cycle_intro && (
         <div className="mb-4">
-          <p className="text-xs leading-relaxed" style={{ color: "#5a6a7a" }}>
+          <p className="leading-relaxed" style={{ color: "#3a4a5a", fontSize: "13px" }}>
             {expanded ? protocol.cycle_intro : `${protocol.cycle_intro.slice(0, 120)}...`}
           </p>
           {protocol.cycle_intro.length > 120 && (
@@ -122,7 +122,7 @@ export default function ProtocolCard({ protocol, accentColor, brandedPeptideName
                         border: "1px solid #eaf3de",
                       }}
                     >
-                      <span className="text-xs" style={{ color: "#0f1a2e" }}>
+                      <span className="text-xs" style={{ color: "#1a2744" }}>
                         {name}
                       </span>
                       <span
@@ -157,10 +157,9 @@ export default function ProtocolCard({ protocol, accentColor, brandedPeptideName
           <div className="flex items-center gap-1.5 mb-1.5">
             <BookLock size={11} style={{ color: "#c9973a" }} />
             <span
-              className="text-xs uppercase tracking-widest"
-              style={{ fontFamily: "'DM Mono', monospace", color: "#c9973a" }}
+              style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", fontSize: "11px", fontWeight: 700, textTransform: "uppercase", color: "#5a4a3a" }}
             >
-              Clinical Notes
+              Clinician notes
             </span>
             <span
               className="ml-auto text-xs px-1.5 py-0.5 rounded"
@@ -175,7 +174,7 @@ export default function ProtocolCard({ protocol, accentColor, brandedPeptideName
               Rx only
             </span>
           </div>
-          <p className="text-xs leading-relaxed" style={{ color: "#0f1a2e" }}>
+          <p className="leading-relaxed" style={{ color: "#3a4a5a", fontSize: "13px" }}>
             {protocol.clinical_notes}
           </p>
         </div>
@@ -211,7 +210,7 @@ export default function ProtocolCard({ protocol, accentColor, brandedPeptideName
           }}
           onMouseEnter={(e) => {
             e.currentTarget.style.backgroundColor = "#e8e0d0";
-            e.currentTarget.style.color = "#0f1a2e";
+            e.currentTarget.style.color = "#1a2744";
           }}
           onMouseLeave={(e) => {
             e.currentTarget.style.backgroundColor = "#f5f3ee";

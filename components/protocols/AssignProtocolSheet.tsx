@@ -152,7 +152,7 @@ export default function AssignProtocolSheet({ clientId, clientWeightLbs, label, 
               <div>
                 <h2
                   className="text-lg font-semibold flex items-center gap-2"
-                  style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#0f1a2e" }}
+                  style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#1a2744" }}
                 >
                   <Syringe size={16} style={{ color: "#54c7a2" }} />
                   {selected ? "Confirm Assignment" : "Assign Protocol"}
@@ -170,7 +170,7 @@ export default function AssignProtocolSheet({ clientId, clientWeightLbs, label, 
                 onClick={handleClose}
                 className="p-2 rounded-lg transition-colors"
                 style={{ color: "#5a6a7a" }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = "#0f1a2e")}
+                onMouseEnter={(e) => (e.currentTarget.style.color = "#1a2744")}
                 onMouseLeave={(e) => (e.currentTarget.style.color = "#5a6a7a")}
               >
                 <X size={18} />
@@ -196,7 +196,7 @@ export default function AssignProtocolSheet({ clientId, clientWeightLbs, label, 
                       style={{
                         backgroundColor: "#f5f3ee",
                         border: "1px solid #e8e0d0",
-                        color: "#0f1a2e",
+                        color: "#1a2744",
                       }}
                     />
                   </div>
@@ -258,7 +258,7 @@ export default function AssignProtocolSheet({ clientId, clientWeightLbs, label, 
                               <div className="flex-1 min-w-0">
                                 <p
                                   className="text-sm font-medium"
-                                  style={{ color: "#0f1a2e" }}
+                                  style={{ color: "#1a2744" }}
                                 >
                                   {p.condition_name}
                                 </p>
@@ -314,7 +314,7 @@ export default function AssignProtocolSheet({ clientId, clientWeightLbs, label, 
                     className="text-lg font-semibold mb-1"
                     style={{
                       fontFamily: "'Playfair Display', Georgia, serif",
-                      color: "#0f1a2e",
+                      color: "#1a2744",
                     }}
                   >
                     {selected.condition_name}
@@ -389,7 +389,7 @@ export default function AssignProtocolSheet({ clientId, clientWeightLbs, label, 
                         Rx only
                       </span>
                     </div>
-                    <p className="text-sm leading-relaxed" style={{ color: "#0f1a2e" }}>
+                    <p className="text-sm leading-relaxed" style={{ color: "#1a2744" }}>
                       {selected.clinical_notes}
                     </p>
                   </div>
@@ -411,7 +411,7 @@ export default function AssignProtocolSheet({ clientId, clientWeightLbs, label, 
                     style={{
                       backgroundColor: "#f5f3ee",
                       border: "1px solid #e8e0d0",
-                      color: "#0f1a2e",
+                      color: "#1a2744",
                     }}
                   />
                 </div>
@@ -442,7 +442,7 @@ export default function AssignProtocolSheet({ clientId, clientWeightLbs, label, 
                     className="flex-1 py-3 rounded-lg font-semibold text-sm"
                     style={{
                       backgroundColor: "#f5f3ee",
-                      color: "#0f1a2e",
+                      color: "#1a2744",
                       border: "1px solid #e8e0d0",
                     }}
                   >

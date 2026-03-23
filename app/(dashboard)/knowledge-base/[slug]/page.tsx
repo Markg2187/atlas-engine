@@ -69,7 +69,7 @@ export default async function ArticlePage({
 
         <h1
           className="text-3xl font-bold mb-3 leading-tight"
-          style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#0f1a2e" }}
+          style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#1a2744" }}
         >
           {article.title}
         </h1>
@@ -89,7 +89,7 @@ export default async function ArticlePage({
               >
                 {article.author_name[0]}
               </div>
-              <span className="text-sm" style={{ color: "#0f1a2e" }}>{article.author_name}</span>
+              <span className="text-sm" style={{ color: "#1a2744" }}>{article.author_name}</span>
             </div>
           )}
           {article.published_at && (
@@ -141,7 +141,7 @@ export default async function ArticlePage({
           <div
             className="prose prose-invert max-w-none"
             style={{
-              color: "#0f1a2e",
+              color: "#1a2744",
               lineHeight: "1.8",
             }}
             dangerouslySetInnerHTML={{ __html: article.content }}
@@ -183,7 +183,7 @@ export default async function ArticlePage({
         >
           <h3
             className="font-semibold mb-3"
-            style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#0f1a2e" }}
+            style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#1a2744" }}
           >
             Related Peptides
           </h3>
