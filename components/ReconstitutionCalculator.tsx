@@ -137,13 +137,13 @@ const s = {
     color: "#1a2744",
     borderRadius: "0.5rem",
     padding: "0.5rem 0.75rem",
-    fontSize: "0.875rem",
+    fontSize: "1rem",
     width: "100%",
-    fontFamily: "'DM Mono', monospace",
+    fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
   } as React.CSSProperties,
   label: {
-    fontFamily: "'DM Mono', monospace",
-    fontSize: "0.65rem",
+    fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+    fontSize: "0.75rem",
     letterSpacing: "0.08em",
     textTransform: "uppercase" as const,
     color: "#5a6a7a",
@@ -157,15 +157,15 @@ const s = {
     padding: "0.75rem 1rem",
   } as React.CSSProperties,
   resultLabel: {
-    fontSize: "0.65rem",
-    fontFamily: "'DM Mono', monospace",
+    fontSize: "0.75rem",
+    fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
     color: "#5a6a7a",
     textTransform: "uppercase" as const,
     letterSpacing: "0.06em",
     marginBottom: "0.25rem",
   } as React.CSSProperties,
   resultValue: {
-    fontFamily: "'DM Mono', monospace",
+    fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
     fontSize: "0.85rem",
     color: "#c9973a",
     fontWeight: 600,
@@ -187,8 +187,8 @@ function UnitToggle({ value, onChange }: { value: DoseUnit; onChange: (v: DoseUn
       {(["mcg", "mg"] as DoseUnit[]).map(u => (
         <button key={u} onClick={() => onChange(u)}
           style={{
-            flex: 1, padding: "0.5rem", fontSize: "0.75rem",
-            fontFamily: "'DM Mono', monospace",
+            flex: 1, padding: "0.5rem", fontSize: "0.875rem",
+            fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
             backgroundColor: value === u ? "#e8e0d0" : "transparent",
             color: value === u ? "#c9973a" : "#5a6a7a",
             border: "none", cursor: "pointer",
@@ -216,7 +216,7 @@ function SyringeIndicator({ units, syringe, reason }: { units: number; syringe: 
         <div style={{ flex: 1, height: "8px", backgroundColor: "#ffffff", borderRadius: "4px", overflow: "hidden" }}>
           <div style={{ width: `${pct}%`, height: "100%", backgroundColor: color, borderRadius: "4px", transition: "width 0.3s ease" }} />
         </div>
-        <span style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.75rem", color, minWidth: "60px", textAlign: "right" }}>
+        <span style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", fontSize: "0.875rem", color, minWidth: "60px", textAlign: "right" }}>
           {units.toFixed(1)}/{maxUnits}u
         </span>
       </div>
@@ -230,10 +230,10 @@ function VialSupplyCard({ label, vials, days, accent }: { label: string; vials: 
   return (
     <div style={{ ...s.result, textAlign: "center" }}>
       <p style={{ ...s.resultLabel, marginBottom: "0.4rem" }}>{label}</p>
-      <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "1.75rem", fontWeight: 700, color: accent, lineHeight: 1 }}>
+      <p style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", fontSize: "1.75rem", fontWeight: 700, color: accent, lineHeight: 1 }}>
         {vials}
       </p>
-      <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.65rem", color: "#5a6a7a", marginTop: "0.2rem" }}>
+      <p style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", fontSize: "0.75rem", color: "#5a6a7a", marginTop: "0.2rem" }}>
         vial{vials !== 1 ? "s" : ""}
         {days ? ` · ${days}d` : ""}
       </p>
@@ -273,7 +273,7 @@ export default function ReconstitutionCalculator({
           <p style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#1a2744", fontWeight: 600, fontSize: "0.95rem" }}>
             {peptideName ? `${peptideName} — Reconstitution` : "Reconstitution Calculator"}
           </p>
-          <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.65rem", color: "#5a6a7a" }}>
+          <p style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", fontSize: "0.75rem", color: "#5a6a7a" }}>
             Enter vial size and BAC water to calculate everything
           </p>
         </div>
@@ -288,7 +288,7 @@ export default function ReconstitutionCalculator({
           {result.dilutionWarning && (
             <div style={{ backgroundColor: "rgba(232,184,109,0.08)", border: "1px solid rgba(232,184,109,0.25)", borderRadius: "0.5rem", padding: "0.625rem 0.875rem", display: "flex", gap: "0.5rem" }}>
               <AlertTriangle size={13} style={{ color: "#e8b86d", flexShrink: 0, marginTop: 1 }} />
-              <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.65rem", color: "#e8b86d", lineHeight: 1.5 }}>
+              <p style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", fontSize: "0.75rem", color: "#e8b86d", lineHeight: 1.5 }}>
                 {result.dilutionWarning}
               </p>
             </div>
@@ -301,8 +301,8 @@ export default function ReconstitutionCalculator({
               {[2, 5, 10, 20, 50, 100, 500].map(v => (
                 <button key={v} onClick={() => setVialMg(v)}
                   style={{
-                    padding: "0.375rem 0.75rem", borderRadius: "0.375rem", fontSize: "0.75rem",
-                    fontFamily: "'DM Mono', monospace", cursor: "pointer", border: "1px solid",
+                    padding: "0.375rem 0.75rem", borderRadius: "0.375rem", fontSize: "0.875rem",
+                    fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", cursor: "pointer", border: "1px solid",
                     backgroundColor: vialMg === v ? "rgba(201,151,58,0.15)" : "#f5f3ee",
                     color: vialMg === v ? "#c9973a" : "#5a6a7a",
                     borderColor: vialMg === v ? "#c9973a" : "#e8e0d0",
@@ -324,8 +324,8 @@ export default function ReconstitutionCalculator({
               {[1, 2, 2.5, 3, 4, 5, 10].map(v => (
                 <button key={v} onClick={() => setBacMl(v)}
                   style={{
-                    padding: "0.375rem 0.75rem", borderRadius: "0.375rem", fontSize: "0.75rem",
-                    fontFamily: "'DM Mono', monospace", cursor: "pointer", border: "1px solid",
+                    padding: "0.375rem 0.75rem", borderRadius: "0.375rem", fontSize: "0.875rem",
+                    fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", cursor: "pointer", border: "1px solid",
                     backgroundColor: bacMl === v ? "rgba(84,199,162,0.12)" : "#f5f3ee",
                     color: bacMl === v ? "#54c7a2" : "#5a6a7a",
                     borderColor: bacMl === v ? "#54c7a2" : "#e8e0d0",
@@ -350,13 +350,13 @@ export default function ReconstitutionCalculator({
               {doseUnit === "mcg"
                 ? [100, 200, 250, 300, 400, 500, 600, 750, 1000].map(v => (
                   <button key={v} onClick={() => setDose(v)}
-                    style={{ padding: "0.2rem 0.5rem", borderRadius: "0.25rem", fontSize: "0.65rem", fontFamily: "'DM Mono', monospace", cursor: "pointer", backgroundColor: dose === v ? "rgba(201,151,58,0.15)" : "#f5f3ee", color: dose === v ? "#c9973a" : "#5a6a7a", border: `1px solid ${dose === v ? "#c9973a" : "#e8e0d0"}` }}>
+                    style={{ padding: "0.2rem 0.5rem", borderRadius: "0.25rem", fontSize: "0.75rem", fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", cursor: "pointer", backgroundColor: dose === v ? "rgba(201,151,58,0.15)" : "#f5f3ee", color: dose === v ? "#c9973a" : "#5a6a7a", border: `1px solid ${dose === v ? "#c9973a" : "#e8e0d0"}` }}>
                     {v}
                   </button>
                 ))
                 : [0.5, 1, 1.5, 2, 2.5, 4, 5, 10].map(v => (
                   <button key={v} onClick={() => setDose(v)}
-                    style={{ padding: "0.2rem 0.5rem", borderRadius: "0.25rem", fontSize: "0.65rem", fontFamily: "'DM Mono', monospace", cursor: "pointer", backgroundColor: dose === v ? "rgba(201,151,58,0.15)" : "#f5f3ee", color: dose === v ? "#c9973a" : "#5a6a7a", border: `1px solid ${dose === v ? "#c9973a" : "#e8e0d0"}` }}>
+                    style={{ padding: "0.2rem 0.5rem", borderRadius: "0.25rem", fontSize: "0.75rem", fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", cursor: "pointer", backgroundColor: dose === v ? "rgba(201,151,58,0.15)" : "#f5f3ee", color: dose === v ? "#c9973a" : "#5a6a7a", border: `1px solid ${dose === v ? "#c9973a" : "#e8e0d0"}` }}>
                     {v}
                   </button>
                 ))
@@ -366,7 +366,7 @@ export default function ReconstitutionCalculator({
 
           {/* Advanced toggle */}
           <button onClick={() => setShowAdvanced(p => !p)}
-            style={{ display: "flex", alignItems: "center", gap: "0.375rem", background: "none", border: "none", cursor: "pointer", color: "#5a6a7a", fontFamily: "'DM Mono', monospace", fontSize: "0.65rem", textTransform: "uppercase", letterSpacing: "0.06em", padding: 0 }}>
+            style={{ display: "flex", alignItems: "center", gap: "0.375rem", background: "none", border: "none", cursor: "pointer", color: "#5a6a7a", fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", fontSize: "0.75rem", textTransform: "uppercase", letterSpacing: "0.06em", padding: 0 }}>
             {showAdvanced ? <ChevronUp size={12} /> : <ChevronDown size={12} />}
             {showAdvanced ? "Hide" : "Show"} supply calculator
           </button>
@@ -378,7 +378,7 @@ export default function ReconstitutionCalculator({
                 <div style={{ display: "flex", gap: "0.5rem" }}>
                   {[1, 2, 3].map(v => (
                     <button key={v} onClick={() => setDailyDoses(v)}
-                      style={{ flex: 1, padding: "0.5rem", borderRadius: "0.375rem", fontSize: "0.75rem", fontFamily: "'DM Mono', monospace", cursor: "pointer", border: "1px solid", backgroundColor: dailyDoses === v ? "#f5f3ee" : "#f5f3ee", color: dailyDoses === v ? "#5a6a7a" : "#8a7a5a", borderColor: dailyDoses === v ? "#5a6a7a" : "#e8e0d0" }}>
+                      style={{ flex: 1, padding: "0.5rem", borderRadius: "0.375rem", fontSize: "0.875rem", fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", cursor: "pointer", border: "1px solid", backgroundColor: dailyDoses === v ? "#f5f3ee" : "#f5f3ee", color: dailyDoses === v ? "#5a6a7a" : "#8a7a5a", borderColor: dailyDoses === v ? "#5a6a7a" : "#e8e0d0" }}>
                       {v}x/day
                     </button>
                   ))}
@@ -389,7 +389,7 @@ export default function ReconstitutionCalculator({
                 <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
                   {[21, 30, 60, 90, 180, 365].map(v => (
                     <button key={v} onClick={() => setProtocolDays(v)}
-                      style={{ padding: "0.375rem 0.625rem", borderRadius: "0.375rem", fontSize: "0.7rem", fontFamily: "'DM Mono', monospace", cursor: "pointer", border: "1px solid", backgroundColor: protocolDays === v ? "#f5f3ee" : "#f5f3ee", color: protocolDays === v ? "#5a6a7a" : "#8a7a5a", borderColor: protocolDays === v ? "#5a6a7a" : "#e8e0d0" }}>
+                      style={{ padding: "0.375rem 0.625rem", borderRadius: "0.375rem", fontSize: "0.8rem", fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", cursor: "pointer", border: "1px solid", backgroundColor: protocolDays === v ? "#f5f3ee" : "#f5f3ee", color: protocolDays === v ? "#5a6a7a" : "#8a7a5a", borderColor: protocolDays === v ? "#5a6a7a" : "#e8e0d0" }}>
                       {v === 30 ? "1mo" : v === 60 ? "2mo" : v === 90 ? "3mo" : v === 180 ? "6mo" : v === 365 ? "1yr" : `${v}d`}
                     </button>
                   ))}
@@ -421,9 +421,9 @@ export default function ReconstitutionCalculator({
           <div style={{ ...s.result, borderColor: "#c9973a", borderWidth: "1px" }}>
             <p style={s.resultLabel}>Draw on syringe</p>
             <p style={{ ...s.resultValue, fontSize: "1.5rem", color: "#c9973a" }}>
-              {result.unitsU100.toFixed(1)} <span style={{ fontSize: "0.75rem", color: "#5a6a7a" }}>units (U-100)</span>
+              {result.unitsU100.toFixed(1)} <span style={{ fontSize: "0.875rem", color: "#5a6a7a" }}>units (U-100)</span>
             </p>
-            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.7rem", color: "#5a6a7a", marginTop: "0.25rem" }}>
+            <p style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", fontSize: "0.8rem", color: "#5a6a7a", marginTop: "0.25rem" }}>
               = {result.volumePerDoseMl.toFixed(3)} ml
             </p>
           </div>
@@ -441,7 +441,7 @@ export default function ReconstitutionCalculator({
           {result.splitDoseWarning && (
             <div style={{ backgroundColor: "rgba(224,90,106,0.08)", border: "1px solid rgba(224,90,106,0.25)", borderRadius: "0.5rem", padding: "0.625rem 0.875rem", display: "flex", gap: "0.5rem" }}>
               <AlertTriangle size={13} style={{ color: "#e05a6a", flexShrink: 0, marginTop: 1 }} />
-              <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.65rem", color: "#e05a6a", lineHeight: 1.5 }}>
+              <p style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", fontSize: "0.75rem", color: "#e05a6a", lineHeight: 1.5 }}>
                 {result.splitDoseWarning}
               </p>
             </div>
@@ -470,8 +470,8 @@ export default function ReconstitutionCalculator({
             { label: "Doses/vial", formula: `floor(${vialMg * 1000}mcg ÷ ${result.doseInMcg}mcg) = ${result.dosesPerVial}` },
           ].map(({ label, formula }) => (
             <div key={label} style={{ flex: "1 1 200px" }}>
-              <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.6rem", color: "#c9973a", textTransform: "uppercase", letterSpacing: "0.06em" }}>{label}</p>
-              <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.65rem", color: "#8a7a5a", marginTop: "0.125rem" }}>{formula}</p>
+              <p style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", fontSize: "0.7rem", color: "#c9973a", textTransform: "uppercase", letterSpacing: "0.06em" }}>{label}</p>
+              <p style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", fontSize: "0.75rem", color: "#8a7a5a", marginTop: "0.125rem" }}>{formula}</p>
             </div>
           ))}
         </div>

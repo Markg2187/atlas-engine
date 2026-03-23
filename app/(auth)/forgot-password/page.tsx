@@ -50,7 +50,7 @@ export default function ForgotPasswordPage() {
           >
             Atlas Engine
           </h1>
-          <p className="mt-1 text-sm" style={{ color: "#5a6a7a" }}>
+          <p className="mt-1 text-base" style={{ color: "#5a6a7a" }}>
             Peptide Protocol Management Platform
           </p>
         </div>
@@ -74,7 +74,7 @@ export default function ForgotPasswordPage() {
           {sent ? (
             <div>
               <div
-                className="rounded-lg px-4 py-4 text-sm mb-6"
+                className="rounded-lg px-4 py-4 text-base mb-6"
                 style={{
                   backgroundColor: "#eaf3de",
                   border: "1px solid #c0dd97",
@@ -85,23 +85,23 @@ export default function ForgotPasswordPage() {
               </div>
               <Link
                 href="/login"
-                className="block text-center text-sm"
-                style={{ color: "#c9973a", fontFamily: "'DM Mono', monospace" }}
+                className="block text-center text-base"
+                style={{ color: "#c9973a", fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}
               >
                 ← Back to sign in
               </Link>
             </div>
           ) : (
             <>
-              <p className="text-sm mb-6" style={{ color: "#5a6a7a" }}>
+              <p className="text-base mb-6" style={{ color: "#5a6a7a" }}>
                 Enter your email address and we'll send you a link to reset your password.
               </p>
 
               <form onSubmit={handleSubmit} className="space-y-5">
                 <div>
                   <label
-                    className="block text-xs uppercase tracking-widest mb-2"
-                    style={{ fontFamily: "'DM Mono', monospace", color: "#5a6a7a" }}
+                    className="block text-sm uppercase tracking-widest mb-2"
+                    style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", color: "#5a6a7a" }}
                   >
                     Email Address
                   </label>
@@ -111,7 +111,7 @@ export default function ForgotPasswordPage() {
                     onChange={(e) => setEmail(e.target.value)}
                     required
                     placeholder="you@clinic.com"
-                    className="w-full rounded-lg px-4 py-3 text-sm transition-all focus:outline-none"
+                    className="w-full rounded-lg px-4 py-3 text-base transition-all focus:outline-none"
                     style={{
                       backgroundColor: "#f5f3ee",
                       border: "1px solid #e8e0d0",
@@ -130,7 +130,7 @@ export default function ForgotPasswordPage() {
 
                 {error && (
                   <div
-                    className="rounded-lg px-4 py-3 text-sm"
+                    className="rounded-lg px-4 py-3 text-base"
                     style={{
                       backgroundColor: "rgba(224, 90, 106, 0.1)",
                       border: "1px solid #f7c1c1",
@@ -144,7 +144,7 @@ export default function ForgotPasswordPage() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full py-3 rounded-lg font-semibold text-sm transition-all"
+                  className="w-full py-3 rounded-lg font-semibold text-base transition-all"
                   style={{
                     backgroundColor: loading ? "#a87c2e" : "#c9973a",
                     color: "#0b1120",
@@ -159,8 +159,8 @@ export default function ForgotPasswordPage() {
               <div className="mt-5 text-center">
                 <Link
                   href="/login"
-                  className="text-xs transition-colors"
-                  style={{ color: "#5a6a7a", fontFamily: "'DM Mono', monospace" }}
+                  className="text-sm transition-colors"
+                  style={{ color: "#5a6a7a", fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}
                   onMouseEnter={(e) => (e.currentTarget.style.color = "#c9973a")}
                   onMouseLeave={(e) => (e.currentTarget.style.color = "#5a6a7a")}
                 >

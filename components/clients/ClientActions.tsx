@@ -120,7 +120,7 @@ export default function ClientActions({ clientId, clientStatus, clientName, clie
     textTransform: "uppercase" as const,
     letterSpacing: "0.08em",
     color: "#5a6a7a",
-    fontFamily: "'DM Mono', monospace",
+    fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
     marginBottom: "4px",
   };
 
@@ -130,12 +130,12 @@ export default function ClientActions({ clientId, clientStatus, clientName, clie
         {/* Edit Profile button */}
         <button
           onClick={openEditModal}
-          className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs transition-all"
+          className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm transition-all"
           style={{
             backgroundColor: "rgba(201,151,58,0.1)",
             color: "#c9973a",
             border: "1px solid rgba(201,151,58,0.3)",
-            fontFamily: "'DM Mono', monospace",
+            fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
           }}
           onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "rgba(201,151,58,0.18)")}
           onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "rgba(201,151,58,0.1)")}
@@ -147,12 +147,12 @@ export default function ClientActions({ clientId, clientStatus, clientName, clie
         <button
           onClick={handleArchive}
           disabled={archiving}
-          className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs transition-all"
+          className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm transition-all"
           style={{
             backgroundColor: isArchived ? "rgba(84,199,162,0.1)" : "rgba(110,136,176,0.1)",
             color: isArchived ? "#54c7a2" : "#5a6a7a",
             border: `1px solid ${isArchived ? "#c0dd97" : "#e8e0d0"}`,
-            fontFamily: "'DM Mono', monospace",
+            fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
           }}
           onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.8")}
           onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
@@ -164,12 +164,12 @@ export default function ClientActions({ clientId, clientStatus, clientName, clie
         {role === "super_admin" && (
           <button
             onClick={() => setShowDeleteDialog(true)}
-            className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs transition-all"
+            className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm transition-all"
             style={{
               backgroundColor: "rgba(224,90,106,0.08)",
               color: "#e05a6a",
               border: "1px solid rgba(224,90,106,0.25)",
-              fontFamily: "'DM Mono', monospace",
+              fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
             }}
             onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#fcebeb")}
             onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "rgba(224,90,106,0.08)")}
@@ -359,25 +359,25 @@ export default function ClientActions({ clientId, clientStatus, clientName, clie
               </h3>
             </div>
 
-            <p className="text-sm mb-3 leading-relaxed" style={{ color: "#1a2744" }}>
+            <p className="text-base mb-3 leading-relaxed" style={{ color: "#1a2744" }}>
               You are permanently deleting <strong>{clientName}</strong> and all associated records.
             </p>
 
             <div
-              className="text-xs px-3 py-2 rounded-lg mb-5"
+              className="text-sm px-3 py-2 rounded-lg mb-5"
               style={{
                 color: "#e05a6a",
                 backgroundColor: "rgba(224,90,106,0.08)",
                 border: "1px solid rgba(224,90,106,0.2)",
-                fontFamily: "'DM Mono', monospace",
+                fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
               }}
             >
               This cannot be undone.
             </div>
 
             <label
-              className="block text-xs mb-1.5"
-              style={{ color: "#5a6a7a", fontFamily: "'DM Mono', monospace" }}
+              className="block text-sm mb-1.5"
+              style={{ color: "#5a6a7a", fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}
             >
               Type DELETE to confirm
             </label>
@@ -387,12 +387,12 @@ export default function ClientActions({ clientId, clientStatus, clientName, clie
               onChange={(e) => setDeleteConfirm(e.target.value)}
               placeholder="DELETE"
               autoFocus
-              className="w-full px-3 py-2.5 rounded-lg text-sm mb-4 focus:outline-none"
+              className="w-full px-3 py-2.5 rounded-lg text-base mb-4 focus:outline-none"
               style={{
                 backgroundColor: "#f5f3ee",
                 border: `1px solid ${deleteConfirm === "DELETE" ? "#e05a6a" : "#e8e0d0"}`,
                 color: "#1a2744",
-                fontFamily: "'DM Mono', monospace",
+                fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
                 letterSpacing: "0.05em",
               }}
             />
@@ -400,7 +400,7 @@ export default function ClientActions({ clientId, clientStatus, clientName, clie
             <div className="flex gap-2">
               <button
                 onClick={() => { setShowDeleteDialog(false); setDeleteConfirm(""); }}
-                className="flex-1 py-2.5 rounded-lg text-sm transition-all"
+                className="flex-1 py-2.5 rounded-lg text-base transition-all"
                 style={{
                   backgroundColor: "#f5f3ee",
                   color: "#5a6a7a",
@@ -414,7 +414,7 @@ export default function ClientActions({ clientId, clientStatus, clientName, clie
               <button
                 onClick={handleDelete}
                 disabled={deleteConfirm !== "DELETE" || deleting}
-                className="flex-1 py-2.5 rounded-lg text-sm font-semibold transition-all"
+                className="flex-1 py-2.5 rounded-lg text-base font-semibold transition-all"
                 style={{
                   backgroundColor: deleteConfirm === "DELETE" ? "#e05a6a" : "#fcebeb",
                   color: deleteConfirm === "DELETE" ? "#fff" : "rgba(224,90,106,0.4)",

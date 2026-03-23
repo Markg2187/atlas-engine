@@ -435,13 +435,13 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
     color: "#1a2744",
     borderRadius: "0.5rem",
     padding: "0.625rem 0.875rem",
-    fontSize: "0.875rem",
+    fontSize: "1rem",
     width: "100%",
   };
 
   const labelStyle: React.CSSProperties = {
-    fontFamily: "'DM Mono', monospace",
-    fontSize: "0.65rem",
+    fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+    fontSize: "0.75rem",
     letterSpacing: "0.1em",
     textTransform: "uppercase",
     color: "#5a6a7a",
@@ -483,18 +483,18 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
         </button>
         <div className="flex-1 min-w-0">
           <p
-            className="text-xs font-medium"
+            className="text-sm font-medium"
             style={{ color: enabled ? "#1a2744" : "#5a6a7a" }}
           >
             {name}
           </p>
           {reason && (
             <p
-              className="text-xs mt-0.5 leading-relaxed"
+              className="text-sm mt-0.5 leading-relaxed"
               style={{
                 color: "#e8b86d",
-                fontFamily: "'DM Mono', monospace",
-                fontSize: "0.6rem",
+                fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+                fontSize: "0.7rem",
               }}
             >
               ⚠ Disabled — {reason}. Enable only if provider has cleared.
@@ -539,20 +539,20 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
             <div className="flex-1">
               {badge && (
                 <span
-                  className="inline-block text-xs px-1.5 py-0.5 rounded mb-1.5"
+                  className="inline-block text-sm px-1.5 py-0.5 rounded mb-1.5"
                   style={{
-                    fontSize: "0.55rem",
+                    fontSize: "0.65rem",
                     backgroundColor: "#eaf3de",
                     color: "#54c7a2",
                     border: "1px solid #c0dd97",
-                    fontFamily: "'DM Mono', monospace",
+                    fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
                   }}
                 >
                   {badge}
                 </span>
               )}
               <p
-                className="text-sm font-semibold"
+                className="text-base font-semibold"
                 style={{
                   color: isSelected ? accentColor : "#1a2744",
                   fontFamily: "'Playfair Display', Georgia, serif",
@@ -561,8 +561,8 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
                 {protocol.condition_name}
               </p>
               <p
-                className="text-xs mt-0.5"
-                style={{ color: "#5a6a7a", fontFamily: "'DM Mono', monospace" }}
+                className="text-sm mt-0.5"
+                style={{ color: "#5a6a7a", fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}
               >
                 {protocol.primary_peptide} · {protocol.category}
               </p>
@@ -629,8 +629,8 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
               New Client Intake
             </h2>
             <p
-              className="text-xs mt-0.5"
-              style={{ color: "#5a6a7a", fontFamily: "'DM Mono', monospace" }}
+              className="text-sm mt-0.5"
+              style={{ color: "#5a6a7a", fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}
             >
               Step {step + 1} of {STEPS.length} — {STEPS[step]}
             </p>
@@ -712,8 +712,8 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
                   className="focus:outline-none"
                 />
                 <p
-                  className="text-xs mt-1"
-                  style={{ color: "#5a6a7a", fontFamily: "'DM Mono', monospace" }}
+                  className="text-sm mt-1"
+                  style={{ color: "#5a6a7a", fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}
                 >
                   Phone is the unique client identifier
                 </p>
@@ -771,8 +771,8 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
                   <Shield size={13} style={{ color: "#5a6a7a" }} />
                   <p
                     style={{
-                      fontFamily: "'DM Mono', monospace",
-                      fontSize: "0.65rem",
+                      fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+                      fontSize: "0.75rem",
                       letterSpacing: "0.1em",
                       textTransform: "uppercase",
                       color: "#5a6a7a",
@@ -781,13 +781,13 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
                     Link Screening Record
                   </p>
                   <span
-                    className="ml-auto text-xs px-1.5 py-0.5 rounded"
+                    className="ml-auto text-sm px-1.5 py-0.5 rounded"
                     style={{
-                      fontSize: "0.55rem",
+                      fontSize: "0.65rem",
                       color: "#5a6a7a",
                       backgroundColor: "rgba(110,136,176,0.1)",
                       border: "1px solid rgba(110,136,176,0.2)",
-                      fontFamily: "'DM Mono', monospace",
+                      fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
                     }}
                   >
                     Optional
@@ -807,12 +807,12 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
                   <button
                     onClick={lookupScreening}
                     disabled={screeningLoading}
-                    className="px-4 py-2 rounded-lg text-xs font-semibold flex-shrink-0 transition-colors"
+                    className="px-4 py-2 rounded-lg text-sm font-semibold flex-shrink-0 transition-colors"
                     style={{
                       backgroundColor: "#e8e0d0",
                       color: "#1a2744",
                       border: "1px solid #2a4066",
-                      fontFamily: "'DM Mono', monospace",
+                      fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
                       opacity: screeningLoading ? 0.7 : 1,
                     }}
                     onMouseEnter={(e) =>
@@ -837,10 +837,10 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
                     <div className="flex items-center gap-2">
                       <ShieldCheck size={13} style={{ color: "#54c7a2" }} />
                       <p
-                        className="text-xs font-medium"
+                        className="text-sm font-medium"
                         style={{
                           color: "#54c7a2",
-                          fontFamily: "'DM Mono', monospace",
+                          fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
                         }}
                       >
                         Screening record found
@@ -851,13 +851,13 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
                         {screeningRecord.safety_flags.map((flag) => (
                           <span
                             key={flag}
-                            className="text-xs px-2 py-0.5 rounded-full"
+                            className="text-sm px-2 py-0.5 rounded-full"
                             style={{
                               backgroundColor: "rgba(232,184,109,0.12)",
                               color: "#e8b86d",
                               border: "1px solid #fac775",
-                              fontFamily: "'DM Mono', monospace",
-                              fontSize: "0.6rem",
+                              fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+                              fontSize: "0.7rem",
                             }}
                           >
                             ⚠ {flag}
@@ -877,10 +877,10 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
                     }}
                   >
                     <p
-                      className="text-xs"
+                      className="text-sm"
                       style={{
                         color: "#e8b86d",
-                        fontFamily: "'DM Mono', monospace",
+                        fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
                       }}
                     >
                       ⚠ No screening record found — intake can continue without
@@ -894,7 +894,7 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
                 onClick={() => {
                   if (validateStep1()) setStep(1);
                 }}
-                className="w-full py-3 rounded-lg font-semibold text-sm flex items-center justify-center gap-2"
+                className="w-full py-3 rounded-lg font-semibold text-base flex items-center justify-center gap-2"
                 style={{ backgroundColor: "#c9973a", color: "#0b1120" }}
               >
                 Continue <ChevronRight size={16} />
@@ -929,10 +929,10 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
                       >
                         <div className="text-lg mb-1">{tile.emoji}</div>
                         <p
-                          className="text-xs font-medium leading-tight"
+                          className="text-sm font-medium leading-tight"
                           style={{
                             color: active ? "#c9973a" : "#1a2744",
-                            fontFamily: "'DM Mono', monospace",
+                            fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
                           }}
                         >
                           {tile.label}
@@ -960,12 +960,12 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
                     {addedConditions.map((c) => (
                       <span
                         key={c}
-                        className="flex items-center gap-1 text-xs px-2.5 py-1 rounded-full"
+                        className="flex items-center gap-1 text-sm px-2.5 py-1 rounded-full"
                         style={{
                           backgroundColor: "rgba(84,199,162,0.1)",
                           color: "#54c7a2",
                           border: "1px solid rgba(84,199,162,0.25)",
-                          fontFamily: "'DM Mono', monospace",
+                          fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
                         }}
                       >
                         {c}
@@ -1002,7 +1002,7 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
 
                 {/* Category accordion */}
                 {browseLoading ? (
-                  <p className="text-xs py-3 text-center" style={{ color: "#5a6a7a" }}>
+                  <p className="text-sm py-3 text-center" style={{ color: "#5a6a7a" }}>
                     Loading...
                   </p>
                 ) : (
@@ -1030,7 +1030,7 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
                       const cats = Object.keys(grouped).sort();
                       if (cats.length === 0)
                         return (
-                          <p className="text-xs px-4 py-3" style={{ color: "#5a6a7a" }}>
+                          <p className="text-sm px-4 py-3" style={{ color: "#5a6a7a" }}>
                             No conditions match
                           </p>
                         );
@@ -1044,12 +1044,12 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
                               onClick={() => toggleCategory(cat)}
                             >
                               <span
-                                className="text-xs font-medium"
-                                style={{ color: "#5a6a7a", fontFamily: "'DM Mono', monospace" }}
+                                className="text-sm font-medium"
+                                style={{ color: "#5a6a7a", fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}
                               >
                                 {cat}
                               </span>
-                              <span className="text-xs" style={{ color: "#8a7a5a" }}>
+                              <span className="text-sm" style={{ color: "#8a7a5a" }}>
                                 {grouped[cat].length} · {open ? "▲" : "▼"}
                               </span>
                             </button>
@@ -1083,14 +1083,14 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
                                   >
                                     <div className="flex-1 min-w-0">
                                       <p
-                                        className="text-xs font-medium"
+                                        className="text-sm font-medium"
                                         style={{ color: already ? "#54c7a2" : "#1a2744" }}
                                       >
                                         {p.condition_name}
                                       </p>
                                       <p
-                                        className="text-xs mt-0.5"
-                                        style={{ color: "#5a6a7a", fontFamily: "'DM Mono', monospace", fontSize: "0.6rem" }}
+                                        className="text-sm mt-0.5"
+                                        style={{ color: "#5a6a7a", fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", fontSize: "0.7rem" }}
                                       >
                                         {p.primary_peptide}
                                       </p>
@@ -1121,9 +1121,9 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
                       <button
                         key={flag}
                         onClick={() => toggleFlag(flag)}
-                        className="text-xs px-3 py-1.5 rounded-full transition-all"
+                        className="text-sm px-3 py-1.5 rounded-full transition-all"
                         style={{
-                          fontFamily: "'DM Mono', monospace",
+                          fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
                           backgroundColor: active
                             ? "#faeeda"
                             : "#f5f3ee",
@@ -1155,8 +1155,8 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
                 >
                   <p
                     style={{
-                      fontFamily: "'DM Mono', monospace",
-                      fontSize: "0.6rem",
+                      fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+                      fontSize: "0.7rem",
                       letterSpacing: "0.1em",
                       textTransform: "uppercase",
                       color: "#c9973a",
@@ -1169,12 +1169,12 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
                       {selectedGoals.map((g) => (
                         <span
                           key={g}
-                          className="text-xs px-2 py-0.5 rounded-full"
+                          className="text-sm px-2 py-0.5 rounded-full"
                           style={{
                             backgroundColor: "rgba(201,151,58,0.1)",
                             color: "#c9973a",
-                            fontFamily: "'DM Mono', monospace",
-                            fontSize: "0.6rem",
+                            fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+                            fontSize: "0.7rem",
                           }}
                         >
                           {GOAL_TILES.find((t) => t.id === g)?.label}
@@ -1187,12 +1187,12 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
                       {addedConditions.map((c) => (
                         <span
                           key={c}
-                          className="text-xs px-2 py-0.5 rounded-full"
+                          className="text-sm px-2 py-0.5 rounded-full"
                           style={{
                             backgroundColor: "rgba(84,199,162,0.1)",
                             color: "#54c7a2",
-                            fontFamily: "'DM Mono', monospace",
-                            fontSize: "0.6rem",
+                            fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+                            fontSize: "0.7rem",
                           }}
                         >
                           {c}
@@ -1207,12 +1207,12 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
                         .map((f) => (
                           <span
                             key={f}
-                            className="text-xs px-2 py-0.5 rounded-full"
+                            className="text-sm px-2 py-0.5 rounded-full"
                             style={{
                               backgroundColor: "rgba(232,184,109,0.1)",
                               color: "#e8b86d",
-                              fontFamily: "'DM Mono', monospace",
-                              fontSize: "0.6rem",
+                              fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+                              fontSize: "0.7rem",
                             }}
                           >
                             ⚠ {f}
@@ -1226,7 +1226,7 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
               <div className="flex gap-3 pt-2">
                 <button
                   onClick={() => setStep(0)}
-                  className="flex-1 py-3 rounded-lg font-semibold text-sm flex items-center justify-center gap-2"
+                  className="flex-1 py-3 rounded-lg font-semibold text-base flex items-center justify-center gap-2"
                   style={{
                     backgroundColor: "#f5f3ee",
                     color: "#1a2744",
@@ -1237,7 +1237,7 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
                 </button>
                 <button
                   onClick={() => setStep(2)}
-                  className="flex-1 py-3 rounded-lg font-semibold text-sm flex items-center justify-center gap-2"
+                  className="flex-1 py-3 rounded-lg font-semibold text-base flex items-center justify-center gap-2"
                   style={{ backgroundColor: "#c9973a", color: "#0b1120" }}
                 >
                   Continue <ChevronRight size={16} />
@@ -1309,16 +1309,16 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
                 />
                 <div>
                   <p
-                    className="text-xs font-medium"
+                    className="text-sm font-medium"
                     style={{ color: "#5a6a7a" }}
                   >
                     Lab Work — Coming Soon
                   </p>
                   <p
-                    className="text-xs mt-0.5"
+                    className="text-sm mt-0.5"
                     style={{
                       color: "rgba(110,136,176,0.5)",
-                      fontFamily: "'DM Mono', monospace",
+                      fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
                     }}
                   >
                     Lab result upload and parsing will be available here
@@ -1329,7 +1329,7 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
               <div className="flex gap-3 pt-2">
                 <button
                   onClick={() => setStep(1)}
-                  className="flex-1 py-3 rounded-lg font-semibold text-sm flex items-center justify-center gap-2"
+                  className="flex-1 py-3 rounded-lg font-semibold text-base flex items-center justify-center gap-2"
                   style={{
                     backgroundColor: "#f5f3ee",
                     color: "#1a2744",
@@ -1340,7 +1340,7 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
                 </button>
                 <button
                   onClick={() => setStep(3)}
-                  className="flex-1 py-3 rounded-lg font-semibold text-sm flex items-center justify-center gap-2"
+                  className="flex-1 py-3 rounded-lg font-semibold text-base flex items-center justify-center gap-2"
                   style={{ backgroundColor: "#c9973a", color: "#0b1120" }}
                 >
                   Continue <ChevronRight size={16} />
@@ -1354,7 +1354,7 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
             <div className="space-y-5">
               {protocolsLoading ? (
                 <p
-                  className="text-sm py-8 text-center"
+                  className="text-base py-8 text-center"
                   style={{ color: "#5a6a7a" }}
                 >
                   Loading protocols...
@@ -1432,7 +1432,7 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
                         backgroundColor: "rgba(110,136,176,0.03)",
                       }}
                     >
-                      <p className="text-xs" style={{ color: "#5a6a7a" }}>
+                      <p className="text-sm" style={{ color: "#5a6a7a" }}>
                         Build a custom protocol after creating the client —
                         use the Protocol Selector or Custom Builder from the
                         client&apos;s profile.
@@ -1443,7 +1443,7 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
                   <div className="flex gap-3 pt-2">
                     <button
                       onClick={() => setStep(2)}
-                      className="flex-1 py-3 rounded-lg font-semibold text-sm flex items-center justify-center gap-2"
+                      className="flex-1 py-3 rounded-lg font-semibold text-base flex items-center justify-center gap-2"
                       style={{
                         backgroundColor: "#f5f3ee",
                         color: "#1a2744",
@@ -1454,7 +1454,7 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
                     </button>
                     <button
                       onClick={() => setStep(4)}
-                      className="flex-1 py-3 rounded-lg font-semibold text-sm flex items-center justify-center gap-2"
+                      className="flex-1 py-3 rounded-lg font-semibold text-base flex items-center justify-center gap-2"
                       style={{ backgroundColor: "#c9973a", color: "#0b1120" }}
                     >
                       Review <ChevronRight size={16} />
@@ -1477,7 +1477,7 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
                 }}
               >
                 <h3
-                  className="font-semibold text-sm"
+                  className="font-semibold text-base"
                   style={{
                     color: "#c9973a",
                     fontFamily: "'Playfair Display', Georgia, serif",
@@ -1531,13 +1531,13 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
                 ).map(([label, value]) => (
                   <div
                     key={label}
-                    className="flex justify-between gap-4 text-sm"
+                    className="flex justify-between gap-4 text-base"
                   >
                     <span
                       style={{
                         color: "#5a6a7a",
-                        fontFamily: "'DM Mono', monospace",
-                        fontSize: "0.7rem",
+                        fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+                        fontSize: "0.8rem",
                         flexShrink: 0,
                       }}
                     >
@@ -1564,9 +1564,9 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
                     <button
                       key={status}
                       onClick={() => setPaymentStatus(status)}
-                      className="flex-1 py-2.5 rounded-lg text-xs font-semibold transition-all"
+                      className="flex-1 py-2.5 rounded-lg text-sm font-semibold transition-all"
                       style={{
-                        fontFamily: "'DM Mono', monospace",
+                        fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
                         backgroundColor:
                           paymentStatus === status
                             ? status === "paid"
@@ -1597,7 +1597,7 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
               <div className="flex gap-3 pt-2">
                 <button
                   onClick={() => setStep(3)}
-                  className="flex-1 py-3 rounded-lg font-semibold text-sm flex items-center justify-center gap-2"
+                  className="flex-1 py-3 rounded-lg font-semibold text-base flex items-center justify-center gap-2"
                   style={{
                     backgroundColor: "#f5f3ee",
                     color: "#1a2744",
@@ -1609,7 +1609,7 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
                 <button
                   onClick={handleSubmit}
                   disabled={submitting}
-                  className="flex-1 py-3 rounded-lg font-semibold text-sm flex items-center justify-center gap-2"
+                  className="flex-1 py-3 rounded-lg font-semibold text-base flex items-center justify-center gap-2"
                   style={{
                     backgroundColor: "#c9973a",
                     color: "#0b1120",
@@ -1650,7 +1650,7 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
                 >
                   {firstName} {lastName}
                 </h3>
-                <p className="text-sm" style={{ color: "#5a6a7a" }}>
+                <p className="text-base" style={{ color: "#5a6a7a" }}>
                   Client successfully created
                 </p>
               </div>
@@ -1683,13 +1683,13 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
                 ).map(([label, value]) => (
                   <div
                     key={label}
-                    className="flex justify-between text-sm"
+                    className="flex justify-between text-base"
                   >
                     <span
                       style={{
                         color: "#5a6a7a",
-                        fontFamily: "'DM Mono', monospace",
-                        fontSize: "0.7rem",
+                        fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+                        fontSize: "0.8rem",
                       }}
                     >
                       {label}
@@ -1708,14 +1708,14 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
                       router.push(`/clients/${createdClientId}`);
                     onSuccess();
                   }}
-                  className="w-full py-3 rounded-lg font-semibold text-sm flex items-center justify-center gap-2"
+                  className="w-full py-3 rounded-lg font-semibold text-base flex items-center justify-center gap-2"
                   style={{ backgroundColor: "#c9973a", color: "#0b1120" }}
                 >
                   <User size={15} /> View Client Profile
                 </button>
                 <button
                   onClick={resetForm}
-                  className="w-full py-3 rounded-lg font-semibold text-sm flex items-center justify-center gap-2"
+                  className="w-full py-3 rounded-lg font-semibold text-base flex items-center justify-center gap-2"
                   style={{
                     backgroundColor: "#f5f3ee",
                     color: "#1a2744",

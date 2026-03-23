@@ -115,11 +115,11 @@ export default function AssignProtocolSheet({ clientId, clientWeightLbs, label, 
     <>
       <button
         onClick={() => setOpen(true)}
-        className="text-xs px-3 py-1.5 rounded-lg transition-all"
+        className="text-sm px-3 py-1.5 rounded-lg transition-all"
         style={{
           color: "#c9973a",
           border: "1px solid rgba(201,151,58,0.3)",
-          fontFamily: "'DM Mono', monospace",
+          fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
         }}
         onMouseEnter={(e) => {
           e.currentTarget.style.backgroundColor = "rgba(201,151,58,0.1)";
@@ -159,8 +159,8 @@ export default function AssignProtocolSheet({ clientId, clientWeightLbs, label, 
                 </h2>
                 {!selected && (
                   <p
-                    className="text-xs mt-0.5"
-                    style={{ color: "#5a6a7a", fontFamily: "'DM Mono', monospace" }}
+                    className="text-sm mt-0.5"
+                    style={{ color: "#5a6a7a", fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}
                   >
                     {loading ? "Loading..." : `${protocols.length} protocols available`}
                   </p>
@@ -192,7 +192,7 @@ export default function AssignProtocolSheet({ clientId, clientWeightLbs, label, 
                       value={search}
                       onChange={(e) => setSearch(e.target.value)}
                       placeholder="Search by condition, peptide, or category..."
-                      className="w-full pl-9 pr-4 py-2.5 rounded-lg text-sm focus:outline-none"
+                      className="w-full pl-9 pr-4 py-2.5 rounded-lg text-base focus:outline-none"
                       style={{
                         backgroundColor: "#f5f3ee",
                         border: "1px solid #e8e0d0",
@@ -206,13 +206,13 @@ export default function AssignProtocolSheet({ clientId, clientWeightLbs, label, 
                 <div className="flex-1 overflow-y-auto">
                   {loading ? (
                     <div className="flex items-center justify-center py-20">
-                      <p className="text-sm" style={{ color: "#5a6a7a" }}>
+                      <p className="text-base" style={{ color: "#5a6a7a" }}>
                         Loading protocols...
                       </p>
                     </div>
                   ) : Object.entries(byCategory).length === 0 ? (
                     <div className="flex items-center justify-center py-20">
-                      <p className="text-sm" style={{ color: "#5a6a7a" }}>
+                      <p className="text-base" style={{ color: "#5a6a7a" }}>
                         No protocols found
                       </p>
                     </div>
@@ -228,9 +228,9 @@ export default function AssignProtocolSheet({ clientId, clientWeightLbs, label, 
                           }}
                         >
                           <p
-                            className="text-xs uppercase tracking-widest"
+                            className="text-sm uppercase tracking-widest"
                             style={{
-                              fontFamily: "'DM Mono', monospace",
+                              fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
                               color: categoryColors[category] || "#5a6a7a",
                             }}
                           >
@@ -257,22 +257,22 @@ export default function AssignProtocolSheet({ clientId, clientWeightLbs, label, 
                             <div className="flex items-start justify-between gap-3">
                               <div className="flex-1 min-w-0">
                                 <p
-                                  className="text-sm font-medium"
+                                  className="text-base font-medium"
                                   style={{ color: "#1a2744" }}
                                 >
                                   {p.condition_name}
                                 </p>
                                 <p
-                                  className="text-xs mt-0.5"
+                                  className="text-sm mt-0.5"
                                   style={{
                                     color: "#c9973a",
-                                    fontFamily: "'DM Mono', monospace",
+                                    fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
                                   }}
                                 >
                                   {p.primary_peptide}
                                 </p>
                                 {p.adjunct_peptides && p.adjunct_peptides.length > 0 && (
-                                  <p className="text-xs mt-0.5" style={{ color: "#5a6a7a" }}>
+                                  <p className="text-sm mt-0.5" style={{ color: "#5a6a7a" }}>
                                     +{p.adjunct_peptides.slice(0, 2).join(", ")}
                                     {p.adjunct_peptides.length > 2 &&
                                       ` +${p.adjunct_peptides.length - 2} more`}
@@ -305,8 +305,8 @@ export default function AssignProtocolSheet({ clientId, clientWeightLbs, label, 
                   }}
                 >
                   <p
-                    className="text-xs uppercase tracking-widest mb-2"
-                    style={{ fontFamily: "'DM Mono', monospace", color: "#5a6a7a" }}
+                    className="text-sm uppercase tracking-widest mb-2"
+                    style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", color: "#5a6a7a" }}
                   >
                     Selected Protocol
                   </p>
@@ -320,8 +320,8 @@ export default function AssignProtocolSheet({ clientId, clientWeightLbs, label, 
                     {selected.condition_name}
                   </h3>
                   <p
-                    className="text-sm"
-                    style={{ color: "#c9973a", fontFamily: "'DM Mono', monospace" }}
+                    className="text-base"
+                    style={{ color: "#c9973a", fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}
                   >
                     {selected.primary_peptide}
                   </p>
@@ -330,12 +330,12 @@ export default function AssignProtocolSheet({ clientId, clientWeightLbs, label, 
                       {selected.adjunct_peptides.map((p) => (
                         <span
                           key={p}
-                          className="text-xs px-2 py-0.5 rounded-full"
+                          className="text-sm px-2 py-0.5 rounded-full"
                           style={{
                             backgroundColor: "#f5f3ee",
                             color: "#5a6a7a",
                             border: "1px solid rgba(110,136,176,0.2)",
-                            fontFamily: "'DM Mono', monospace",
+                            fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
                           }}
                         >
                           {p}
@@ -345,7 +345,7 @@ export default function AssignProtocolSheet({ clientId, clientWeightLbs, label, 
                   )}
                   {selected.cycle_intro && (
                     <p
-                      className="text-xs mt-3 leading-relaxed"
+                      className="text-sm mt-3 leading-relaxed"
                       style={{ color: "#5a6a7a" }}
                     >
                       {selected.cycle_intro.slice(0, 200)}
@@ -353,8 +353,8 @@ export default function AssignProtocolSheet({ clientId, clientWeightLbs, label, 
                     </p>
                   )}
                   <p
-                    className="text-xs mt-2"
-                    style={{ color: "#5a6a7a", fontFamily: "'DM Mono', monospace" }}
+                    className="text-sm mt-2"
+                    style={{ color: "#5a6a7a", fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}
                   >
                     {selected.months?.length || 3}-month protocol · {selected.category}
                   </p>
@@ -371,16 +371,16 @@ export default function AssignProtocolSheet({ clientId, clientWeightLbs, label, 
                     <div className="flex items-center gap-1.5 mb-2">
                       <BookLock size={12} style={{ color: "#c9973a" }} />
                       <span
-                        className="text-xs uppercase tracking-widest"
-                        style={{ fontFamily: "'DM Mono', monospace", color: "#c9973a" }}
+                        className="text-sm uppercase tracking-widest"
+                        style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", color: "#c9973a" }}
                       >
                         Clinical Notes
                       </span>
                       <span
-                        className="ml-auto text-xs px-1.5 py-0.5 rounded"
+                        className="ml-auto text-sm px-1.5 py-0.5 rounded"
                         style={{
-                          fontFamily: "'DM Mono', monospace",
-                          fontSize: "0.6rem",
+                          fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+                          fontSize: "0.7rem",
                           backgroundColor: "rgba(201,151,58,0.12)",
                           color: "#c9973a",
                           border: "1px solid rgba(201,151,58,0.2)",
@@ -389,7 +389,7 @@ export default function AssignProtocolSheet({ clientId, clientWeightLbs, label, 
                         Rx only
                       </span>
                     </div>
-                    <p className="text-sm leading-relaxed" style={{ color: "#1a2744" }}>
+                    <p className="text-base leading-relaxed" style={{ color: "#1a2744" }}>
                       {selected.clinical_notes}
                     </p>
                   </div>
@@ -398,8 +398,8 @@ export default function AssignProtocolSheet({ clientId, clientWeightLbs, label, 
                 {/* Start date */}
                 <div>
                   <label
-                    className="block text-xs uppercase tracking-widest mb-1.5"
-                    style={{ fontFamily: "'DM Mono', monospace", color: "#5a6a7a" }}
+                    className="block text-sm uppercase tracking-widest mb-1.5"
+                    style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", color: "#5a6a7a" }}
                   >
                     Start Date
                   </label>
@@ -407,7 +407,7 @@ export default function AssignProtocolSheet({ clientId, clientWeightLbs, label, 
                     type="date"
                     value={startDate}
                     onChange={(e) => setStartDate(e.target.value)}
-                    className="w-full px-4 py-2.5 rounded-lg text-sm focus:outline-none"
+                    className="w-full px-4 py-2.5 rounded-lg text-base focus:outline-none"
                     style={{
                       backgroundColor: "#f5f3ee",
                       border: "1px solid #e8e0d0",
@@ -426,8 +426,8 @@ export default function AssignProtocolSheet({ clientId, clientWeightLbs, label, 
                     }}
                   >
                     <p
-                      className="text-xs"
-                      style={{ color: "#54c7a2", fontFamily: "'DM Mono', monospace" }}
+                      className="text-sm"
+                      style={{ color: "#54c7a2", fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}
                     >
                       Weight at assignment: {clientWeightLbs} lbs — recorded for
                       weight-adjusted dose calculations
@@ -439,7 +439,7 @@ export default function AssignProtocolSheet({ clientId, clientWeightLbs, label, 
                 <div className="flex gap-3 pt-2">
                   <button
                     onClick={() => setSelected(null)}
-                    className="flex-1 py-3 rounded-lg font-semibold text-sm"
+                    className="flex-1 py-3 rounded-lg font-semibold text-base"
                     style={{
                       backgroundColor: "#f5f3ee",
                       color: "#1a2744",
@@ -451,7 +451,7 @@ export default function AssignProtocolSheet({ clientId, clientWeightLbs, label, 
                   <button
                     onClick={handleAssign}
                     disabled={assigning}
-                    className="flex-1 py-3 rounded-lg font-semibold text-sm flex items-center justify-center gap-2 transition-opacity"
+                    className="flex-1 py-3 rounded-lg font-semibold text-base flex items-center justify-center gap-2 transition-opacity"
                     style={{
                       backgroundColor: "#54c7a2",
                       color: "#0b1120",

@@ -50,13 +50,13 @@ export default function SignatureStackCard({
         {/* Badge */}
         <div className="flex items-center gap-2 mb-3">
           <span
-            className="inline-flex items-center gap-1 text-xs px-2 py-0.5 rounded-full"
+            className="inline-flex items-center gap-1 text-sm px-2 py-0.5 rounded-full"
             style={{
-              fontFamily: "'DM Mono', monospace",
+              fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
               backgroundColor: "rgba(201,151,58,0.12)",
               color: "#c9973a",
               border: "1px solid rgba(201,151,58,0.3)",
-              fontSize: "0.6rem",
+              fontSize: "0.7rem",
               letterSpacing: "0.08em",
             }}
           >
@@ -64,13 +64,13 @@ export default function SignatureStackCard({
             SIGNATURE STACK
           </span>
           <span
-            className="text-xs px-2 py-0.5 rounded-full"
+            className="text-sm px-2 py-0.5 rounded-full"
             style={{
-              fontFamily: "'DM Mono', monospace",
+              fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
               backgroundColor: "rgba(84,199,162,0.1)",
               color: "#54c7a2",
               border: "1px solid rgba(84,199,162,0.2)",
-              fontSize: "0.6rem",
+              fontSize: "0.7rem",
             }}
           >
             CA Peptide Labs
@@ -87,7 +87,7 @@ export default function SignatureStackCard({
 
         {/* Tagline */}
         {protocol.tagline && (
-          <p className="text-sm mb-4 leading-relaxed" style={{ color: "#5a6a7a" }}>
+          <p className="text-base mb-4 leading-relaxed" style={{ color: "#5a6a7a" }}>
             {protocol.tagline}
           </p>
         )}
@@ -95,8 +95,8 @@ export default function SignatureStackCard({
         {/* Core peptides */}
         <div className="mb-4">
           <p
-            className="text-xs uppercase tracking-widest mb-2"
-            style={{ fontFamily: "'DM Mono', monospace", color: "#5a6a7a" }}
+            className="text-sm uppercase tracking-widest mb-2"
+            style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", color: "#5a6a7a" }}
           >
             Core Peptides
           </p>
@@ -106,24 +106,24 @@ export default function SignatureStackCard({
               return (
                 <div key={name} className="flex items-center gap-1">
                   <span
-                    className="text-xs px-2.5 py-1 rounded-full font-medium"
+                    className="text-sm px-2.5 py-1 rounded-full font-medium"
                     style={{
                       backgroundColor: branded
                         ? "rgba(201,151,58,0.1)"
                         : "rgba(110,136,176,0.1)",
                       color: branded ? "#c9973a" : "#5a6a7a",
                       border: `1px solid ${branded ? "rgba(201,151,58,0.25)" : "rgba(110,136,176,0.2)"}`,
-                      fontFamily: "'DM Mono', monospace",
+                      fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
                     }}
                   >
                     {name}
                   </span>
                   {branded && (
                     <span
-                      className="text-xs px-1.5 py-0.5 rounded"
+                      className="text-sm px-1.5 py-0.5 rounded"
                       style={{
-                        fontFamily: "'DM Mono', monospace",
-                        fontSize: "0.55rem",
+                        fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+                        fontSize: "0.65rem",
                         backgroundColor: "rgba(84,199,162,0.1)",
                         color: "#54c7a2",
                         border: "1px solid rgba(84,199,162,0.2)",
@@ -141,7 +141,7 @@ export default function SignatureStackCard({
         {/* Cycle intro — always visible, truncated until expanded */}
         {protocol.cycle_intro && (
           <div className="mb-4">
-            <p className="text-xs leading-relaxed" style={{ color: "#5a6a7a" }}>
+            <p className="text-sm leading-relaxed" style={{ color: "#5a6a7a" }}>
               {expanded
                 ? protocol.cycle_intro
                 : `${protocol.cycle_intro.slice(0, 120)}...`}
@@ -149,8 +149,8 @@ export default function SignatureStackCard({
             {protocol.cycle_intro.length > 120 && (
               <button
                 onClick={() => setExpanded(!expanded)}
-                className="text-xs mt-1 transition-colors"
-                style={{ color: "#c9973a", fontFamily: "'DM Mono', monospace" }}
+                className="text-sm mt-1 transition-colors"
+                style={{ color: "#c9973a", fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}
               >
                 {expanded ? "Show less" : "Read more"}
               </button>
@@ -172,16 +172,16 @@ export default function SignatureStackCard({
                 <div className="flex items-center gap-1.5 mb-1.5">
                   <BookLock size={11} style={{ color: "#c9973a" }} />
                   <span
-                    className="text-xs uppercase tracking-widest"
-                    style={{ fontFamily: "'DM Mono', monospace", color: "#c9973a" }}
+                    className="text-sm uppercase tracking-widest"
+                    style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", color: "#c9973a" }}
                   >
                     Clinical Notes
                   </span>
                   <span
-                    className="ml-auto text-xs px-1.5 py-0.5 rounded"
+                    className="ml-auto text-sm px-1.5 py-0.5 rounded"
                     style={{
-                      fontFamily: "'DM Mono', monospace",
-                      fontSize: "0.6rem",
+                      fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+                      fontSize: "0.7rem",
                       backgroundColor: "rgba(201,151,58,0.12)",
                       color: "#c9973a",
                       border: "1px solid rgba(201,151,58,0.2)",
@@ -191,7 +191,7 @@ export default function SignatureStackCard({
                   </span>
                 </div>
                 <p
-                  className="text-xs leading-relaxed"
+                  className="text-sm leading-relaxed"
                   style={{ color: "#1a2744" }}
                 >
                   {protocol.clinical_notes}
@@ -207,12 +207,12 @@ export default function SignatureStackCard({
             onClick={() =>
               router.push(`/clients?assignProtocol=${protocol.id}`)
             }
-            className="flex-1 py-2.5 text-xs rounded-lg font-semibold flex items-center justify-center gap-1.5 transition-all"
+            className="flex-1 py-2.5 text-sm rounded-lg font-semibold flex items-center justify-center gap-1.5 transition-all"
             style={{
               backgroundColor: "rgba(201,151,58,0.15)",
               color: "#c9973a",
               border: "1px solid rgba(201,151,58,0.3)",
-              fontFamily: "'DM Mono', monospace",
+              fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
             }}
             onMouseEnter={(e) =>
               (e.currentTarget.style.backgroundColor = "rgba(201,151,58,0.25)")
@@ -226,7 +226,7 @@ export default function SignatureStackCard({
           </button>
           <button
             onClick={() => setExpanded(!expanded)}
-            className="px-3 py-2.5 text-xs rounded-lg transition-all"
+            className="px-3 py-2.5 text-sm rounded-lg transition-all"
             style={{
               backgroundColor: "#f5f3ee",
               color: "#5a6a7a",

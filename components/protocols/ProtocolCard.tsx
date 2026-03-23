@@ -40,7 +40,7 @@ export default function ProtocolCard({ protocol, accentColor, brandedPeptideName
         >
           Primary peptide
         </p>
-        <p className="text-sm font-medium" style={{ color: "#c9973a" }}>
+        <p className="text-base font-medium" style={{ color: "#c9973a" }}>
           {protocol.primary_peptide}
         </p>
       </div>
@@ -57,12 +57,12 @@ export default function ProtocolCard({ protocol, accentColor, brandedPeptideName
             {protocol.adjunct_peptides.map((p) => (
               <span
                 key={p}
-                className="text-xs px-2 py-0.5 rounded-full"
+                className="text-sm px-2 py-0.5 rounded-full"
                 style={{
                   backgroundColor: "#f5f3ee",
                   color: "#5a6a7a",
                   border: "1px solid rgba(110,136,176,0.2)",
-                  fontFamily: "'DM Mono', monospace",
+                  fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
                 }}
               >
                 {p}
@@ -80,8 +80,8 @@ export default function ProtocolCard({ protocol, accentColor, brandedPeptideName
           {protocol.cycle_intro.length > 120 && (
             <button
               onClick={() => setExpanded(!expanded)}
-              className="text-xs mt-1 transition-colors"
-              style={{ color: "#c9973a", fontFamily: "'DM Mono', monospace" }}
+              className="text-sm mt-1 transition-colors"
+              style={{ color: "#c9973a", fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}
             >
               {expanded ? "Show less" : "Read more"}
             </button>
@@ -102,8 +102,8 @@ export default function ProtocolCard({ protocol, accentColor, brandedPeptideName
           return (
             <div className="mb-4">
               <p
-                className="text-xs uppercase tracking-widest mb-2"
-                style={{ fontFamily: "'DM Mono', monospace", color: "#5a6a7a" }}
+                className="text-sm uppercase tracking-widest mb-2"
+                style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", color: "#5a6a7a" }}
               >
                 CA Peptide Labs Products
               </p>
@@ -122,14 +122,14 @@ export default function ProtocolCard({ protocol, accentColor, brandedPeptideName
                         border: "1px solid #eaf3de",
                       }}
                     >
-                      <span className="text-xs" style={{ color: "#1a2744" }}>
+                      <span className="text-sm" style={{ color: "#1a2744" }}>
                         {name}
                       </span>
                       <span
-                        className="text-xs px-2 py-0.5 rounded-full"
+                        className="text-sm px-2 py-0.5 rounded-full"
                         style={{
-                          fontFamily: "'DM Mono', monospace",
-                          fontSize: "0.6rem",
+                          fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+                          fontSize: "0.7rem",
                           backgroundColor: "rgba(84,199,162,0.12)",
                           color: "#54c7a2",
                           border: "1px solid rgba(84,199,162,0.25)",
@@ -162,10 +162,10 @@ export default function ProtocolCard({ protocol, accentColor, brandedPeptideName
               Clinician notes
             </span>
             <span
-              className="ml-auto text-xs px-1.5 py-0.5 rounded"
+              className="ml-auto text-sm px-1.5 py-0.5 rounded"
               style={{
-                fontFamily: "'DM Mono', monospace",
-                fontSize: "0.6rem",
+                fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+                fontSize: "0.7rem",
                 backgroundColor: "rgba(201,151,58,0.12)",
                 color: "#c9973a",
                 border: "1px solid rgba(201,151,58,0.2)",
@@ -183,12 +183,12 @@ export default function ProtocolCard({ protocol, accentColor, brandedPeptideName
       <div className="flex gap-2">
         <button
           onClick={() => router.push(`/clients?assignProtocol=${protocol.id}`)}
-          className="flex-1 py-2 text-xs rounded-lg font-medium transition-all flex items-center justify-center gap-1"
+          className="flex-1 py-2 text-sm rounded-lg font-medium transition-all flex items-center justify-center gap-1"
           style={{
             backgroundColor: "rgba(201,151,58,0.1)",
             color: "#c9973a",
             border: "1px solid rgba(201,151,58,0.2)",
-            fontFamily: "'DM Mono', monospace",
+            fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
           }}
           onMouseEnter={(e) => {
             e.currentTarget.style.backgroundColor = "rgba(201,151,58,0.2)";
@@ -202,7 +202,7 @@ export default function ProtocolCard({ protocol, accentColor, brandedPeptideName
         </button>
         <button
           onClick={() => setExpanded(!expanded)}
-          className="px-3 py-2 text-xs rounded-lg transition-all"
+          className="px-3 py-2 text-sm rounded-lg transition-all"
           style={{
             backgroundColor: "#f5f3ee",
             color: "#5a6a7a",

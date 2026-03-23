@@ -31,7 +31,7 @@ export default async function KnowledgeBasePage() {
           >
             Knowledge Base
           </h1>
-          <p className="mt-1 text-sm" style={{ color: "#5a6a7a" }}>
+          <p className="mt-1 text-base" style={{ color: "#5a6a7a" }}>
             {articles?.length ?? 0} articles and guides
           </p>
         </div>
@@ -43,9 +43,9 @@ export default async function KnowledgeBasePage() {
           {categories.map((cat) => (
             <span
               key={cat}
-              className="text-xs px-3 py-1.5 rounded-full cursor-pointer"
+              className="text-sm px-3 py-1.5 rounded-full cursor-pointer"
               style={{
-                fontFamily: "'DM Mono', monospace",
+                fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
                 backgroundColor: "rgba(232,224,208,0.5)",
                 color: "#5a6a7a",
                 border: "1px solid #e8e0d0",
@@ -73,9 +73,9 @@ export default async function KnowledgeBasePage() {
                 >
                   <div className="flex items-start justify-between mb-3">
                     <span
-                      className="text-xs px-2 py-0.5 rounded-full"
+                      className="text-sm px-2 py-0.5 rounded-full"
                       style={{
-                        fontFamily: "'DM Mono', monospace",
+                        fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
                         backgroundColor: sc.bg,
                         color: sc.color,
                         border: `1px solid ${sc.border}`,
@@ -96,7 +96,7 @@ export default async function KnowledgeBasePage() {
                   </h3>
 
                   {article.summary && (
-                    <p className="text-sm leading-relaxed mb-3" style={{ color: "#5a6a7a" }}>
+                    <p className="text-base leading-relaxed mb-3" style={{ color: "#5a6a7a" }}>
                       {article.summary.slice(0, 120)}...
                     </p>
                   )}
@@ -106,11 +106,11 @@ export default async function KnowledgeBasePage() {
                       {article.tags.slice(0, 3).map((tag: string) => (
                         <span
                           key={tag}
-                          className="text-xs px-2 py-0.5 rounded"
+                          className="text-sm px-2 py-0.5 rounded"
                           style={{
                             backgroundColor: "#f5f3ee",
                             color: "#5a6a7a",
-                            fontFamily: "'DM Mono', monospace",
+                            fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
                           }}
                         >
                           #{tag}
@@ -121,12 +121,12 @@ export default async function KnowledgeBasePage() {
 
                   <div className="flex items-center justify-between pt-3 border-t" style={{ borderColor: "#e8e0d0" }}>
                     {article.author_name && (
-                      <p className="text-xs" style={{ color: "#5a6a7a" }}>
+                      <p className="text-sm" style={{ color: "#5a6a7a" }}>
                         {article.author_name}
                       </p>
                     )}
                     {article.published_at && (
-                      <p className="text-xs" style={{ color: "#5a6a7a", fontFamily: "'DM Mono', monospace" }}>
+                      <p className="text-sm" style={{ color: "#5a6a7a", fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>
                         {formatDistanceToNow(new Date(article.published_at), { addSuffix: true })}
                       </p>
                     )}
@@ -152,7 +152,7 @@ export default async function KnowledgeBasePage() {
           >
             No Articles Yet
           </h3>
-          <p className="text-sm" style={{ color: "#5a6a7a" }}>
+          <p className="text-base" style={{ color: "#5a6a7a" }}>
             Articles will appear here once published. Add content via the Settings page.
           </p>
         </div>

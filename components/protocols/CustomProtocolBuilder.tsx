@@ -245,7 +245,7 @@ const inputStyle = {
   color: "#1a2744",
   borderRadius: "0.5rem",
   padding: "0.625rem 0.875rem",
-  fontSize: "0.875rem",
+  fontSize: "1rem",
   width: "100%",
 };
 
@@ -382,8 +382,8 @@ export default function CustomProtocolBuilder() {
     <>
       <button
         onClick={() => setOpen(true)}
-        className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition-all"
-        style={{ backgroundColor: "#f5f3ee", color: "#1a2744", border: "1px solid #e8e0d0", fontFamily: "'DM Mono', monospace" }}
+        className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-base font-semibold transition-all"
+        style={{ backgroundColor: "#f5f3ee", color: "#1a2744", border: "1px solid #e8e0d0", fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}
         onMouseEnter={e => { e.currentTarget.style.backgroundColor = "#e8e0d0"; e.currentTarget.style.borderColor = "#c9973a"; e.currentTarget.style.color = "#c9973a"; }}
         onMouseLeave={e => { e.currentTarget.style.backgroundColor = "#f5f3ee"; e.currentTarget.style.borderColor = "#e8e0d0"; e.currentTarget.style.color = "#1a2744"; }}
       >
@@ -403,7 +403,7 @@ export default function CustomProtocolBuilder() {
                   style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#1a2744" }}>
                   <Wrench size={16} style={{ color: "#c9973a" }} /> Build Custom Protocol
                 </h2>
-                <p className="text-xs mt-0.5" style={{ color: "#5a6a7a", fontFamily: "'DM Mono', monospace" }}>
+                <p className="text-sm mt-0.5" style={{ color: "#5a6a7a", fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>
                   Step {step} of 3 — {step === 1 ? "Details" : step === 2 ? "Select Peptides" : "Preview & Save"}
                 </p>
               </div>
@@ -428,8 +428,8 @@ export default function CustomProtocolBuilder() {
             {step === 1 && (
               <div className="flex-1 overflow-y-auto px-6 py-5 space-y-4">
                 <div>
-                  <label className="block text-xs uppercase tracking-widest mb-1.5"
-                    style={{ fontFamily: "'DM Mono', monospace", color: "#5a6a7a" }}>
+                  <label className="block text-sm uppercase tracking-widest mb-1.5"
+                    style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", color: "#5a6a7a" }}>
                     Protocol Name / Condition *
                   </label>
                   <input style={inputStyle} value={title}
@@ -438,8 +438,8 @@ export default function CustomProtocolBuilder() {
                     className="focus:outline-none" />
                 </div>
                 <div>
-                  <label className="block text-xs uppercase tracking-widest mb-1.5"
-                    style={{ fontFamily: "'DM Mono', monospace", color: "#5a6a7a" }}>
+                  <label className="block text-sm uppercase tracking-widest mb-1.5"
+                    style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", color: "#5a6a7a" }}>
                     Category
                   </label>
                   <select style={inputStyle} value={category}
@@ -450,11 +450,11 @@ export default function CustomProtocolBuilder() {
 
                 {/* Speed explainer */}
                 <div className="rounded-lg p-4 space-y-3" style={{ backgroundColor: "#f5f3ee", border: "1px solid #e8e0d0" }}>
-                  <p className="text-xs font-medium" style={{ color: "#1a2744" }}>How titration speeds work</p>
+                  <p className="text-sm font-medium" style={{ color: "#1a2744" }}>How titration speeds work</p>
                   {SPEEDS.map(s => (
                     <div key={s.value} className="flex items-start gap-2">
-                      <span className="text-sm leading-none mt-0.5">{s.emoji}</span>
-                      <p className="text-xs leading-relaxed" style={{ color: "#5a6a7a" }}>
+                      <span className="text-base leading-none mt-0.5">{s.emoji}</span>
+                      <p className="text-sm leading-relaxed" style={{ color: "#5a6a7a" }}>
                         <span style={{ color: s.color }}>{s.label}</span> — {s.description}
                       </p>
                     </div>
@@ -462,7 +462,7 @@ export default function CustomProtocolBuilder() {
                 </div>
 
                 <button onClick={() => { if (title.trim()) setStep(2); else toast.error("Enter a protocol name"); }}
-                  className="w-full py-3 rounded-lg font-semibold text-sm flex items-center justify-center gap-2"
+                  className="w-full py-3 rounded-lg font-semibold text-base flex items-center justify-center gap-2"
                   style={{ backgroundColor: "#c9973a", color: "#0b1120" }}>
                   Select Peptides <ChevronRight size={15} />
                 </button>
@@ -477,11 +477,11 @@ export default function CustomProtocolBuilder() {
                     <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2" style={{ color: "#5a6a7a" }} />
                     <input autoFocus value={search} onChange={e => setSearch(e.target.value)}
                       placeholder="Search peptides..."
-                      className="w-full pl-9 pr-4 py-2.5 rounded-lg text-sm focus:outline-none"
+                      className="w-full pl-9 pr-4 py-2.5 rounded-lg text-base focus:outline-none"
                       style={{ backgroundColor: "#f5f3ee", border: "1px solid #e8e0d0", color: "#1a2744" }} />
                   </div>
                   {selected.length > 0 && (
-                    <p className="text-xs mt-2" style={{ color: "#54c7a2", fontFamily: "'DM Mono', monospace" }}>
+                    <p className="text-sm mt-2" style={{ color: "#54c7a2", fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>
                       {selected.length} peptide{selected.length !== 1 ? "s" : ""} selected
                     </p>
                   )}
@@ -490,7 +490,7 @@ export default function CustomProtocolBuilder() {
                 <div className="flex-1 overflow-y-auto">
                   {libraryLoading ? (
                     <div className="flex items-center justify-center py-20">
-                      <p className="text-sm" style={{ color: "#5a6a7a" }}>Loading peptide library...</p>
+                      <p className="text-base" style={{ color: "#5a6a7a" }}>Loading peptide library...</p>
                     </div>
                   ) : (
                     [
@@ -501,8 +501,8 @@ export default function CustomProtocolBuilder() {
                         <div key={label}>
                           <div className="px-6 py-2.5 sticky top-0"
                             style={{ backgroundColor: "#ffffff", borderBottom: "1px solid #e8e0d0" }}>
-                            <p className="text-xs uppercase tracking-widest"
-                              style={{ fontFamily: "'DM Mono', monospace", color: accent }}>{label}</p>
+                            <p className="text-sm uppercase tracking-widest"
+                              style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", color: accent }}>{label}</p>
                           </div>
                           {items.map(p => {
                             const isSelected = selected.some(s => s.peptide.id === p.id);
@@ -514,10 +514,10 @@ export default function CustomProtocolBuilder() {
                                 onMouseLeave={e => { if (!isSelected) e.currentTarget.style.backgroundColor = "transparent"; }}>
                                 <div className="flex items-start justify-between gap-3">
                                   <div className="flex-1 min-w-0">
-                                    <p className="text-sm font-medium" style={{ color: isSelected ? "#54c7a2" : "#1a2744" }}>
+                                    <p className="text-base font-medium" style={{ color: isSelected ? "#54c7a2" : "#1a2744" }}>
                                       {p.name}
                                     </p>
-                                    <p className="text-xs mt-0.5" style={{ color: "#5a6a7a", fontFamily: "'DM Mono', monospace" }}>
+                                    <p className="text-sm mt-0.5" style={{ color: "#5a6a7a", fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>
                                       {SCHEDULE_LABELS[p.schedule_type || "monthly-ramp"]}
                                       {p.available_forms && p.available_forms.length > 1 &&
                                         ` · ${p.available_forms.length} forms`}
@@ -541,7 +541,7 @@ export default function CustomProtocolBuilder() {
                 {selected.length > 0 && (
                   <div className="border-t flex-shrink-0" style={{ borderColor: "#e8e0d0", maxHeight: "55vh", overflowY: "auto" }}>
                     <div className="px-6 py-3 sticky top-0 z-10" style={{ backgroundColor: "#ffffff", borderBottom: "1px solid #e8e0d0" }}>
-                      <p className="text-xs uppercase tracking-widest" style={{ fontFamily: "'DM Mono', monospace", color: "#5a6a7a" }}>
+                      <p className="text-sm uppercase tracking-widest" style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", color: "#5a6a7a" }}>
                         Titration Speed · Delivery Form · Timeline
                       </p>
                     </div>
@@ -559,7 +559,7 @@ export default function CustomProtocolBuilder() {
                             {/* Peptide header */}
                             <div className="flex items-center justify-between px-4 py-3"
                               style={{ backgroundColor: "#f5f3ee", borderBottom: "1px solid #e8e0d0" }}>
-                              <p className="text-sm font-medium" style={{ color: "#1a2744" }}>{sp.peptide.name}</p>
+                              <p className="text-base font-medium" style={{ color: "#1a2744" }}>{sp.peptide.name}</p>
                               <button onClick={() => setSelected(prev => prev.filter(s => s.peptide.id !== sp.peptide.id))}
                                 style={{ color: "#5a6a7a" }}
                                 onMouseEnter={e => (e.currentTarget.style.color = "#e05a6a")}
@@ -574,12 +574,12 @@ export default function CustomProtocolBuilder() {
                                 {availableForms.map(form => (
                                   <button key={form}
                                     onClick={() => setDeliveryForm(sp.peptide.id, form)}
-                                    className="flex-1 py-1.5 text-xs transition-all"
+                                    className="flex-1 py-1.5 text-sm transition-all"
                                     style={{
                                       backgroundColor: sp.deliveryForm === form ? "rgba(84,199,162,0.1)" : "transparent",
                                       color: sp.deliveryForm === form ? "#54c7a2" : "#8a7a5a",
                                       borderRight: form !== availableForms[availableForms.length - 1] ? "1px solid #e8e0d0" : "none",
-                                      fontFamily: "'DM Mono', monospace",
+                                      fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
                                     }}>
                                     {DELIVERY_LABELS[form] || form}
                                   </button>
@@ -593,12 +593,12 @@ export default function CustomProtocolBuilder() {
                                 const active = sp.speed === s.value;
                                 return (
                                   <button key={s.value} onClick={() => setSpeed(sp.peptide.id, s.value)}
-                                    className="flex-1 py-2 text-xs font-medium flex items-center justify-center gap-1.5 transition-all"
+                                    className="flex-1 py-2 text-sm font-medium flex items-center justify-center gap-1.5 transition-all"
                                     style={{
                                       backgroundColor: active ? s.bg : "transparent",
                                       color: active ? s.color : "#8a7a5a",
                                       borderRight: s.value !== "accelerated" ? "1px solid #e8e0d0" : "none",
-                                      fontFamily: "'DM Mono', monospace",
+                                      fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
                                     }}>
                                     <span>{s.emoji}</span><span>{s.label}</span>
                                   </button>
@@ -611,7 +611,7 @@ export default function CustomProtocolBuilder() {
                               <div className="px-3 py-2 flex items-start gap-2"
                                 style={{ backgroundColor: "rgba(232,184,109,0.06)", borderBottom: "1px solid #faeeda" }}>
                                 <AlertTriangle size={11} style={{ color: "#e8b86d", flexShrink: 0, marginTop: 2 }} />
-                                <p style={{ color: "#e8b86d", fontSize: "0.62rem", fontFamily: "'DM Mono', monospace", lineHeight: 1.5 }}>
+                                <p style={{ color: "#e8b86d", fontSize: "0.62rem", fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", lineHeight: 1.5 }}>
                                   {dilutionNote}
                                 </p>
                               </div>
@@ -626,20 +626,20 @@ export default function CustomProtocolBuilder() {
                                     borderRight: i < 2 ? "1px solid #e8e0d0" : "none",
                                     opacity: phase.isRest ? 0.6 : 1,
                                   }}>
-                                  <p style={{ fontFamily: "'DM Mono', monospace", color: activeSpeed.color, fontSize: "0.6rem", textTransform: "uppercase", letterSpacing: "0.05em", fontWeight: 600 }}>
+                                  <p style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", color: activeSpeed.color, fontSize: "0.7rem", textTransform: "uppercase", letterSpacing: "0.05em", fontWeight: 600 }}>
                                     {phase.period}
                                   </p>
                                   {!phase.isRest ? (
                                     <>
-                                      <p className="text-xs font-medium leading-snug" style={{ color: "#c9973a" }}>
+                                      <p className="text-sm font-medium leading-snug" style={{ color: "#c9973a" }}>
                                         {phase.dose}
                                       </p>
-                                      <p style={{ color: "#5a6a7a", fontSize: "0.6rem", fontFamily: "'DM Mono', monospace", lineHeight: 1.4 }}>
+                                      <p style={{ color: "#5a6a7a", fontSize: "0.7rem", fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", lineHeight: 1.4 }}>
                                         {phase.frequency}
                                       </p>
                                     </>
                                   ) : (
-                                    <p className="text-xs" style={{ color: "#5a6a7a" }}>Rest</p>
+                                    <p className="text-sm" style={{ color: "#5a6a7a" }}>Rest</p>
                                   )}
                                   <p style={{ color: "#8a7a5a", fontSize: "0.58rem", fontStyle: "italic", lineHeight: 1.4 }}>
                                     {phase.note}
@@ -656,12 +656,12 @@ export default function CustomProtocolBuilder() {
 
                 <div className="flex gap-3 px-6 py-4 border-t flex-shrink-0" style={{ borderColor: "#e8e0d0" }}>
                   <button onClick={() => setStep(1)}
-                    className="flex-1 py-3 rounded-lg font-semibold text-sm flex items-center justify-center gap-2"
+                    className="flex-1 py-3 rounded-lg font-semibold text-base flex items-center justify-center gap-2"
                     style={{ backgroundColor: "#f5f3ee", color: "#1a2744", border: "1px solid #e8e0d0" }}>
                     <ChevronLeft size={15} /> Back
                   </button>
                   <button onClick={() => { if (selected.length > 0) setStep(3); else toast.error("Select at least one peptide"); }}
-                    className="flex-1 py-3 rounded-lg font-semibold text-sm flex items-center justify-center gap-2"
+                    className="flex-1 py-3 rounded-lg font-semibold text-base flex items-center justify-center gap-2"
                     style={{ backgroundColor: "#c9973a", color: "#0b1120" }}>
                     Preview <ChevronRight size={15} />
                   </button>
@@ -674,11 +674,11 @@ export default function CustomProtocolBuilder() {
               <div className="flex-1 overflow-y-auto px-6 py-5 space-y-4">
                 <div className="rounded-xl p-4"
                   style={{ backgroundColor: "#f5f3ee", border: "1px solid #e8e0d0", borderTop: "3px solid #c9973a" }}>
-                  <p className="text-xs uppercase tracking-widest mb-1"
-                    style={{ fontFamily: "'DM Mono', monospace", color: "#5a6a7a" }}>Protocol Template</p>
+                  <p className="text-sm uppercase tracking-widest mb-1"
+                    style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", color: "#5a6a7a" }}>Protocol Template</p>
                   <h3 className="text-base font-semibold"
                     style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#c9973a" }}>{title}</h3>
-                  <p className="text-xs mt-0.5" style={{ color: "#5a6a7a", fontFamily: "'DM Mono', monospace" }}>
+                  <p className="text-sm mt-0.5" style={{ color: "#5a6a7a", fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>
                     {category} · {selected.length} peptide{selected.length !== 1 ? "s" : ""} · 3-phase cycle
                   </p>
                 </div>
@@ -691,13 +691,13 @@ export default function CustomProtocolBuilder() {
                       <div className="flex items-center justify-between px-4 py-3 border-b"
                         style={{ backgroundColor: "#f5f3ee", borderColor: "#e8e0d0" }}>
                         <div>
-                          <p className="text-sm font-medium" style={{ color: "#1a2744" }}>{sp.peptide.name}</p>
-                          <p className="text-xs" style={{ color: "#5a6a7a", fontFamily: "'DM Mono', monospace" }}>
+                          <p className="text-base font-medium" style={{ color: "#1a2744" }}>{sp.peptide.name}</p>
+                          <p className="text-sm" style={{ color: "#5a6a7a", fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>
                             {DELIVERY_LABELS[sp.deliveryForm] || sp.deliveryForm}
                           </p>
                         </div>
-                        <span className="text-xs px-2 py-0.5 rounded-full flex items-center gap-1"
-                          style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.6rem", color: activeSpeed.color, backgroundColor: activeSpeed.bg, border: `1px solid ${activeSpeed.border}` }}>
+                        <span className="text-sm px-2 py-0.5 rounded-full flex items-center gap-1"
+                          style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", fontSize: "0.7rem", color: activeSpeed.color, backgroundColor: activeSpeed.bg, border: `1px solid ${activeSpeed.border}` }}>
                           {activeSpeed.emoji} {activeSpeed.label}
                         </span>
                       </div>
@@ -705,16 +705,16 @@ export default function CustomProtocolBuilder() {
                         {phases.map((phase, i) => (
                           <div key={i} className="p-3 space-y-1"
                             style={{ borderRight: i < 2 ? "1px solid #e8e0d0" : "none", backgroundColor: phase.isRest ? "rgba(245,243,238,0.9)" : "transparent", opacity: phase.isRest ? 0.55 : 1 }}>
-                            <p style={{ fontFamily: "'DM Mono', monospace", color: activeSpeed.color, fontSize: "0.6rem", textTransform: "uppercase", letterSpacing: "0.05em", fontWeight: 600 }}>
+                            <p style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", color: activeSpeed.color, fontSize: "0.7rem", textTransform: "uppercase", letterSpacing: "0.05em", fontWeight: 600 }}>
                               {phase.period}
                             </p>
                             {!phase.isRest ? (
                               <>
-                                <p className="text-xs font-medium" style={{ color: "#c9973a" }}>{phase.dose}</p>
-                                <p style={{ color: "#5a6a7a", fontSize: "0.6rem", fontFamily: "'DM Mono', monospace" }}>{phase.frequency}</p>
+                                <p className="text-sm font-medium" style={{ color: "#c9973a" }}>{phase.dose}</p>
+                                <p style={{ color: "#5a6a7a", fontSize: "0.7rem", fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>{phase.frequency}</p>
                               </>
                             ) : (
-                              <p className="text-xs" style={{ color: "#5a6a7a" }}>Rest period</p>
+                              <p className="text-sm" style={{ color: "#5a6a7a" }}>Rest period</p>
                             )}
                             <p style={{ color: "#8a7a5a", fontSize: "0.58rem", fontStyle: "italic", lineHeight: 1.4 }}>{phase.note}</p>
                           </div>
@@ -726,19 +726,19 @@ export default function CustomProtocolBuilder() {
 
                 <div className="rounded-lg px-4 py-3"
                   style={{ backgroundColor: "rgba(201,151,58,0.05)", border: "1px solid rgba(201,151,58,0.15)" }}>
-                  <p className="text-xs" style={{ color: "#5a6a7a" }}>
+                  <p className="text-sm" style={{ color: "#5a6a7a" }}>
                     This protocol will be saved to your library and can be assigned to any client from their profile page.
                   </p>
                 </div>
 
                 <div className="flex gap-3 pt-2">
                   <button onClick={() => setStep(2)}
-                    className="flex-1 py-3 rounded-lg font-semibold text-sm flex items-center justify-center gap-2"
+                    className="flex-1 py-3 rounded-lg font-semibold text-base flex items-center justify-center gap-2"
                     style={{ backgroundColor: "#f5f3ee", color: "#1a2744", border: "1px solid #e8e0d0" }}>
                     <ChevronLeft size={15} /> Back
                   </button>
                   <button onClick={handleSave} disabled={saving}
-                    className="flex-1 py-3 rounded-lg font-semibold text-sm flex items-center justify-center gap-2 transition-opacity"
+                    className="flex-1 py-3 rounded-lg font-semibold text-base flex items-center justify-center gap-2 transition-opacity"
                     style={{ backgroundColor: "#c9973a", color: "#0b1120", opacity: saving ? 0.8 : 1 }}>
                     {saving ? "Saving..." : <><Check size={15} /> Save Protocol</>}
                   </button>

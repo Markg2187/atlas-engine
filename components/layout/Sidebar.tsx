@@ -91,7 +91,7 @@ export default function Sidebar({ user, overdueCount = 0 }: SidebarProps) {
               key={item.href}
               href={item.href}
               onClick={() => setMobileOpen(false)}
-              className="flex items-center justify-between px-3 py-2.5 rounded-lg text-sm transition-all"
+              className="flex items-center justify-between px-3 py-2.5 rounded-lg text-base transition-all"
               style={{
                 backgroundColor: active ? "rgba(201, 151, 58, 0.12)" : "transparent",
                 color: active ? "#c9973a" : "#f0ead8",
@@ -116,12 +116,12 @@ export default function Sidebar({ user, overdueCount = 0 }: SidebarProps) {
               </div>
               {item.badge !== undefined && (
                 <span
-                  className="text-xs px-2 py-0.5 rounded-full font-mono"
+                  className="text-sm px-2 py-0.5 rounded-full"
                   style={{
                     backgroundColor: "rgba(232, 184, 109, 0.2)",
                     color: "#e8b86d",
                     border: "1px solid rgba(232, 184, 109, 0.3)",
-                    fontSize: "0.65rem",
+                    fontSize: "0.75rem",
                   }}
                 >
                   {item.badge}
@@ -137,7 +137,7 @@ export default function Sidebar({ user, overdueCount = 0 }: SidebarProps) {
         <div className="px-4 py-4 border-t" style={{ borderColor: "#1e3055" }}>
           <div className="flex items-center gap-3 mb-3">
             <div
-              className="w-9 h-9 rounded-full flex items-center justify-center text-sm font-semibold flex-shrink-0"
+              className="w-9 h-9 rounded-full flex items-center justify-center text-base font-semibold flex-shrink-0"
               style={{ backgroundColor: "#1e3055", color: "#c9973a" }}
             >
               {user.full_name
@@ -145,17 +145,17 @@ export default function Sidebar({ user, overdueCount = 0 }: SidebarProps) {
                 : "?"}
             </div>
             <div className="flex-1 min-w-0">
-              <p className="text-sm font-medium truncate" style={{ color: "#f0ead8" }}>
+              <p className="text-base font-medium truncate" style={{ color: "#f0ead8" }}>
                 {user.full_name || "Unknown User"}
               </p>
               <span
-                className="text-xs px-2 py-0.5 rounded-full mt-0.5 inline-block"
+                className="text-sm px-2 py-0.5 rounded-full mt-0.5 inline-block"
                 style={{
-                  fontFamily: "'DM Mono', monospace",
+                  fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
                   backgroundColor: "rgba(201, 151, 58, 0.1)",
                   color: "#c9973a",
                   border: "1px solid rgba(201, 151, 58, 0.2)",
-                  fontSize: "0.6rem",
+                  fontSize: "0.7rem",
                 }}
               >
                 {user.role?.replace("_", " ").toUpperCase()}
@@ -165,7 +165,7 @@ export default function Sidebar({ user, overdueCount = 0 }: SidebarProps) {
           <button
             onClick={handleLogout}
             disabled={loggingOut}
-            className="w-full flex items-center gap-2 px-3 py-2 rounded-lg text-sm transition-all"
+            className="w-full flex items-center gap-2 px-3 py-2 rounded-lg text-base transition-all"
             style={{ color: "#f0ead8" }}
             onMouseEnter={(e) => {
               e.currentTarget.style.backgroundColor = "rgba(224, 90, 106, 0.1)";

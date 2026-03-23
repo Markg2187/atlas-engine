@@ -92,13 +92,13 @@ export default function ClientsPage() {
           >
             Clients
           </h1>
-          <p className="mt-1 text-sm" style={{ color: "#5a6a7a" }}>
+          <p className="mt-1 text-base" style={{ color: "#5a6a7a" }}>
             {clients.length} client{clients.length !== 1 ? "s" : ""} found
           </p>
         </div>
         <button
           onClick={() => setShowModal(true)}
-          className="flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-semibold transition-all"
+          className="flex items-center gap-2 px-4 py-2.5 rounded-lg text-base font-semibold transition-all"
           style={{ backgroundColor: "#c9973a", color: "#0b1120" }}
           onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#a87c2e")}
           onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#c9973a")}
@@ -127,7 +127,7 @@ export default function ClientsPage() {
             placeholder="Search clients by name or email..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full pl-9 pr-4 py-2.5 rounded-lg text-sm focus:outline-none"
+            className="w-full pl-9 pr-4 py-2.5 rounded-lg text-base focus:outline-none"
             style={{
               backgroundColor: "#f5f3ee",
               border: "1px solid #e8e0d0",
@@ -141,7 +141,7 @@ export default function ClientsPage() {
           <select
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value)}
-            className="appearance-none pl-4 pr-10 py-2.5 rounded-lg text-sm focus:outline-none cursor-pointer"
+            className="appearance-none pl-4 pr-10 py-2.5 rounded-lg text-base focus:outline-none cursor-pointer"
             style={{
               backgroundColor: "#f5f3ee",
               border: "1px solid #e8e0d0",
@@ -161,13 +161,13 @@ export default function ClientsPage() {
         </div>
         <button
           onClick={() => { setShowArchived((v) => !v); setStatusFilter("all"); }}
-          className="flex items-center gap-1.5 px-3 py-2.5 rounded-lg text-sm whitespace-nowrap transition-all"
+          className="flex items-center gap-1.5 px-3 py-2.5 rounded-lg text-base whitespace-nowrap transition-all"
           style={{
             backgroundColor: showArchived ? "#fcebeb" : "#f5f3ee",
             color: showArchived ? "#e05a6a" : "#5a6a7a",
             border: `1px solid ${showArchived ? "rgba(224,90,106,0.35)" : "#e8e0d0"}`,
-            fontFamily: "'DM Mono', monospace",
-            fontSize: "0.75rem",
+            fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+            fontSize: "0.875rem",
           }}
         >
           <Archive size={13} />
@@ -196,13 +196,13 @@ export default function ClientsPage() {
             <p className="text-lg mb-2" style={{ color: "#5a6a7a" }}>
               No clients found
             </p>
-            <p className="text-sm mb-6" style={{ color: "#5a6a7a" }}>
+            <p className="text-base mb-6" style={{ color: "#5a6a7a" }}>
               {search ? "Try adjusting your search" : "Add your first client to get started"}
             </p>
             {!search && (
               <button
                 onClick={() => setShowModal(true)}
-                className="px-6 py-2.5 rounded-lg text-sm font-semibold"
+                className="px-6 py-2.5 rounded-lg text-base font-semibold"
                 style={{ backgroundColor: "#c9973a", color: "#0b1120" }}
               >
                 Add First Client
@@ -217,8 +217,8 @@ export default function ClientsPage() {
                   {["Client", "Contact", "Status", "Weight", "Location", ""].map((h) => (
                     <th
                       key={h}
-                      className="px-6 py-3 text-left text-xs uppercase tracking-widest"
-                      style={{ fontFamily: "'DM Mono', monospace", color: "#5a6a7a" }}
+                      className="px-6 py-3 text-left text-sm uppercase tracking-widest"
+                      style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", color: "#5a6a7a" }}
                     >
                       {h}
                     </th>
@@ -247,26 +247,26 @@ export default function ClientsPage() {
                             {client.first_name} {client.last_name}
                           </p>
                           <p
-                            className="text-xs mt-0.5"
-                            style={{ color: "#5a6a7a", fontFamily: "'DM Mono', monospace" }}
+                            className="text-sm mt-0.5"
+                            style={{ color: "#5a6a7a", fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}
                           >
                             {client.sex ?? "—"} {client.date_of_birth ? `· DOB ${client.date_of_birth}` : ""}
                           </p>
                         </Link>
                       </td>
                       <td className="px-6 py-4">
-                        <p className="text-sm" style={{ color: "#1a2744" }}>
+                        <p className="text-base" style={{ color: "#1a2744" }}>
                           {client.email ?? "—"}
                         </p>
-                        <p className="text-xs" style={{ color: "#5a6a7a", fontFamily: "'DM Mono', monospace" }}>
+                        <p className="text-sm" style={{ color: "#5a6a7a", fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>
                           {client.phone ?? ""}
                         </p>
                       </td>
                       <td className="px-6 py-4">
                         <span
-                          className="text-xs px-3 py-1 rounded-full"
+                          className="text-sm px-3 py-1 rounded-full"
                           style={{
-                            fontFamily: "'DM Mono', monospace",
+                            fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
                             backgroundColor: sc.bg,
                             color: sc.color,
                             border: `1px solid ${sc.border}`,
@@ -275,20 +275,20 @@ export default function ClientsPage() {
                           {client.status}
                         </span>
                       </td>
-                      <td className="px-6 py-4 text-sm" style={{ color: "#5a6a7a", fontFamily: "'DM Mono', monospace" }}>
+                      <td className="px-6 py-4 text-base" style={{ color: "#5a6a7a", fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>
                         {client.weight_lbs ? `${client.weight_lbs} lbs` : "—"}
                       </td>
-                      <td className="px-6 py-4 text-sm" style={{ color: "#5a6a7a" }}>
+                      <td className="px-6 py-4 text-base" style={{ color: "#5a6a7a" }}>
                         {(client as any).location?.name ?? "—"}
                       </td>
                       <td className="px-6 py-4">
                         <Link
                           href={`/clients/${client.id}`}
-                          className="text-xs px-3 py-1.5 rounded-lg transition-all"
+                          className="text-sm px-3 py-1.5 rounded-lg transition-all"
                           style={{
                             color: "#c9973a",
                             border: "1px solid rgba(201,151,58,0.3)",
-                            fontFamily: "'DM Mono', monospace",
+                            fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
                           }}
                           onMouseEnter={(e) => {
                             (e.currentTarget as HTMLElement).style.backgroundColor = "rgba(201,151,58,0.1)";

@@ -50,7 +50,7 @@ export default function LoginPage() {
           >
             Atlas Engine
           </h1>
-          <p className="mt-1 text-sm" style={{ color: "#5a6a7a" }}>
+          <p className="mt-1 text-base" style={{ color: "#5a6a7a" }}>
             Peptide Protocol Management Platform
           </p>
         </div>
@@ -74,8 +74,8 @@ export default function LoginPage() {
           <form onSubmit={handleSubmit} className="space-y-5">
             <div>
               <label
-                className="block text-xs uppercase tracking-widest mb-2"
-                style={{ fontFamily: "'DM Mono', monospace", color: "#5a6a7a" }}
+                className="block text-sm uppercase tracking-widest mb-2"
+                style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", color: "#5a6a7a" }}
               >
                 Email Address
               </label>
@@ -85,7 +85,7 @@ export default function LoginPage() {
                 onChange={(e) => setEmail(e.target.value)}
                 required
                 placeholder="you@clinic.com"
-                className="w-full rounded-lg px-4 py-3 text-sm transition-all focus:outline-none"
+                className="w-full rounded-lg px-4 py-3 text-base transition-all focus:outline-none"
                 style={{
                   backgroundColor: "#f5f3ee",
                   border: "1px solid #e8e0d0",
@@ -105,15 +105,15 @@ export default function LoginPage() {
             <div>
               <div className="flex items-center justify-between mb-2">
                 <label
-                  className="block text-xs uppercase tracking-widest"
-                  style={{ fontFamily: "'DM Mono', monospace", color: "#5a6a7a" }}
+                  className="block text-sm uppercase tracking-widest"
+                  style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", color: "#5a6a7a" }}
                 >
                   Password
                 </label>
                 <Link
                   href="/forgot-password"
-                  className="text-xs transition-colors"
-                  style={{ color: "#c9973a", fontFamily: "'DM Mono', monospace" }}
+                  className="text-sm transition-colors"
+                  style={{ color: "#c9973a", fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}
                   onMouseEnter={(e) => (e.currentTarget.style.color = "#a87c2e")}
                   onMouseLeave={(e) => (e.currentTarget.style.color = "#c9973a")}
                 >
@@ -126,7 +126,7 @@ export default function LoginPage() {
                 onChange={(e) => setPassword(e.target.value)}
                 required
                 placeholder="••••••••"
-                className="w-full rounded-lg px-4 py-3 text-sm transition-all focus:outline-none"
+                className="w-full rounded-lg px-4 py-3 text-base transition-all focus:outline-none"
                 style={{
                   backgroundColor: "#f5f3ee",
                   border: "1px solid #e8e0d0",
@@ -145,7 +145,7 @@ export default function LoginPage() {
 
             {error && (
               <div
-                className="rounded-lg px-4 py-3 text-sm"
+                className="rounded-lg px-4 py-3 text-base"
                 style={{
                   backgroundColor: "rgba(224, 90, 106, 0.1)",
                   border: "1px solid #f7c1c1",
@@ -159,7 +159,7 @@ export default function LoginPage() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full py-3 rounded-lg font-semibold text-sm transition-all"
+              className="w-full py-3 rounded-lg font-semibold text-base transition-all"
               style={{
                 backgroundColor: loading ? "#a87c2e" : "#c9973a",
                 color: "#0b1120",
@@ -173,7 +173,7 @@ export default function LoginPage() {
         </div>
 
         <p
-          className="text-center text-xs mt-6"
+          className="text-center text-sm mt-6"
           style={{ color: "#5a6a7a" }}
         >
           Contact your administrator for access. Self-registration is not available.

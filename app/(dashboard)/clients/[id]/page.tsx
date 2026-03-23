@@ -76,7 +76,7 @@ export default async function ClientProfilePage({
     <div>
       <Link
         href="/clients"
-        className="inline-flex items-center gap-2 text-sm mb-6 transition-colors hover:text-[#c9973a]"
+        className="inline-flex items-center gap-2 text-base mb-6 transition-colors hover:text-[#c9973a]"
         style={{ color: "#5a6a7a" }}
       >
         <ArrowLeft size={16} />

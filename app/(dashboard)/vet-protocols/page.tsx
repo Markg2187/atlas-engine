@@ -41,7 +41,7 @@ export default async function VetProtocolsPage() {
         >
           Veterinary Protocols
         </h1>
-        <p className="mt-1 text-sm" style={{ color: "#5a6a7a" }}>
+        <p className="mt-1 text-base" style={{ color: "#5a6a7a" }}>
           {protocols?.length ?? 0} peptide protocols for companion animals
         </p>
       </div>
@@ -55,7 +55,7 @@ export default async function VetProtocolsPage() {
         }}
       >
         <Stethoscope size={18} style={{ color: "#e8b86d", flexShrink: 0, marginTop: "2px" }} />
-        <p className="text-sm" style={{ color: "#e8b86d" }}>
+        <p className="text-base" style={{ color: "#e8b86d" }}>
           These protocols are for veterinary use only and should be administered under veterinary supervision.
           Doses are weight-based and should be calculated per individual animal.
         </p>
@@ -122,9 +122,9 @@ export default async function VetProtocolsPage() {
                           {protocol!.adjunct_peptides.map((p: string) => (
                             <span
                               key={p}
-                              className="text-xs px-2 py-0.5 rounded-full"
+                              className="text-sm px-2 py-0.5 rounded-full"
                               style={{
-                                fontFamily: "'DM Mono', monospace",
+                                fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
                                 backgroundColor: "#f5f3ee",
                                 color: "#5a6a7a",
                                 border: "1px solid rgba(110,136,176,0.2)",
@@ -157,7 +157,7 @@ export default async function VetProtocolsPage() {
                           <p className="mb-0.5" style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", fontSize: "11px", fontWeight: 700, textTransform: "uppercase", color: "#5a4a3a" }}>
                             Dose per kg
                           </p>
-                          <p className="font-medium" style={{ color: "#c9973a", fontFamily: "'DM Mono', monospace", fontSize: "13px" }}>
+                          <p className="font-medium" style={{ color: "#c9973a", fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", fontSize: "13px" }}>
                             {protocol!.dose_per_kg_mcg} mcg/kg
                           </p>
                         </div>

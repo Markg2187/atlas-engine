@@ -29,9 +29,9 @@ export default function PeptideGrid({ peptides, categories }: { peptides: Peptid
       <div className="flex flex-wrap gap-2 mb-6">
         <button
           onClick={() => setSelected(null)}
-          className="text-xs px-3 py-1.5 rounded-full cursor-pointer transition-all"
+          className="text-sm px-3 py-1.5 rounded-full cursor-pointer transition-all"
           style={{
-            fontFamily: "'DM Mono', monospace",
+            fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
             backgroundColor: selected === null ? "rgba(201,151,58,0.12)" : "rgba(232,224,208,0.5)",
             color: selected === null ? "#c9973a" : "#5a6a7a",
             border: `1px solid ${selected === null ? "#c9973a" : "#e8e0d0"}`,
@@ -45,9 +45,9 @@ export default function PeptideGrid({ peptides, categories }: { peptides: Peptid
             <button
               key={cat}
               onClick={() => handlePill(cat)}
-              className="text-xs px-3 py-1.5 rounded-full cursor-pointer transition-all"
+              className="text-sm px-3 py-1.5 rounded-full cursor-pointer transition-all"
               style={{
-                fontFamily: "'DM Mono', monospace",
+                fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
                 backgroundColor: active ? "rgba(201,151,58,0.12)" : "rgba(232,224,208,0.5)",
                 color: active ? "#c9973a" : "#5a6a7a",
                 border: `1px solid ${active ? "#c9973a" : "#e8e0d0"}`,
@@ -83,7 +83,7 @@ export default function PeptideGrid({ peptides, categories }: { peptides: Peptid
                       {peptide.name}
                     </h3>
                     {peptide.full_name && (
-                      <p className="text-xs mt-0.5" style={{ color: "#5a6a7a" }}>
+                      <p className="text-sm mt-0.5" style={{ color: "#5a6a7a" }}>
                         {peptide.full_name}
                       </p>
                     )}
@@ -100,9 +100,9 @@ export default function PeptideGrid({ peptides, categories }: { peptides: Peptid
                 <div className="flex flex-wrap gap-2 mb-3">
                   {peptide.category && (
                     <span
-                      className="text-xs px-2 py-0.5 rounded-full"
+                      className="text-sm px-2 py-0.5 rounded-full"
                       style={{
-                        fontFamily: "'DM Mono', monospace",
+                        fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
                         backgroundColor: "rgba(201,151,58,0.1)",
                         color: "#c9973a",
                         border: "1px solid rgba(201,151,58,0.2)",
@@ -113,9 +113,9 @@ export default function PeptideGrid({ peptides, categories }: { peptides: Peptid
                   )}
                   {peptide.route && (
                     <span
-                      className="text-xs px-2 py-0.5 rounded-full"
+                      className="text-sm px-2 py-0.5 rounded-full"
                       style={{
-                        fontFamily: "'DM Mono', monospace",
+                        fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
                         backgroundColor: `${routeColor}20`,
                         color: routeColor,
                         border: `1px solid ${routeColor}40`,
@@ -128,7 +128,7 @@ export default function PeptideGrid({ peptides, categories }: { peptides: Peptid
 
                 {/* Summary */}
                 {peptide.summary && (
-                  <p className="text-sm leading-relaxed mb-3" style={{ color: "#5a6a7a" }}>
+                  <p className="text-base leading-relaxed mb-3" style={{ color: "#5a6a7a" }}>
                     {peptide.summary.slice(0, 140)}...
                   </p>
                 )}
@@ -138,12 +138,12 @@ export default function PeptideGrid({ peptides, categories }: { peptides: Peptid
                   {peptide.half_life && (
                     <div>
                       <p
-                        className="text-xs uppercase tracking-widest mb-0.5"
-                        style={{ fontFamily: "'DM Mono', monospace", color: "#5a6a7a" }}
+                        className="text-sm uppercase tracking-widest mb-0.5"
+                        style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", color: "#5a6a7a" }}
                       >
                         Half-life
                       </p>
-                      <p className="text-xs font-medium" style={{ color: "#1a2744", fontFamily: "'DM Mono', monospace" }}>
+                      <p className="text-sm font-medium" style={{ color: "#1a2744", fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>
                         {peptide.half_life}
                       </p>
                     </div>
@@ -151,12 +151,12 @@ export default function PeptideGrid({ peptides, categories }: { peptides: Peptid
                   {peptide.cycle_length && (
                     <div>
                       <p
-                        className="text-xs uppercase tracking-widest mb-0.5"
-                        style={{ fontFamily: "'DM Mono', monospace", color: "#5a6a7a" }}
+                        className="text-sm uppercase tracking-widest mb-0.5"
+                        style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", color: "#5a6a7a" }}
                       >
                         Cycle
                       </p>
-                      <p className="text-xs font-medium" style={{ color: "#1a2744", fontFamily: "'DM Mono', monospace" }}>
+                      <p className="text-sm font-medium" style={{ color: "#1a2744", fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>
                         {peptide.cycle_length}
                       </p>
                     </div>
@@ -169,11 +169,11 @@ export default function PeptideGrid({ peptides, categories }: { peptides: Peptid
                     {peptide.tags.slice(0, 4).map((tag: string) => (
                       <span
                         key={tag}
-                        className="text-xs px-2 py-0.5 rounded"
+                        className="text-sm px-2 py-0.5 rounded"
                         style={{
                           backgroundColor: "#f5f3ee",
                           color: "#5a6a7a",
-                          fontFamily: "'DM Mono', monospace",
+                          fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
                         }}
                       >
                         #{tag}

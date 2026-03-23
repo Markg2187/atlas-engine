@@ -58,7 +58,7 @@ export default function ResetPasswordPage() {
           >
             Atlas Engine
           </h1>
-          <p className="mt-1 text-sm" style={{ color: "#5a6a7a" }}>
+          <p className="mt-1 text-base" style={{ color: "#5a6a7a" }}>
             Peptide Protocol Management Platform
           </p>
         </div>
@@ -78,15 +78,15 @@ export default function ResetPasswordPage() {
           >
             Set New Password
           </h2>
-          <p className="text-sm mb-6" style={{ color: "#5a6a7a" }}>
+          <p className="text-base mb-6" style={{ color: "#5a6a7a" }}>
             Choose a strong password for your account.
           </p>
 
           <form onSubmit={handleSubmit} className="space-y-5">
             <div>
               <label
-                className="block text-xs uppercase tracking-widest mb-2"
-                style={{ fontFamily: "'DM Mono', monospace", color: "#5a6a7a" }}
+                className="block text-sm uppercase tracking-widest mb-2"
+                style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", color: "#5a6a7a" }}
               >
                 New Password
               </label>
@@ -96,7 +96,7 @@ export default function ResetPasswordPage() {
                 onChange={(e) => setPassword(e.target.value)}
                 required
                 placeholder="••••••••"
-                className="w-full rounded-lg px-4 py-3 text-sm transition-all focus:outline-none"
+                className="w-full rounded-lg px-4 py-3 text-base transition-all focus:outline-none"
                 style={{
                   backgroundColor: "#f5f3ee",
                   border: "1px solid #e8e0d0",
@@ -115,8 +115,8 @@ export default function ResetPasswordPage() {
 
             <div>
               <label
-                className="block text-xs uppercase tracking-widest mb-2"
-                style={{ fontFamily: "'DM Mono', monospace", color: "#5a6a7a" }}
+                className="block text-sm uppercase tracking-widest mb-2"
+                style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", color: "#5a6a7a" }}
               >
                 Confirm Password
               </label>
@@ -126,7 +126,7 @@ export default function ResetPasswordPage() {
                 onChange={(e) => setConfirm(e.target.value)}
                 required
                 placeholder="••••••••"
-                className="w-full rounded-lg px-4 py-3 text-sm transition-all focus:outline-none"
+                className="w-full rounded-lg px-4 py-3 text-base transition-all focus:outline-none"
                 style={{
                   backgroundColor: "#f5f3ee",
                   border: "1px solid #e8e0d0",
@@ -145,7 +145,7 @@ export default function ResetPasswordPage() {
 
             {error && (
               <div
-                className="rounded-lg px-4 py-3 text-sm"
+                className="rounded-lg px-4 py-3 text-base"
                 style={{
                   backgroundColor: "rgba(224, 90, 106, 0.1)",
                   border: "1px solid #f7c1c1",
@@ -159,7 +159,7 @@ export default function ResetPasswordPage() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full py-3 rounded-lg font-semibold text-sm transition-all"
+              className="w-full py-3 rounded-lg font-semibold text-base transition-all"
               style={{
                 backgroundColor: loading ? "#a87c2e" : "#c9973a",
                 color: "#0b1120",

@@ -94,13 +94,13 @@ const inp = {
   backgroundColor: "#f5f3ee", border: "1px solid #e8e0d0",
   color: "#1a2744", borderRadius: "0.5rem",
   padding: "0.625rem 0.75rem", fontSize: "1rem",
-  fontFamily: "'DM Mono', monospace", width: "100%",
+  fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", width: "100%",
   WebkitAppearance: "none" as const,
 } as React.CSSProperties;
 
 const lbl = {
   fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
-  fontSize: "0.75rem",
+  fontSize: "0.875rem",
   fontWeight: 600,
   textTransform: "uppercase" as const,
   color: "#5a4a3a", display: "block", marginBottom: "0.375rem",
@@ -117,16 +117,16 @@ function MarginBar({ margin, minimum, label }: { margin: number; minimum: number
     <div>
       {label && (
         <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "0.25rem" }}>
-          <span style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.65rem", color: "#5a6a7a" }}>{label}</span>
-          <span style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.7rem", color, fontWeight: 600 }}>{margin.toFixed(1)}%</span>
+          <span style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", fontSize: "0.75rem", color: "#5a6a7a" }}>{label}</span>
+          <span style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", fontSize: "0.8rem", color, fontWeight: 600 }}>{margin.toFixed(1)}%</span>
         </div>
       )}
       <div style={{ height: "6px", backgroundColor: "#ffffff", borderRadius: "3px", overflow: "hidden", position: "relative" }}>
         <div style={{ position: "absolute", left: 0, top: 0, height: "100%", width: `${pct}%`, backgroundColor: color, borderRadius: "3px", transition: "width 0.3s ease" }} />
         <div style={{ position: "absolute", left: `${Math.min(100, minimum)}%`, top: 0, height: "100%", width: "2px", backgroundColor: "#8a7a5a" }} />
       </div>
-      {margin < minimum && margin >= 0 && <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.6rem", color: "#e8b86d", marginTop: "0.2rem" }}>Below {minimum}% minimum margin</p>}
-      {margin < 0 && <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.6rem", color: "#e05a6a", marginTop: "0.2rem" }}>Selling at a loss</p>}
+      {margin < minimum && margin >= 0 && <p style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", fontSize: "0.7rem", color: "#e8b86d", marginTop: "0.2rem" }}>Below {minimum}% minimum margin</p>}
+      {margin < 0 && <p style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", fontSize: "0.7rem", color: "#e05a6a", marginTop: "0.2rem" }}>Selling at a loss</p>}
     </div>
   );
 }
@@ -211,7 +211,7 @@ export default function CalculatorPage() {
     <div>
       <div className="mb-8">
         <h1 className="text-3xl font-bold" style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#1a2744" }}>Peptide Calculator</h1>
-        <p className="mt-1 text-sm" style={{ color: "#5a6a7a" }}>Reconstitution · Syringe units · Pricing & margin · Supply planning</p>
+        <p className="mt-1 text-base" style={{ color: "#5a6a7a" }}>Reconstitution · Syringe units · Pricing & margin · Supply planning</p>
       </div>
 
       {/* Peptide selector */}
@@ -240,7 +240,7 @@ export default function CalculatorPage() {
             {dilutionNote && (
               <div style={{ display: "flex", gap: "0.5rem", backgroundColor: "rgba(232,184,109,0.08)", border: "1px solid rgba(232,184,109,0.25)", borderRadius: "0.5rem", padding: "0.625rem 0.875rem" }}>
                 <AlertTriangle size={13} style={{ color: "#e8b86d", flexShrink: 0, marginTop: 1 }} />
-                <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.7rem", color: "#e8b86d", lineHeight: 1.5 }}>{dilutionNote}</p>
+                <p style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", fontSize: "0.8rem", color: "#e8b86d", lineHeight: 1.5 }}>{dilutionNote}</p>
               </div>
             )}
 
@@ -250,7 +250,7 @@ export default function CalculatorPage() {
               <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap", marginBottom: "0.5rem" }}>
                 {[2, 5, 10, 20, 50, 100, 500].map(v => (
                   <button key={v} onClick={() => setVialMg(v)}
-                    style={{ padding: "0.5rem 0.75rem", borderRadius: "0.375rem", fontSize: "0.875rem", fontFamily: "'DM Mono', monospace", cursor: "pointer", border: "1px solid", backgroundColor: vialMg === v ? "rgba(201,151,58,0.15)" : "#f5f3ee", color: vialMg === v ? "#c9973a" : "#5a6a7a", borderColor: vialMg === v ? "#c9973a" : "#e8e0d0", minWidth: "48px" }}>
+                    style={{ padding: "0.5rem 0.75rem", borderRadius: "0.375rem", fontSize: "1rem", fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", cursor: "pointer", border: "1px solid", backgroundColor: vialMg === v ? "rgba(201,151,58,0.15)" : "#f5f3ee", color: vialMg === v ? "#c9973a" : "#5a6a7a", borderColor: vialMg === v ? "#c9973a" : "#e8e0d0", minWidth: "48px" }}>
                     {v}mg
                   </button>
                 ))}
@@ -264,7 +264,7 @@ export default function CalculatorPage() {
               <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap", marginBottom: "0.5rem" }}>
                 {[1, 2, 2.5, 3, 4, 5, 10].map(v => (
                   <button key={v} onClick={() => setBacMl(v)}
-                    style={{ padding: "0.5rem 0.75rem", borderRadius: "0.375rem", fontSize: "0.875rem", fontFamily: "'DM Mono', monospace", cursor: "pointer", border: "1px solid", backgroundColor: bacMl === v ? "rgba(84,199,162,0.12)" : "#f5f3ee", color: bacMl === v ? "#54c7a2" : "#5a6a7a", borderColor: bacMl === v ? "#54c7a2" : "#e8e0d0", minWidth: "48px" }}>
+                    style={{ padding: "0.5rem 0.75rem", borderRadius: "0.375rem", fontSize: "1rem", fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", cursor: "pointer", border: "1px solid", backgroundColor: bacMl === v ? "rgba(84,199,162,0.12)" : "#f5f3ee", color: bacMl === v ? "#54c7a2" : "#5a6a7a", borderColor: bacMl === v ? "#54c7a2" : "#e8e0d0", minWidth: "48px" }}>
                     {v}ml
                   </button>
                 ))}
@@ -278,7 +278,7 @@ export default function CalculatorPage() {
                 <div style={{ display: "flex", border: "1px solid #e8e0d0", borderRadius: "0.5rem", overflow: "hidden" }}>
                   {(["mcg", "mg"] as DoseUnit[]).map(u => (
                     <button key={u} onClick={() => setDoseUnit(u)}
-                      style={{ padding: "0.375rem 0.875rem", fontSize: "0.875rem", fontFamily: "'DM Mono', monospace", backgroundColor: doseUnit === u ? "#e8e0d0" : "transparent", color: doseUnit === u ? "#c9973a" : "#5a6a7a", border: "none", cursor: "pointer" }}>
+                      style={{ padding: "0.375rem 0.875rem", fontSize: "1rem", fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", backgroundColor: doseUnit === u ? "#e8e0d0" : "transparent", color: doseUnit === u ? "#c9973a" : "#5a6a7a", border: "none", cursor: "pointer" }}>
                       {u}
                     </button>
                   ))}
@@ -288,7 +288,7 @@ export default function CalculatorPage() {
               <div style={{ display: "flex", gap: "0.375rem", marginTop: "0.5rem", flexWrap: "wrap" }}>
                 {(doseUnit === "mcg" ? [100,200,250,300,400,500,600,750,1000] : [0.25,0.5,1,1.5,2,2.5,4,5,10]).map(v => (
                   <button key={v} onClick={() => setDose(v)}
-                    style={{ padding: "0.375rem 0.625rem", borderRadius: "0.375rem", fontSize: "0.8rem", fontFamily: "'DM Mono', monospace", cursor: "pointer", backgroundColor: dose === v ? "rgba(201,151,58,0.15)" : "#f5f3ee", color: dose === v ? "#c9973a" : "#5a6a7a", border: `1px solid ${dose === v ? "#c9973a" : "#e8e0d0"}` }}>
+                    style={{ padding: "0.375rem 0.625rem", borderRadius: "0.375rem", fontSize: "0.8rem", fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", cursor: "pointer", backgroundColor: dose === v ? "rgba(201,151,58,0.15)" : "#f5f3ee", color: dose === v ? "#c9973a" : "#5a6a7a", border: `1px solid ${dose === v ? "#c9973a" : "#e8e0d0"}` }}>
                     {v}
                   </button>
                 ))}
@@ -297,7 +297,7 @@ export default function CalculatorPage() {
 
             {/* Supply toggle */}
             <button onClick={() => setShowSupply(p => !p)}
-              style={{ display: "flex", alignItems: "center", gap: "0.375rem", background: "none", border: "none", cursor: "pointer", color: "#5a6a7a", fontFamily: "'DM Mono', monospace", fontSize: "0.7rem", textTransform: "uppercase", letterSpacing: "0.06em", padding: 0 }}>
+              style={{ display: "flex", alignItems: "center", gap: "0.375rem", background: "none", border: "none", cursor: "pointer", color: "#5a6a7a", fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", fontSize: "0.8rem", textTransform: "uppercase", letterSpacing: "0.06em", padding: 0 }}>
               {showSupply ? <ChevronUp size={13} /> : <ChevronDown size={13} />}
               {showSupply ? "Hide" : "Show"} supply calculator
             </button>
@@ -310,7 +310,7 @@ export default function CalculatorPage() {
                   <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
                     {freqOptions.map((f, i) => (
                       <button key={f.label} onClick={() => setFreqIdx(i)}
-                        style={{ padding: "0.5rem 0.875rem", borderRadius: "0.5rem", fontSize: "0.875rem", fontFamily: "'DM Mono', monospace", cursor: "pointer", border: "1px solid", backgroundColor: freqIdx === i ? "#f5f3ee" : "#f5f3ee", color: freqIdx === i ? "#5a6a7a" : "#8a7a5a", borderColor: freqIdx === i ? "#5a6a7a" : "#e8e0d0" }}>
+                        style={{ padding: "0.5rem 0.875rem", borderRadius: "0.5rem", fontSize: "1rem", fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", cursor: "pointer", border: "1px solid", backgroundColor: freqIdx === i ? "#f5f3ee" : "#f5f3ee", color: freqIdx === i ? "#5a6a7a" : "#8a7a5a", borderColor: freqIdx === i ? "#5a6a7a" : "#e8e0d0" }}>
                         {f.label}
                       </button>
                     ))}
@@ -323,7 +323,7 @@ export default function CalculatorPage() {
                   <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap", marginBottom: "0.5rem" }}>
                     {[{l:"3wk",d:21},{l:"1mo",d:30},{l:"2mo",d:60},{l:"3mo",d:90},{l:"6mo",d:180},{l:"1yr",d:365}].map(({l,d}) => (
                       <button key={d} onClick={() => setProtocolDays(d)}
-                        style={{ padding: "0.5rem 0.75rem", borderRadius: "0.375rem", fontSize: "0.875rem", fontFamily: "'DM Mono', monospace", cursor: "pointer", border: "1px solid", backgroundColor: protocolDays === d ? "#f5f3ee" : "#f5f3ee", color: protocolDays === d ? "#5a6a7a" : "#8a7a5a", borderColor: protocolDays === d ? "#5a6a7a" : "#e8e0d0" }}>
+                        style={{ padding: "0.5rem 0.75rem", borderRadius: "0.375rem", fontSize: "1rem", fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", cursor: "pointer", border: "1px solid", backgroundColor: protocolDays === d ? "#f5f3ee" : "#f5f3ee", color: protocolDays === d ? "#5a6a7a" : "#8a7a5a", borderColor: protocolDays === d ? "#5a6a7a" : "#e8e0d0" }}>
                         {l}
                       </button>
                     ))}
@@ -339,20 +339,20 @@ export default function CalculatorPage() {
         <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
           <div style={res}>
             <p style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", fontSize: "11px", fontWeight: 600, color: "#5a4a3a", textTransform: "uppercase", marginBottom: "0.25rem" }}>Concentration</p>
-            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "1rem", color: "#1a2744", fontWeight: 600 }}>{r.concMgMl.toFixed(2)} mg/ml ({r.concMcgMl.toFixed(0)} mcg/ml)</p>
+            <p style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", fontSize: "1rem", color: "#1a2744", fontWeight: 600 }}>{r.concMgMl.toFixed(2)} mg/ml ({r.concMcgMl.toFixed(0)} mcg/ml)</p>
           </div>
 
           <div style={{ ...res, border: "2px solid #c9973a" }}>
             <p style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", fontSize: "11px", fontWeight: 600, color: "#5a4a3a", textTransform: "uppercase", marginBottom: "0.25rem" }}>Draw on syringe (U-100)</p>
-            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "2.5rem", fontWeight: 800, color: "#c9973a", lineHeight: 1 }}>
-              {r.unitsU100.toFixed(1)} <span style={{ fontSize: "0.875rem", color: "#5a6a7a", fontWeight: 400 }}>units</span>
+            <p style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", fontSize: "2.5rem", fontWeight: 800, color: "#c9973a", lineHeight: 1 }}>
+              {r.unitsU100.toFixed(1)} <span style={{ fontSize: "1rem", color: "#5a6a7a", fontWeight: 400 }}>units</span>
             </p>
-            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.75rem", color: "#5a6a7a", marginTop: "0.25rem" }}>= {r.volumeMl.toFixed(3)} ml</p>
+            <p style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", fontSize: "0.875rem", color: "#5a6a7a", marginTop: "0.25rem" }}>= {r.volumeMl.toFixed(3)} ml</p>
           </div>
 
           <div style={res}>
             <p style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", fontSize: "11px", fontWeight: 600, color: "#5a4a3a", textTransform: "uppercase", marginBottom: "0.25rem" }}>Recommended syringe</p>
-            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.9rem", color: "#1a2744" }}>{r.syringe} syringe</p>
+            <p style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", fontSize: "0.9rem", color: "#1a2744" }}>{r.syringe} syringe</p>
             <div style={{ marginTop: "0.5rem", height: "8px", backgroundColor: "#f5f3ee", borderRadius: "4px", overflow: "hidden" }}>
               <div style={{ height: "100%", width: `${Math.min(100, (r.unitsU100 / r.syringeMax) * 100)}%`, backgroundColor: "#54c7a2", borderRadius: "4px" }} />
             </div>
@@ -360,13 +360,13 @@ export default function CalculatorPage() {
 
           <div style={res}>
             <p style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", fontSize: "11px", fontWeight: 600, color: "#5a4a3a", textTransform: "uppercase", marginBottom: "0.25rem" }}>Doses per vial</p>
-            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "1.5rem", fontWeight: 700, color: "#54c7a2" }}>{r.dosesPerVial} doses</p>
+            <p style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", fontSize: "1.5rem", fontWeight: 700, color: "#54c7a2" }}>{r.dosesPerVial} doses</p>
           </div>
 
           {r.splitWarning && (
             <div style={{ display: "flex", gap: "0.5rem", backgroundColor: "rgba(224,90,106,0.08)", border: "1px solid rgba(224,90,106,0.25)", borderRadius: "0.5rem", padding: "0.75rem" }}>
               <AlertTriangle size={14} style={{ color: "#e05a6a", flexShrink: 0 }} />
-              <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.75rem", color: "#e05a6a" }}>{r.splitWarning}</p>
+              <p style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", fontSize: "0.875rem", color: "#e05a6a" }}>{r.splitWarning}</p>
             </div>
           )}
 
@@ -376,9 +376,9 @@ export default function CalculatorPage() {
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "0.5rem" }}>
                 {[{l:"30 days",v:vials30},{l:"60 days",v:vials60},{l:`${protocolDays}d`,v:vialsFull}].map(({l,v}) => (
                   <div key={l} style={{ ...res, textAlign: "center" as const }}>
-                    <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.65rem", color: "#5a6a7a", marginBottom: "0.25rem" }}>{l}</p>
-                    <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "1.75rem", fontWeight: 700, color: "#c9973a", lineHeight: 1 }}>{v}</p>
-                    <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.65rem", color: "#8a7a5a" }}>vial{v!==1?"s":""}</p>
+                    <p style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", fontSize: "0.75rem", color: "#5a6a7a", marginBottom: "0.25rem" }}>{l}</p>
+                    <p style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", fontSize: "1.75rem", fontWeight: 700, color: "#c9973a", lineHeight: 1 }}>{v}</p>
+                    <p style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", fontSize: "0.75rem", color: "#8a7a5a" }}>vial{v!==1?"s":""}</p>
                   </div>
                 ))}
               </div>
@@ -399,7 +399,7 @@ export default function CalculatorPage() {
           </div>
           <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
             {retail > 0 && wholesale > 0 && (
-              <span style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.875rem", color: getMarginColor(baseMargin, minMargin), fontWeight: 600 }}>
+              <span style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", fontSize: "1rem", color: getMarginColor(baseMargin, minMargin), fontWeight: 600 }}>
                 {baseMargin.toFixed(1)}% margin
               </span>
             )}
@@ -414,14 +414,14 @@ export default function CalculatorPage() {
                 <div>
                   <label style={lbl}>Your cost (wholesale)</label>
                   <div style={{ position: "relative" }}>
-                    <span style={{ position: "absolute", left: "0.75rem", top: "50%", transform: "translateY(-50%)", fontFamily: "'DM Mono', monospace", color: "#e05a6a", fontSize: "1rem" }}>$</span>
+                    <span style={{ position: "absolute", left: "0.75rem", top: "50%", transform: "translateY(-50%)", fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", color: "#e05a6a", fontSize: "1rem" }}>$</span>
                     <NumInput value={wholesale} onChange={setWholesale} step={0.01} placeholder="0.00" style={{ paddingLeft: "1.75rem" }} />
                   </div>
                 </div>
                 <div>
                   <label style={lbl}>Client pays (retail)</label>
                   <div style={{ position: "relative" }}>
-                    <span style={{ position: "absolute", left: "0.75rem", top: "50%", transform: "translateY(-50%)", fontFamily: "'DM Mono', monospace", color: "#54c7a2", fontSize: "1rem" }}>$</span>
+                    <span style={{ position: "absolute", left: "0.75rem", top: "50%", transform: "translateY(-50%)", fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", color: "#54c7a2", fontSize: "1rem" }}>$</span>
                     <NumInput value={retail} onChange={setRetail} step={0.01} placeholder="0.00" style={{ paddingLeft: "1.75rem" }} />
                   </div>
                 </div>
@@ -432,7 +432,7 @@ export default function CalculatorPage() {
                 <div style={{ display: "flex", gap: "0.375rem", flexWrap: "wrap" }}>
                   {[10,15,20,25,30,40].map(v => (
                     <button key={v} onClick={() => setMinMargin(v)}
-                      style={{ flex: 1, padding: "0.5rem", borderRadius: "0.375rem", fontSize: "0.875rem", fontFamily: "'DM Mono', monospace", cursor: "pointer", border: "1px solid", backgroundColor: minMargin === v ? "#f5f3ee" : "#f5f3ee", color: minMargin === v ? "#5a6a7a" : "#8a7a5a", borderColor: minMargin === v ? "#5a6a7a" : "#e8e0d0" }}>
+                      style={{ flex: 1, padding: "0.5rem", borderRadius: "0.375rem", fontSize: "1rem", fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", cursor: "pointer", border: "1px solid", backgroundColor: minMargin === v ? "#f5f3ee" : "#f5f3ee", color: minMargin === v ? "#5a6a7a" : "#8a7a5a", borderColor: minMargin === v ? "#5a6a7a" : "#e8e0d0" }}>
                       {v}%
                     </button>
                   ))}
@@ -443,8 +443,8 @@ export default function CalculatorPage() {
                 <div style={res}>
                   <MarginBar margin={baseMargin} minimum={minMargin} label="Base margin" />
                   <div style={{ display: "flex", justifyContent: "space-between", marginTop: "0.5rem" }}>
-                    <span style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.65rem", color: "#8a7a5a" }}>Break-even: {money(wholesale)}</span>
-                    <span style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.65rem", color: "#8a7a5a" }}>Min {minMargin}%: {money(minPrice)}</span>
+                    <span style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", fontSize: "0.75rem", color: "#8a7a5a" }}>Break-even: {money(wholesale)}</span>
+                    <span style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", fontSize: "0.75rem", color: "#8a7a5a" }}>Min {minMargin}%: {money(minPrice)}</span>
                   </div>
                 </div>
               )}
@@ -453,18 +453,18 @@ export default function CalculatorPage() {
                 <label style={lbl}>Apply discount</label>
                 <div style={{ display: "flex", flexWrap: "wrap", gap: "0.375rem", marginBottom: "0.5rem" }}>
                   <button onClick={() => setDiscountPct(0)}
-                    style={{ padding: "0.375rem 0.75rem", borderRadius: "1rem", fontSize: "0.8rem", fontFamily: "'DM Mono', monospace", cursor: "pointer", border: "1px solid", backgroundColor: discountPct === 0 ? "#f5f3ee" : "transparent", color: discountPct === 0 ? "#1a2744" : "#8a7a5a", borderColor: discountPct === 0 ? "#5a6a7a" : "#e8e0d0" }}>
+                    style={{ padding: "0.375rem 0.75rem", borderRadius: "1rem", fontSize: "0.8rem", fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", cursor: "pointer", border: "1px solid", backgroundColor: discountPct === 0 ? "#f5f3ee" : "transparent", color: discountPct === 0 ? "#1a2744" : "#8a7a5a", borderColor: discountPct === 0 ? "#5a6a7a" : "#e8e0d0" }}>
                     None
                   </button>
                   {DISCOUNT_PRESETS.map(p => (
                     <button key={p.name} onClick={() => setDiscountPct(p.pct)}
-                      style={{ padding: "0.375rem 0.75rem", borderRadius: "1rem", fontSize: "0.8rem", fontFamily: "'DM Mono', monospace", cursor: "pointer", border: "1px solid", backgroundColor: discountPct === p.pct ? `${p.color}20` : "transparent", color: discountPct === p.pct ? p.color : "#8a7a5a", borderColor: discountPct === p.pct ? p.color : "#e8e0d0" }}>
+                      style={{ padding: "0.375rem 0.75rem", borderRadius: "1rem", fontSize: "0.8rem", fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", cursor: "pointer", border: "1px solid", backgroundColor: discountPct === p.pct ? `${p.color}20` : "transparent", color: discountPct === p.pct ? p.color : "#8a7a5a", borderColor: discountPct === p.pct ? p.color : "#e8e0d0" }}>
                       {p.name} {p.pct}%
                     </button>
                   ))}
                 </div>
                 <NumInput value={discountPct} onChange={v => setDiscountPct(Math.min(100, v))} step={1} placeholder="0" />
-                <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.7rem", color: "#5a6a7a", marginTop: "0.25rem" }}>% custom discount</p>
+                <p style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", fontSize: "0.8rem", color: "#5a6a7a", marginTop: "0.25rem" }}>% custom discount</p>
               </div>
 
               <div>
@@ -472,7 +472,7 @@ export default function CalculatorPage() {
                 <div style={{ display: "flex", gap: "0.375rem", flexWrap: "wrap", marginBottom: "0.5rem" }}>
                   {[{l:"30d",v:vials30},{l:"60d",v:vials60},{l:`${protocolDays}d`,v:vialsFull}].map(({l,v}) => (
                     <button key={l} onClick={() => setVialsForQuote(v)}
-                      style={{ padding: "0.375rem 0.75rem", borderRadius: "0.375rem", fontSize: "0.8rem", fontFamily: "'DM Mono', monospace", cursor: "pointer", border: "1px solid", backgroundColor: vialsForQuote === v ? "rgba(201,151,58,0.15)" : "#f5f3ee", color: vialsForQuote === v ? "#c9973a" : "#5a6a7a", borderColor: vialsForQuote === v ? "#c9973a" : "#e8e0d0" }}>
+                      style={{ padding: "0.375rem 0.75rem", borderRadius: "0.375rem", fontSize: "0.8rem", fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", cursor: "pointer", border: "1px solid", backgroundColor: vialsForQuote === v ? "rgba(201,151,58,0.15)" : "#f5f3ee", color: vialsForQuote === v ? "#c9973a" : "#5a6a7a", borderColor: vialsForQuote === v ? "#c9973a" : "#e8e0d0" }}>
                       {v} vial{v!==1?"s":""} · {l}
                     </button>
                   ))}
@@ -486,62 +486,62 @@ export default function CalculatorPage() {
                 <>
                   {discountPct > 0 && (
                     <div style={{ ...res, borderColor: isAtLoss ? "rgba(224,90,106,0.4)" : isBelowMin ? "rgba(232,184,109,0.4)" : "#c0dd97" }}>
-                      <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.6rem", color: "#5a6a7a", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "0.25rem" }}>Price after {discountPct}% off</p>
+                      <p style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", fontSize: "0.7rem", color: "#5a6a7a", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "0.25rem" }}>Price after {discountPct}% off</p>
                       <div style={{ display: "flex", alignItems: "baseline", gap: "0.5rem", marginBottom: "0.5rem" }}>
-                        <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "1.4rem", fontWeight: 700, color: isAtLoss ? "#e05a6a" : isBelowMin ? "#e8b86d" : "#54c7a2" }}>{money(discountedPrice)}</p>
-                        <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.8rem", color: "#8a7a5a", textDecoration: "line-through" }}>{money(retail)}</p>
+                        <p style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", fontSize: "1.4rem", fontWeight: 700, color: isAtLoss ? "#e05a6a" : isBelowMin ? "#e8b86d" : "#54c7a2" }}>{money(discountedPrice)}</p>
+                        <p style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", fontSize: "0.8rem", color: "#8a7a5a", textDecoration: "line-through" }}>{money(retail)}</p>
                       </div>
                       <MarginBar margin={marginAfterDiscount} minimum={minMargin} label="Margin after discount" />
                     </div>
                   )}
 
                   <div style={res}>
-                    <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.6rem", color: "#5a6a7a", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "0.25rem" }}>Your profit per vial</p>
-                    <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "1.5rem", fontWeight: 700, color: getMarginColor(marginAfterDiscount, minMargin) }}>{money(profitPerVial)}</p>
+                    <p style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", fontSize: "0.7rem", color: "#5a6a7a", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "0.25rem" }}>Your profit per vial</p>
+                    <p style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", fontSize: "1.5rem", fontWeight: 700, color: getMarginColor(marginAfterDiscount, minMargin) }}>{money(profitPerVial)}</p>
                   </div>
 
                   {isAtLoss && (
                     <div style={{ display: "flex", gap: "0.5rem", backgroundColor: "rgba(224,90,106,0.1)", border: "1px solid rgba(224,90,106,0.35)", borderRadius: "0.5rem", padding: "0.75rem" }}>
                       <AlertTriangle size={14} style={{ color: "#e05a6a", flexShrink: 0 }} />
-                      <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.75rem", color: "#e05a6a", lineHeight: 1.5 }}>Selling at a loss. Break-even: {money(wholesale)}</p>
+                      <p style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", fontSize: "0.875rem", color: "#e05a6a", lineHeight: 1.5 }}>Selling at a loss. Break-even: {money(wholesale)}</p>
                     </div>
                   )}
                   {isBelowMin && !isAtLoss && (
                     <div style={{ display: "flex", gap: "0.5rem", backgroundColor: "rgba(232,184,109,0.08)", border: "1px solid rgba(232,184,109,0.25)", borderRadius: "0.5rem", padding: "0.75rem" }}>
                       <TrendingDown size={14} style={{ color: "#e8b86d", flexShrink: 0 }} />
-                      <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.75rem", color: "#e8b86d", lineHeight: 1.5 }}>Below {minMargin}% minimum. Safe floor: {money(minPrice)}</p>
+                      <p style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", fontSize: "0.875rem", color: "#e8b86d", lineHeight: 1.5 }}>Below {minMargin}% minimum. Safe floor: {money(minPrice)}</p>
                     </div>
                   )}
 
                   <div style={{ ...res, border: "1px solid rgba(201,151,58,0.25)" }}>
-                    <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.6rem", color: "#5a6a7a", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "0.5rem" }}>
+                    <p style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", fontSize: "0.7rem", color: "#5a6a7a", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "0.5rem" }}>
                       Total quote — {vialsForQuote} vial{vialsForQuote!==1?"s":""}
                     </p>
                     {discountPct > 0 && (
                       <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "0.25rem" }}>
-                        <span style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.8rem", color: "#8a7a5a", textDecoration: "line-through" }}>Full retail</span>
-                        <span style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.8rem", color: "#8a7a5a", textDecoration: "line-through" }}>{money(retail * vialsForQuote)}</span>
+                        <span style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", fontSize: "0.8rem", color: "#8a7a5a", textDecoration: "line-through" }}>Full retail</span>
+                        <span style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", fontSize: "0.8rem", color: "#8a7a5a", textDecoration: "line-through" }}>{money(retail * vialsForQuote)}</span>
                       </div>
                     )}
                     <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "0.375rem" }}>
-                      <span style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.9rem", color: "#1a2744", fontWeight: 600 }}>Client pays</span>
-                      <span style={{ fontFamily: "'DM Mono', monospace", fontSize: "1.25rem", color: "#c9973a", fontWeight: 700 }}>{money((discountPct > 0 ? discountedPrice : retail) * vialsForQuote)}</span>
+                      <span style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", fontSize: "0.9rem", color: "#1a2744", fontWeight: 600 }}>Client pays</span>
+                      <span style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", fontSize: "1.25rem", color: "#c9973a", fontWeight: 700 }}>{money((discountPct > 0 ? discountedPrice : retail) * vialsForQuote)}</span>
                     </div>
                     <div style={{ display: "flex", justifyContent: "space-between", paddingTop: "0.375rem", borderTop: "1px solid #e8e0d0" }}>
-                      <span style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.8rem", color: "#5a6a7a" }}>Your profit</span>
-                      <span style={{ fontFamily: "'DM Mono', monospace", fontSize: "1rem", color: getMarginColor(marginAfterDiscount, minMargin), fontWeight: 600 }}>{money(profitPerVial * vialsForQuote)}</span>
+                      <span style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", fontSize: "0.8rem", color: "#5a6a7a" }}>Your profit</span>
+                      <span style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", fontSize: "1rem", color: getMarginColor(marginAfterDiscount, minMargin), fontWeight: 600 }}>{money(profitPerVial * vialsForQuote)}</span>
                     </div>
                   </div>
 
                   <div style={res}>
-                    <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.6rem", color: "#5a6a7a", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "0.5rem" }}>If you discount...</p>
+                    <p style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", fontSize: "0.7rem", color: "#5a6a7a", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "0.5rem" }}>If you discount...</p>
                     {[10,15,20,25,30].map(pct => {
                       const m = calcMargin(retail*(1-pct/100), wholesale);
                       const c = getMarginColor(m, minMargin);
                       return (
                         <div key={pct} style={{ display: "flex", justifyContent: "space-between", marginBottom: "0.25rem" }}>
-                          <span style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.75rem", color: "#8a7a5a" }}>{pct}% → {money(retail*(1-pct/100))}</span>
-                          <span style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.75rem", color: c, fontWeight: 600 }}>{m.toFixed(1)}% margin</span>
+                          <span style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", fontSize: "0.875rem", color: "#8a7a5a" }}>{pct}% → {money(retail*(1-pct/100))}</span>
+                          <span style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", fontSize: "0.875rem", color: c, fontWeight: 600 }}>{m.toFixed(1)}% margin</span>
                         </div>
                       );
                     })}
@@ -550,7 +550,7 @@ export default function CalculatorPage() {
               ) : (
                 <div style={{ ...res, textAlign: "center" as const, padding: "2.5rem 1rem" }}>
                   <DollarSign size={28} style={{ color: "#e8e0d0", margin: "0 auto 0.75rem" }} />
-                  <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.875rem", color: "#8a7a5a" }}>Enter wholesale cost and retail price to see margin analysis</p>
+                  <p style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", fontSize: "1rem", color: "#8a7a5a" }}>Enter wholesale cost and retail price to see margin analysis</p>
                 </div>
               )}
             </div>
@@ -569,7 +569,7 @@ export default function CalculatorPage() {
             <div>
               <label style={lbl}>Client weight (lbs)</label>
               <NumInput value={weightLbs} onChange={setWeightLbs} step={1} placeholder="165" />
-              <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.75rem", color: "#5a6a7a", marginTop: "0.375rem" }}>= {weightKg} kg</p>
+              <p style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", fontSize: "0.875rem", color: "#5a6a7a", marginTop: "0.375rem" }}>= {weightKg} kg</p>
             </div>
             <div>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "0.375rem" }}>
@@ -577,7 +577,7 @@ export default function CalculatorPage() {
                 <div style={{ display: "flex", border: "1px solid #e8e0d0", borderRadius: "0.5rem", overflow: "hidden" }}>
                   {(["mcg","mg"] as DoseUnit[]).map(u => (
                     <button key={u} onClick={() => setWeightUnit(u)}
-                      style={{ padding: "0.375rem 0.875rem", fontSize: "0.875rem", fontFamily: "'DM Mono', monospace", backgroundColor: weightUnit === u ? "#e8e0d0" : "transparent", color: weightUnit === u ? "#c9973a" : "#5a6a7a", border: "none", cursor: "pointer" }}>
+                      style={{ padding: "0.375rem 0.875rem", fontSize: "1rem", fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", backgroundColor: weightUnit === u ? "#e8e0d0" : "transparent", color: weightUnit === u ? "#c9973a" : "#5a6a7a", border: "none", cursor: "pointer" }}>
                       {u}
                     </button>
                   ))}
@@ -588,9 +588,9 @@ export default function CalculatorPage() {
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
             <div style={res}>
-              <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.6rem", color: "#5a6a7a", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "0.25rem" }}>Calculated dose</p>
-              <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "2rem", fontWeight: 700, color: "#c9973a", lineHeight: 1 }}>{weightDose} <span style={{ fontSize: "1rem", color: "#5a6a7a" }}>{weightUnit}</span></p>
-              <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.75rem", color: "#8a7a5a", marginTop: "0.375rem" }}>{weightKg}kg × {dosePerKg} = {weightDose} {weightUnit}</p>
+              <p style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", fontSize: "0.7rem", color: "#5a6a7a", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "0.25rem" }}>Calculated dose</p>
+              <p style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", fontSize: "2rem", fontWeight: 700, color: "#c9973a", lineHeight: 1 }}>{weightDose} <span style={{ fontSize: "1rem", color: "#5a6a7a" }}>{weightUnit}</span></p>
+              <p style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", fontSize: "0.875rem", color: "#8a7a5a", marginTop: "0.375rem" }}>{weightKg}kg × {dosePerKg} = {weightDose} {weightUnit}</p>
             </div>
           </div>
         </div>

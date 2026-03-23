@@ -33,7 +33,7 @@ export default async function SettingsPage() {
         >
           Settings
         </h1>
-        <p className="mt-1 text-sm" style={{ color: "#5a6a7a" }}>
+        <p className="mt-1 text-base" style={{ color: "#5a6a7a" }}>
           Manage your account, location, and platform settings
         </p>
       </div>
@@ -71,11 +71,11 @@ export default async function SettingsPage() {
                 <p className="font-medium" style={{ color: "#1a2744" }}>
                   {profile?.full_name || "Unknown User"}
                 </p>
-                <p className="text-sm" style={{ color: "#5a6a7a" }}>{user.email}</p>
+                <p className="text-base" style={{ color: "#5a6a7a" }}>{user.email}</p>
                 <span
-                  className="text-xs px-2 py-0.5 rounded-full mt-1 inline-block"
+                  className="text-sm px-2 py-0.5 rounded-full mt-1 inline-block"
                   style={{
-                    fontFamily: "'DM Mono', monospace",
+                    fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
                     backgroundColor: "rgba(201,151,58,0.1)",
                     color: "#c9973a",
                     border: "1px solid rgba(201,151,58,0.2)",
@@ -89,15 +89,15 @@ export default async function SettingsPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                 <label
-                  className="block text-xs uppercase tracking-widest mb-1.5"
-                  style={{ fontFamily: "'DM Mono', monospace", color: "#5a6a7a" }}
+                  className="block text-sm uppercase tracking-widest mb-1.5"
+                  style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", color: "#5a6a7a" }}
                 >
                   Full Name
                 </label>
                 <input
                   type="text"
                   defaultValue={profile?.full_name || ""}
-                  className="w-full px-4 py-2.5 rounded-lg text-sm focus:outline-none"
+                  className="w-full px-4 py-2.5 rounded-lg text-base focus:outline-none"
                   style={{
                     backgroundColor: "#f5f3ee",
                     border: "1px solid #e8e0d0",
@@ -108,15 +108,15 @@ export default async function SettingsPage() {
               </div>
               <div>
                 <label
-                  className="block text-xs uppercase tracking-widest mb-1.5"
-                  style={{ fontFamily: "'DM Mono', monospace", color: "#5a6a7a" }}
+                  className="block text-sm uppercase tracking-widest mb-1.5"
+                  style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", color: "#5a6a7a" }}
                 >
                   Email
                 </label>
                 <input
                   type="email"
                   defaultValue={user.email || ""}
-                  className="w-full px-4 py-2.5 rounded-lg text-sm"
+                  className="w-full px-4 py-2.5 rounded-lg text-base"
                   style={{
                     backgroundColor: "#f5f3ee",
                     border: "1px solid #e8e0d0",
@@ -157,10 +157,10 @@ export default async function SettingsPage() {
                   ["Owner", (profile.location as any).owner_name],
                 ].map(([label, value]) => (
                   <div key={label as string}>
-                    <p className="text-xs uppercase tracking-widest mb-0.5" style={{ fontFamily: "'DM Mono', monospace", color: "#5a6a7a" }}>
+                    <p className="text-sm uppercase tracking-widest mb-0.5" style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", color: "#5a6a7a" }}>
                       {label}
                     </p>
-                    <p className="text-sm" style={{ color: "#1a2744" }}>{value || "—"}</p>
+                    <p className="text-base" style={{ color: "#1a2744" }}>{value || "—"}</p>
                   </div>
                 ))}
               </div>
@@ -196,15 +196,15 @@ export default async function SettingsPage() {
                     style={{ backgroundColor: "#f5f3ee", border: "1px solid #e8e0d0" }}
                   >
                     <div>
-                      <p className="font-medium text-sm" style={{ color: "#1a2744" }}>{loc.name}</p>
-                      <p className="text-xs" style={{ color: "#5a6a7a" }}>
+                      <p className="font-medium text-base" style={{ color: "#1a2744" }}>{loc.name}</p>
+                      <p className="text-sm" style={{ color: "#5a6a7a" }}>
                         {loc.city}, {loc.state} · {loc.owner_name}
                       </p>
                     </div>
                     <span
-                      className="text-xs px-2 py-1 rounded-full"
+                      className="text-sm px-2 py-1 rounded-full"
                       style={{
-                        fontFamily: "'DM Mono', monospace",
+                        fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
                         backgroundColor: loc.is_active ? "#eaf3de" : "#f5f3ee",
                         color: loc.is_active ? "#54c7a2" : "#5a6a7a",
                         border: `1px solid ${loc.is_active ? "#c0dd97" : "#e8e0d0"}`,
@@ -241,11 +241,11 @@ export default async function SettingsPage() {
               ["Environment", process.env.NODE_ENV || "development"],
               ["App URL", process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000"],
             ].map(([label, value]) => (
-              <div key={label} className="flex justify-between text-sm py-2 border-b" style={{ borderColor: "#e8e0d0" }}>
-                <span style={{ color: "#5a6a7a", fontFamily: "'DM Mono', monospace", fontSize: "0.75rem" }}>
+              <div key={label} className="flex justify-between text-base py-2 border-b" style={{ borderColor: "#e8e0d0" }}>
+                <span style={{ color: "#5a6a7a", fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", fontSize: "0.875rem" }}>
                   {label}
                 </span>
-                <span style={{ color: "#1a2744", fontFamily: "'DM Mono', monospace", fontSize: "0.75rem" }}>
+                <span style={{ color: "#1a2744", fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", fontSize: "0.875rem" }}>
                   {value}
                 </span>
               </div>

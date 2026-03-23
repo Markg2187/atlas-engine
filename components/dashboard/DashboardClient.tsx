@@ -109,7 +109,7 @@ function ClientCard({
               border: `1px solid ${
                 isPaid ? "rgba(84,199,162,0.25)" : "rgba(224,90,106,0.2)"
               }`,
-              fontFamily: "'DM Mono', monospace",
+              fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
               flexShrink: 0,
               whiteSpace: "nowrap",
             }}
@@ -121,7 +121,7 @@ function ClientCard({
           style={{
             color: "#5a6a7a",
             fontSize: "11px",
-            fontFamily: "'DM Mono', monospace",
+            fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
             margin: "0 0 3px 0",
           }}
         >
@@ -133,7 +133,7 @@ function ClientCard({
             style={{
               color: "#c9973a",
               fontSize: "11px",
-              fontFamily: "'DM Mono', monospace",
+              fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
               margin: 0,
               overflow: "hidden",
               textOverflow: "ellipsis",
@@ -397,7 +397,7 @@ export default function DashboardClient({
             <div style={{ color: s.color, marginBottom: "10px" }}>{s.icon}</div>
             <div
               style={{
-                fontFamily: "'DM Mono', monospace",
+                fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
                 color: "#1a2744",
                 fontSize: "30px",
                 fontWeight: 700,
@@ -511,7 +511,7 @@ export default function DashboardClient({
                         fontSize: "11px",
                         textAlign: "center",
                         padding: "24px 0",
-                        fontFamily: "'DM Mono', monospace",
+                        fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
                         margin: 0,
                       }}
                     >
@@ -587,7 +587,7 @@ export default function DashboardClient({
             </div>
             <span
               style={{
-                fontFamily: "'DM Mono', monospace",
+                fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
                 fontSize: "13px",
                 color: "#54c7a2",
                 fontWeight: 600,
@@ -646,7 +646,7 @@ export default function DashboardClient({
                   fontSize: "12px",
                   textAlign: "center",
                   padding: "28px 16px",
-                  fontFamily: "'DM Mono', monospace",
+                  fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
                   margin: 0,
                 }}
               >
@@ -690,7 +690,7 @@ export default function DashboardClient({
                         style={{
                           color: "#5a6a7a",
                           fontSize: "11px",
-                          fontFamily: "'DM Mono', monospace",
+                          fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
                           margin: 0,
                           overflow: "hidden",
                           textOverflow: "ellipsis",
@@ -703,7 +703,7 @@ export default function DashboardClient({
                     </div>
                     <span
                       style={{
-                        fontFamily: "'DM Mono', monospace",
+                        fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
                         fontSize: "11px",
                         color: urgencyColor,
                         fontWeight: 700,
@@ -715,7 +715,7 @@ export default function DashboardClient({
                     </span>
                     <span
                       style={{
-                        fontFamily: "'DM Mono', monospace",
+                        fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
                         fontSize: "11px",
                         color: "#54c7a2",
                         whiteSpace: "nowrap",
@@ -729,7 +729,7 @@ export default function DashboardClient({
                         padding: "4px 10px",
                         borderRadius: "6px",
                         fontSize: "10px",
-                        fontFamily: "'DM Mono', monospace",
+                        fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
                         cursor: "pointer",
                         border: "1px solid #e8e0d0",
                         backgroundColor: "#f5f3ee",
@@ -827,7 +827,7 @@ export default function DashboardClient({
                   : "rgba(201,151,58,0.06)",
                 color: "#c9973a",
                 fontSize: "13px",
-                fontFamily: "'DM Mono', monospace",
+                fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
                 cursor: "pointer",
                 transition: "background-color 0.15s",
                 display: "flex",
@@ -862,7 +862,7 @@ export default function DashboardClient({
                   style={{
                     color: "#5a6a7a",
                     fontSize: "12px",
-                    fontFamily: "'DM Mono', monospace",
+                    fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
                     lineHeight: "1.7",
                     margin: 0,
                   }}

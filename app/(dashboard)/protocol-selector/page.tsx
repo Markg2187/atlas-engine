@@ -57,7 +57,7 @@ export default async function ProtocolSelectorPage() {
           >
             Protocol Selector
           </h1>
-          <p className="mt-1 text-sm" style={{ color: "#5a6a7a" }}>
+          <p className="mt-1 text-base" style={{ color: "#5a6a7a" }}>
             {featuredStacks.length} signature stacks · {conditionProtocols.length} clinical protocols across{" "}
             {Object.keys(byCategory).length} categories
           </p>
@@ -71,9 +71,9 @@ export default async function ProtocolSelectorPage() {
           <div className="flex items-center gap-3 mb-5">
             <div className="h-px flex-1" style={{ backgroundColor: "rgba(201,151,58,0.2)" }} />
             <h2
-              className="text-xs uppercase tracking-widest px-3 flex items-center gap-2"
+              className="text-sm uppercase tracking-widest px-3 flex items-center gap-2"
               style={{
-                fontFamily: "'DM Mono', monospace",
+                fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
                 color: "#c9973a",
                 flexShrink: 0,
               }}
@@ -101,8 +101,8 @@ export default async function ProtocolSelectorPage() {
           <div className="flex items-center gap-3 mb-6">
             <div className="h-px flex-1" style={{ backgroundColor: "#e8e0d0" }} />
             <h2
-              className="text-xs uppercase tracking-widest px-3"
-              style={{ fontFamily: "'DM Mono', monospace", color: "#5a6a7a", flexShrink: 0 }}
+              className="text-sm uppercase tracking-widest px-3"
+              style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", color: "#5a6a7a", flexShrink: 0 }}
             >
               Condition-Based Protocols
             </h2>
@@ -115,9 +115,9 @@ export default async function ProtocolSelectorPage() {
                 <div className="flex items-center gap-3 mb-4">
                   <div className="h-px flex-1" style={{ backgroundColor: "#e8e0d0" }} />
                   <h3
-                    className="text-xs uppercase tracking-widest px-3"
+                    className="text-sm uppercase tracking-widest px-3"
                     style={{
-                      fontFamily: "'DM Mono', monospace",
+                      fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
                       color: categoryColors[category] || "#5a6a7a",
                       flexShrink: 0,
                     }}

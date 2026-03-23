@@ -23,7 +23,7 @@ export default async function PeptidesPage() {
         >
           Peptide Library
         </h1>
-        <p className="mt-1 text-sm" style={{ color: "#5a6a7a" }}>
+        <p className="mt-1 text-base" style={{ color: "#5a6a7a" }}>
           {allPeptides.length} peptides in the Atlas Engine database
         </p>
       </div>

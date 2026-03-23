@@ -256,7 +256,7 @@ export default function ClientProfileClient({
     textTransform: "uppercase" as const,
     letterSpacing: "0.1em",
     color: "#5a6a7a",
-    fontFamily: "'DM Mono', monospace",
+    fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
     marginBottom: "2px",
   };
 
@@ -271,7 +271,7 @@ export default function ClientProfileClient({
     color,
     backgroundColor: `${color}12`,
     cursor: "pointer",
-    fontFamily: "'DM Mono', monospace",
+    fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
   });
 
   const inputStyle: React.CSSProperties = {
@@ -335,7 +335,7 @@ export default function ClientProfileClient({
             <div style={{ display: "flex", alignItems: "center", gap: "10px", marginTop: "6px", flexWrap: "wrap" }}>
               <span
                 style={{
-                  fontFamily: "'DM Mono', monospace",
+                  fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
                   fontSize: "11px",
                   padding: "3px 10px",
                   borderRadius: "999px",
@@ -349,7 +349,7 @@ export default function ClientProfileClient({
               {isMinor && age !== null && (
                 <span
                   style={{
-                    fontFamily: "'DM Mono', monospace",
+                    fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
                     fontSize: "11px",
                     padding: "3px 10px",
                     borderRadius: "999px",
@@ -429,7 +429,7 @@ export default function ClientProfileClient({
                           backgroundColor: "rgba(201,151,58,0.1)",
                           color: "#c9973a",
                           border: "1px solid rgba(201,151,58,0.2)",
-                          fontFamily: "'DM Mono', monospace",
+                          fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
                         }}
                       >
                         {goal}
@@ -463,7 +463,7 @@ export default function ClientProfileClient({
                             fontSize: "12px",
                             cursor: "pointer",
                             textAlign: "left",
-                            fontFamily: "'DM Mono', monospace",
+                            fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
                             display: "flex",
                             alignItems: "center",
                             gap: "6px",
@@ -629,7 +629,7 @@ export default function ClientProfileClient({
             >
               <AlertTriangle size={16} style={{ color: "#e8b86d", flexShrink: 0, marginTop: "1px" }} />
               <div>
-                <p style={{ fontSize: "12px", color: "#e8b86d", fontWeight: 600, marginBottom: "4px", fontFamily: "'DM Mono', monospace", textTransform: "uppercase", letterSpacing: "0.08em" }}>
+                <p style={{ fontSize: "12px", color: "#e8b86d", fontWeight: 600, marginBottom: "4px", fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", textTransform: "uppercase", letterSpacing: "0.08em" }}>
                   Safety note — persists on every visit
                 </p>
                 <p style={{ fontSize: "13px", color: "#1a2744", margin: 0 }}>
@@ -651,7 +651,7 @@ export default function ClientProfileClient({
               justifyContent: "space-between",
             }}
           >
-            <span style={{ fontSize: "11px", color: "#5a6a7a", fontFamily: "'DM Mono', monospace", textTransform: "uppercase", letterSpacing: "0.08em" }}>
+            <span style={{ fontSize: "11px", color: "#5a6a7a", fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", textTransform: "uppercase", letterSpacing: "0.08em" }}>
               Payment Status
             </span>
             <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
@@ -664,7 +664,7 @@ export default function ClientProfileClient({
                     backgroundColor: "#eaf3de",
                     color: "#3b6d11",
                     border: "1px solid #c0dd97",
-                    fontFamily: "'DM Mono', monospace",
+                    fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
                   }}
                 >
                   Paid
@@ -679,7 +679,7 @@ export default function ClientProfileClient({
                       backgroundColor: "#fcebeb",
                       color: "#e05a6a",
                       border: "1px solid #f7c1c1",
-                      fontFamily: "'DM Mono', monospace",
+                      fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
                     }}
                   >
                     Unpaid
@@ -694,7 +694,7 @@ export default function ClientProfileClient({
                       color: "#3b6d11",
                       border: "1px solid #c0dd97",
                       cursor: "pointer",
-                      fontFamily: "'DM Mono', monospace",
+                      fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
                     }}
                   >
                     Mark as Paid
@@ -735,7 +735,7 @@ export default function ClientProfileClient({
                         backgroundColor: "#eaf3de",
                         color: "#3b6d11",
                         border: "1px solid #c0dd97",
-                        fontFamily: "'DM Mono', monospace",
+                        fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
                       }}
                     >
                       Month {activeProtocol.current_month} of {activeProtocol.total_months}
@@ -748,7 +748,7 @@ export default function ClientProfileClient({
                         backgroundColor: "rgba(110,136,176,0.12)",
                         color: "#5a6a7a",
                         border: "1px solid rgba(110,136,176,0.25)",
-                        fontFamily: "'DM Mono', monospace",
+                        fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
                       }}
                     >
                       Started {format(new Date(activeProtocol.start_date), "MMM d, yyyy")}
@@ -774,7 +774,7 @@ export default function ClientProfileClient({
                               backgroundColor: "rgba(110,136,176,0.12)",
                               color: "#5a6a7a",
                               border: "1px solid rgba(110,136,176,0.2)",
-                              fontFamily: "'DM Mono', monospace",
+                              fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
                             }}
                           >
                             {p}
@@ -796,7 +796,7 @@ export default function ClientProfileClient({
                     >
                       <div style={{ display: "flex", alignItems: "center", gap: "6px", marginBottom: "8px" }}>
                         <BookLock size={12} style={{ color: "#c9973a" }} />
-                        <span style={{ fontSize: "10px", textTransform: "uppercase" as const, letterSpacing: "0.1em", color: "#c9973a", fontFamily: "'DM Mono', monospace" }}>
+                        <span style={{ fontSize: "10px", textTransform: "uppercase" as const, letterSpacing: "0.1em", color: "#c9973a", fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>
                           Clinical Notes
                         </span>
                       </div>
@@ -893,10 +893,10 @@ export default function ClientProfileClient({
                           <p style={{ fontSize: "14px", color: "#1a2744", margin: "0 0 2px", fontWeight: 500 }}>
                             {item.protocol?.condition_name || "—"}
                           </p>
-                          <p style={{ fontSize: "12px", color: "#c9973a", margin: "0 0 4px", fontFamily: "'DM Mono', monospace" }}>
+                          <p style={{ fontSize: "12px", color: "#c9973a", margin: "0 0 4px", fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>
                             {item.protocol?.primary_peptide || "—"}
                           </p>
-                          <p style={{ fontSize: "11px", color: "#5a6a7a", margin: 0, fontFamily: "'DM Mono', monospace" }}>
+                          <p style={{ fontSize: "11px", color: "#5a6a7a", margin: 0, fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>
                             {item.start_date ? format(new Date(item.start_date), "MMM d, yyyy") : "—"}
                             {" → "}
                             {item.end_date ? format(new Date(item.end_date), "MMM d, yyyy") : "ongoing"}
@@ -910,7 +910,7 @@ export default function ClientProfileClient({
                             backgroundColor: sc.bg,
                             color: sc.color,
                             border: `1px solid ${sc.border}`,
-                            fontFamily: "'DM Mono', monospace",
+                            fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
                             flexShrink: 0,
                           }}
                         >
@@ -984,7 +984,7 @@ export default function ClientProfileClient({
                       }}
                     >
                       <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "6px" }}>
-                        <span style={{ fontSize: "11px", color: "#c9973a", fontFamily: "'DM Mono', monospace" }}>
+                        <span style={{ fontSize: "11px", color: "#c9973a", fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>
                           {format(new Date(note.checkin_date), "MMM d, yyyy")}
                         </span>
                         <span style={{ fontSize: "11px", color: "#5a6a7a" }}>by {currentUserName}</span>
@@ -1101,7 +1101,7 @@ export default function ClientProfileClient({
                       }}
                     >
                       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "8px" }}>
-                        <span style={{ fontSize: "11px", color: "#c9973a", fontFamily: "'DM Mono', monospace" }}>
+                        <span style={{ fontSize: "11px", color: "#c9973a", fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>
                           {format(new Date(ci.checkin_date), "MMM d, yyyy")}
                         </span>
                         {ci.compliance_rating && (
@@ -1121,7 +1121,7 @@ export default function ClientProfileClient({
                         )}
                       </div>
                       {ci.weight_lbs && (
-                        <p style={{ fontSize: "12px", color: "#5a6a7a", margin: "0 0 4px", fontFamily: "'DM Mono', monospace" }}>
+                        <p style={{ fontSize: "12px", color: "#5a6a7a", margin: "0 0 4px", fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>
                           Weight: {ci.weight_lbs} lbs
                         </p>
                       )}
@@ -1165,7 +1165,7 @@ export default function ClientProfileClient({
                             textTransform: "uppercase" as const,
                             letterSpacing: "0.1em",
                             color: "#5a6a7a",
-                            fontFamily: "'DM Mono', monospace",
+                            fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
                           }}
                         >
                           {h}
@@ -1177,11 +1177,11 @@ export default function ClientProfileClient({
                     {labResults.map((lab: any) => (
                       <tr key={lab.id} style={{ borderBottom: "1px solid rgba(232,224,208,0.5)" }}>
                         <td style={{ padding: "10px 16px", fontSize: "13px", color: "#1a2744" }}>{lab.test_name}</td>
-                        <td style={{ padding: "10px 16px", fontSize: "13px", color: "#1a2744", fontFamily: "'DM Mono', monospace" }}>
+                        <td style={{ padding: "10px 16px", fontSize: "13px", color: "#1a2744", fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>
                           {lab.result_value} {lab.unit}
                         </td>
                         <td style={{ padding: "10px 16px", fontSize: "13px", color: "#5a6a7a" }}>{lab.reference_range || "—"}</td>
-                        <td style={{ padding: "10px 16px", fontSize: "11px", color: "#5a6a7a", fontFamily: "'DM Mono', monospace" }}>
+                        <td style={{ padding: "10px 16px", fontSize: "11px", color: "#5a6a7a", fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>
                           {lab.test_date ? format(new Date(lab.test_date + "T00:00:00"), "MMM d, yyyy") : "—"}
                         </td>
                         <td style={{ padding: "10px 16px" }}>
@@ -1194,7 +1194,7 @@ export default function ClientProfileClient({
                                 backgroundColor: "#faeeda",
                                 color: "#e8b86d",
                                 border: "1px solid #fac775",
-                                fontFamily: "'DM Mono', monospace",
+                                fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
                               }}
                             >
                               Flagged

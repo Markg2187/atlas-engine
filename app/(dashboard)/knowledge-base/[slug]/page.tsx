@@ -34,7 +34,7 @@ export default async function ArticlePage({
     <div className="max-w-3xl mx-auto">
       <Link
         href="/knowledge-base"
-        className="inline-flex items-center gap-2 text-sm mb-6 transition-colors"
+        className="inline-flex items-center gap-2 text-base mb-6 transition-colors"
         style={{ color: "#5a6a7a" }}
       >
         <ArrowLeft size={16} />
@@ -52,9 +52,9 @@ export default async function ArticlePage({
       >
         <div className="flex items-center gap-3 mb-4">
           <span
-            className="text-xs px-3 py-1 rounded-full"
+            className="text-sm px-3 py-1 rounded-full"
             style={{
-              fontFamily: "'DM Mono', monospace",
+              fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
               backgroundColor: `${accentColor}20`,
               color: accentColor,
               border: `1px solid ${accentColor}40`,
@@ -84,16 +84,16 @@ export default async function ArticlePage({
           {article.author_name && (
             <div className="flex items-center gap-2">
               <div
-                className="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold"
+                className="w-7 h-7 rounded-full flex items-center justify-center text-sm font-bold"
                 style={{ backgroundColor: "#e8e0d0", color: "#c9973a" }}
               >
                 {article.author_name[0]}
               </div>
-              <span className="text-sm" style={{ color: "#1a2744" }}>{article.author_name}</span>
+              <span className="text-base" style={{ color: "#1a2744" }}>{article.author_name}</span>
             </div>
           )}
           {article.published_at && (
-            <div className="flex items-center gap-1.5 text-sm" style={{ color: "#5a6a7a" }}>
+            <div className="flex items-center gap-1.5 text-base" style={{ color: "#5a6a7a" }}>
               <Calendar size={13} />
               {format(new Date(article.published_at), "MMMM d, yyyy")}
             </div>
@@ -103,7 +103,7 @@ export default async function ArticlePage({
               href={article.source_url}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 text-sm transition-colors ml-auto"
+              className="flex items-center gap-1.5 text-base transition-colors ml-auto"
               style={{ color: accentColor }}
             >
               View Original <ExternalLink size={13} />
@@ -118,9 +118,9 @@ export default async function ArticlePage({
           {article.tags.map((tag: string) => (
             <span
               key={tag}
-              className="text-xs px-3 py-1.5 rounded-full"
+              className="text-sm px-3 py-1.5 rounded-full"
               style={{
-                fontFamily: "'DM Mono', monospace",
+                fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
                 backgroundColor: "#f5f3ee",
                 color: "#5a6a7a",
                 border: "1px solid #e8e0d0",
@@ -154,21 +154,21 @@ export default async function ArticlePage({
         >
           {article.source_url ? (
             <div>
-              <p className="text-sm mb-4" style={{ color: "#5a6a7a" }}>
+              <p className="text-base mb-4" style={{ color: "#5a6a7a" }}>
                 This article is hosted externally. Click below to read the full content.
               </p>
               <a
                 href={article.source_url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold text-sm"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold text-base"
                 style={{ backgroundColor: "#c9973a", color: "#0b1120" }}
               >
                 Read Article <ExternalLink size={14} />
               </a>
             </div>
           ) : (
-            <p className="text-sm" style={{ color: "#5a6a7a" }}>
+            <p className="text-base" style={{ color: "#5a6a7a" }}>
               No content available for this article.
             </p>
           )}
@@ -192,12 +192,12 @@ export default async function ArticlePage({
               <Link
                 key={slug}
                 href={`/peptides/${slug}`}
-                className="text-sm px-4 py-2 rounded-lg transition-all"
+                className="text-base px-4 py-2 rounded-lg transition-all"
                 style={{
                   backgroundColor: "rgba(201,151,58,0.1)",
                   color: "#c9973a",
                   border: "1px solid rgba(201,151,58,0.2)",
-                  fontFamily: "'DM Mono', monospace",
+                  fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
                 }}
               >
                 {slug.replace(/-/g, " ").toUpperCase()}
