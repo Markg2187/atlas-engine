@@ -98,12 +98,12 @@ export default function ClientProfileClient({
 
   const statusColor =
     client.status === "active"
-      ? { bg: "rgba(84,199,162,0.15)", color: "#54c7a2", border: "rgba(84,199,162,0.3)" }
+      ? { bg: "#eaf3de", color: "#3b6d11", border: "#c0dd97" }
       : client.status === "onboarding"
-      ? { bg: "rgba(232,201,110,0.15)", color: "#e8c96e", border: "rgba(232,201,110,0.3)" }
+      ? { bg: "#e6f1fb", color: "#185fa5", border: "#b5d4f4" }
       : client.status === "archived"
-      ? { bg: "rgba(224,90,106,0.12)", color: "#e05a6a", border: "rgba(224,90,106,0.3)" }
-      : { bg: "rgba(110,136,176,0.15)", color: "#6e88b0", border: "rgba(110,136,176,0.3)" };
+      ? { bg: "#fcebeb", color: "#a32d2d", border: "#f7c1c1" }
+      : { bg: "#f5f3ee", color: "#5a6a7a", border: "#e8e0d0" };
 
   // Safety alert check
   const flaggedConditions = healthConditions.filter((c) => /thyroid|cardiac|cancer/i.test(c));
@@ -224,9 +224,9 @@ export default function ClientProfileClient({
   }
 
   const cardStyle = (topBorderColor?: string): React.CSSProperties => ({
-    backgroundColor: "#0f1a2e",
-    border: "1px solid #1e3055",
-    borderTop: topBorderColor ? `2px solid ${topBorderColor}` : "1px solid #1e3055",
+    backgroundColor: "#ffffff",
+    border: "1px solid #e8e0d0",
+    borderTop: topBorderColor ? `2px solid ${topBorderColor}` : "1px solid #e8e0d0",
     borderRadius: "12px",
     overflow: "hidden",
   });
@@ -236,12 +236,12 @@ export default function ClientProfileClient({
     alignItems: "center",
     justifyContent: "space-between",
     padding: "16px 20px",
-    borderBottom: "1px solid #1e3055",
+    borderBottom: "1px solid #e8e0d0",
   };
 
   const titleStyle: React.CSSProperties = {
     fontFamily: "'Playfair Display', Georgia, serif",
-    color: "#ccd9ee",
+    color: "#0f1a2e",
     fontSize: "15px",
     fontWeight: 600,
     display: "flex",
@@ -255,7 +255,7 @@ export default function ClientProfileClient({
     fontSize: "10px",
     textTransform: "uppercase" as const,
     letterSpacing: "0.1em",
-    color: "#6e88b0",
+    color: "#5a6a7a",
     fontFamily: "'DM Mono', monospace",
     marginBottom: "2px",
   };
@@ -278,9 +278,9 @@ export default function ClientProfileClient({
     width: "100%",
     padding: "8px 12px",
     borderRadius: "8px",
-    backgroundColor: "#142035",
-    border: "1px solid #1e3055",
-    color: "#ccd9ee",
+    backgroundColor: "#f5f3ee",
+    border: "1px solid #e8e0d0",
+    color: "#0f1a2e",
     fontSize: "14px",
     outline: "none",
     fontFamily: "inherit",
@@ -292,9 +292,9 @@ export default function ClientProfileClient({
   const weightCheckins = checkins.filter((c) => c.weight_lbs || c.compliance_rating);
 
   const statusBadgeColor = (status: string) => {
-    if (status === "completed") return { bg: "rgba(84,199,162,0.15)", color: "#54c7a2", border: "rgba(84,199,162,0.3)" };
-    if (status === "paused") return { bg: "rgba(232,184,109,0.15)", color: "#e8b86d", border: "rgba(232,184,109,0.3)" };
-    return { bg: "rgba(224,90,106,0.12)", color: "#e05a6a", border: "rgba(224,90,106,0.3)" };
+    if (status === "completed") return { bg: "#eaf3de", color: "#3b6d11", border: "#c0dd97" };
+    if (status === "paused") return { bg: "#faeeda", color: "#854f0b", border: "#fac775" };
+    return { bg: "#fcebeb", color: "#a32d2d", border: "#f7c1c1" };
   };
 
   return (
@@ -307,8 +307,8 @@ export default function ClientProfileClient({
               width: "56px",
               height: "56px",
               borderRadius: "12px",
-              backgroundColor: "#1e3055",
-              color: "#e8c96e",
+              backgroundColor: "#e8e0d0",
+              color: "#c9973a",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
@@ -323,7 +323,7 @@ export default function ClientProfileClient({
             <h1
               style={{
                 fontFamily: "'Playfair Display', Georgia, serif",
-                color: "#ccd9ee",
+                color: "#0f1a2e",
                 fontSize: "28px",
                 fontWeight: 700,
                 margin: 0,
@@ -353,16 +353,16 @@ export default function ClientProfileClient({
                     fontSize: "11px",
                     padding: "3px 10px",
                     borderRadius: "999px",
-                    backgroundColor: "rgba(224,90,106,0.12)",
+                    backgroundColor: "#fcebeb",
                     color: "#e05a6a",
-                    border: "1px solid rgba(224,90,106,0.3)",
+                    border: "1px solid #f7c1c1",
                   }}
                 >
                   Minor — age {age}
                 </span>
               )}
               {client.location?.name && (
-                <span style={{ fontSize: "13px", color: "#6e88b0" }}>{client.location.name}</span>
+                <span style={{ fontSize: "13px", color: "#5a6a7a" }}>{client.location.name}</span>
               )}
             </div>
           </div>
@@ -381,7 +381,7 @@ export default function ClientProfileClient({
         <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
 
           {/* Client Info Card */}
-          <div style={cardStyle("#e8c96e")}>
+          <div style={cardStyle("#c9973a")}>
             <div style={{ padding: "16px 20px 4px" }}>
               <h3 style={{ ...titleStyle, paddingBottom: "12px" }}>Client Information</h3>
             </div>
@@ -396,7 +396,7 @@ export default function ClientProfileClient({
               ].map(([label, value]) => (
                 <div key={label}>
                   <span style={labelStyle}>{label}</span>
-                  <span style={{ fontSize: "14px", color: "#ccd9ee" }}>{value}</span>
+                  <span style={{ fontSize: "14px", color: "#0f1a2e" }}>{value}</span>
                 </div>
               ))}
             </div>
@@ -409,7 +409,7 @@ export default function ClientProfileClient({
               {!editingGoals ? (
                 <button
                   onClick={() => { setSelectedGoals([...goals]); setEditingGoals(true); }}
-                  style={smallBtnStyle("#e8c96e")}
+                  style={smallBtnStyle("#c9973a")}
                 >
                   <Edit2 size={11} /> Edit
                 </button>
@@ -426,9 +426,9 @@ export default function ClientProfileClient({
                           fontSize: "12px",
                           padding: "4px 12px",
                           borderRadius: "999px",
-                          backgroundColor: "rgba(232,201,110,0.1)",
-                          color: "#e8c96e",
-                          border: "1px solid rgba(232,201,110,0.2)",
+                          backgroundColor: "rgba(201,151,58,0.1)",
+                          color: "#c9973a",
+                          border: "1px solid rgba(201,151,58,0.2)",
                           fontFamily: "'DM Mono', monospace",
                         }}
                       >
@@ -437,7 +437,7 @@ export default function ClientProfileClient({
                     ))}
                   </div>
                 ) : (
-                  <p style={{ fontSize: "13px", color: "#6e88b0" }}>No goals recorded.</p>
+                  <p style={{ fontSize: "13px", color: "#5a6a7a" }}>No goals recorded.</p>
                 )
               ) : (
                 <div>
@@ -457,9 +457,9 @@ export default function ClientProfileClient({
                           style={{
                             padding: "10px 12px",
                             borderRadius: "8px",
-                            border: isSelected ? "1px solid rgba(232,201,110,0.5)" : "1px solid #1e3055",
-                            backgroundColor: isSelected ? "rgba(232,201,110,0.12)" : "#142035",
-                            color: isSelected ? "#e8c96e" : "#6e88b0",
+                            border: isSelected ? "1px solid rgba(201,151,58,0.5)" : "1px solid #e8e0d0",
+                            backgroundColor: isSelected ? "rgba(201,151,58,0.12)" : "#f5f3ee",
+                            color: isSelected ? "#c9973a" : "#5a6a7a",
                             fontSize: "12px",
                             cursor: "pointer",
                             textAlign: "left",
@@ -478,14 +478,14 @@ export default function ClientProfileClient({
                   <div style={{ display: "flex", gap: "8px" }}>
                     <button
                       onClick={() => setEditingGoals(false)}
-                      style={{ flex: 1, padding: "8px", borderRadius: "8px", backgroundColor: "#142035", color: "#6e88b0", border: "1px solid #1e3055", cursor: "pointer", fontSize: "13px" }}
+                      style={{ flex: 1, padding: "8px", borderRadius: "8px", backgroundColor: "#f5f3ee", color: "#5a6a7a", border: "1px solid #e8e0d0", cursor: "pointer", fontSize: "13px" }}
                     >
                       Cancel
                     </button>
                     <button
                       onClick={handleSaveGoals}
                       disabled={savingGoals}
-                      style={{ flex: 1, padding: "8px", borderRadius: "8px", backgroundColor: "#e8c96e", color: "#0b1120", border: "none", cursor: "pointer", fontSize: "13px", fontWeight: 600, opacity: savingGoals ? 0.8 : 1 }}
+                      style={{ flex: 1, padding: "8px", borderRadius: "8px", backgroundColor: "#c9973a", color: "#0b1120", border: "none", cursor: "pointer", fontSize: "13px", fontWeight: 600, opacity: savingGoals ? 0.8 : 1 }}
                     >
                       {savingGoals ? "Saving..." : "Save Goals"}
                     </button>
@@ -510,7 +510,7 @@ export default function ClientProfileClient({
               {showConditionSearch && (
                 <div style={{ marginBottom: "12px" }}>
                   <div style={{ position: "relative", marginBottom: "6px" }}>
-                    <Search size={13} style={{ position: "absolute", left: "10px", top: "50%", transform: "translateY(-50%)", color: "#6e88b0" }} />
+                    <Search size={13} style={{ position: "absolute", left: "10px", top: "50%", transform: "translateY(-50%)", color: "#5a6a7a" }} />
                     <input
                       ref={conditionSearchRef}
                       type="text"
@@ -521,7 +521,7 @@ export default function ClientProfileClient({
                     />
                   </div>
                   {conditionResults.length > 0 && (
-                    <div style={{ border: "1px solid #1e3055", borderRadius: "8px", overflow: "hidden" }}>
+                    <div style={{ border: "1px solid #e8e0d0", borderRadius: "8px", overflow: "hidden" }}>
                       {conditionResults.map((r) => (
                         <button
                           key={r.id}
@@ -532,13 +532,13 @@ export default function ClientProfileClient({
                             textAlign: "left",
                             padding: "8px 12px",
                             fontSize: "13px",
-                            color: "#ccd9ee",
+                            color: "#0f1a2e",
                             backgroundColor: "transparent",
                             border: "none",
-                            borderBottom: "1px solid #1e3055",
+                            borderBottom: "1px solid #e8e0d0",
                             cursor: "pointer",
                           }}
-                          onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#142035")}
+                          onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#f5f3ee")}
                           onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "transparent")}
                         >
                           {r.condition_name}
@@ -548,14 +548,14 @@ export default function ClientProfileClient({
                   )}
                   <button
                     onClick={() => { setShowConditionSearch(false); setConditionSearchTerm(""); setConditionResults([]); }}
-                    style={{ ...smallBtnStyle("#6e88b0"), marginTop: "6px" }}
+                    style={{ ...smallBtnStyle("#5a6a7a"), marginTop: "6px" }}
                   >
                     <X size={11} /> Cancel
                   </button>
                 </div>
               )}
               {healthConditions.length === 0 && !showConditionSearch ? (
-                <p style={{ fontSize: "13px", color: "#6e88b0" }}>No conditions recorded.</p>
+                <p style={{ fontSize: "13px", color: "#5a6a7a" }}>No conditions recorded.</p>
               ) : (
                 <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
                   {healthConditions.map((c, i) => {
@@ -569,14 +569,14 @@ export default function ClientProfileClient({
                           justifyContent: "space-between",
                           padding: "6px 10px",
                           borderRadius: "6px",
-                          backgroundColor: "#142035",
-                          border: "1px solid #1e3055",
+                          backgroundColor: "#f5f3ee",
+                          border: "1px solid #e8e0d0",
                         }}
                       >
                         <span
                           style={{
                             fontSize: "13px",
-                            color: isResolved ? "#6e88b0" : "#ccd9ee",
+                            color: isResolved ? "#5a6a7a" : "#0f1a2e",
                             textDecoration: isResolved ? "line-through" : "none",
                           }}
                         >
@@ -605,7 +605,7 @@ export default function ClientProfileClient({
                 <h3 style={{ ...titleStyle, paddingBottom: "12px" }}>Notes</h3>
               </div>
               <div style={{ padding: "0 20px 20px" }}>
-                <p style={{ fontSize: "13px", color: "#6e88b0", lineHeight: "1.6" }}>{client.notes}</p>
+                <p style={{ fontSize: "13px", color: "#5a6a7a", lineHeight: "1.6" }}>{client.notes}</p>
               </div>
             </div>
           )}
@@ -632,7 +632,7 @@ export default function ClientProfileClient({
                 <p style={{ fontSize: "12px", color: "#e8b86d", fontWeight: 600, marginBottom: "4px", fontFamily: "'DM Mono', monospace", textTransform: "uppercase", letterSpacing: "0.08em" }}>
                   Safety note — persists on every visit
                 </p>
-                <p style={{ fontSize: "13px", color: "#ccd9ee", margin: 0 }}>
+                <p style={{ fontSize: "13px", color: "#0f1a2e", margin: 0 }}>
                   {flaggedConditions.join(", ")}. Review contraindicated peptides before prescribing.
                 </p>
               </div>
@@ -642,8 +642,8 @@ export default function ClientProfileClient({
           {/* Payment Row */}
           <div
             style={{
-              backgroundColor: "#0f1a2e",
-              border: "1px solid #1e3055",
+              backgroundColor: "#ffffff",
+              border: "1px solid #e8e0d0",
               borderRadius: "10px",
               padding: "12px 16px",
               display: "flex",
@@ -651,7 +651,7 @@ export default function ClientProfileClient({
               justifyContent: "space-between",
             }}
           >
-            <span style={{ fontSize: "11px", color: "#6e88b0", fontFamily: "'DM Mono', monospace", textTransform: "uppercase", letterSpacing: "0.08em" }}>
+            <span style={{ fontSize: "11px", color: "#5a6a7a", fontFamily: "'DM Mono', monospace", textTransform: "uppercase", letterSpacing: "0.08em" }}>
               Payment Status
             </span>
             <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
@@ -661,9 +661,9 @@ export default function ClientProfileClient({
                     fontSize: "11px",
                     padding: "3px 10px",
                     borderRadius: "999px",
-                    backgroundColor: "rgba(84,199,162,0.15)",
-                    color: "#54c7a2",
-                    border: "1px solid rgba(84,199,162,0.3)",
+                    backgroundColor: "#eaf3de",
+                    color: "#3b6d11",
+                    border: "1px solid #c0dd97",
                     fontFamily: "'DM Mono', monospace",
                   }}
                 >
@@ -676,9 +676,9 @@ export default function ClientProfileClient({
                       fontSize: "11px",
                       padding: "3px 10px",
                       borderRadius: "999px",
-                      backgroundColor: "rgba(224,90,106,0.12)",
+                      backgroundColor: "#fcebeb",
                       color: "#e05a6a",
-                      border: "1px solid rgba(224,90,106,0.3)",
+                      border: "1px solid #f7c1c1",
                       fontFamily: "'DM Mono', monospace",
                     }}
                   >
@@ -690,9 +690,9 @@ export default function ClientProfileClient({
                       fontSize: "12px",
                       padding: "5px 12px",
                       borderRadius: "6px",
-                      backgroundColor: "rgba(84,199,162,0.15)",
-                      color: "#54c7a2",
-                      border: "1px solid rgba(84,199,162,0.3)",
+                      backgroundColor: "#eaf3de",
+                      color: "#3b6d11",
+                      border: "1px solid #c0dd97",
                       cursor: "pointer",
                       fontFamily: "'DM Mono', monospace",
                     }}
@@ -718,7 +718,7 @@ export default function ClientProfileClient({
                   <h4
                     style={{
                       fontFamily: "'Playfair Display', Georgia, serif",
-                      color: "#e8c96e",
+                      color: "#c9973a",
                       fontSize: "18px",
                       fontWeight: 600,
                       marginBottom: "8px",
@@ -732,9 +732,9 @@ export default function ClientProfileClient({
                         fontSize: "11px",
                         padding: "3px 10px",
                         borderRadius: "999px",
-                        backgroundColor: "rgba(84,199,162,0.15)",
-                        color: "#54c7a2",
-                        border: "1px solid rgba(84,199,162,0.3)",
+                        backgroundColor: "#eaf3de",
+                        color: "#3b6d11",
+                        border: "1px solid #c0dd97",
                         fontFamily: "'DM Mono', monospace",
                       }}
                     >
@@ -746,7 +746,7 @@ export default function ClientProfileClient({
                         padding: "3px 10px",
                         borderRadius: "999px",
                         backgroundColor: "rgba(110,136,176,0.12)",
-                        color: "#6e88b0",
+                        color: "#5a6a7a",
                         border: "1px solid rgba(110,136,176,0.25)",
                         fontFamily: "'DM Mono', monospace",
                       }}
@@ -757,7 +757,7 @@ export default function ClientProfileClient({
 
                   <div style={{ marginBottom: "8px" }}>
                     <span style={labelStyle}>Primary Peptide</span>
-                    <p style={{ fontSize: "14px", color: "#ccd9ee", margin: 0 }}>{activeProtocol.protocol.primary_peptide}</p>
+                    <p style={{ fontSize: "14px", color: "#0f1a2e", margin: 0 }}>{activeProtocol.protocol.primary_peptide}</p>
                   </div>
 
                   {activeProtocol.protocol.adjunct_peptides && activeProtocol.protocol.adjunct_peptides.length > 0 && (
@@ -772,7 +772,7 @@ export default function ClientProfileClient({
                               padding: "2px 8px",
                               borderRadius: "999px",
                               backgroundColor: "rgba(110,136,176,0.12)",
-                              color: "#6e88b0",
+                              color: "#5a6a7a",
                               border: "1px solid rgba(110,136,176,0.2)",
                               fontFamily: "'DM Mono', monospace",
                             }}
@@ -790,17 +790,17 @@ export default function ClientProfileClient({
                         marginTop: "16px",
                         borderRadius: "8px",
                         padding: "14px",
-                        backgroundColor: "rgba(232,201,110,0.04)",
-                        border: "1px solid rgba(232,201,110,0.25)",
+                        backgroundColor: "rgba(201,151,58,0.04)",
+                        border: "1px solid rgba(201,151,58,0.25)",
                       }}
                     >
                       <div style={{ display: "flex", alignItems: "center", gap: "6px", marginBottom: "8px" }}>
-                        <BookLock size={12} style={{ color: "#e8c96e" }} />
-                        <span style={{ fontSize: "10px", textTransform: "uppercase" as const, letterSpacing: "0.1em", color: "#e8c96e", fontFamily: "'DM Mono', monospace" }}>
+                        <BookLock size={12} style={{ color: "#c9973a" }} />
+                        <span style={{ fontSize: "10px", textTransform: "uppercase" as const, letterSpacing: "0.1em", color: "#c9973a", fontFamily: "'DM Mono', monospace" }}>
                           Clinical Notes
                         </span>
                       </div>
-                      <p style={{ fontSize: "13px", color: "#ccd9ee", lineHeight: "1.6", margin: 0 }}>
+                      <p style={{ fontSize: "13px", color: "#0f1a2e", lineHeight: "1.6", margin: 0 }}>
                         {activeProtocol.protocol.clinical_notes}
                       </p>
                     </div>
@@ -850,8 +850,8 @@ export default function ClientProfileClient({
                 </div>
               ) : (
                 <div style={{ textAlign: "center", padding: "32px 0" }}>
-                  <Syringe size={32} style={{ color: "#1e3055", margin: "0 auto 12px" }} />
-                  <p style={{ fontSize: "13px", color: "#6e88b0", marginBottom: "16px" }}>No active protocol assigned</p>
+                  <Syringe size={32} style={{ color: "#e8e0d0", margin: "0 auto 12px" }} />
+                  <p style={{ fontSize: "13px", color: "#5a6a7a", marginBottom: "16px" }}>No active protocol assigned</p>
                   <AssignProtocolSheet clientId={client.id} clientWeightLbs={client.weight_lbs} />
                 </div>
               )}
@@ -859,16 +859,16 @@ export default function ClientProfileClient({
           </div>
 
           {/* Protocol History Card */}
-          <div style={cardStyle("#6e88b0")}>
+          <div style={cardStyle("#5a6a7a")}>
             <div style={sectionHeaderStyle}>
               <h3 style={titleStyle}>
-                <Clock size={15} style={{ color: "#6e88b0" }} />
+                <Clock size={15} style={{ color: "#5a6a7a" }} />
                 Protocol History
               </h3>
             </div>
             <div style={{ padding: "20px" }}>
               {protocolHistory.length === 0 ? (
-                <p style={{ fontSize: "13px", color: "#6e88b0", lineHeight: "1.6" }}>
+                <p style={{ fontSize: "13px", color: "#5a6a7a", lineHeight: "1.6" }}>
                   No protocol history yet — history is written automatically when a protocol is marked complete or changed.
                 </p>
               ) : (
@@ -881,8 +881,8 @@ export default function ClientProfileClient({
                         style={{
                           padding: "12px 14px",
                           borderRadius: "8px",
-                          backgroundColor: "#142035",
-                          border: "1px solid #1e3055",
+                          backgroundColor: "#f5f3ee",
+                          border: "1px solid #e8e0d0",
                           display: "flex",
                           alignItems: "flex-start",
                           justifyContent: "space-between",
@@ -890,13 +890,13 @@ export default function ClientProfileClient({
                         }}
                       >
                         <div style={{ flex: 1, minWidth: 0 }}>
-                          <p style={{ fontSize: "14px", color: "#ccd9ee", margin: "0 0 2px", fontWeight: 500 }}>
+                          <p style={{ fontSize: "14px", color: "#0f1a2e", margin: "0 0 2px", fontWeight: 500 }}>
                             {item.protocol?.condition_name || "—"}
                           </p>
-                          <p style={{ fontSize: "12px", color: "#e8c96e", margin: "0 0 4px", fontFamily: "'DM Mono', monospace" }}>
+                          <p style={{ fontSize: "12px", color: "#c9973a", margin: "0 0 4px", fontFamily: "'DM Mono', monospace" }}>
                             {item.protocol?.primary_peptide || "—"}
                           </p>
-                          <p style={{ fontSize: "11px", color: "#6e88b0", margin: 0, fontFamily: "'DM Mono', monospace" }}>
+                          <p style={{ fontSize: "11px", color: "#5a6a7a", margin: 0, fontFamily: "'DM Mono', monospace" }}>
                             {item.start_date ? format(new Date(item.start_date), "MMM d, yyyy") : "—"}
                             {" → "}
                             {item.end_date ? format(new Date(item.end_date), "MMM d, yyyy") : "ongoing"}
@@ -925,22 +925,22 @@ export default function ClientProfileClient({
           </div>
 
           {/* Consultation Notes Card */}
-          <div style={cardStyle("#e8c96e")}>
+          <div style={cardStyle("#c9973a")}>
             <div style={sectionHeaderStyle}>
               <h3 style={titleStyle}>
-                <FileText size={15} style={{ color: "#e8c96e" }} />
+                <FileText size={15} style={{ color: "#c9973a" }} />
                 Consultation Notes
               </h3>
               <button
                 onClick={() => setShowNoteForm(true)}
-                style={smallBtnStyle("#e8c96e")}
+                style={smallBtnStyle("#c9973a")}
               >
                 <Plus size={11} /> Add Note
               </button>
             </div>
             <div style={{ padding: "20px" }}>
               {showNoteForm && (
-                <div style={{ marginBottom: "16px", padding: "14px", backgroundColor: "#142035", borderRadius: "8px", border: "1px solid #1e3055" }}>
+                <div style={{ marginBottom: "16px", padding: "14px", backgroundColor: "#f5f3ee", borderRadius: "8px", border: "1px solid #e8e0d0" }}>
                   <textarea
                     value={noteText}
                     onChange={(e) => setNoteText(e.target.value)}
@@ -955,14 +955,14 @@ export default function ClientProfileClient({
                   <div style={{ display: "flex", gap: "8px" }}>
                     <button
                       onClick={() => { setShowNoteForm(false); setNoteText(""); }}
-                      style={{ flex: 1, padding: "8px", borderRadius: "8px", backgroundColor: "#0f1a2e", color: "#6e88b0", border: "1px solid #1e3055", cursor: "pointer", fontSize: "13px" }}
+                      style={{ flex: 1, padding: "8px", borderRadius: "8px", backgroundColor: "#ffffff", color: "#5a6a7a", border: "1px solid #e8e0d0", cursor: "pointer", fontSize: "13px" }}
                     >
                       Cancel
                     </button>
                     <button
                       onClick={handleSaveNote}
                       disabled={savingNote || !noteText.trim()}
-                      style={{ flex: 1, padding: "8px", borderRadius: "8px", backgroundColor: "#e8c96e", color: "#0b1120", border: "none", cursor: "pointer", fontSize: "13px", fontWeight: 600, opacity: savingNote ? 0.8 : 1 }}
+                      style={{ flex: 1, padding: "8px", borderRadius: "8px", backgroundColor: "#c9973a", color: "#0b1120", border: "none", cursor: "pointer", fontSize: "13px", fontWeight: 600, opacity: savingNote ? 0.8 : 1 }}
                     >
                       {savingNote ? "Saving..." : "Save Note"}
                     </button>
@@ -970,7 +970,7 @@ export default function ClientProfileClient({
                 </div>
               )}
               {checkins.filter((c) => c.subjective_response).length === 0 && !showNoteForm ? (
-                <p style={{ fontSize: "13px", color: "#6e88b0" }}>No consultation notes yet.</p>
+                <p style={{ fontSize: "13px", color: "#5a6a7a" }}>No consultation notes yet.</p>
               ) : (
                 <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
                   {checkins.filter((c) => c.subjective_response).map((note: any) => (
@@ -979,17 +979,17 @@ export default function ClientProfileClient({
                       style={{
                         padding: "12px 14px",
                         borderRadius: "8px",
-                        backgroundColor: "#142035",
-                        border: "1px solid #1e3055",
+                        backgroundColor: "#f5f3ee",
+                        border: "1px solid #e8e0d0",
                       }}
                     >
                       <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "6px" }}>
-                        <span style={{ fontSize: "11px", color: "#e8c96e", fontFamily: "'DM Mono', monospace" }}>
+                        <span style={{ fontSize: "11px", color: "#c9973a", fontFamily: "'DM Mono', monospace" }}>
                           {format(new Date(note.checkin_date), "MMM d, yyyy")}
                         </span>
-                        <span style={{ fontSize: "11px", color: "#6e88b0" }}>by {currentUserName}</span>
+                        <span style={{ fontSize: "11px", color: "#5a6a7a" }}>by {currentUserName}</span>
                       </div>
-                      <p style={{ fontSize: "13px", color: "#ccd9ee", lineHeight: "1.5", margin: 0 }}>
+                      <p style={{ fontSize: "13px", color: "#0f1a2e", lineHeight: "1.5", margin: 0 }}>
                         {note.subjective_response}
                       </p>
                     </div>
@@ -1000,22 +1000,22 @@ export default function ClientProfileClient({
           </div>
 
           {/* Check-in History Card */}
-          <div style={cardStyle("#6e88b0")}>
+          <div style={cardStyle("#5a6a7a")}>
             <div style={sectionHeaderStyle}>
               <h3 style={titleStyle}>
-                <MessageSquare size={15} style={{ color: "#6e88b0" }} />
+                <MessageSquare size={15} style={{ color: "#5a6a7a" }} />
                 Check-in History
               </h3>
               <button
                 onClick={() => setShowCheckinForm(true)}
-                style={smallBtnStyle("#6e88b0")}
+                style={smallBtnStyle("#5a6a7a")}
               >
                 <Plus size={11} /> Log Check-in
               </button>
             </div>
             <div style={{ padding: "20px" }}>
               {showCheckinForm && (
-                <div style={{ marginBottom: "16px", padding: "14px", backgroundColor: "#142035", borderRadius: "8px", border: "1px solid #1e3055" }}>
+                <div style={{ marginBottom: "16px", padding: "14px", backgroundColor: "#f5f3ee", borderRadius: "8px", border: "1px solid #e8e0d0" }}>
                   <div style={{ marginBottom: "10px" }}>
                     <label style={labelStyle}>Date</label>
                     <input
@@ -1057,14 +1057,14 @@ export default function ClientProfileClient({
                             height: "32px",
                             borderRadius: "50%",
                             border: "none",
-                            backgroundColor: n <= checkinCompliance ? "#e8c96e" : "#1e3055",
+                            backgroundColor: n <= checkinCompliance ? "#c9973a" : "#e8e0d0",
                             cursor: "pointer",
                             display: "flex",
                             alignItems: "center",
                             justifyContent: "center",
                           }}
                         >
-                          <Star size={14} style={{ color: n <= checkinCompliance ? "#0b1120" : "#6e88b0" }} />
+                          <Star size={14} style={{ color: n <= checkinCompliance ? "#0b1120" : "#5a6a7a" }} />
                         </button>
                       ))}
                     </div>
@@ -1072,14 +1072,14 @@ export default function ClientProfileClient({
                   <div style={{ display: "flex", gap: "8px" }}>
                     <button
                       onClick={() => setShowCheckinForm(false)}
-                      style={{ flex: 1, padding: "8px", borderRadius: "8px", backgroundColor: "#0f1a2e", color: "#6e88b0", border: "1px solid #1e3055", cursor: "pointer", fontSize: "13px" }}
+                      style={{ flex: 1, padding: "8px", borderRadius: "8px", backgroundColor: "#ffffff", color: "#5a6a7a", border: "1px solid #e8e0d0", cursor: "pointer", fontSize: "13px" }}
                     >
                       Cancel
                     </button>
                     <button
                       onClick={handleSaveCheckin}
                       disabled={savingCheckin}
-                      style={{ flex: 1, padding: "8px", borderRadius: "8px", backgroundColor: "#6e88b0", color: "#0b1120", border: "none", cursor: "pointer", fontSize: "13px", fontWeight: 600, opacity: savingCheckin ? 0.8 : 1 }}
+                      style={{ flex: 1, padding: "8px", borderRadius: "8px", backgroundColor: "#5a6a7a", color: "#0b1120", border: "none", cursor: "pointer", fontSize: "13px", fontWeight: 600, opacity: savingCheckin ? 0.8 : 1 }}
                     >
                       {savingCheckin ? "Saving..." : "Log Check-in"}
                     </button>
@@ -1087,7 +1087,7 @@ export default function ClientProfileClient({
                 </div>
               )}
               {checkins.length === 0 && !showCheckinForm ? (
-                <p style={{ fontSize: "13px", color: "#6e88b0" }}>No check-ins recorded yet.</p>
+                <p style={{ fontSize: "13px", color: "#5a6a7a" }}>No check-ins recorded yet.</p>
               ) : (
                 <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
                   {checkins.map((ci: any) => (
@@ -1096,12 +1096,12 @@ export default function ClientProfileClient({
                       style={{
                         padding: "14px",
                         borderRadius: "8px",
-                        backgroundColor: "#142035",
-                        border: "1px solid #1e3055",
+                        backgroundColor: "#f5f3ee",
+                        border: "1px solid #e8e0d0",
                       }}
                     >
                       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "8px" }}>
-                        <span style={{ fontSize: "11px", color: "#e8c96e", fontFamily: "'DM Mono', monospace" }}>
+                        <span style={{ fontSize: "11px", color: "#c9973a", fontFamily: "'DM Mono', monospace" }}>
                           {format(new Date(ci.checkin_date), "MMM d, yyyy")}
                         </span>
                         {ci.compliance_rating && (
@@ -1113,7 +1113,7 @@ export default function ClientProfileClient({
                                   width: "8px",
                                   height: "8px",
                                   borderRadius: "50%",
-                                  backgroundColor: i < ci.compliance_rating ? "#e8c96e" : "#1e3055",
+                                  backgroundColor: i < ci.compliance_rating ? "#c9973a" : "#e8e0d0",
                                 }}
                               />
                             ))}
@@ -1121,12 +1121,12 @@ export default function ClientProfileClient({
                         )}
                       </div>
                       {ci.weight_lbs && (
-                        <p style={{ fontSize: "12px", color: "#6e88b0", margin: "0 0 4px", fontFamily: "'DM Mono', monospace" }}>
+                        <p style={{ fontSize: "12px", color: "#5a6a7a", margin: "0 0 4px", fontFamily: "'DM Mono', monospace" }}>
                           Weight: {ci.weight_lbs} lbs
                         </p>
                       )}
                       {ci.subjective_response && (
-                        <p style={{ fontSize: "13px", color: "#ccd9ee", lineHeight: "1.5", margin: 0 }}>
+                        <p style={{ fontSize: "13px", color: "#0f1a2e", lineHeight: "1.5", margin: 0 }}>
                           {ci.subjective_response}
                         </p>
                       )}
@@ -1144,17 +1144,17 @@ export default function ClientProfileClient({
 
           {/* Lab Results */}
           {labResults && labResults.length > 0 && (
-            <div style={cardStyle("#e8c96e")}>
+            <div style={cardStyle("#c9973a")}>
               <div style={sectionHeaderStyle}>
                 <h3 style={titleStyle}>
-                  <FlaskConical size={15} style={{ color: "#e8c96e" }} />
+                  <FlaskConical size={15} style={{ color: "#c9973a" }} />
                   Lab Results
                 </h3>
               </div>
               <div style={{ overflowX: "auto" }}>
                 <table style={{ width: "100%", borderCollapse: "collapse" }}>
                   <thead>
-                    <tr style={{ borderBottom: "1px solid #1e3055" }}>
+                    <tr style={{ borderBottom: "1px solid #e8e0d0" }}>
                       {["Test", "Result", "Range", "Date", "Flag"].map((h) => (
                         <th
                           key={h}
@@ -1164,7 +1164,7 @@ export default function ClientProfileClient({
                             fontSize: "10px",
                             textTransform: "uppercase" as const,
                             letterSpacing: "0.1em",
-                            color: "#6e88b0",
+                            color: "#5a6a7a",
                             fontFamily: "'DM Mono', monospace",
                           }}
                         >
@@ -1175,13 +1175,13 @@ export default function ClientProfileClient({
                   </thead>
                   <tbody>
                     {labResults.map((lab: any) => (
-                      <tr key={lab.id} style={{ borderBottom: "1px solid rgba(30,48,85,0.5)" }}>
-                        <td style={{ padding: "10px 16px", fontSize: "13px", color: "#ccd9ee" }}>{lab.test_name}</td>
-                        <td style={{ padding: "10px 16px", fontSize: "13px", color: "#ccd9ee", fontFamily: "'DM Mono', monospace" }}>
+                      <tr key={lab.id} style={{ borderBottom: "1px solid rgba(232,224,208,0.5)" }}>
+                        <td style={{ padding: "10px 16px", fontSize: "13px", color: "#0f1a2e" }}>{lab.test_name}</td>
+                        <td style={{ padding: "10px 16px", fontSize: "13px", color: "#0f1a2e", fontFamily: "'DM Mono', monospace" }}>
                           {lab.result_value} {lab.unit}
                         </td>
-                        <td style={{ padding: "10px 16px", fontSize: "13px", color: "#6e88b0" }}>{lab.reference_range || "—"}</td>
-                        <td style={{ padding: "10px 16px", fontSize: "11px", color: "#6e88b0", fontFamily: "'DM Mono', monospace" }}>
+                        <td style={{ padding: "10px 16px", fontSize: "13px", color: "#5a6a7a" }}>{lab.reference_range || "—"}</td>
+                        <td style={{ padding: "10px 16px", fontSize: "11px", color: "#5a6a7a", fontFamily: "'DM Mono', monospace" }}>
                           {lab.test_date ? format(new Date(lab.test_date + "T00:00:00"), "MMM d, yyyy") : "—"}
                         </td>
                         <td style={{ padding: "10px 16px" }}>
@@ -1191,9 +1191,9 @@ export default function ClientProfileClient({
                                 fontSize: "10px",
                                 padding: "2px 8px",
                                 borderRadius: "999px",
-                                backgroundColor: "rgba(232,184,109,0.15)",
+                                backgroundColor: "#faeeda",
                                 color: "#e8b86d",
-                                border: "1px solid rgba(232,184,109,0.3)",
+                                border: "1px solid #fac775",
                                 fontFamily: "'DM Mono', monospace",
                               }}
                             >

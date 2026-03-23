@@ -38,7 +38,7 @@ export default function RootLayout({
       className={`${playfair.variable} ${dmMono.variable} ${dmSans.variable} h-full`}
       suppressHydrationWarning
     >
-      <body className="min-h-full bg-[#0b1120] text-[#ccd9ee] antialiased">
+      <body className="min-h-full bg-[#ffffff] text-[#ffffff] antialiased">
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
@@ -51,8 +51,8 @@ export default function RootLayout({
             toastOptions={{
               style: {
                 background: "#0f1a2e",
-                border: "1px solid #1e3055",
-                color: "#ccd9ee",
+                border: "1px solid #e8e0d0",
+                color: "#0f1a2e",
               },
             }}
           />

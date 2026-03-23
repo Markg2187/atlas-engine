@@ -15,17 +15,17 @@ interface AssignProtocolSheetProps {
 }
 
 const categoryColors: Record<string, string> = {
-  Neurologic: "#6e88b0",
+  Neurologic: "#5a6a7a",
   "Immune/Infectious": "#54c7a2",
   Autoimmune: "#e8b86d",
-  Musculoskeletal: "#e8c96e",
-  Metabolic: "#c9a84c",
+  Musculoskeletal: "#c9973a",
+  Metabolic: "#a87c2e",
   Longevity: "#e05a6a",
-  "Sleep/Stress": "#6e88b0",
+  "Sleep/Stress": "#5a6a7a",
   "GI/Autoimmune": "#54c7a2",
   GI: "#54c7a2",
-  "Sleep/Cognitive": "#6e88b0",
-  "Musculoskeletal/Autoimmune": "#e8c96e",
+  "Sleep/Cognitive": "#5a6a7a",
+  "Musculoskeletal/Autoimmune": "#c9973a",
 };
 
 export default function AssignProtocolSheet({ clientId, clientWeightLbs, label, onBeforeAssign }: AssignProtocolSheetProps) {
@@ -117,12 +117,12 @@ export default function AssignProtocolSheet({ clientId, clientWeightLbs, label, 
         onClick={() => setOpen(true)}
         className="text-xs px-3 py-1.5 rounded-lg transition-all"
         style={{
-          color: "#e8c96e",
-          border: "1px solid rgba(232,201,110,0.3)",
+          color: "#c9973a",
+          border: "1px solid rgba(201,151,58,0.3)",
           fontFamily: "'DM Mono', monospace",
         }}
         onMouseEnter={(e) => {
-          e.currentTarget.style.backgroundColor = "rgba(232,201,110,0.1)";
+          e.currentTarget.style.backgroundColor = "rgba(201,151,58,0.1)";
         }}
         onMouseLeave={(e) => {
           e.currentTarget.style.backgroundColor = "transparent";
@@ -142,17 +142,17 @@ export default function AssignProtocolSheet({ clientId, clientWeightLbs, label, 
           {/* Sheet — slides in from right */}
           <div
             className="ml-auto h-full w-full max-w-md flex flex-col"
-            style={{ backgroundColor: "#0f1a2e", borderLeft: "1px solid #1e3055" }}
+            style={{ backgroundColor: "#ffffff", borderLeft: "1px solid #e8e0d0" }}
           >
             {/* Header */}
             <div
               className="flex items-center justify-between px-6 py-5 border-b flex-shrink-0"
-              style={{ borderColor: "#1e3055", borderTop: "2px solid #54c7a2" }}
+              style={{ borderColor: "#e8e0d0", borderTop: "3px solid #54c7a2" }}
             >
               <div>
                 <h2
                   className="text-lg font-semibold flex items-center gap-2"
-                  style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#ccd9ee" }}
+                  style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#0f1a2e" }}
                 >
                   <Syringe size={16} style={{ color: "#54c7a2" }} />
                   {selected ? "Confirm Assignment" : "Assign Protocol"}
@@ -160,7 +160,7 @@ export default function AssignProtocolSheet({ clientId, clientWeightLbs, label, 
                 {!selected && (
                   <p
                     className="text-xs mt-0.5"
-                    style={{ color: "#6e88b0", fontFamily: "'DM Mono', monospace" }}
+                    style={{ color: "#5a6a7a", fontFamily: "'DM Mono', monospace" }}
                   >
                     {loading ? "Loading..." : `${protocols.length} protocols available`}
                   </p>
@@ -169,9 +169,9 @@ export default function AssignProtocolSheet({ clientId, clientWeightLbs, label, 
               <button
                 onClick={handleClose}
                 className="p-2 rounded-lg transition-colors"
-                style={{ color: "#6e88b0" }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = "#ccd9ee")}
-                onMouseLeave={(e) => (e.currentTarget.style.color = "#6e88b0")}
+                style={{ color: "#5a6a7a" }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = "#0f1a2e")}
+                onMouseLeave={(e) => (e.currentTarget.style.color = "#5a6a7a")}
               >
                 <X size={18} />
               </button>
@@ -180,12 +180,12 @@ export default function AssignProtocolSheet({ clientId, clientWeightLbs, label, 
             {!selected ? (
               <>
                 {/* Search */}
-                <div className="px-6 py-4 border-b flex-shrink-0" style={{ borderColor: "#1e3055" }}>
+                <div className="px-6 py-4 border-b flex-shrink-0" style={{ borderColor: "#e8e0d0" }}>
                   <div className="relative">
                     <Search
                       size={14}
                       className="absolute left-3 top-1/2 -translate-y-1/2"
-                      style={{ color: "#6e88b0" }}
+                      style={{ color: "#5a6a7a" }}
                     />
                     <input
                       autoFocus
@@ -194,9 +194,9 @@ export default function AssignProtocolSheet({ clientId, clientWeightLbs, label, 
                       placeholder="Search by condition, peptide, or category..."
                       className="w-full pl-9 pr-4 py-2.5 rounded-lg text-sm focus:outline-none"
                       style={{
-                        backgroundColor: "#142035",
-                        border: "1px solid #1e3055",
-                        color: "#ccd9ee",
+                        backgroundColor: "#f5f3ee",
+                        border: "1px solid #e8e0d0",
+                        color: "#0f1a2e",
                       }}
                     />
                   </div>
@@ -206,13 +206,13 @@ export default function AssignProtocolSheet({ clientId, clientWeightLbs, label, 
                 <div className="flex-1 overflow-y-auto">
                   {loading ? (
                     <div className="flex items-center justify-center py-20">
-                      <p className="text-sm" style={{ color: "#6e88b0" }}>
+                      <p className="text-sm" style={{ color: "#5a6a7a" }}>
                         Loading protocols...
                       </p>
                     </div>
                   ) : Object.entries(byCategory).length === 0 ? (
                     <div className="flex items-center justify-center py-20">
-                      <p className="text-sm" style={{ color: "#6e88b0" }}>
+                      <p className="text-sm" style={{ color: "#5a6a7a" }}>
                         No protocols found
                       </p>
                     </div>
@@ -223,15 +223,15 @@ export default function AssignProtocolSheet({ clientId, clientWeightLbs, label, 
                         <div
                           className="px-6 py-2.5 sticky top-0"
                           style={{
-                            backgroundColor: "#0b1120",
-                            borderBottom: "1px solid #1e3055",
+                            backgroundColor: "#ffffff",
+                            borderBottom: "1px solid #e8e0d0",
                           }}
                         >
                           <p
                             className="text-xs uppercase tracking-widest"
                             style={{
                               fontFamily: "'DM Mono', monospace",
-                              color: categoryColors[category] || "#6e88b0",
+                              color: categoryColors[category] || "#5a6a7a",
                             }}
                           >
                             {category}
@@ -244,11 +244,11 @@ export default function AssignProtocolSheet({ clientId, clientWeightLbs, label, 
                             onClick={() => setSelected(p)}
                             className="w-full text-left px-6 py-4 border-b transition-colors"
                             style={{
-                              borderColor: "rgba(30,48,85,0.5)",
+                              borderColor: "rgba(232,224,208,0.5)",
                               backgroundColor: "transparent",
                             }}
                             onMouseEnter={(e) =>
-                              (e.currentTarget.style.backgroundColor = "#142035")
+                              (e.currentTarget.style.backgroundColor = "#f5f3ee")
                             }
                             onMouseLeave={(e) =>
                               (e.currentTarget.style.backgroundColor = "transparent")
@@ -258,21 +258,21 @@ export default function AssignProtocolSheet({ clientId, clientWeightLbs, label, 
                               <div className="flex-1 min-w-0">
                                 <p
                                   className="text-sm font-medium"
-                                  style={{ color: "#ccd9ee" }}
+                                  style={{ color: "#0f1a2e" }}
                                 >
                                   {p.condition_name}
                                 </p>
                                 <p
                                   className="text-xs mt-0.5"
                                   style={{
-                                    color: "#e8c96e",
+                                    color: "#c9973a",
                                     fontFamily: "'DM Mono', monospace",
                                   }}
                                 >
                                   {p.primary_peptide}
                                 </p>
                                 {p.adjunct_peptides && p.adjunct_peptides.length > 0 && (
-                                  <p className="text-xs mt-0.5" style={{ color: "#6e88b0" }}>
+                                  <p className="text-xs mt-0.5" style={{ color: "#5a6a7a" }}>
                                     +{p.adjunct_peptides.slice(0, 2).join(", ")}
                                     {p.adjunct_peptides.length > 2 &&
                                       ` +${p.adjunct_peptides.length - 2} more`}
@@ -282,7 +282,7 @@ export default function AssignProtocolSheet({ clientId, clientWeightLbs, label, 
                               <ChevronRight
                                 size={14}
                                 className="flex-shrink-0 mt-0.5"
-                                style={{ color: "#6e88b0" }}
+                                style={{ color: "#5a6a7a" }}
                               />
                             </div>
                           </button>
@@ -299,14 +299,14 @@ export default function AssignProtocolSheet({ clientId, clientWeightLbs, label, 
                 <div
                   className="rounded-xl p-5"
                   style={{
-                    backgroundColor: "#142035",
-                    border: "1px solid #1e3055",
-                    borderTop: "2px solid #54c7a2",
+                    backgroundColor: "#f5f3ee",
+                    border: "1px solid #e8e0d0",
+                    borderTop: "3px solid #54c7a2",
                   }}
                 >
                   <p
                     className="text-xs uppercase tracking-widest mb-2"
-                    style={{ fontFamily: "'DM Mono', monospace", color: "#6e88b0" }}
+                    style={{ fontFamily: "'DM Mono', monospace", color: "#5a6a7a" }}
                   >
                     Selected Protocol
                   </p>
@@ -314,14 +314,14 @@ export default function AssignProtocolSheet({ clientId, clientWeightLbs, label, 
                     className="text-lg font-semibold mb-1"
                     style={{
                       fontFamily: "'Playfair Display', Georgia, serif",
-                      color: "#ccd9ee",
+                      color: "#0f1a2e",
                     }}
                   >
                     {selected.condition_name}
                   </h3>
                   <p
                     className="text-sm"
-                    style={{ color: "#e8c96e", fontFamily: "'DM Mono', monospace" }}
+                    style={{ color: "#c9973a", fontFamily: "'DM Mono', monospace" }}
                   >
                     {selected.primary_peptide}
                   </p>
@@ -332,8 +332,8 @@ export default function AssignProtocolSheet({ clientId, clientWeightLbs, label, 
                           key={p}
                           className="text-xs px-2 py-0.5 rounded-full"
                           style={{
-                            backgroundColor: "rgba(110,136,176,0.15)",
-                            color: "#6e88b0",
+                            backgroundColor: "#f5f3ee",
+                            color: "#5a6a7a",
                             border: "1px solid rgba(110,136,176,0.2)",
                             fontFamily: "'DM Mono', monospace",
                           }}
@@ -346,7 +346,7 @@ export default function AssignProtocolSheet({ clientId, clientWeightLbs, label, 
                   {selected.cycle_intro && (
                     <p
                       className="text-xs mt-3 leading-relaxed"
-                      style={{ color: "#6e88b0" }}
+                      style={{ color: "#5a6a7a" }}
                     >
                       {selected.cycle_intro.slice(0, 200)}
                       {selected.cycle_intro.length > 200 ? "..." : ""}
@@ -354,7 +354,7 @@ export default function AssignProtocolSheet({ clientId, clientWeightLbs, label, 
                   )}
                   <p
                     className="text-xs mt-2"
-                    style={{ color: "#6e88b0", fontFamily: "'DM Mono', monospace" }}
+                    style={{ color: "#5a6a7a", fontFamily: "'DM Mono', monospace" }}
                   >
                     {selected.months?.length || 3}-month protocol · {selected.category}
                   </p>
@@ -364,15 +364,15 @@ export default function AssignProtocolSheet({ clientId, clientWeightLbs, label, 
                   <div
                     className="rounded-lg p-4"
                     style={{
-                      backgroundColor: "rgba(232,201,110,0.04)",
-                      border: "1px solid rgba(232,201,110,0.25)",
+                      backgroundColor: "rgba(201,151,58,0.04)",
+                      border: "1px solid rgba(201,151,58,0.25)",
                     }}
                   >
                     <div className="flex items-center gap-1.5 mb-2">
-                      <BookLock size={12} style={{ color: "#e8c96e" }} />
+                      <BookLock size={12} style={{ color: "#c9973a" }} />
                       <span
                         className="text-xs uppercase tracking-widest"
-                        style={{ fontFamily: "'DM Mono', monospace", color: "#e8c96e" }}
+                        style={{ fontFamily: "'DM Mono', monospace", color: "#c9973a" }}
                       >
                         Clinical Notes
                       </span>
@@ -381,15 +381,15 @@ export default function AssignProtocolSheet({ clientId, clientWeightLbs, label, 
                         style={{
                           fontFamily: "'DM Mono', monospace",
                           fontSize: "0.6rem",
-                          backgroundColor: "rgba(232,201,110,0.12)",
-                          color: "#e8c96e",
-                          border: "1px solid rgba(232,201,110,0.2)",
+                          backgroundColor: "rgba(201,151,58,0.12)",
+                          color: "#c9973a",
+                          border: "1px solid rgba(201,151,58,0.2)",
                         }}
                       >
                         Rx only
                       </span>
                     </div>
-                    <p className="text-sm leading-relaxed" style={{ color: "#ccd9ee" }}>
+                    <p className="text-sm leading-relaxed" style={{ color: "#0f1a2e" }}>
                       {selected.clinical_notes}
                     </p>
                   </div>
@@ -399,7 +399,7 @@ export default function AssignProtocolSheet({ clientId, clientWeightLbs, label, 
                 <div>
                   <label
                     className="block text-xs uppercase tracking-widest mb-1.5"
-                    style={{ fontFamily: "'DM Mono', monospace", color: "#6e88b0" }}
+                    style={{ fontFamily: "'DM Mono', monospace", color: "#5a6a7a" }}
                   >
                     Start Date
                   </label>
@@ -409,9 +409,9 @@ export default function AssignProtocolSheet({ clientId, clientWeightLbs, label, 
                     onChange={(e) => setStartDate(e.target.value)}
                     className="w-full px-4 py-2.5 rounded-lg text-sm focus:outline-none"
                     style={{
-                      backgroundColor: "#142035",
-                      border: "1px solid #1e3055",
-                      color: "#ccd9ee",
+                      backgroundColor: "#f5f3ee",
+                      border: "1px solid #e8e0d0",
+                      color: "#0f1a2e",
                     }}
                   />
                 </div>
@@ -441,9 +441,9 @@ export default function AssignProtocolSheet({ clientId, clientWeightLbs, label, 
                     onClick={() => setSelected(null)}
                     className="flex-1 py-3 rounded-lg font-semibold text-sm"
                     style={{
-                      backgroundColor: "#142035",
-                      color: "#ccd9ee",
-                      border: "1px solid #1e3055",
+                      backgroundColor: "#f5f3ee",
+                      color: "#0f1a2e",
+                      border: "1px solid #e8e0d0",
                     }}
                   >
                     ← Back

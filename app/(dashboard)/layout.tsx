@@ -31,7 +31,7 @@ export default async function DashboardLayout({
     .eq("status", "active");
 
   return (
-    <div className="flex h-screen overflow-hidden" style={{ backgroundColor: "#0b1120" }}>
+    <div className="flex h-screen overflow-hidden" style={{ backgroundColor: "#f5f3ee" }}>
       <Sidebar user={profile as UserProfile} overdueCount={overdueCount ?? 0} />
       <main className="flex-1 overflow-y-auto">
         <div className="min-h-full p-6 lg:p-8">

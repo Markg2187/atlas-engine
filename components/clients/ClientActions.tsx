@@ -105,9 +105,9 @@ export default function ClientActions({ clientId, clientStatus, clientName, clie
     width: "100%",
     padding: "8px 12px",
     borderRadius: "8px",
-    backgroundColor: "#142035",
-    border: "1px solid #1e3055",
-    color: "#ccd9ee",
+    backgroundColor: "#f5f3ee",
+    border: "1px solid #e8e0d0",
+    color: "#0f1a2e",
     fontSize: "14px",
     outline: "none",
     fontFamily: "inherit",
@@ -119,7 +119,7 @@ export default function ClientActions({ clientId, clientStatus, clientName, clie
     fontSize: "11px",
     textTransform: "uppercase" as const,
     letterSpacing: "0.08em",
-    color: "#6e88b0",
+    color: "#5a6a7a",
     fontFamily: "'DM Mono', monospace",
     marginBottom: "4px",
   };
@@ -132,13 +132,13 @@ export default function ClientActions({ clientId, clientStatus, clientName, clie
           onClick={openEditModal}
           className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs transition-all"
           style={{
-            backgroundColor: "rgba(232,201,110,0.1)",
-            color: "#e8c96e",
-            border: "1px solid rgba(232,201,110,0.3)",
+            backgroundColor: "rgba(201,151,58,0.1)",
+            color: "#c9973a",
+            border: "1px solid rgba(201,151,58,0.3)",
             fontFamily: "'DM Mono', monospace",
           }}
-          onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "rgba(232,201,110,0.18)")}
-          onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "rgba(232,201,110,0.1)")}
+          onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "rgba(201,151,58,0.18)")}
+          onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "rgba(201,151,58,0.1)")}
         >
           <Edit2 size={13} />
           Edit Profile
@@ -150,8 +150,8 @@ export default function ClientActions({ clientId, clientStatus, clientName, clie
           className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs transition-all"
           style={{
             backgroundColor: isArchived ? "rgba(84,199,162,0.1)" : "rgba(110,136,176,0.1)",
-            color: isArchived ? "#54c7a2" : "#6e88b0",
-            border: `1px solid ${isArchived ? "rgba(84,199,162,0.3)" : "rgba(110,136,176,0.3)"}`,
+            color: isArchived ? "#54c7a2" : "#5a6a7a",
+            border: `1px solid ${isArchived ? "#c0dd97" : "#e8e0d0"}`,
             fontFamily: "'DM Mono', monospace",
           }}
           onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.8")}
@@ -171,7 +171,7 @@ export default function ClientActions({ clientId, clientStatus, clientName, clie
               border: "1px solid rgba(224,90,106,0.25)",
               fontFamily: "'DM Mono', monospace",
             }}
-            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "rgba(224,90,106,0.15)")}
+            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#fcebeb")}
             onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "rgba(224,90,106,0.08)")}
           >
             <Trash2 size={13} />
@@ -189,9 +189,9 @@ export default function ClientActions({ clientId, clientStatus, clientName, clie
         >
           <div
             style={{
-              backgroundColor: "#0f1a2e",
-              border: "1px solid #1e3055",
-              borderTop: "2px solid #e8c96e",
+              backgroundColor: "#ffffff",
+              border: "1px solid #e8e0d0",
+              borderTop: "3px solid #c9973a",
               borderRadius: "12px",
               padding: "24px",
               width: "100%",
@@ -202,8 +202,8 @@ export default function ClientActions({ clientId, clientStatus, clientName, clie
             }}
           >
             <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "20px" }}>
-              <Edit2 size={17} style={{ color: "#e8c96e" }} />
-              <h3 style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#ccd9ee", fontSize: "18px", fontWeight: 700, margin: 0 }}>
+              <Edit2 size={17} style={{ color: "#c9973a" }} />
+              <h3 style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#0f1a2e", fontSize: "18px", fontWeight: 700, margin: 0 }}>
                 Edit Profile
               </h3>
             </div>
@@ -301,14 +301,14 @@ export default function ClientActions({ clientId, clientStatus, clientName, clie
                   flex: 1,
                   padding: "10px",
                   borderRadius: "8px",
-                  backgroundColor: "#142035",
-                  color: "#6e88b0",
-                  border: "1px solid #1e3055",
+                  backgroundColor: "#f5f3ee",
+                  color: "#5a6a7a",
+                  border: "1px solid #e8e0d0",
                   cursor: "pointer",
                   fontSize: "14px",
                 }}
-                onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#1e3055")}
-                onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#142035")}
+                onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#e8e0d0")}
+                onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#f5f3ee")}
               >
                 Cancel
               </button>
@@ -319,7 +319,7 @@ export default function ClientActions({ clientId, clientStatus, clientName, clie
                   flex: 1,
                   padding: "10px",
                   borderRadius: "8px",
-                  backgroundColor: "#e8c96e",
+                  backgroundColor: "#c9973a",
                   color: "#0b1120",
                   border: "none",
                   cursor: saving ? "not-allowed" : "pointer",
@@ -344,9 +344,9 @@ export default function ClientActions({ clientId, clientStatus, clientName, clie
           <div
             className="rounded-xl p-6 w-full max-w-sm mx-4"
             style={{
-              backgroundColor: "#0f1a2e",
+              backgroundColor: "#ffffff",
               border: "1px solid rgba(224,90,106,0.35)",
-              borderTop: "2px solid #e05a6a",
+              borderTop: "3px solid #e05a6a",
             }}
           >
             <div className="flex items-center gap-2 mb-3">
@@ -359,7 +359,7 @@ export default function ClientActions({ clientId, clientStatus, clientName, clie
               </h3>
             </div>
 
-            <p className="text-sm mb-3 leading-relaxed" style={{ color: "#ccd9ee" }}>
+            <p className="text-sm mb-3 leading-relaxed" style={{ color: "#0f1a2e" }}>
               You are permanently deleting <strong>{clientName}</strong> and all associated records.
             </p>
 
@@ -377,7 +377,7 @@ export default function ClientActions({ clientId, clientStatus, clientName, clie
 
             <label
               className="block text-xs mb-1.5"
-              style={{ color: "#6e88b0", fontFamily: "'DM Mono', monospace" }}
+              style={{ color: "#5a6a7a", fontFamily: "'DM Mono', monospace" }}
             >
               Type DELETE to confirm
             </label>
@@ -389,9 +389,9 @@ export default function ClientActions({ clientId, clientStatus, clientName, clie
               autoFocus
               className="w-full px-3 py-2.5 rounded-lg text-sm mb-4 focus:outline-none"
               style={{
-                backgroundColor: "#142035",
-                border: `1px solid ${deleteConfirm === "DELETE" ? "#e05a6a" : "#1e3055"}`,
-                color: "#ccd9ee",
+                backgroundColor: "#f5f3ee",
+                border: `1px solid ${deleteConfirm === "DELETE" ? "#e05a6a" : "#e8e0d0"}`,
+                color: "#0f1a2e",
                 fontFamily: "'DM Mono', monospace",
                 letterSpacing: "0.05em",
               }}
@@ -402,12 +402,12 @@ export default function ClientActions({ clientId, clientStatus, clientName, clie
                 onClick={() => { setShowDeleteDialog(false); setDeleteConfirm(""); }}
                 className="flex-1 py-2.5 rounded-lg text-sm transition-all"
                 style={{
-                  backgroundColor: "#142035",
-                  color: "#6e88b0",
-                  border: "1px solid #1e3055",
+                  backgroundColor: "#f5f3ee",
+                  color: "#5a6a7a",
+                  border: "1px solid #e8e0d0",
                 }}
-                onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#1e3055")}
-                onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#142035")}
+                onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#e8e0d0")}
+                onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#f5f3ee")}
               >
                 Cancel
               </button>
@@ -416,9 +416,9 @@ export default function ClientActions({ clientId, clientStatus, clientName, clie
                 disabled={deleteConfirm !== "DELETE" || deleting}
                 className="flex-1 py-2.5 rounded-lg text-sm font-semibold transition-all"
                 style={{
-                  backgroundColor: deleteConfirm === "DELETE" ? "#e05a6a" : "rgba(224,90,106,0.15)",
+                  backgroundColor: deleteConfirm === "DELETE" ? "#e05a6a" : "#fcebeb",
                   color: deleteConfirm === "DELETE" ? "#fff" : "rgba(224,90,106,0.4)",
-                  border: "1px solid rgba(224,90,106,0.3)",
+                  border: "1px solid #f7c1c1",
                   cursor: deleteConfirm === "DELETE" ? "pointer" : "not-allowed",
                 }}
               >

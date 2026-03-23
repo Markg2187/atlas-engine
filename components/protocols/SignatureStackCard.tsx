@@ -32,9 +32,9 @@ export default function SignatureStackCard({
     <div
       className="rounded-xl overflow-hidden transition-all hover:scale-[1.005]"
       style={{
-        backgroundColor: "#0f1a2e",
-        border: "1px solid rgba(232,201,110,0.3)",
-        borderTop: "2px solid #e8c96e",
+        backgroundColor: "#ffffff",
+        border: "1px solid rgba(201,151,58,0.3)",
+        borderTop: "3px solid #c9973a",
       }}
     >
       {/* Gold shimmer top bar */}
@@ -42,7 +42,7 @@ export default function SignatureStackCard({
         className="h-0.5 w-full"
         style={{
           background:
-            "linear-gradient(90deg, transparent, rgba(232,201,110,0.6), transparent)",
+            "linear-gradient(90deg, transparent, rgba(201,151,58,0.6), transparent)",
         }}
       />
 
@@ -53,9 +53,9 @@ export default function SignatureStackCard({
             className="inline-flex items-center gap-1 text-xs px-2 py-0.5 rounded-full"
             style={{
               fontFamily: "'DM Mono', monospace",
-              backgroundColor: "rgba(232,201,110,0.12)",
-              color: "#e8c96e",
-              border: "1px solid rgba(232,201,110,0.3)",
+              backgroundColor: "rgba(201,151,58,0.12)",
+              color: "#c9973a",
+              border: "1px solid rgba(201,151,58,0.3)",
               fontSize: "0.6rem",
               letterSpacing: "0.08em",
             }}
@@ -80,14 +80,14 @@ export default function SignatureStackCard({
         {/* Title */}
         <h3
           className="text-lg font-bold mb-1.5 leading-tight"
-          style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#e8c96e" }}
+          style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#c9973a" }}
         >
           {protocol.condition_name}
         </h3>
 
         {/* Tagline */}
         {protocol.tagline && (
-          <p className="text-sm mb-4 leading-relaxed" style={{ color: "#6e88b0" }}>
+          <p className="text-sm mb-4 leading-relaxed" style={{ color: "#5a6a7a" }}>
             {protocol.tagline}
           </p>
         )}
@@ -96,7 +96,7 @@ export default function SignatureStackCard({
         <div className="mb-4">
           <p
             className="text-xs uppercase tracking-widest mb-2"
-            style={{ fontFamily: "'DM Mono', monospace", color: "#6e88b0" }}
+            style={{ fontFamily: "'DM Mono', monospace", color: "#5a6a7a" }}
           >
             Core Peptides
           </p>
@@ -109,10 +109,10 @@ export default function SignatureStackCard({
                     className="text-xs px-2.5 py-1 rounded-full font-medium"
                     style={{
                       backgroundColor: branded
-                        ? "rgba(232,201,110,0.1)"
+                        ? "rgba(201,151,58,0.1)"
                         : "rgba(110,136,176,0.1)",
-                      color: branded ? "#e8c96e" : "#6e88b0",
-                      border: `1px solid ${branded ? "rgba(232,201,110,0.25)" : "rgba(110,136,176,0.2)"}`,
+                      color: branded ? "#c9973a" : "#5a6a7a",
+                      border: `1px solid ${branded ? "rgba(201,151,58,0.25)" : "rgba(110,136,176,0.2)"}`,
                       fontFamily: "'DM Mono', monospace",
                     }}
                   >
@@ -141,7 +141,7 @@ export default function SignatureStackCard({
         {/* Cycle intro — always visible, truncated until expanded */}
         {protocol.cycle_intro && (
           <div className="mb-4">
-            <p className="text-xs leading-relaxed" style={{ color: "#6e88b0" }}>
+            <p className="text-xs leading-relaxed" style={{ color: "#5a6a7a" }}>
               {expanded
                 ? protocol.cycle_intro
                 : `${protocol.cycle_intro.slice(0, 120)}...`}
@@ -150,7 +150,7 @@ export default function SignatureStackCard({
               <button
                 onClick={() => setExpanded(!expanded)}
                 className="text-xs mt-1 transition-colors"
-                style={{ color: "#e8c96e", fontFamily: "'DM Mono', monospace" }}
+                style={{ color: "#c9973a", fontFamily: "'DM Mono', monospace" }}
               >
                 {expanded ? "Show less" : "Read more"}
               </button>
@@ -165,15 +165,15 @@ export default function SignatureStackCard({
               <div
                 className="mb-4 rounded-lg p-3"
                 style={{
-                  backgroundColor: "rgba(232,201,110,0.04)",
-                  border: "1px solid rgba(232,201,110,0.25)",
+                  backgroundColor: "rgba(201,151,58,0.04)",
+                  border: "1px solid rgba(201,151,58,0.25)",
                 }}
               >
                 <div className="flex items-center gap-1.5 mb-1.5">
-                  <BookLock size={11} style={{ color: "#e8c96e" }} />
+                  <BookLock size={11} style={{ color: "#c9973a" }} />
                   <span
                     className="text-xs uppercase tracking-widest"
-                    style={{ fontFamily: "'DM Mono', monospace", color: "#e8c96e" }}
+                    style={{ fontFamily: "'DM Mono', monospace", color: "#c9973a" }}
                   >
                     Clinical Notes
                   </span>
@@ -182,9 +182,9 @@ export default function SignatureStackCard({
                     style={{
                       fontFamily: "'DM Mono', monospace",
                       fontSize: "0.6rem",
-                      backgroundColor: "rgba(232,201,110,0.12)",
-                      color: "#e8c96e",
-                      border: "1px solid rgba(232,201,110,0.2)",
+                      backgroundColor: "rgba(201,151,58,0.12)",
+                      color: "#c9973a",
+                      border: "1px solid rgba(201,151,58,0.2)",
                     }}
                   >
                     Rx only
@@ -192,7 +192,7 @@ export default function SignatureStackCard({
                 </div>
                 <p
                   className="text-xs leading-relaxed"
-                  style={{ color: "#ccd9ee" }}
+                  style={{ color: "#0f1a2e" }}
                 >
                   {protocol.clinical_notes}
                 </p>
@@ -209,16 +209,16 @@ export default function SignatureStackCard({
             }
             className="flex-1 py-2.5 text-xs rounded-lg font-semibold flex items-center justify-center gap-1.5 transition-all"
             style={{
-              backgroundColor: "rgba(232,201,110,0.15)",
-              color: "#e8c96e",
-              border: "1px solid rgba(232,201,110,0.3)",
+              backgroundColor: "rgba(201,151,58,0.15)",
+              color: "#c9973a",
+              border: "1px solid rgba(201,151,58,0.3)",
               fontFamily: "'DM Mono', monospace",
             }}
             onMouseEnter={(e) =>
-              (e.currentTarget.style.backgroundColor = "rgba(232,201,110,0.25)")
+              (e.currentTarget.style.backgroundColor = "rgba(201,151,58,0.25)")
             }
             onMouseLeave={(e) =>
-              (e.currentTarget.style.backgroundColor = "rgba(232,201,110,0.15)")
+              (e.currentTarget.style.backgroundColor = "rgba(201,151,58,0.15)")
             }
           >
             <Syringe size={12} />
@@ -228,17 +228,17 @@ export default function SignatureStackCard({
             onClick={() => setExpanded(!expanded)}
             className="px-3 py-2.5 text-xs rounded-lg transition-all"
             style={{
-              backgroundColor: "#142035",
-              color: "#6e88b0",
-              border: "1px solid #1e3055",
+              backgroundColor: "#f5f3ee",
+              color: "#5a6a7a",
+              border: "1px solid #e8e0d0",
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = "#1e3055";
-              e.currentTarget.style.color = "#ccd9ee";
+              e.currentTarget.style.backgroundColor = "#e8e0d0";
+              e.currentTarget.style.color = "#0f1a2e";
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = "#142035";
-              e.currentTarget.style.color = "#6e88b0";
+              e.currentTarget.style.backgroundColor = "#f5f3ee";
+              e.currentTarget.style.color = "#5a6a7a";
             }}
           >
             {expanded ? <ChevronDown size={13} /> : <ChevronRight size={13} />}

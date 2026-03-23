@@ -58,20 +58,20 @@ function ClientCard({
     <Link href={`/clients/${client.id}`} style={{ display: "block", marginBottom: "8px" }}>
       <div
         style={{
-          backgroundColor: "#142035",
-          border: "1px solid #1e3055",
+          backgroundColor: "#f5f3ee",
+          border: "1px solid #e8e0d0",
           borderRadius: "10px",
           padding: "10px 12px",
           cursor: "pointer",
           transition: "border-color 0.15s, background-color 0.15s",
         }}
         onMouseEnter={(e) => {
-          (e.currentTarget as HTMLElement).style.borderColor = "#e8c96e";
+          (e.currentTarget as HTMLElement).style.borderColor = "#c9973a";
           (e.currentTarget as HTMLElement).style.backgroundColor = "#1a2e4a";
         }}
         onMouseLeave={(e) => {
-          (e.currentTarget as HTMLElement).style.borderColor = "#1e3055";
-          (e.currentTarget as HTMLElement).style.backgroundColor = "#142035";
+          (e.currentTarget as HTMLElement).style.borderColor = "#e8e0d0";
+          (e.currentTarget as HTMLElement).style.backgroundColor = "#f5f3ee";
         }}
       >
         <div
@@ -85,7 +85,7 @@ function ClientCard({
         >
           <p
             style={{
-              color: "#ccd9ee",
+              color: "#0f1a2e",
               fontWeight: 600,
               fontSize: "13px",
               lineHeight: 1.3,
@@ -119,7 +119,7 @@ function ClientCard({
         </div>
         <p
           style={{
-            color: "#6e88b0",
+            color: "#5a6a7a",
             fontSize: "11px",
             fontFamily: "'DM Mono', monospace",
             margin: "0 0 3px 0",
@@ -131,7 +131,7 @@ function ClientCard({
         {protocol?.protocol && (
           <p
             style={{
-              color: "#e8c96e",
+              color: "#c9973a",
               fontSize: "11px",
               fontFamily: "'DM Mono', monospace",
               margin: 0,
@@ -253,9 +253,9 @@ export default function DashboardClient({
   const today = format(new Date(), "EEEE, MMMM d");
 
   const PIPELINE_COLS = [
-    { key: "intake" as const, label: "Intake", color: "#6e88b0" },
+    { key: "intake" as const, label: "Intake", color: "#5a6a7a" },
     { key: "protocolReady" as const, label: "Protocol Ready", color: "#e8b86d" },
-    { key: "assigned" as const, label: "Assigned", color: "#e8c96e" },
+    { key: "assigned" as const, label: "Assigned", color: "#c9973a" },
     { key: "active" as const, label: "Active", color: "#54c7a2" },
     { key: "reupDue" as const, label: "Reup Due", color: "#e05a6a" },
   ];
@@ -277,7 +277,7 @@ export default function DashboardClient({
           <h1
             style={{
               fontFamily: "'Playfair Display', Georgia, serif",
-              color: "#ccd9ee",
+              color: "#0f1a2e",
               fontSize: "28px",
               fontWeight: 700,
               margin: "0 0 3px 0",
@@ -287,7 +287,7 @@ export default function DashboardClient({
           </h1>
           <p
             style={{
-              color: "#6e88b0",
+              color: "#5a6a7a",
               fontSize: "12px",
               fontFamily: "'DM Mono', monospace",
               margin: 0,
@@ -313,11 +313,11 @@ export default function DashboardClient({
                       fontSize: "11px",
                       fontFamily: "'DM Mono', monospace",
                       cursor: "pointer",
-                      border: `1px solid ${active ? "#e8c96e" : "#1e3055"}`,
+                      border: `1px solid ${active ? "#c9973a" : "#e8e0d0"}`,
                       backgroundColor: active
-                        ? "rgba(232,201,110,0.12)"
-                        : "#142035",
-                      color: active ? "#e8c96e" : "#6e88b0",
+                        ? "rgba(201,151,58,0.12)"
+                        : "#f5f3ee",
+                      color: active ? "#c9973a" : "#5a6a7a",
                       transition: "all 0.15s",
                     }}
                   >
@@ -337,7 +337,7 @@ export default function DashboardClient({
             gap: "6px",
             padding: "10px 18px",
             borderRadius: "8px",
-            backgroundColor: "#e8c96e",
+            backgroundColor: "#c9973a",
             color: "#0b1120",
             fontWeight: 600,
             fontSize: "13px",
@@ -346,10 +346,10 @@ export default function DashboardClient({
             flexShrink: 0,
           }}
           onMouseEnter={(e) =>
-            ((e.currentTarget as HTMLElement).style.backgroundColor = "#c9a84c")
+            ((e.currentTarget as HTMLElement).style.backgroundColor = "#a87c2e")
           }
           onMouseLeave={(e) =>
-            ((e.currentTarget as HTMLElement).style.backgroundColor = "#e8c96e")
+            ((e.currentTarget as HTMLElement).style.backgroundColor = "#c9973a")
           }
         >
           <Plus size={15} />
@@ -363,7 +363,7 @@ export default function DashboardClient({
           {
             label: "Active Clients",
             value: stats.activeCount,
-            color: "#e8c96e",
+            color: "#c9973a",
             icon: <Users size={17} />,
           },
           {
@@ -388,8 +388,8 @@ export default function DashboardClient({
           <div
             key={s.label}
             style={{
-              backgroundColor: "#0f1a2e",
-              border: "1px solid #1e3055",
+              backgroundColor: "#ffffff",
+              border: "1px solid #e8e0d0",
               borderTop: `2px solid ${s.color}`,
               borderRadius: "12px",
               padding: "16px",
@@ -399,7 +399,7 @@ export default function DashboardClient({
             <div
               style={{
                 fontFamily: "'DM Mono', monospace",
-                color: "#ccd9ee",
+                color: "#0f1a2e",
                 fontSize: "30px",
                 fontWeight: 700,
                 lineHeight: 1,
@@ -410,7 +410,7 @@ export default function DashboardClient({
             <div
               style={{
                 fontFamily: "'DM Mono', monospace",
-                color: "#6e88b0",
+                color: "#5a6a7a",
                 fontSize: "10px",
                 textTransform: "uppercase",
                 letterSpacing: "0.08em",
@@ -428,7 +428,7 @@ export default function DashboardClient({
         <h2
           style={{
             fontFamily: "'Playfair Display', Georgia, serif",
-            color: "#ccd9ee",
+            color: "#0f1a2e",
             fontSize: "17px",
             fontWeight: 600,
             margin: "0 0 12px 0",
@@ -452,8 +452,8 @@ export default function DashboardClient({
                 style={{
                   minWidth: "200px",
                   flex: "1 1 200px",
-                  backgroundColor: "#0f1a2e",
-                  border: "1px solid #1e3055",
+                  backgroundColor: "#ffffff",
+                  border: "1px solid #e8e0d0",
                   borderTop: `2px solid ${col.color}`,
                   borderRadius: "12px",
                   overflow: "hidden",
@@ -465,7 +465,7 @@ export default function DashboardClient({
                 <div
                   style={{
                     padding: "8px 12px",
-                    borderBottom: "1px solid #1e3055",
+                    borderBottom: "1px solid #e8e0d0",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "space-between",
@@ -487,8 +487,8 @@ export default function DashboardClient({
                     style={{
                       fontFamily: "'DM Mono', monospace",
                       fontSize: "11px",
-                      color: "#6e88b0",
-                      backgroundColor: "#142035",
+                      color: "#5a6a7a",
+                      backgroundColor: "#f5f3ee",
                       padding: "1px 7px",
                       borderRadius: "999px",
                     }}
@@ -556,9 +556,9 @@ export default function DashboardClient({
         {/* REUP TRACKER */}
         <div
           style={{
-            backgroundColor: "#0f1a2e",
-            border: "1px solid #1e3055",
-            borderTop: "2px solid #54c7a2",
+            backgroundColor: "#ffffff",
+            border: "1px solid #e8e0d0",
+            borderTop: "3px solid #54c7a2",
             borderRadius: "12px",
             overflow: "hidden",
           }}
@@ -570,7 +570,7 @@ export default function DashboardClient({
               alignItems: "center",
               justifyContent: "space-between",
               padding: "13px 16px",
-              borderBottom: "1px solid #1e3055",
+              borderBottom: "1px solid #e8e0d0",
             }}
           >
             <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
@@ -578,7 +578,7 @@ export default function DashboardClient({
               <h3
                 style={{
                   fontFamily: "'Playfair Display', Georgia, serif",
-                  color: "#ccd9ee",
+                  color: "#0f1a2e",
                   fontWeight: 600,
                   fontSize: "15px",
                   margin: 0,
@@ -603,16 +603,16 @@ export default function DashboardClient({
           <div
             style={{
               display: "flex",
-              borderBottom: "1px solid #1e3055",
-              backgroundColor: "#0b1120",
+              borderBottom: "1px solid #e8e0d0",
+              backgroundColor: "#ffffff",
             }}
           >
             {(
               [
                 { key: "1-3", label: "1–3 days", dot: "#e05a6a" },
                 { key: "4-10", label: "4–10 days", dot: "#e8b86d" },
-                { key: "11-14", label: "11–14 days", dot: "#6e88b0" },
-                { key: "all", label: "All", dot: "#4a6080" },
+                { key: "11-14", label: "11–14 days", dot: "#5a6a7a" },
+                { key: "all", label: "All", dot: "#8a7a5a" },
               ] as { key: ReupFilter; label: string; dot: string }[]
             ).map((tab) => (
               <button
@@ -630,7 +630,7 @@ export default function DashboardClient({
                       ? `2px solid ${tab.dot}`
                       : "2px solid transparent",
                   backgroundColor: "transparent",
-                  color: reupFilter === tab.key ? "#ccd9ee" : "#6e88b0",
+                  color: reupFilter === tab.key ? "#0f1a2e" : "#5a6a7a",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
@@ -657,7 +657,7 @@ export default function DashboardClient({
             {reupRows.length === 0 ? (
               <p
                 style={{
-                  color: "#6e88b0",
+                  color: "#5a6a7a",
                   fontSize: "12px",
                   textAlign: "center",
                   padding: "28px 16px",
@@ -674,7 +674,7 @@ export default function DashboardClient({
                     ? "#e05a6a"
                     : row.daysLeft <= 10
                     ? "#e8b86d"
-                    : "#6e88b0";
+                    : "#5a6a7a";
                 const c = row.client;
                 return (
                   <div
@@ -684,13 +684,13 @@ export default function DashboardClient({
                       alignItems: "center",
                       gap: "10px",
                       padding: "10px 14px",
-                      borderBottom: "1px solid rgba(30,48,85,0.5)",
+                      borderBottom: "1px solid rgba(232,224,208,0.5)",
                     }}
                   >
                     <div style={{ flex: 1, minWidth: 0 }}>
                       <p
                         style={{
-                          color: "#ccd9ee",
+                          color: "#0f1a2e",
                           fontSize: "13px",
                           fontWeight: 500,
                           margin: "0 0 2px 0",
@@ -703,7 +703,7 @@ export default function DashboardClient({
                       </p>
                       <p
                         style={{
-                          color: "#6e88b0",
+                          color: "#5a6a7a",
                           fontSize: "11px",
                           fontFamily: "'DM Mono', monospace",
                           margin: 0,
@@ -746,19 +746,19 @@ export default function DashboardClient({
                         fontSize: "10px",
                         fontFamily: "'DM Mono', monospace",
                         cursor: "pointer",
-                        border: "1px solid #1e3055",
-                        backgroundColor: "#142035",
-                        color: "#6e88b0",
+                        border: "1px solid #e8e0d0",
+                        backgroundColor: "#f5f3ee",
+                        color: "#5a6a7a",
                         flexShrink: 0,
                         transition: "border-color 0.15s, color 0.15s",
                       }}
                       onMouseEnter={(e) => {
-                        e.currentTarget.style.borderColor = "#e8c96e";
-                        e.currentTarget.style.color = "#e8c96e";
+                        e.currentTarget.style.borderColor = "#c9973a";
+                        e.currentTarget.style.color = "#c9973a";
                       }}
                       onMouseLeave={(e) => {
-                        e.currentTarget.style.borderColor = "#1e3055";
-                        e.currentTarget.style.color = "#6e88b0";
+                        e.currentTarget.style.borderColor = "#e8e0d0";
+                        e.currentTarget.style.color = "#5a6a7a";
                       }}
                     >
                       Remind
@@ -773,9 +773,9 @@ export default function DashboardClient({
         {/* ATLAS AI */}
         <div
           style={{
-            backgroundColor: "#0f1a2e",
-            border: "1px solid #1e3055",
-            borderTop: "2px solid #e8c96e",
+            backgroundColor: "#ffffff",
+            border: "1px solid #e8e0d0",
+            borderTop: "3px solid #c9973a",
             borderRadius: "12px",
             overflow: "hidden",
           }}
@@ -787,11 +787,11 @@ export default function DashboardClient({
               alignItems: "center",
               gap: "10px",
               padding: "13px 16px",
-              borderBottom: "1px solid #1e3055",
+              borderBottom: "1px solid #e8e0d0",
             }}
           >
             <div style={{ position: "relative", display: "inline-flex" }}>
-              <Sparkles size={16} style={{ color: "#e8c96e" }} />
+              <Sparkles size={16} style={{ color: "#c9973a" }} />
               <span
                 style={{
                   position: "absolute",
@@ -808,7 +808,7 @@ export default function DashboardClient({
             <h3
               style={{
                 fontFamily: "'Playfair Display', Georgia, serif",
-                color: "#ccd9ee",
+                color: "#0f1a2e",
                 fontWeight: 600,
                 fontSize: "15px",
                 margin: 0,
@@ -822,7 +822,7 @@ export default function DashboardClient({
           <div style={{ padding: "28px 20px" }}>
             <p
               style={{
-                color: "#6e88b0",
+                color: "#5a6a7a",
                 fontSize: "14px",
                 marginBottom: "20px",
                 lineHeight: "1.6",
@@ -836,11 +836,11 @@ export default function DashboardClient({
                 width: "100%",
                 padding: "12px",
                 borderRadius: "10px",
-                border: "1px solid rgba(232,201,110,0.3)",
+                border: "1px solid rgba(201,151,58,0.3)",
                 backgroundColor: aiExpanded
-                  ? "rgba(232,201,110,0.12)"
-                  : "rgba(232,201,110,0.06)",
-                color: "#e8c96e",
+                  ? "rgba(201,151,58,0.12)"
+                  : "rgba(201,151,58,0.06)",
+                color: "#c9973a",
                 fontSize: "13px",
                 fontFamily: "'DM Mono', monospace",
                 cursor: "pointer",
@@ -852,11 +852,11 @@ export default function DashboardClient({
               }}
               onMouseEnter={(e) =>
                 ((e.currentTarget as HTMLElement).style.backgroundColor =
-                  "rgba(232,201,110,0.14)")
+                  "rgba(201,151,58,0.14)")
               }
               onMouseLeave={(e) =>
                 ((e.currentTarget as HTMLElement).style.backgroundColor =
-                  aiExpanded ? "rgba(232,201,110,0.12)" : "rgba(232,201,110,0.06)")
+                  aiExpanded ? "rgba(201,151,58,0.12)" : "rgba(201,151,58,0.06)")
               }
             >
               <Sparkles size={14} />
@@ -869,13 +869,13 @@ export default function DashboardClient({
                   marginTop: "14px",
                   padding: "14px",
                   borderRadius: "8px",
-                  backgroundColor: "#142035",
-                  border: "1px solid #1e3055",
+                  backgroundColor: "#f5f3ee",
+                  border: "1px solid #e8e0d0",
                 }}
               >
                 <p
                   style={{
-                    color: "#6e88b0",
+                    color: "#5a6a7a",
                     fontSize: "12px",
                     fontFamily: "'DM Mono', monospace",
                     lineHeight: "1.7",

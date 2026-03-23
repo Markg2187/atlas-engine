@@ -19,15 +19,15 @@ export default function ProtocolCard({ protocol, accentColor, brandedPeptideName
     <div
       className="rounded-xl p-5 transition-all hover:scale-[1.01] cursor-pointer"
       style={{
-        backgroundColor: "#0f1a2e",
-        border: "1px solid #1e3055",
+        backgroundColor: "#ffffff",
+        border: "1px solid #e8e0d0",
         borderTop: `2px solid ${accentColor}`,
       }}
     >
       <div className="flex items-start justify-between mb-3">
         <h3
           className="font-semibold text-base leading-tight"
-          style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#ccd9ee" }}
+          style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#0f1a2e" }}
         >
           {protocol.condition_name}
         </h3>
@@ -36,11 +36,11 @@ export default function ProtocolCard({ protocol, accentColor, brandedPeptideName
       <div className="mb-3">
         <p
           className="text-xs uppercase tracking-widest mb-1"
-          style={{ fontFamily: "'DM Mono', monospace", color: "#6e88b0" }}
+          style={{ fontFamily: "'DM Mono', monospace", color: "#5a6a7a" }}
         >
           Primary
         </p>
-        <p className="text-sm font-medium" style={{ color: "#e8c96e" }}>
+        <p className="text-sm font-medium" style={{ color: "#c9973a" }}>
           {protocol.primary_peptide}
         </p>
       </div>
@@ -49,7 +49,7 @@ export default function ProtocolCard({ protocol, accentColor, brandedPeptideName
         <div className="mb-4">
           <p
             className="text-xs uppercase tracking-widest mb-1.5"
-            style={{ fontFamily: "'DM Mono', monospace", color: "#6e88b0" }}
+            style={{ fontFamily: "'DM Mono', monospace", color: "#5a6a7a" }}
           >
             Adjunct
           </p>
@@ -59,8 +59,8 @@ export default function ProtocolCard({ protocol, accentColor, brandedPeptideName
                 key={p}
                 className="text-xs px-2 py-0.5 rounded-full"
                 style={{
-                  backgroundColor: "rgba(110,136,176,0.15)",
-                  color: "#6e88b0",
+                  backgroundColor: "#f5f3ee",
+                  color: "#5a6a7a",
                   border: "1px solid rgba(110,136,176,0.2)",
                   fontFamily: "'DM Mono', monospace",
                 }}
@@ -74,14 +74,14 @@ export default function ProtocolCard({ protocol, accentColor, brandedPeptideName
 
       {protocol.cycle_intro && (
         <div className="mb-4">
-          <p className="text-xs leading-relaxed" style={{ color: "#6e88b0" }}>
+          <p className="text-xs leading-relaxed" style={{ color: "#5a6a7a" }}>
             {expanded ? protocol.cycle_intro : `${protocol.cycle_intro.slice(0, 120)}...`}
           </p>
           {protocol.cycle_intro.length > 120 && (
             <button
               onClick={() => setExpanded(!expanded)}
               className="text-xs mt-1 transition-colors"
-              style={{ color: "#e8c96e", fontFamily: "'DM Mono', monospace" }}
+              style={{ color: "#c9973a", fontFamily: "'DM Mono', monospace" }}
             >
               {expanded ? "Show less" : "Read more"}
             </button>
@@ -103,7 +103,7 @@ export default function ProtocolCard({ protocol, accentColor, brandedPeptideName
             <div className="mb-4">
               <p
                 className="text-xs uppercase tracking-widest mb-2"
-                style={{ fontFamily: "'DM Mono', monospace", color: "#6e88b0" }}
+                style={{ fontFamily: "'DM Mono', monospace", color: "#5a6a7a" }}
               >
                 CA Peptide Labs Products
               </p>
@@ -119,10 +119,10 @@ export default function ProtocolCard({ protocol, accentColor, brandedPeptideName
                       className="flex items-center justify-between px-3 py-1.5 rounded-lg"
                       style={{
                         backgroundColor: "rgba(84,199,162,0.06)",
-                        border: "1px solid rgba(84,199,162,0.15)",
+                        border: "1px solid #eaf3de",
                       }}
                     >
-                      <span className="text-xs" style={{ color: "#ccd9ee" }}>
+                      <span className="text-xs" style={{ color: "#0f1a2e" }}>
                         {name}
                       </span>
                       <span
@@ -150,15 +150,15 @@ export default function ProtocolCard({ protocol, accentColor, brandedPeptideName
         <div
           className="mb-4 rounded-lg p-3"
           style={{
-            backgroundColor: "rgba(232,201,110,0.04)",
-            border: "1px solid rgba(232,201,110,0.25)",
+            backgroundColor: "rgba(201,151,58,0.04)",
+            border: "1px solid rgba(201,151,58,0.25)",
           }}
         >
           <div className="flex items-center gap-1.5 mb-1.5">
-            <BookLock size={11} style={{ color: "#e8c96e" }} />
+            <BookLock size={11} style={{ color: "#c9973a" }} />
             <span
               className="text-xs uppercase tracking-widest"
-              style={{ fontFamily: "'DM Mono', monospace", color: "#e8c96e" }}
+              style={{ fontFamily: "'DM Mono', monospace", color: "#c9973a" }}
             >
               Clinical Notes
             </span>
@@ -167,15 +167,15 @@ export default function ProtocolCard({ protocol, accentColor, brandedPeptideName
               style={{
                 fontFamily: "'DM Mono', monospace",
                 fontSize: "0.6rem",
-                backgroundColor: "rgba(232,201,110,0.12)",
-                color: "#e8c96e",
-                border: "1px solid rgba(232,201,110,0.2)",
+                backgroundColor: "rgba(201,151,58,0.12)",
+                color: "#c9973a",
+                border: "1px solid rgba(201,151,58,0.2)",
               }}
             >
               Rx only
             </span>
           </div>
-          <p className="text-xs leading-relaxed" style={{ color: "#ccd9ee" }}>
+          <p className="text-xs leading-relaxed" style={{ color: "#0f1a2e" }}>
             {protocol.clinical_notes}
           </p>
         </div>
@@ -186,16 +186,16 @@ export default function ProtocolCard({ protocol, accentColor, brandedPeptideName
           onClick={() => router.push(`/clients?assignProtocol=${protocol.id}`)}
           className="flex-1 py-2 text-xs rounded-lg font-medium transition-all flex items-center justify-center gap-1"
           style={{
-            backgroundColor: "rgba(232,201,110,0.1)",
-            color: "#e8c96e",
-            border: "1px solid rgba(232,201,110,0.2)",
+            backgroundColor: "rgba(201,151,58,0.1)",
+            color: "#c9973a",
+            border: "1px solid rgba(201,151,58,0.2)",
             fontFamily: "'DM Mono', monospace",
           }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.backgroundColor = "rgba(232,201,110,0.2)";
+            e.currentTarget.style.backgroundColor = "rgba(201,151,58,0.2)";
           }}
           onMouseLeave={(e) => {
-            e.currentTarget.style.backgroundColor = "rgba(232,201,110,0.1)";
+            e.currentTarget.style.backgroundColor = "rgba(201,151,58,0.1)";
           }}
         >
           <Syringe size={13} />
@@ -205,17 +205,17 @@ export default function ProtocolCard({ protocol, accentColor, brandedPeptideName
           onClick={() => setExpanded(!expanded)}
           className="px-3 py-2 text-xs rounded-lg transition-all"
           style={{
-            backgroundColor: "#142035",
-            color: "#6e88b0",
-            border: "1px solid #1e3055",
+            backgroundColor: "#f5f3ee",
+            color: "#5a6a7a",
+            border: "1px solid #e8e0d0",
           }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.backgroundColor = "#1e3055";
-            e.currentTarget.style.color = "#ccd9ee";
+            e.currentTarget.style.backgroundColor = "#e8e0d0";
+            e.currentTarget.style.color = "#0f1a2e";
           }}
           onMouseLeave={(e) => {
-            e.currentTarget.style.backgroundColor = "#142035";
-            e.currentTarget.style.color = "#6e88b0";
+            e.currentTarget.style.backgroundColor = "#f5f3ee";
+            e.currentTarget.style.color = "#5a6a7a";
           }}
         >
           {expanded ? <ChevronDown size={13} /> : <ChevronRight size={13} />}

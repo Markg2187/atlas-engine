@@ -16,7 +16,7 @@ function calcMargin(retail: number, wholesale: number) {
 function getMarginColor(margin: number, minimum: number) {
   if (margin < 0) return "#e05a6a";
   if (margin < minimum) return "#e8b86d";
-  if (margin < minimum + 10) return "#e8c96e";
+  if (margin < minimum + 10) return "#c9973a";
   return "#54c7a2";
 }
 function calcRecon(vialMg: number, bacMl: number, dose: number, unit: DoseUnit) {
@@ -83,16 +83,16 @@ const PRESETS: Preset[] = [
 
 const DISCOUNT_PRESETS = [
   { name: "Family plan",  pct: 20, color: "#54c7a2" },
-  { name: "VIP client",   pct: 15, color: "#e8c96e" },
-  { name: "Staff",        pct: 30, color: "#6e88b0" },
-  { name: "Referral",     pct: 10, color: "#c9a84c" },
+  { name: "VIP client",   pct: 15, color: "#c9973a" },
+  { name: "Staff",        pct: 30, color: "#5a6a7a" },
+  { name: "Referral",     pct: 10, color: "#a87c2e" },
   { name: "Sale / Promo", pct: 25, color: "#e05a6a" },
 ];
 
 // ─── Styles ───────────────────────────────────────────────────
 const inp = {
-  backgroundColor: "#142035", border: "1px solid #1e3055",
-  color: "#ccd9ee", borderRadius: "0.5rem",
+  backgroundColor: "#f5f3ee", border: "1px solid #e8e0d0",
+  color: "#0f1a2e", borderRadius: "0.5rem",
   padding: "0.625rem 0.75rem", fontSize: "1rem",
   fontFamily: "'DM Mono', monospace", width: "100%",
   WebkitAppearance: "none" as const,
@@ -101,10 +101,10 @@ const inp = {
 const lbl = {
   fontFamily: "'DM Mono', monospace", fontSize: "0.65rem",
   letterSpacing: "0.08em", textTransform: "uppercase" as const,
-  color: "#6e88b0", display: "block", marginBottom: "0.375rem",
+  color: "#5a6a7a", display: "block", marginBottom: "0.375rem",
 };
 const res = {
-  backgroundColor: "#142035", border: "1px solid #1e3055",
+  backgroundColor: "#f5f3ee", border: "1px solid #e8e0d0",
   borderRadius: "0.5rem", padding: "0.75rem 1rem",
 } as React.CSSProperties;
 
@@ -115,13 +115,13 @@ function MarginBar({ margin, minimum, label }: { margin: number; minimum: number
     <div>
       {label && (
         <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "0.25rem" }}>
-          <span style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.65rem", color: "#6e88b0" }}>{label}</span>
+          <span style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.65rem", color: "#5a6a7a" }}>{label}</span>
           <span style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.7rem", color, fontWeight: 600 }}>{margin.toFixed(1)}%</span>
         </div>
       )}
-      <div style={{ height: "6px", backgroundColor: "#0b1120", borderRadius: "3px", overflow: "hidden", position: "relative" }}>
+      <div style={{ height: "6px", backgroundColor: "#ffffff", borderRadius: "3px", overflow: "hidden", position: "relative" }}>
         <div style={{ position: "absolute", left: 0, top: 0, height: "100%", width: `${pct}%`, backgroundColor: color, borderRadius: "3px", transition: "width 0.3s ease" }} />
-        <div style={{ position: "absolute", left: `${Math.min(100, minimum)}%`, top: 0, height: "100%", width: "2px", backgroundColor: "#4a6080" }} />
+        <div style={{ position: "absolute", left: `${Math.min(100, minimum)}%`, top: 0, height: "100%", width: "2px", backgroundColor: "#8a7a5a" }} />
       </div>
       {margin < minimum && margin >= 0 && <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.6rem", color: "#e8b86d", marginTop: "0.2rem" }}>Below {minimum}% minimum margin</p>}
       {margin < 0 && <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.6rem", color: "#e05a6a", marginTop: "0.2rem" }}>Selling at a loss</p>}
@@ -208,8 +208,8 @@ export default function CalculatorPage() {
   return (
     <div>
       <div className="mb-8">
-        <h1 className="text-3xl font-bold" style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#ccd9ee" }}>Peptide Calculator</h1>
-        <p className="mt-1 text-sm" style={{ color: "#6e88b0" }}>Reconstitution · Syringe units · Pricing & margin · Supply planning</p>
+        <h1 className="text-3xl font-bold" style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#0f1a2e" }}>Peptide Calculator</h1>
+        <p className="mt-1 text-sm" style={{ color: "#5a6a7a" }}>Reconstitution · Syringe units · Pricing & margin · Supply planning</p>
       </div>
 
       {/* Peptide selector */}
@@ -218,7 +218,7 @@ export default function CalculatorPage() {
         <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem" }}>
           {PRESETS.map((p, i) => (
             <button key={p.name} onClick={() => selectPreset(i)}
-              style={{ padding: "0.375rem 0.875rem", borderRadius: "1rem", fontSize: "0.875rem", fontFamily: "'DM Mono', monospace", cursor: "pointer", border: "1px solid", backgroundColor: activePreset === i ? "rgba(232,201,110,0.15)" : "#142035", color: activePreset === i ? "#e8c96e" : "#6e88b0", borderColor: activePreset === i ? "#e8c96e" : "#1e3055" }}>
+              style={{ padding: "0.375rem 0.875rem", borderRadius: "1rem", fontSize: "0.875rem", fontFamily: "'DM Mono', monospace", cursor: "pointer", border: "1px solid", backgroundColor: activePreset === i ? "rgba(201,151,58,0.15)" : "#f5f3ee", color: activePreset === i ? "#c9973a" : "#5a6a7a", borderColor: activePreset === i ? "#c9973a" : "#e8e0d0" }}>
               {p.name}
             </button>
           ))}
@@ -227,9 +227,9 @@ export default function CalculatorPage() {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
         {/* LEFT: Inputs */}
-        <div className="rounded-xl overflow-hidden" style={{ backgroundColor: "#0f1a2e", border: "1px solid #1e3055", borderTop: "2px solid #e8c96e" }}>
-          <div style={{ padding: "0.75rem 1.25rem", borderBottom: "1px solid #1e3055" }}>
-            <p style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#ccd9ee", fontWeight: 600, fontSize: "0.95rem" }}>
+        <div className="rounded-xl overflow-hidden" style={{ backgroundColor: "#ffffff", border: "1px solid #e8e0d0", borderTop: "3px solid #c9973a" }}>
+          <div style={{ padding: "0.75rem 1.25rem", borderBottom: "1px solid #e8e0d0" }}>
+            <p style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#0f1a2e", fontWeight: 600, fontSize: "0.95rem" }}>
               {PRESETS[activePreset].name} — Reconstitution
             </p>
           </div>
@@ -248,7 +248,7 @@ export default function CalculatorPage() {
               <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap", marginBottom: "0.5rem" }}>
                 {[2, 5, 10, 20, 50, 100, 500].map(v => (
                   <button key={v} onClick={() => setVialMg(v)}
-                    style={{ padding: "0.5rem 0.75rem", borderRadius: "0.375rem", fontSize: "0.875rem", fontFamily: "'DM Mono', monospace", cursor: "pointer", border: "1px solid", backgroundColor: vialMg === v ? "rgba(232,201,110,0.15)" : "#142035", color: vialMg === v ? "#e8c96e" : "#6e88b0", borderColor: vialMg === v ? "#e8c96e" : "#1e3055", minWidth: "48px" }}>
+                    style={{ padding: "0.5rem 0.75rem", borderRadius: "0.375rem", fontSize: "0.875rem", fontFamily: "'DM Mono', monospace", cursor: "pointer", border: "1px solid", backgroundColor: vialMg === v ? "rgba(201,151,58,0.15)" : "#f5f3ee", color: vialMg === v ? "#c9973a" : "#5a6a7a", borderColor: vialMg === v ? "#c9973a" : "#e8e0d0", minWidth: "48px" }}>
                     {v}mg
                   </button>
                 ))}
@@ -262,7 +262,7 @@ export default function CalculatorPage() {
               <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap", marginBottom: "0.5rem" }}>
                 {[1, 2, 2.5, 3, 4, 5, 10].map(v => (
                   <button key={v} onClick={() => setBacMl(v)}
-                    style={{ padding: "0.5rem 0.75rem", borderRadius: "0.375rem", fontSize: "0.875rem", fontFamily: "'DM Mono', monospace", cursor: "pointer", border: "1px solid", backgroundColor: bacMl === v ? "rgba(84,199,162,0.12)" : "#142035", color: bacMl === v ? "#54c7a2" : "#6e88b0", borderColor: bacMl === v ? "#54c7a2" : "#1e3055", minWidth: "48px" }}>
+                    style={{ padding: "0.5rem 0.75rem", borderRadius: "0.375rem", fontSize: "0.875rem", fontFamily: "'DM Mono', monospace", cursor: "pointer", border: "1px solid", backgroundColor: bacMl === v ? "rgba(84,199,162,0.12)" : "#f5f3ee", color: bacMl === v ? "#54c7a2" : "#5a6a7a", borderColor: bacMl === v ? "#54c7a2" : "#e8e0d0", minWidth: "48px" }}>
                     {v}ml
                   </button>
                 ))}
@@ -273,10 +273,10 @@ export default function CalculatorPage() {
             <div>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "0.375rem" }}>
                 <label style={{ ...lbl, marginBottom: 0 }}>Dose per injection</label>
-                <div style={{ display: "flex", border: "1px solid #1e3055", borderRadius: "0.5rem", overflow: "hidden" }}>
+                <div style={{ display: "flex", border: "1px solid #e8e0d0", borderRadius: "0.5rem", overflow: "hidden" }}>
                   {(["mcg", "mg"] as DoseUnit[]).map(u => (
                     <button key={u} onClick={() => setDoseUnit(u)}
-                      style={{ padding: "0.375rem 0.875rem", fontSize: "0.875rem", fontFamily: "'DM Mono', monospace", backgroundColor: doseUnit === u ? "#1e3055" : "transparent", color: doseUnit === u ? "#e8c96e" : "#6e88b0", border: "none", cursor: "pointer" }}>
+                      style={{ padding: "0.375rem 0.875rem", fontSize: "0.875rem", fontFamily: "'DM Mono', monospace", backgroundColor: doseUnit === u ? "#e8e0d0" : "transparent", color: doseUnit === u ? "#c9973a" : "#5a6a7a", border: "none", cursor: "pointer" }}>
                       {u}
                     </button>
                   ))}
@@ -286,7 +286,7 @@ export default function CalculatorPage() {
               <div style={{ display: "flex", gap: "0.375rem", marginTop: "0.5rem", flexWrap: "wrap" }}>
                 {(doseUnit === "mcg" ? [100,200,250,300,400,500,600,750,1000] : [0.25,0.5,1,1.5,2,2.5,4,5,10]).map(v => (
                   <button key={v} onClick={() => setDose(v)}
-                    style={{ padding: "0.375rem 0.625rem", borderRadius: "0.375rem", fontSize: "0.8rem", fontFamily: "'DM Mono', monospace", cursor: "pointer", backgroundColor: dose === v ? "rgba(232,201,110,0.15)" : "#142035", color: dose === v ? "#e8c96e" : "#6e88b0", border: `1px solid ${dose === v ? "#e8c96e" : "#1e3055"}` }}>
+                    style={{ padding: "0.375rem 0.625rem", borderRadius: "0.375rem", fontSize: "0.8rem", fontFamily: "'DM Mono', monospace", cursor: "pointer", backgroundColor: dose === v ? "rgba(201,151,58,0.15)" : "#f5f3ee", color: dose === v ? "#c9973a" : "#5a6a7a", border: `1px solid ${dose === v ? "#c9973a" : "#e8e0d0"}` }}>
                     {v}
                   </button>
                 ))}
@@ -295,7 +295,7 @@ export default function CalculatorPage() {
 
             {/* Supply toggle */}
             <button onClick={() => setShowSupply(p => !p)}
-              style={{ display: "flex", alignItems: "center", gap: "0.375rem", background: "none", border: "none", cursor: "pointer", color: "#6e88b0", fontFamily: "'DM Mono', monospace", fontSize: "0.7rem", textTransform: "uppercase", letterSpacing: "0.06em", padding: 0 }}>
+              style={{ display: "flex", alignItems: "center", gap: "0.375rem", background: "none", border: "none", cursor: "pointer", color: "#5a6a7a", fontFamily: "'DM Mono', monospace", fontSize: "0.7rem", textTransform: "uppercase", letterSpacing: "0.06em", padding: 0 }}>
               {showSupply ? <ChevronUp size={13} /> : <ChevronDown size={13} />}
               {showSupply ? "Hide" : "Show"} supply calculator
             </button>
@@ -308,7 +308,7 @@ export default function CalculatorPage() {
                   <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
                     {freqOptions.map((f, i) => (
                       <button key={f.label} onClick={() => setFreqIdx(i)}
-                        style={{ padding: "0.5rem 0.875rem", borderRadius: "0.5rem", fontSize: "0.875rem", fontFamily: "'DM Mono', monospace", cursor: "pointer", border: "1px solid", backgroundColor: freqIdx === i ? "rgba(110,136,176,0.15)" : "#142035", color: freqIdx === i ? "#6e88b0" : "#4a6080", borderColor: freqIdx === i ? "#6e88b0" : "#1e3055" }}>
+                        style={{ padding: "0.5rem 0.875rem", borderRadius: "0.5rem", fontSize: "0.875rem", fontFamily: "'DM Mono', monospace", cursor: "pointer", border: "1px solid", backgroundColor: freqIdx === i ? "#f5f3ee" : "#f5f3ee", color: freqIdx === i ? "#5a6a7a" : "#8a7a5a", borderColor: freqIdx === i ? "#5a6a7a" : "#e8e0d0" }}>
                         {f.label}
                       </button>
                     ))}
@@ -321,7 +321,7 @@ export default function CalculatorPage() {
                   <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap", marginBottom: "0.5rem" }}>
                     {[{l:"3wk",d:21},{l:"1mo",d:30},{l:"2mo",d:60},{l:"3mo",d:90},{l:"6mo",d:180},{l:"1yr",d:365}].map(({l,d}) => (
                       <button key={d} onClick={() => setProtocolDays(d)}
-                        style={{ padding: "0.5rem 0.75rem", borderRadius: "0.375rem", fontSize: "0.875rem", fontFamily: "'DM Mono', monospace", cursor: "pointer", border: "1px solid", backgroundColor: protocolDays === d ? "rgba(110,136,176,0.15)" : "#142035", color: protocolDays === d ? "#6e88b0" : "#4a6080", borderColor: protocolDays === d ? "#6e88b0" : "#1e3055" }}>
+                        style={{ padding: "0.5rem 0.75rem", borderRadius: "0.375rem", fontSize: "0.875rem", fontFamily: "'DM Mono', monospace", cursor: "pointer", border: "1px solid", backgroundColor: protocolDays === d ? "#f5f3ee" : "#f5f3ee", color: protocolDays === d ? "#5a6a7a" : "#8a7a5a", borderColor: protocolDays === d ? "#5a6a7a" : "#e8e0d0" }}>
                         {l}
                       </button>
                     ))}
@@ -336,28 +336,28 @@ export default function CalculatorPage() {
         {/* RIGHT: Results */}
         <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
           <div style={res}>
-            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.6rem", color: "#6e88b0", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "0.25rem" }}>Concentration</p>
-            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "1rem", color: "#ccd9ee", fontWeight: 600 }}>{r.concMgMl.toFixed(2)} mg/ml ({r.concMcgMl.toFixed(0)} mcg/ml)</p>
+            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.6rem", color: "#5a6a7a", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "0.25rem" }}>Concentration</p>
+            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "1rem", color: "#0f1a2e", fontWeight: 600 }}>{r.concMgMl.toFixed(2)} mg/ml ({r.concMcgMl.toFixed(0)} mcg/ml)</p>
           </div>
 
-          <div style={{ ...res, border: "1px solid #e8c96e" }}>
-            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.6rem", color: "#6e88b0", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "0.25rem" }}>Draw on syringe (U-100)</p>
-            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "2rem", fontWeight: 700, color: "#e8c96e", lineHeight: 1 }}>
-              {r.unitsU100.toFixed(1)} <span style={{ fontSize: "0.875rem", color: "#6e88b0" }}>units</span>
+          <div style={{ ...res, border: "1px solid #c9973a" }}>
+            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.6rem", color: "#5a6a7a", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "0.25rem" }}>Draw on syringe (U-100)</p>
+            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "2rem", fontWeight: 700, color: "#c9973a", lineHeight: 1 }}>
+              {r.unitsU100.toFixed(1)} <span style={{ fontSize: "0.875rem", color: "#5a6a7a" }}>units</span>
             </p>
-            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.75rem", color: "#6e88b0", marginTop: "0.25rem" }}>= {r.volumeMl.toFixed(3)} ml</p>
+            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.75rem", color: "#5a6a7a", marginTop: "0.25rem" }}>= {r.volumeMl.toFixed(3)} ml</p>
           </div>
 
           <div style={res}>
-            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.6rem", color: "#6e88b0", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "0.25rem" }}>Recommended syringe</p>
-            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.9rem", color: "#ccd9ee" }}>{r.syringe} syringe</p>
-            <div style={{ marginTop: "0.5rem", height: "8px", backgroundColor: "#0b1120", borderRadius: "4px", overflow: "hidden" }}>
+            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.6rem", color: "#5a6a7a", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "0.25rem" }}>Recommended syringe</p>
+            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.9rem", color: "#0f1a2e" }}>{r.syringe} syringe</p>
+            <div style={{ marginTop: "0.5rem", height: "8px", backgroundColor: "#ffffff", borderRadius: "4px", overflow: "hidden" }}>
               <div style={{ height: "100%", width: `${Math.min(100, (r.unitsU100 / r.syringeMax) * 100)}%`, backgroundColor: "#54c7a2", borderRadius: "4px" }} />
             </div>
           </div>
 
           <div style={res}>
-            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.6rem", color: "#6e88b0", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "0.25rem" }}>Doses per vial</p>
+            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.6rem", color: "#5a6a7a", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "0.25rem" }}>Doses per vial</p>
             <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "1.5rem", fontWeight: 700, color: "#54c7a2" }}>{r.dosesPerVial} doses</p>
           </div>
 
@@ -374,9 +374,9 @@ export default function CalculatorPage() {
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "0.5rem" }}>
                 {[{l:"30 days",v:vials30},{l:"60 days",v:vials60},{l:`${protocolDays}d`,v:vialsFull}].map(({l,v}) => (
                   <div key={l} style={{ ...res, textAlign: "center" as const }}>
-                    <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.65rem", color: "#6e88b0", marginBottom: "0.25rem" }}>{l}</p>
-                    <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "1.75rem", fontWeight: 700, color: "#e8c96e", lineHeight: 1 }}>{v}</p>
-                    <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.65rem", color: "#4a6080" }}>vial{v!==1?"s":""}</p>
+                    <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.65rem", color: "#5a6a7a", marginBottom: "0.25rem" }}>{l}</p>
+                    <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "1.75rem", fontWeight: 700, color: "#c9973a", lineHeight: 1 }}>{v}</p>
+                    <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.65rem", color: "#8a7a5a" }}>vial{v!==1?"s":""}</p>
                   </div>
                 ))}
               </div>
@@ -386,12 +386,12 @@ export default function CalculatorPage() {
       </div>
 
       {/* PRICING SECTION */}
-      <div className="rounded-xl overflow-hidden mb-6" style={{ backgroundColor: "#0f1a2e", border: "1px solid #1e3055", borderTop: "2px solid #54c7a2" }}>
+      <div className="rounded-xl overflow-hidden mb-6" style={{ backgroundColor: "#ffffff", border: "1px solid #e8e0d0", borderTop: "3px solid #54c7a2" }}>
         <button onClick={() => setShowPricing(p => !p)} className="w-full"
-          style={{ padding: "1rem 1.25rem", display: "flex", alignItems: "center", justifyContent: "space-between", background: "none", border: "none", borderBottom: showPricing ? "1px solid #1e3055" : "none", cursor: "pointer" }}>
+          style={{ padding: "1rem 1.25rem", display: "flex", alignItems: "center", justifyContent: "space-between", background: "none", border: "none", borderBottom: showPricing ? "1px solid #e8e0d0" : "none", cursor: "pointer" }}>
           <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
             <DollarSign size={16} style={{ color: "#54c7a2" }} />
-            <p style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#ccd9ee", fontWeight: 600, fontSize: "1rem" }}>
+            <p style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#0f1a2e", fontWeight: 600, fontSize: "1rem" }}>
               Pricing & Margin — {PRESETS[activePreset].name}
             </p>
           </div>
@@ -401,7 +401,7 @@ export default function CalculatorPage() {
                 {baseMargin.toFixed(1)}% margin
               </span>
             )}
-            {showPricing ? <ChevronUp size={16} style={{ color: "#6e88b0" }} /> : <ChevronDown size={16} style={{ color: "#6e88b0" }} />}
+            {showPricing ? <ChevronUp size={16} style={{ color: "#5a6a7a" }} /> : <ChevronDown size={16} style={{ color: "#5a6a7a" }} />}
           </div>
         </button>
 
@@ -430,7 +430,7 @@ export default function CalculatorPage() {
                 <div style={{ display: "flex", gap: "0.375rem", flexWrap: "wrap" }}>
                   {[10,15,20,25,30,40].map(v => (
                     <button key={v} onClick={() => setMinMargin(v)}
-                      style={{ flex: 1, padding: "0.5rem", borderRadius: "0.375rem", fontSize: "0.875rem", fontFamily: "'DM Mono', monospace", cursor: "pointer", border: "1px solid", backgroundColor: minMargin === v ? "rgba(110,136,176,0.15)" : "#142035", color: minMargin === v ? "#6e88b0" : "#4a6080", borderColor: minMargin === v ? "#6e88b0" : "#1e3055" }}>
+                      style={{ flex: 1, padding: "0.5rem", borderRadius: "0.375rem", fontSize: "0.875rem", fontFamily: "'DM Mono', monospace", cursor: "pointer", border: "1px solid", backgroundColor: minMargin === v ? "#f5f3ee" : "#f5f3ee", color: minMargin === v ? "#5a6a7a" : "#8a7a5a", borderColor: minMargin === v ? "#5a6a7a" : "#e8e0d0" }}>
                       {v}%
                     </button>
                   ))}
@@ -441,8 +441,8 @@ export default function CalculatorPage() {
                 <div style={res}>
                   <MarginBar margin={baseMargin} minimum={minMargin} label="Base margin" />
                   <div style={{ display: "flex", justifyContent: "space-between", marginTop: "0.5rem" }}>
-                    <span style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.65rem", color: "#4a6080" }}>Break-even: {money(wholesale)}</span>
-                    <span style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.65rem", color: "#4a6080" }}>Min {minMargin}%: {money(minPrice)}</span>
+                    <span style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.65rem", color: "#8a7a5a" }}>Break-even: {money(wholesale)}</span>
+                    <span style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.65rem", color: "#8a7a5a" }}>Min {minMargin}%: {money(minPrice)}</span>
                   </div>
                 </div>
               )}
@@ -451,18 +451,18 @@ export default function CalculatorPage() {
                 <label style={lbl}>Apply discount</label>
                 <div style={{ display: "flex", flexWrap: "wrap", gap: "0.375rem", marginBottom: "0.5rem" }}>
                   <button onClick={() => setDiscountPct(0)}
-                    style={{ padding: "0.375rem 0.75rem", borderRadius: "1rem", fontSize: "0.8rem", fontFamily: "'DM Mono', monospace", cursor: "pointer", border: "1px solid", backgroundColor: discountPct === 0 ? "#142035" : "transparent", color: discountPct === 0 ? "#ccd9ee" : "#4a6080", borderColor: discountPct === 0 ? "#6e88b0" : "#1e3055" }}>
+                    style={{ padding: "0.375rem 0.75rem", borderRadius: "1rem", fontSize: "0.8rem", fontFamily: "'DM Mono', monospace", cursor: "pointer", border: "1px solid", backgroundColor: discountPct === 0 ? "#f5f3ee" : "transparent", color: discountPct === 0 ? "#0f1a2e" : "#8a7a5a", borderColor: discountPct === 0 ? "#5a6a7a" : "#e8e0d0" }}>
                     None
                   </button>
                   {DISCOUNT_PRESETS.map(p => (
                     <button key={p.name} onClick={() => setDiscountPct(p.pct)}
-                      style={{ padding: "0.375rem 0.75rem", borderRadius: "1rem", fontSize: "0.8rem", fontFamily: "'DM Mono', monospace", cursor: "pointer", border: "1px solid", backgroundColor: discountPct === p.pct ? `${p.color}20` : "transparent", color: discountPct === p.pct ? p.color : "#4a6080", borderColor: discountPct === p.pct ? p.color : "#1e3055" }}>
+                      style={{ padding: "0.375rem 0.75rem", borderRadius: "1rem", fontSize: "0.8rem", fontFamily: "'DM Mono', monospace", cursor: "pointer", border: "1px solid", backgroundColor: discountPct === p.pct ? `${p.color}20` : "transparent", color: discountPct === p.pct ? p.color : "#8a7a5a", borderColor: discountPct === p.pct ? p.color : "#e8e0d0" }}>
                       {p.name} {p.pct}%
                     </button>
                   ))}
                 </div>
                 <NumInput value={discountPct} onChange={v => setDiscountPct(Math.min(100, v))} step={1} placeholder="0" />
-                <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.7rem", color: "#6e88b0", marginTop: "0.25rem" }}>% custom discount</p>
+                <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.7rem", color: "#5a6a7a", marginTop: "0.25rem" }}>% custom discount</p>
               </div>
 
               <div>
@@ -470,7 +470,7 @@ export default function CalculatorPage() {
                 <div style={{ display: "flex", gap: "0.375rem", flexWrap: "wrap", marginBottom: "0.5rem" }}>
                   {[{l:"30d",v:vials30},{l:"60d",v:vials60},{l:`${protocolDays}d`,v:vialsFull}].map(({l,v}) => (
                     <button key={l} onClick={() => setVialsForQuote(v)}
-                      style={{ padding: "0.375rem 0.75rem", borderRadius: "0.375rem", fontSize: "0.8rem", fontFamily: "'DM Mono', monospace", cursor: "pointer", border: "1px solid", backgroundColor: vialsForQuote === v ? "rgba(232,201,110,0.15)" : "#142035", color: vialsForQuote === v ? "#e8c96e" : "#6e88b0", borderColor: vialsForQuote === v ? "#e8c96e" : "#1e3055" }}>
+                      style={{ padding: "0.375rem 0.75rem", borderRadius: "0.375rem", fontSize: "0.8rem", fontFamily: "'DM Mono', monospace", cursor: "pointer", border: "1px solid", backgroundColor: vialsForQuote === v ? "rgba(201,151,58,0.15)" : "#f5f3ee", color: vialsForQuote === v ? "#c9973a" : "#5a6a7a", borderColor: vialsForQuote === v ? "#c9973a" : "#e8e0d0" }}>
                       {v} vial{v!==1?"s":""} · {l}
                     </button>
                   ))}
@@ -483,18 +483,18 @@ export default function CalculatorPage() {
               {retail > 0 && wholesale > 0 ? (
                 <>
                   {discountPct > 0 && (
-                    <div style={{ ...res, borderColor: isAtLoss ? "rgba(224,90,106,0.4)" : isBelowMin ? "rgba(232,184,109,0.4)" : "rgba(84,199,162,0.3)" }}>
-                      <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.6rem", color: "#6e88b0", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "0.25rem" }}>Price after {discountPct}% off</p>
+                    <div style={{ ...res, borderColor: isAtLoss ? "rgba(224,90,106,0.4)" : isBelowMin ? "rgba(232,184,109,0.4)" : "#c0dd97" }}>
+                      <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.6rem", color: "#5a6a7a", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "0.25rem" }}>Price after {discountPct}% off</p>
                       <div style={{ display: "flex", alignItems: "baseline", gap: "0.5rem", marginBottom: "0.5rem" }}>
                         <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "1.4rem", fontWeight: 700, color: isAtLoss ? "#e05a6a" : isBelowMin ? "#e8b86d" : "#54c7a2" }}>{money(discountedPrice)}</p>
-                        <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.8rem", color: "#4a6080", textDecoration: "line-through" }}>{money(retail)}</p>
+                        <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.8rem", color: "#8a7a5a", textDecoration: "line-through" }}>{money(retail)}</p>
                       </div>
                       <MarginBar margin={marginAfterDiscount} minimum={minMargin} label="Margin after discount" />
                     </div>
                   )}
 
                   <div style={res}>
-                    <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.6rem", color: "#6e88b0", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "0.25rem" }}>Your profit per vial</p>
+                    <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.6rem", color: "#5a6a7a", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "0.25rem" }}>Your profit per vial</p>
                     <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "1.5rem", fontWeight: 700, color: getMarginColor(marginAfterDiscount, minMargin) }}>{money(profitPerVial)}</p>
                   </div>
 
@@ -511,34 +511,34 @@ export default function CalculatorPage() {
                     </div>
                   )}
 
-                  <div style={{ ...res, border: "1px solid rgba(232,201,110,0.25)" }}>
-                    <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.6rem", color: "#6e88b0", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "0.5rem" }}>
+                  <div style={{ ...res, border: "1px solid rgba(201,151,58,0.25)" }}>
+                    <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.6rem", color: "#5a6a7a", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "0.5rem" }}>
                       Total quote — {vialsForQuote} vial{vialsForQuote!==1?"s":""}
                     </p>
                     {discountPct > 0 && (
                       <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "0.25rem" }}>
-                        <span style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.8rem", color: "#4a6080", textDecoration: "line-through" }}>Full retail</span>
-                        <span style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.8rem", color: "#4a6080", textDecoration: "line-through" }}>{money(retail * vialsForQuote)}</span>
+                        <span style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.8rem", color: "#8a7a5a", textDecoration: "line-through" }}>Full retail</span>
+                        <span style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.8rem", color: "#8a7a5a", textDecoration: "line-through" }}>{money(retail * vialsForQuote)}</span>
                       </div>
                     )}
                     <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "0.375rem" }}>
-                      <span style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.9rem", color: "#ccd9ee", fontWeight: 600 }}>Client pays</span>
-                      <span style={{ fontFamily: "'DM Mono', monospace", fontSize: "1.25rem", color: "#e8c96e", fontWeight: 700 }}>{money((discountPct > 0 ? discountedPrice : retail) * vialsForQuote)}</span>
+                      <span style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.9rem", color: "#0f1a2e", fontWeight: 600 }}>Client pays</span>
+                      <span style={{ fontFamily: "'DM Mono', monospace", fontSize: "1.25rem", color: "#c9973a", fontWeight: 700 }}>{money((discountPct > 0 ? discountedPrice : retail) * vialsForQuote)}</span>
                     </div>
-                    <div style={{ display: "flex", justifyContent: "space-between", paddingTop: "0.375rem", borderTop: "1px solid #1e3055" }}>
-                      <span style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.8rem", color: "#6e88b0" }}>Your profit</span>
+                    <div style={{ display: "flex", justifyContent: "space-between", paddingTop: "0.375rem", borderTop: "1px solid #e8e0d0" }}>
+                      <span style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.8rem", color: "#5a6a7a" }}>Your profit</span>
                       <span style={{ fontFamily: "'DM Mono', monospace", fontSize: "1rem", color: getMarginColor(marginAfterDiscount, minMargin), fontWeight: 600 }}>{money(profitPerVial * vialsForQuote)}</span>
                     </div>
                   </div>
 
                   <div style={res}>
-                    <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.6rem", color: "#6e88b0", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "0.5rem" }}>If you discount...</p>
+                    <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.6rem", color: "#5a6a7a", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "0.5rem" }}>If you discount...</p>
                     {[10,15,20,25,30].map(pct => {
                       const m = calcMargin(retail*(1-pct/100), wholesale);
                       const c = getMarginColor(m, minMargin);
                       return (
                         <div key={pct} style={{ display: "flex", justifyContent: "space-between", marginBottom: "0.25rem" }}>
-                          <span style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.75rem", color: "#4a6080" }}>{pct}% → {money(retail*(1-pct/100))}</span>
+                          <span style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.75rem", color: "#8a7a5a" }}>{pct}% → {money(retail*(1-pct/100))}</span>
                           <span style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.75rem", color: c, fontWeight: 600 }}>{m.toFixed(1)}% margin</span>
                         </div>
                       );
@@ -547,8 +547,8 @@ export default function CalculatorPage() {
                 </>
               ) : (
                 <div style={{ ...res, textAlign: "center" as const, padding: "2.5rem 1rem" }}>
-                  <DollarSign size={28} style={{ color: "#1e3055", margin: "0 auto 0.75rem" }} />
-                  <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.875rem", color: "#4a6080" }}>Enter wholesale cost and retail price to see margin analysis</p>
+                  <DollarSign size={28} style={{ color: "#e8e0d0", margin: "0 auto 0.75rem" }} />
+                  <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.875rem", color: "#8a7a5a" }}>Enter wholesale cost and retail price to see margin analysis</p>
                 </div>
               )}
             </div>
@@ -557,25 +557,25 @@ export default function CalculatorPage() {
       </div>
 
       {/* Weight-based */}
-      <div className="rounded-xl overflow-hidden" style={{ backgroundColor: "#0f1a2e", border: "1px solid #1e3055", borderTop: "2px solid #6e88b0" }}>
-        <div style={{ padding: "0.75rem 1.25rem", borderBottom: "1px solid #1e3055", display: "flex", alignItems: "center", gap: "0.5rem" }}>
-          <Scale size={16} style={{ color: "#6e88b0" }} />
-          <p style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#ccd9ee", fontWeight: 600, fontSize: "1rem" }}>Weight-based dose</p>
+      <div className="rounded-xl overflow-hidden" style={{ backgroundColor: "#ffffff", border: "1px solid #e8e0d0", borderTop: "2px solid #5a6a7a" }}>
+        <div style={{ padding: "0.75rem 1.25rem", borderBottom: "1px solid #e8e0d0", display: "flex", alignItems: "center", gap: "0.5rem" }}>
+          <Scale size={16} style={{ color: "#5a6a7a" }} />
+          <p style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#0f1a2e", fontWeight: 600, fontSize: "1rem" }}>Weight-based dose</p>
         </div>
         <div style={{ padding: "1rem 1.25rem", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem" }}>
           <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
             <div>
               <label style={lbl}>Client weight (lbs)</label>
               <NumInput value={weightLbs} onChange={setWeightLbs} step={1} placeholder="165" />
-              <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.75rem", color: "#6e88b0", marginTop: "0.375rem" }}>= {weightKg} kg</p>
+              <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.75rem", color: "#5a6a7a", marginTop: "0.375rem" }}>= {weightKg} kg</p>
             </div>
             <div>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "0.375rem" }}>
                 <label style={{ ...lbl, marginBottom: 0 }}>Dose per kg</label>
-                <div style={{ display: "flex", border: "1px solid #1e3055", borderRadius: "0.5rem", overflow: "hidden" }}>
+                <div style={{ display: "flex", border: "1px solid #e8e0d0", borderRadius: "0.5rem", overflow: "hidden" }}>
                   {(["mcg","mg"] as DoseUnit[]).map(u => (
                     <button key={u} onClick={() => setWeightUnit(u)}
-                      style={{ padding: "0.375rem 0.875rem", fontSize: "0.875rem", fontFamily: "'DM Mono', monospace", backgroundColor: weightUnit === u ? "#1e3055" : "transparent", color: weightUnit === u ? "#e8c96e" : "#6e88b0", border: "none", cursor: "pointer" }}>
+                      style={{ padding: "0.375rem 0.875rem", fontSize: "0.875rem", fontFamily: "'DM Mono', monospace", backgroundColor: weightUnit === u ? "#e8e0d0" : "transparent", color: weightUnit === u ? "#c9973a" : "#5a6a7a", border: "none", cursor: "pointer" }}>
                       {u}
                     </button>
                   ))}
@@ -586,9 +586,9 @@ export default function CalculatorPage() {
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
             <div style={res}>
-              <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.6rem", color: "#6e88b0", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "0.25rem" }}>Calculated dose</p>
-              <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "2rem", fontWeight: 700, color: "#e8c96e", lineHeight: 1 }}>{weightDose} <span style={{ fontSize: "1rem", color: "#6e88b0" }}>{weightUnit}</span></p>
-              <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.75rem", color: "#4a6080", marginTop: "0.375rem" }}>{weightKg}kg × {dosePerKg} = {weightDose} {weightUnit}</p>
+              <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.6rem", color: "#5a6a7a", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "0.25rem" }}>Calculated dose</p>
+              <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "2rem", fontWeight: 700, color: "#c9973a", lineHeight: 1 }}>{weightDose} <span style={{ fontSize: "1rem", color: "#5a6a7a" }}>{weightUnit}</span></p>
+              <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.75rem", color: "#8a7a5a", marginTop: "0.375rem" }}>{weightKg}kg × {dosePerKg} = {weightDose} {weightUnit}</p>
             </div>
           </div>
         </div>

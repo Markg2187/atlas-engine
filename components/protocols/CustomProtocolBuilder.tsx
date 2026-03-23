@@ -18,9 +18,9 @@ const SPEEDS = [
     value: "gentle" as Speed,
     emoji: "🐢",
     label: "Gentle",
-    color: "#6e88b0",
+    color: "#5a6a7a",
     bg: "rgba(110,136,176,0.12)",
-    border: "rgba(110,136,176,0.3)",
+    border: "#e8e0d0",
     description: "Start low, stay there longer. Best for first-timers, sensitive patients, autoimmune history.",
   },
   {
@@ -240,9 +240,9 @@ interface SelectedPeptide {
 // ─── Styles ───────────────────────────────────────────────────
 
 const inputStyle = {
-  backgroundColor: "#142035",
-  border: "1px solid #1e3055",
-  color: "#ccd9ee",
+  backgroundColor: "#f5f3ee",
+  border: "1px solid #e8e0d0",
+  color: "#0f1a2e",
   borderRadius: "0.5rem",
   padding: "0.625rem 0.875rem",
   fontSize: "0.875rem",
@@ -383,9 +383,9 @@ export default function CustomProtocolBuilder() {
       <button
         onClick={() => setOpen(true)}
         className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition-all"
-        style={{ backgroundColor: "#142035", color: "#ccd9ee", border: "1px solid #1e3055", fontFamily: "'DM Mono', monospace" }}
-        onMouseEnter={e => { e.currentTarget.style.backgroundColor = "#1e3055"; e.currentTarget.style.borderColor = "#e8c96e"; e.currentTarget.style.color = "#e8c96e"; }}
-        onMouseLeave={e => { e.currentTarget.style.backgroundColor = "#142035"; e.currentTarget.style.borderColor = "#1e3055"; e.currentTarget.style.color = "#ccd9ee"; }}
+        style={{ backgroundColor: "#f5f3ee", color: "#0f1a2e", border: "1px solid #e8e0d0", fontFamily: "'DM Mono', monospace" }}
+        onMouseEnter={e => { e.currentTarget.style.backgroundColor = "#e8e0d0"; e.currentTarget.style.borderColor = "#c9973a"; e.currentTarget.style.color = "#c9973a"; }}
+        onMouseLeave={e => { e.currentTarget.style.backgroundColor = "#f5f3ee"; e.currentTarget.style.borderColor = "#e8e0d0"; e.currentTarget.style.color = "#0f1a2e"; }}
       >
         <Wrench size={14} /> Build Custom Protocol
       </button>
@@ -393,23 +393,23 @@ export default function CustomProtocolBuilder() {
       {open && (
         <div className="fixed inset-0 z-50 flex" style={{ backgroundColor: "rgba(11,17,32,0.8)" }}
           onClick={e => { if (e.target === e.currentTarget) handleClose(); }}>
-          <div className="ml-auto h-full w-full max-w-xl flex flex-col" style={{ backgroundColor: "#0f1a2e", borderLeft: "1px solid #1e3055" }}>
+          <div className="ml-auto h-full w-full max-w-xl flex flex-col" style={{ backgroundColor: "#ffffff", borderLeft: "1px solid #e8e0d0" }}>
 
             {/* Header */}
             <div className="flex items-center justify-between px-6 py-5 border-b flex-shrink-0"
-              style={{ borderColor: "#1e3055", borderTop: "2px solid #e8c96e" }}>
+              style={{ borderColor: "#e8e0d0", borderTop: "3px solid #c9973a" }}>
               <div>
                 <h2 className="text-lg font-semibold flex items-center gap-2"
-                  style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#ccd9ee" }}>
-                  <Wrench size={16} style={{ color: "#e8c96e" }} /> Build Custom Protocol
+                  style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#0f1a2e" }}>
+                  <Wrench size={16} style={{ color: "#c9973a" }} /> Build Custom Protocol
                 </h2>
-                <p className="text-xs mt-0.5" style={{ color: "#6e88b0", fontFamily: "'DM Mono', monospace" }}>
+                <p className="text-xs mt-0.5" style={{ color: "#5a6a7a", fontFamily: "'DM Mono', monospace" }}>
                   Step {step} of 3 — {step === 1 ? "Details" : step === 2 ? "Select Peptides" : "Preview & Save"}
                 </p>
               </div>
-              <button onClick={handleClose} className="p-2 rounded-lg" style={{ color: "#6e88b0" }}
-                onMouseEnter={e => (e.currentTarget.style.color = "#ccd9ee")}
-                onMouseLeave={e => (e.currentTarget.style.color = "#6e88b0")}>
+              <button onClick={handleClose} className="p-2 rounded-lg" style={{ color: "#5a6a7a" }}
+                onMouseEnter={e => (e.currentTarget.style.color = "#0f1a2e")}
+                onMouseLeave={e => (e.currentTarget.style.color = "#5a6a7a")}>
                 <X size={18} />
               </button>
             </div>
@@ -419,7 +419,7 @@ export default function CustomProtocolBuilder() {
               <div className="flex gap-1.5">
                 {[1, 2, 3].map(s => (
                   <div key={s} className="h-1 flex-1 rounded-full"
-                    style={{ backgroundColor: s <= step ? "#e8c96e" : "#1e3055" }} />
+                    style={{ backgroundColor: s <= step ? "#c9973a" : "#e8e0d0" }} />
                 ))}
               </div>
             </div>
@@ -429,7 +429,7 @@ export default function CustomProtocolBuilder() {
               <div className="flex-1 overflow-y-auto px-6 py-5 space-y-4">
                 <div>
                   <label className="block text-xs uppercase tracking-widest mb-1.5"
-                    style={{ fontFamily: "'DM Mono', monospace", color: "#6e88b0" }}>
+                    style={{ fontFamily: "'DM Mono', monospace", color: "#5a6a7a" }}>
                     Protocol Name / Condition *
                   </label>
                   <input style={inputStyle} value={title}
@@ -439,7 +439,7 @@ export default function CustomProtocolBuilder() {
                 </div>
                 <div>
                   <label className="block text-xs uppercase tracking-widest mb-1.5"
-                    style={{ fontFamily: "'DM Mono', monospace", color: "#6e88b0" }}>
+                    style={{ fontFamily: "'DM Mono', monospace", color: "#5a6a7a" }}>
                     Category
                   </label>
                   <select style={inputStyle} value={category}
@@ -449,12 +449,12 @@ export default function CustomProtocolBuilder() {
                 </div>
 
                 {/* Speed explainer */}
-                <div className="rounded-lg p-4 space-y-3" style={{ backgroundColor: "#142035", border: "1px solid #1e3055" }}>
-                  <p className="text-xs font-medium" style={{ color: "#ccd9ee" }}>How titration speeds work</p>
+                <div className="rounded-lg p-4 space-y-3" style={{ backgroundColor: "#f5f3ee", border: "1px solid #e8e0d0" }}>
+                  <p className="text-xs font-medium" style={{ color: "#0f1a2e" }}>How titration speeds work</p>
                   {SPEEDS.map(s => (
                     <div key={s.value} className="flex items-start gap-2">
                       <span className="text-sm leading-none mt-0.5">{s.emoji}</span>
-                      <p className="text-xs leading-relaxed" style={{ color: "#6e88b0" }}>
+                      <p className="text-xs leading-relaxed" style={{ color: "#5a6a7a" }}>
                         <span style={{ color: s.color }}>{s.label}</span> — {s.description}
                       </p>
                     </div>
@@ -463,7 +463,7 @@ export default function CustomProtocolBuilder() {
 
                 <button onClick={() => { if (title.trim()) setStep(2); else toast.error("Enter a protocol name"); }}
                   className="w-full py-3 rounded-lg font-semibold text-sm flex items-center justify-center gap-2"
-                  style={{ backgroundColor: "#e8c96e", color: "#0b1120" }}>
+                  style={{ backgroundColor: "#c9973a", color: "#0b1120" }}>
                   Select Peptides <ChevronRight size={15} />
                 </button>
               </div>
@@ -472,13 +472,13 @@ export default function CustomProtocolBuilder() {
             {/* ── STEP 2 ── */}
             {step === 2 && (
               <>
-                <div className="px-6 py-4 border-b flex-shrink-0" style={{ borderColor: "#1e3055" }}>
+                <div className="px-6 py-4 border-b flex-shrink-0" style={{ borderColor: "#e8e0d0" }}>
                   <div className="relative">
-                    <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2" style={{ color: "#6e88b0" }} />
+                    <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2" style={{ color: "#5a6a7a" }} />
                     <input autoFocus value={search} onChange={e => setSearch(e.target.value)}
                       placeholder="Search peptides..."
                       className="w-full pl-9 pr-4 py-2.5 rounded-lg text-sm focus:outline-none"
-                      style={{ backgroundColor: "#142035", border: "1px solid #1e3055", color: "#ccd9ee" }} />
+                      style={{ backgroundColor: "#f5f3ee", border: "1px solid #e8e0d0", color: "#0f1a2e" }} />
                   </div>
                   {selected.length > 0 && (
                     <p className="text-xs mt-2" style={{ color: "#54c7a2", fontFamily: "'DM Mono', monospace" }}>
@@ -490,17 +490,17 @@ export default function CustomProtocolBuilder() {
                 <div className="flex-1 overflow-y-auto">
                   {libraryLoading ? (
                     <div className="flex items-center justify-center py-20">
-                      <p className="text-sm" style={{ color: "#6e88b0" }}>Loading peptide library...</p>
+                      <p className="text-sm" style={{ color: "#5a6a7a" }}>Loading peptide library...</p>
                     </div>
                   ) : (
                     [
-                      { label: "CA Peptide Labs", items: filtered ? filtered.filter(p => p.is_brand_product) : branded, accent: "#e8c96e" },
-                      { label: "Partner Sourced", items: filtered ? filtered.filter(p => !p.is_brand_product) : partner, accent: "#6e88b0" },
+                      { label: "CA Peptide Labs", items: filtered ? filtered.filter(p => p.is_brand_product) : branded, accent: "#c9973a" },
+                      { label: "Partner Sourced", items: filtered ? filtered.filter(p => !p.is_brand_product) : partner, accent: "#5a6a7a" },
                     ].map(({ label, items, accent }) =>
                       items.length === 0 ? null : (
                         <div key={label}>
                           <div className="px-6 py-2.5 sticky top-0"
-                            style={{ backgroundColor: "#0b1120", borderBottom: "1px solid #1e3055" }}>
+                            style={{ backgroundColor: "#ffffff", borderBottom: "1px solid #e8e0d0" }}>
                             <p className="text-xs uppercase tracking-widest"
                               style={{ fontFamily: "'DM Mono', monospace", color: accent }}>{label}</p>
                           </div>
@@ -509,22 +509,22 @@ export default function CustomProtocolBuilder() {
                             return (
                               <button key={p.id} onClick={() => togglePeptide(p)}
                                 className="w-full text-left px-6 py-3.5 border-b transition-colors"
-                                style={{ borderColor: "rgba(30,48,85,0.5)", backgroundColor: isSelected ? "rgba(84,199,162,0.06)" : "transparent" }}
-                                onMouseEnter={e => { if (!isSelected) e.currentTarget.style.backgroundColor = "#142035"; }}
+                                style={{ borderColor: "rgba(232,224,208,0.5)", backgroundColor: isSelected ? "rgba(84,199,162,0.06)" : "transparent" }}
+                                onMouseEnter={e => { if (!isSelected) e.currentTarget.style.backgroundColor = "#f5f3ee"; }}
                                 onMouseLeave={e => { if (!isSelected) e.currentTarget.style.backgroundColor = "transparent"; }}>
                                 <div className="flex items-start justify-between gap-3">
                                   <div className="flex-1 min-w-0">
-                                    <p className="text-sm font-medium" style={{ color: isSelected ? "#54c7a2" : "#ccd9ee" }}>
+                                    <p className="text-sm font-medium" style={{ color: isSelected ? "#54c7a2" : "#0f1a2e" }}>
                                       {p.name}
                                     </p>
-                                    <p className="text-xs mt-0.5" style={{ color: "#6e88b0", fontFamily: "'DM Mono', monospace" }}>
+                                    <p className="text-xs mt-0.5" style={{ color: "#5a6a7a", fontFamily: "'DM Mono', monospace" }}>
                                       {SCHEDULE_LABELS[p.schedule_type || "monthly-ramp"]}
                                       {p.available_forms && p.available_forms.length > 1 &&
                                         ` · ${p.available_forms.length} forms`}
                                     </p>
                                   </div>
                                   <div className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
-                                    style={{ backgroundColor: isSelected ? "#54c7a2" : "transparent", border: `1px solid ${isSelected ? "#54c7a2" : "#1e3055"}` }}>
+                                    style={{ backgroundColor: isSelected ? "#54c7a2" : "transparent", border: `1px solid ${isSelected ? "#54c7a2" : "#e8e0d0"}` }}>
                                     {isSelected && <Check size={11} style={{ color: "#0b1120" }} />}
                                   </div>
                                 </div>
@@ -539,9 +539,9 @@ export default function CustomProtocolBuilder() {
 
                 {/* Selected peptides panel */}
                 {selected.length > 0 && (
-                  <div className="border-t flex-shrink-0" style={{ borderColor: "#1e3055", maxHeight: "55vh", overflowY: "auto" }}>
-                    <div className="px-6 py-3 sticky top-0 z-10" style={{ backgroundColor: "#0b1120", borderBottom: "1px solid #1e3055" }}>
-                      <p className="text-xs uppercase tracking-widest" style={{ fontFamily: "'DM Mono', monospace", color: "#6e88b0" }}>
+                  <div className="border-t flex-shrink-0" style={{ borderColor: "#e8e0d0", maxHeight: "55vh", overflowY: "auto" }}>
+                    <div className="px-6 py-3 sticky top-0 z-10" style={{ backgroundColor: "#ffffff", borderBottom: "1px solid #e8e0d0" }}>
+                      <p className="text-xs uppercase tracking-widest" style={{ fontFamily: "'DM Mono', monospace", color: "#5a6a7a" }}>
                         Titration Speed · Delivery Form · Timeline
                       </p>
                     </div>
@@ -554,31 +554,31 @@ export default function CustomProtocolBuilder() {
 
                         return (
                           <div key={sp.peptide.id} className="rounded-xl overflow-hidden"
-                            style={{ border: "1px solid #1e3055" }}>
+                            style={{ border: "1px solid #e8e0d0" }}>
 
                             {/* Peptide header */}
                             <div className="flex items-center justify-between px-4 py-3"
-                              style={{ backgroundColor: "#142035", borderBottom: "1px solid #1e3055" }}>
-                              <p className="text-sm font-medium" style={{ color: "#ccd9ee" }}>{sp.peptide.name}</p>
+                              style={{ backgroundColor: "#f5f3ee", borderBottom: "1px solid #e8e0d0" }}>
+                              <p className="text-sm font-medium" style={{ color: "#0f1a2e" }}>{sp.peptide.name}</p>
                               <button onClick={() => setSelected(prev => prev.filter(s => s.peptide.id !== sp.peptide.id))}
-                                style={{ color: "#6e88b0" }}
+                                style={{ color: "#5a6a7a" }}
                                 onMouseEnter={e => (e.currentTarget.style.color = "#e05a6a")}
-                                onMouseLeave={e => (e.currentTarget.style.color = "#6e88b0")}>
+                                onMouseLeave={e => (e.currentTarget.style.color = "#5a6a7a")}>
                                 <X size={13} />
                               </button>
                             </div>
 
                             {/* Delivery form selector — only if multiple forms available */}
                             {availableForms.length > 1 && (
-                              <div className="flex border-b" style={{ borderColor: "#1e3055" }}>
+                              <div className="flex border-b" style={{ borderColor: "#e8e0d0" }}>
                                 {availableForms.map(form => (
                                   <button key={form}
                                     onClick={() => setDeliveryForm(sp.peptide.id, form)}
                                     className="flex-1 py-1.5 text-xs transition-all"
                                     style={{
                                       backgroundColor: sp.deliveryForm === form ? "rgba(84,199,162,0.1)" : "transparent",
-                                      color: sp.deliveryForm === form ? "#54c7a2" : "#4a6080",
-                                      borderRight: form !== availableForms[availableForms.length - 1] ? "1px solid #1e3055" : "none",
+                                      color: sp.deliveryForm === form ? "#54c7a2" : "#8a7a5a",
+                                      borderRight: form !== availableForms[availableForms.length - 1] ? "1px solid #e8e0d0" : "none",
                                       fontFamily: "'DM Mono', monospace",
                                     }}>
                                     {DELIVERY_LABELS[form] || form}
@@ -588,7 +588,7 @@ export default function CustomProtocolBuilder() {
                             )}
 
                             {/* Speed selector */}
-                            <div className="flex border-b" style={{ borderColor: "#1e3055" }}>
+                            <div className="flex border-b" style={{ borderColor: "#e8e0d0" }}>
                               {SPEEDS.map(s => {
                                 const active = sp.speed === s.value;
                                 return (
@@ -596,8 +596,8 @@ export default function CustomProtocolBuilder() {
                                     className="flex-1 py-2 text-xs font-medium flex items-center justify-center gap-1.5 transition-all"
                                     style={{
                                       backgroundColor: active ? s.bg : "transparent",
-                                      color: active ? s.color : "#4a6080",
-                                      borderRight: s.value !== "accelerated" ? "1px solid #1e3055" : "none",
+                                      color: active ? s.color : "#8a7a5a",
+                                      borderRight: s.value !== "accelerated" ? "1px solid #e8e0d0" : "none",
                                       fontFamily: "'DM Mono', monospace",
                                     }}>
                                     <span>{s.emoji}</span><span>{s.label}</span>
@@ -609,7 +609,7 @@ export default function CustomProtocolBuilder() {
                             {/* Dilution warning */}
                             {dilutionNote && (
                               <div className="px-3 py-2 flex items-start gap-2"
-                                style={{ backgroundColor: "rgba(232,184,109,0.06)", borderBottom: "1px solid rgba(232,184,109,0.15)" }}>
+                                style={{ backgroundColor: "rgba(232,184,109,0.06)", borderBottom: "1px solid #faeeda" }}>
                                 <AlertTriangle size={11} style={{ color: "#e8b86d", flexShrink: 0, marginTop: 2 }} />
                                 <p style={{ color: "#e8b86d", fontSize: "0.62rem", fontFamily: "'DM Mono', monospace", lineHeight: 1.5 }}>
                                   {dilutionNote}
@@ -618,12 +618,12 @@ export default function CustomProtocolBuilder() {
                             )}
 
                             {/* Phase timeline */}
-                            <div className="grid grid-cols-3 divide-x" style={{ borderColor: "#1e3055" }}>
+                            <div className="grid grid-cols-3 divide-x" style={{ borderColor: "#e8e0d0" }}>
                               {phases.map((phase, i) => (
                                 <div key={i} className="p-3 space-y-1"
                                   style={{
-                                    backgroundColor: phase.isRest ? "rgba(11,17,32,0.5)" : "transparent",
-                                    borderRight: i < 2 ? "1px solid #1e3055" : "none",
+                                    backgroundColor: phase.isRest ? "rgba(245,243,238,0.9)" : "transparent",
+                                    borderRight: i < 2 ? "1px solid #e8e0d0" : "none",
                                     opacity: phase.isRest ? 0.6 : 1,
                                   }}>
                                   <p style={{ fontFamily: "'DM Mono', monospace", color: activeSpeed.color, fontSize: "0.6rem", textTransform: "uppercase", letterSpacing: "0.05em", fontWeight: 600 }}>
@@ -631,17 +631,17 @@ export default function CustomProtocolBuilder() {
                                   </p>
                                   {!phase.isRest ? (
                                     <>
-                                      <p className="text-xs font-medium leading-snug" style={{ color: "#e8c96e" }}>
+                                      <p className="text-xs font-medium leading-snug" style={{ color: "#c9973a" }}>
                                         {phase.dose}
                                       </p>
-                                      <p style={{ color: "#6e88b0", fontSize: "0.6rem", fontFamily: "'DM Mono', monospace", lineHeight: 1.4 }}>
+                                      <p style={{ color: "#5a6a7a", fontSize: "0.6rem", fontFamily: "'DM Mono', monospace", lineHeight: 1.4 }}>
                                         {phase.frequency}
                                       </p>
                                     </>
                                   ) : (
-                                    <p className="text-xs" style={{ color: "#6e88b0" }}>Rest</p>
+                                    <p className="text-xs" style={{ color: "#5a6a7a" }}>Rest</p>
                                   )}
-                                  <p style={{ color: "#4a6080", fontSize: "0.58rem", fontStyle: "italic", lineHeight: 1.4 }}>
+                                  <p style={{ color: "#8a7a5a", fontSize: "0.58rem", fontStyle: "italic", lineHeight: 1.4 }}>
                                     {phase.note}
                                   </p>
                                 </div>
@@ -654,15 +654,15 @@ export default function CustomProtocolBuilder() {
                   </div>
                 )}
 
-                <div className="flex gap-3 px-6 py-4 border-t flex-shrink-0" style={{ borderColor: "#1e3055" }}>
+                <div className="flex gap-3 px-6 py-4 border-t flex-shrink-0" style={{ borderColor: "#e8e0d0" }}>
                   <button onClick={() => setStep(1)}
                     className="flex-1 py-3 rounded-lg font-semibold text-sm flex items-center justify-center gap-2"
-                    style={{ backgroundColor: "#142035", color: "#ccd9ee", border: "1px solid #1e3055" }}>
+                    style={{ backgroundColor: "#f5f3ee", color: "#0f1a2e", border: "1px solid #e8e0d0" }}>
                     <ChevronLeft size={15} /> Back
                   </button>
                   <button onClick={() => { if (selected.length > 0) setStep(3); else toast.error("Select at least one peptide"); }}
                     className="flex-1 py-3 rounded-lg font-semibold text-sm flex items-center justify-center gap-2"
-                    style={{ backgroundColor: "#e8c96e", color: "#0b1120" }}>
+                    style={{ backgroundColor: "#c9973a", color: "#0b1120" }}>
                     Preview <ChevronRight size={15} />
                   </button>
                 </div>
@@ -673,12 +673,12 @@ export default function CustomProtocolBuilder() {
             {step === 3 && (
               <div className="flex-1 overflow-y-auto px-6 py-5 space-y-4">
                 <div className="rounded-xl p-4"
-                  style={{ backgroundColor: "#142035", border: "1px solid #1e3055", borderTop: "2px solid #e8c96e" }}>
+                  style={{ backgroundColor: "#f5f3ee", border: "1px solid #e8e0d0", borderTop: "3px solid #c9973a" }}>
                   <p className="text-xs uppercase tracking-widest mb-1"
-                    style={{ fontFamily: "'DM Mono', monospace", color: "#6e88b0" }}>Protocol Template</p>
+                    style={{ fontFamily: "'DM Mono', monospace", color: "#5a6a7a" }}>Protocol Template</p>
                   <h3 className="text-base font-semibold"
-                    style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#e8c96e" }}>{title}</h3>
-                  <p className="text-xs mt-0.5" style={{ color: "#6e88b0", fontFamily: "'DM Mono', monospace" }}>
+                    style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#c9973a" }}>{title}</h3>
+                  <p className="text-xs mt-0.5" style={{ color: "#5a6a7a", fontFamily: "'DM Mono', monospace" }}>
                     {category} · {selected.length} peptide{selected.length !== 1 ? "s" : ""} · 3-phase cycle
                   </p>
                 </div>
@@ -687,12 +687,12 @@ export default function CustomProtocolBuilder() {
                   const phases = buildPhases(sp.peptide, sp.speed, sp.deliveryForm);
                   const activeSpeed = SPEEDS.find(s => s.value === sp.speed)!;
                   return (
-                    <div key={sp.peptide.id} className="rounded-xl overflow-hidden" style={{ border: "1px solid #1e3055" }}>
+                    <div key={sp.peptide.id} className="rounded-xl overflow-hidden" style={{ border: "1px solid #e8e0d0" }}>
                       <div className="flex items-center justify-between px-4 py-3 border-b"
-                        style={{ backgroundColor: "#142035", borderColor: "#1e3055" }}>
+                        style={{ backgroundColor: "#f5f3ee", borderColor: "#e8e0d0" }}>
                         <div>
-                          <p className="text-sm font-medium" style={{ color: "#ccd9ee" }}>{sp.peptide.name}</p>
-                          <p className="text-xs" style={{ color: "#6e88b0", fontFamily: "'DM Mono', monospace" }}>
+                          <p className="text-sm font-medium" style={{ color: "#0f1a2e" }}>{sp.peptide.name}</p>
+                          <p className="text-xs" style={{ color: "#5a6a7a", fontFamily: "'DM Mono', monospace" }}>
                             {DELIVERY_LABELS[sp.deliveryForm] || sp.deliveryForm}
                           </p>
                         </div>
@@ -704,19 +704,19 @@ export default function CustomProtocolBuilder() {
                       <div className="grid grid-cols-3">
                         {phases.map((phase, i) => (
                           <div key={i} className="p-3 space-y-1"
-                            style={{ borderRight: i < 2 ? "1px solid #1e3055" : "none", backgroundColor: phase.isRest ? "rgba(11,17,32,0.4)" : "transparent", opacity: phase.isRest ? 0.55 : 1 }}>
+                            style={{ borderRight: i < 2 ? "1px solid #e8e0d0" : "none", backgroundColor: phase.isRest ? "rgba(245,243,238,0.9)" : "transparent", opacity: phase.isRest ? 0.55 : 1 }}>
                             <p style={{ fontFamily: "'DM Mono', monospace", color: activeSpeed.color, fontSize: "0.6rem", textTransform: "uppercase", letterSpacing: "0.05em", fontWeight: 600 }}>
                               {phase.period}
                             </p>
                             {!phase.isRest ? (
                               <>
-                                <p className="text-xs font-medium" style={{ color: "#e8c96e" }}>{phase.dose}</p>
-                                <p style={{ color: "#6e88b0", fontSize: "0.6rem", fontFamily: "'DM Mono', monospace" }}>{phase.frequency}</p>
+                                <p className="text-xs font-medium" style={{ color: "#c9973a" }}>{phase.dose}</p>
+                                <p style={{ color: "#5a6a7a", fontSize: "0.6rem", fontFamily: "'DM Mono', monospace" }}>{phase.frequency}</p>
                               </>
                             ) : (
-                              <p className="text-xs" style={{ color: "#6e88b0" }}>Rest period</p>
+                              <p className="text-xs" style={{ color: "#5a6a7a" }}>Rest period</p>
                             )}
-                            <p style={{ color: "#4a6080", fontSize: "0.58rem", fontStyle: "italic", lineHeight: 1.4 }}>{phase.note}</p>
+                            <p style={{ color: "#8a7a5a", fontSize: "0.58rem", fontStyle: "italic", lineHeight: 1.4 }}>{phase.note}</p>
                           </div>
                         ))}
                       </div>
@@ -725,8 +725,8 @@ export default function CustomProtocolBuilder() {
                 })}
 
                 <div className="rounded-lg px-4 py-3"
-                  style={{ backgroundColor: "rgba(232,201,110,0.05)", border: "1px solid rgba(232,201,110,0.15)" }}>
-                  <p className="text-xs" style={{ color: "#6e88b0" }}>
+                  style={{ backgroundColor: "rgba(201,151,58,0.05)", border: "1px solid rgba(201,151,58,0.15)" }}>
+                  <p className="text-xs" style={{ color: "#5a6a7a" }}>
                     This protocol will be saved to your library and can be assigned to any client from their profile page.
                   </p>
                 </div>
@@ -734,12 +734,12 @@ export default function CustomProtocolBuilder() {
                 <div className="flex gap-3 pt-2">
                   <button onClick={() => setStep(2)}
                     className="flex-1 py-3 rounded-lg font-semibold text-sm flex items-center justify-center gap-2"
-                    style={{ backgroundColor: "#142035", color: "#ccd9ee", border: "1px solid #1e3055" }}>
+                    style={{ backgroundColor: "#f5f3ee", color: "#0f1a2e", border: "1px solid #e8e0d0" }}>
                     <ChevronLeft size={15} /> Back
                   </button>
                   <button onClick={handleSave} disabled={saving}
                     className="flex-1 py-3 rounded-lg font-semibold text-sm flex items-center justify-center gap-2 transition-opacity"
-                    style={{ backgroundColor: "#e8c96e", color: "#0b1120", opacity: saving ? 0.8 : 1 }}>
+                    style={{ backgroundColor: "#c9973a", color: "#0b1120", opacity: saving ? 0.8 : 1 }}>
                     {saving ? "Saving..." : <><Check size={15} /> Save Protocol</>}
                   </button>
                 </div>

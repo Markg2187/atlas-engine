@@ -37,7 +37,7 @@ export default async function PeptideDetailPage({
       <Link
         href="/peptides"
         className="inline-flex items-center gap-2 text-sm mb-6 transition-colors"
-        style={{ color: "#6e88b0" }}
+        style={{ color: "#5a6a7a" }}
       >
         <ArrowLeft size={16} />
         Back to Peptide Library
@@ -47,27 +47,27 @@ export default async function PeptideDetailPage({
       <div
         className="rounded-2xl p-8 mb-8"
         style={{
-          backgroundColor: "#0f1a2e",
-          border: "1px solid #1e3055",
-          borderTop: "2px solid #e8c96e",
+          backgroundColor: "#ffffff",
+          border: "1px solid #e8e0d0",
+          borderTop: "3px solid #c9973a",
         }}
       >
         <div className="flex items-start gap-5">
           <div
             className="w-14 h-14 rounded-xl flex items-center justify-center flex-shrink-0"
-            style={{ backgroundColor: "rgba(232,201,110,0.1)", border: "1px solid rgba(232,201,110,0.3)" }}
+            style={{ backgroundColor: "rgba(201,151,58,0.1)", border: "1px solid rgba(201,151,58,0.3)" }}
           >
-            <FlaskConical size={24} style={{ color: "#e8c96e" }} />
+            <FlaskConical size={24} style={{ color: "#c9973a" }} />
           </div>
           <div className="flex-1">
             <h1
               className="text-4xl font-bold mb-1"
-              style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#e8c96e" }}
+              style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#c9973a" }}
             >
               {peptide.name}
             </h1>
             {peptide.full_name && (
-              <p className="text-sm mb-3" style={{ color: "#6e88b0" }}>
+              <p className="text-sm mb-3" style={{ color: "#5a6a7a" }}>
                 {peptide.full_name}
               </p>
             )}
@@ -83,7 +83,7 @@ export default async function PeptideDetailPage({
               ))}
             </div>
             {peptide.summary && (
-              <p className="text-base leading-relaxed" style={{ color: "#ccd9ee" }}>
+              <p className="text-base leading-relaxed" style={{ color: "#0f1a2e" }}>
                 {peptide.summary}
               </p>
             )}
@@ -91,7 +91,7 @@ export default async function PeptideDetailPage({
         </div>
 
         {/* Key stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6 pt-6 border-t" style={{ borderColor: "#1e3055" }}>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6 pt-6 border-t" style={{ borderColor: "#e8e0d0" }}>
           {[
             { label: "Half-Life", value: peptide.half_life },
             { label: "Cycle Length", value: peptide.cycle_length },
@@ -100,7 +100,7 @@ export default async function PeptideDetailPage({
           ].map(({ label, value }) => (
             <div key={label}>
               <p className="stat-label mb-1">{label}</p>
-              <p className="text-sm font-medium" style={{ color: "#ccd9ee", fontFamily: "'DM Mono', monospace" }}>
+              <p className="text-sm font-medium" style={{ color: "#0f1a2e", fontFamily: "'DM Mono', monospace" }}>
                 {value || "—"}
               </p>
             </div>
@@ -116,21 +116,21 @@ export default async function PeptideDetailPage({
             <div
               className="rounded-xl p-5"
               style={{
-                backgroundColor: "#0f1a2e",
-                border: "1px solid #1e3055",
-                borderTop: "2px solid #54c7a2",
+                backgroundColor: "#ffffff",
+                border: "1px solid #e8e0d0",
+                borderTop: "3px solid #54c7a2",
               }}
             >
               <h2
                 className="font-semibold mb-4 flex items-center gap-2"
-                style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#ccd9ee" }}
+                style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#0f1a2e" }}
               >
                 <Check size={16} style={{ color: "#54c7a2" }} />
                 Benefits
               </h2>
               <ul className="space-y-2">
                 {benefits.map((b: any) => (
-                  <li key={b.id} className="flex items-start gap-2 text-sm" style={{ color: "#ccd9ee" }}>
+                  <li key={b.id} className="flex items-start gap-2 text-sm" style={{ color: "#0f1a2e" }}>
                     <span style={{ color: "#54c7a2", marginTop: "2px", flexShrink: 0 }}>✓</span>
                     {b.benefit_text}
                   </li>
@@ -144,9 +144,9 @@ export default async function PeptideDetailPage({
             <div
               className="rounded-xl p-5"
               style={{
-                backgroundColor: "#0f1a2e",
-                border: "1px solid #1e3055",
-                borderTop: "2px solid #e8b86d",
+                backgroundColor: "#ffffff",
+                border: "1px solid #e8e0d0",
+                borderTop: "3px solid #e8b86d",
               }}
             >
               <h2
@@ -158,7 +158,7 @@ export default async function PeptideDetailPage({
               </h2>
               <ul className="space-y-2">
                 {warnings.map((w: any) => (
-                  <li key={w.id} className="flex items-start gap-2 text-sm" style={{ color: "#ccd9ee" }}>
+                  <li key={w.id} className="flex items-start gap-2 text-sm" style={{ color: "#0f1a2e" }}>
                     <span style={{ color: "#e8b86d", marginTop: "2px", flexShrink: 0 }}>⚠</span>
                     {w.warning_text}
                   </li>
@@ -174,15 +174,15 @@ export default async function PeptideDetailPage({
           {peptide.mechanism_of_action && (
             <div
               className="rounded-xl p-5"
-              style={{ backgroundColor: "#0f1a2e", border: "1px solid #1e3055" }}
+              style={{ backgroundColor: "#ffffff", border: "1px solid #e8e0d0" }}
             >
               <h2
                 className="font-semibold mb-3"
-                style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#ccd9ee" }}
+                style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#0f1a2e" }}
               >
                 Mechanism of Action
               </h2>
-              <p className="text-sm leading-relaxed" style={{ color: "#6e88b0" }}>
+              <p className="text-sm leading-relaxed" style={{ color: "#5a6a7a" }}>
                 {peptide.mechanism_of_action}
               </p>
             </div>
@@ -193,16 +193,16 @@ export default async function PeptideDetailPage({
             <div
               className="rounded-xl p-5"
               style={{
-                backgroundColor: "#0f1a2e",
-                border: "1px solid #1e3055",
-                borderTop: "2px solid #e8c96e",
+                backgroundColor: "#ffffff",
+                border: "1px solid #e8e0d0",
+                borderTop: "3px solid #c9973a",
               }}
             >
               <h2
                 className="font-semibold mb-4 flex items-center gap-2"
-                style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#ccd9ee" }}
+                style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#0f1a2e" }}
               >
-                <Syringe size={16} style={{ color: "#e8c96e" }} />
+                <Syringe size={16} style={{ color: "#c9973a" }} />
                 Dosing Schedule
               </h2>
               <div className="space-y-3">
@@ -210,16 +210,16 @@ export default async function PeptideDetailPage({
                   <div
                     key={d.id}
                     className="p-4 rounded-lg"
-                    style={{ backgroundColor: "#142035", border: "1px solid #1e3055" }}
+                    style={{ backgroundColor: "#f5f3ee", border: "1px solid #e8e0d0" }}
                   >
-                    <p className="text-xs uppercase tracking-widest mb-1" style={{ fontFamily: "'DM Mono', monospace", color: "#6e88b0" }}>
+                    <p className="text-xs uppercase tracking-widest mb-1" style={{ fontFamily: "'DM Mono', monospace", color: "#5a6a7a" }}>
                       {d.period}
                     </p>
-                    <p className="text-sm font-medium" style={{ color: "#e8c96e", fontFamily: "'DM Mono', monospace" }}>
+                    <p className="text-sm font-medium" style={{ color: "#c9973a", fontFamily: "'DM Mono', monospace" }}>
                       {d.dose}
                     </p>
                     {d.notes && (
-                      <p className="text-xs mt-1" style={{ color: "#6e88b0" }}>{d.notes}</p>
+                      <p className="text-xs mt-1" style={{ color: "#5a6a7a" }}>{d.notes}</p>
                     )}
                   </div>
                 ))}
@@ -232,14 +232,14 @@ export default async function PeptideDetailPage({
             <div
               className="rounded-xl p-5"
               style={{
-                backgroundColor: "#0f1a2e",
-                border: "1px solid #1e3055",
-                borderTop: "2px solid #6e88b0",
+                backgroundColor: "#ffffff",
+                border: "1px solid #e8e0d0",
+                borderTop: "2px solid #5a6a7a",
               }}
             >
               <h2
                 className="font-semibold mb-4"
-                style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#ccd9ee" }}
+                style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#0f1a2e" }}
               >
                 Reconstitution Guide
               </h2>
@@ -253,10 +253,10 @@ export default async function PeptideDetailPage({
                   ["Cycle", recon.cycle_length_display],
                 ].filter(([, v]) => v).map(([label, value]) => (
                   <div key={label as string}>
-                    <p className="text-xs uppercase tracking-widest mb-0.5" style={{ fontFamily: "'DM Mono', monospace", color: "#6e88b0" }}>
+                    <p className="text-xs uppercase tracking-widest mb-0.5" style={{ fontFamily: "'DM Mono', monospace", color: "#5a6a7a" }}>
                       {label}
                     </p>
-                    <p className="text-sm" style={{ color: "#ccd9ee", fontFamily: "'DM Mono', monospace" }}>
+                    <p className="text-sm" style={{ color: "#0f1a2e", fontFamily: "'DM Mono', monospace" }}>
                       {value}
                     </p>
                   </div>
@@ -264,15 +264,15 @@ export default async function PeptideDetailPage({
               </div>
               {recon.reconstitution_steps && recon.reconstitution_steps.length > 0 && (
                 <div>
-                  <p className="text-xs uppercase tracking-widest mb-3" style={{ fontFamily: "'DM Mono', monospace", color: "#6e88b0" }}>
+                  <p className="text-xs uppercase tracking-widest mb-3" style={{ fontFamily: "'DM Mono', monospace", color: "#5a6a7a" }}>
                     Steps
                   </p>
                   <ol className="space-y-2">
                     {recon.reconstitution_steps.map((step: string, i: number) => (
-                      <li key={i} className="flex items-start gap-3 text-sm" style={{ color: "#ccd9ee" }}>
+                      <li key={i} className="flex items-start gap-3 text-sm" style={{ color: "#0f1a2e" }}>
                         <span
                           className="w-5 h-5 rounded-full flex items-center justify-center text-xs flex-shrink-0 mt-0.5"
-                          style={{ backgroundColor: "#1e3055", color: "#e8c96e", fontFamily: "'DM Mono', monospace" }}
+                          style={{ backgroundColor: "#e8e0d0", color: "#c9973a", fontFamily: "'DM Mono', monospace" }}
                         >
                           {i + 1}
                         </span>
@@ -283,11 +283,11 @@ export default async function PeptideDetailPage({
                 </div>
               )}
               {recon.storage_instructions && (
-                <div className="mt-4 p-3 rounded-lg" style={{ backgroundColor: "#142035", border: "1px solid #1e3055" }}>
-                  <p className="text-xs uppercase tracking-widest mb-1" style={{ fontFamily: "'DM Mono', monospace", color: "#6e88b0" }}>
+                <div className="mt-4 p-3 rounded-lg" style={{ backgroundColor: "#f5f3ee", border: "1px solid #e8e0d0" }}>
+                  <p className="text-xs uppercase tracking-widest mb-1" style={{ fontFamily: "'DM Mono', monospace", color: "#5a6a7a" }}>
                     Storage
                   </p>
-                  <p className="text-sm" style={{ color: "#ccd9ee" }}>{recon.storage_instructions}</p>
+                  <p className="text-sm" style={{ color: "#0f1a2e" }}>{recon.storage_instructions}</p>
                 </div>
               )}
             </div>
@@ -297,13 +297,13 @@ export default async function PeptideDetailPage({
           {studies.length > 0 && (
             <div
               className="rounded-xl p-5"
-              style={{ backgroundColor: "#0f1a2e", border: "1px solid #1e3055" }}
+              style={{ backgroundColor: "#ffffff", border: "1px solid #e8e0d0" }}
             >
               <h2
                 className="font-semibold mb-4 flex items-center gap-2"
-                style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#ccd9ee" }}
+                style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#0f1a2e" }}
               >
-                <BookOpen size={16} style={{ color: "#e8c96e" }} />
+                <BookOpen size={16} style={{ color: "#c9973a" }} />
                 Research Studies
               </h2>
               <div className="space-y-3">
@@ -311,14 +311,14 @@ export default async function PeptideDetailPage({
                   <div
                     key={s.id}
                     className="p-4 rounded-lg"
-                    style={{ backgroundColor: "#142035", border: "1px solid #1e3055" }}
+                    style={{ backgroundColor: "#f5f3ee", border: "1px solid #e8e0d0" }}
                   >
-                    <p className="text-sm font-medium mb-1" style={{ color: "#ccd9ee" }}>{s.title}</p>
+                    <p className="text-sm font-medium mb-1" style={{ color: "#0f1a2e" }}>{s.title}</p>
                     {s.authors && (
-                      <p className="text-xs" style={{ color: "#6e88b0" }}>{s.authors} {s.year ? `(${s.year})` : ""}</p>
+                      <p className="text-xs" style={{ color: "#5a6a7a" }}>{s.authors} {s.year ? `(${s.year})` : ""}</p>
                     )}
                     {s.description && (
-                      <p className="text-xs mt-2 leading-relaxed" style={{ color: "#6e88b0" }}>{s.description}</p>
+                      <p className="text-xs mt-2 leading-relaxed" style={{ color: "#5a6a7a" }}>{s.description}</p>
                     )}
                     {s.url && (
                       <a
@@ -326,7 +326,7 @@ export default async function PeptideDetailPage({
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-xs mt-2 inline-block transition-colors"
-                        style={{ color: "#e8c96e" }}
+                        style={{ color: "#c9973a" }}
                       >
                         View Study →
                       </a>

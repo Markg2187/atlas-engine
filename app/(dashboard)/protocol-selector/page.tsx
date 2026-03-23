@@ -5,17 +5,17 @@ import CustomProtocolBuilder from "@/components/protocols/CustomProtocolBuilder"
 import type { Protocol } from "@/lib/types";
 
 const categoryColors: Record<string, string> = {
-  Neurologic: "#6e88b0",
+  Neurologic: "#5a6a7a",
   "Immune/Infectious": "#54c7a2",
   Autoimmune: "#e8b86d",
-  Musculoskeletal: "#e8c96e",
-  Metabolic: "#c9a84c",
+  Musculoskeletal: "#c9973a",
+  Metabolic: "#a87c2e",
   Longevity: "#e05a6a",
-  "Sleep/Stress": "#6e88b0",
+  "Sleep/Stress": "#5a6a7a",
   "GI/Autoimmune": "#54c7a2",
   GI: "#54c7a2",
-  "Sleep/Cognitive": "#6e88b0",
-  "Musculoskeletal/Autoimmune": "#e8c96e",
+  "Sleep/Cognitive": "#5a6a7a",
+  "Musculoskeletal/Autoimmune": "#c9973a",
 };
 
 export default async function ProtocolSelectorPage() {
@@ -53,11 +53,11 @@ export default async function ProtocolSelectorPage() {
         <div>
           <h1
             className="text-3xl font-bold"
-            style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#ccd9ee" }}
+            style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#0f1a2e" }}
           >
             Protocol Selector
           </h1>
-          <p className="mt-1 text-sm" style={{ color: "#6e88b0" }}>
+          <p className="mt-1 text-sm" style={{ color: "#5a6a7a" }}>
             {featuredStacks.length} signature stacks · {conditionProtocols.length} clinical protocols across{" "}
             {Object.keys(byCategory).length} categories
           </p>
@@ -69,18 +69,18 @@ export default async function ProtocolSelectorPage() {
       {featuredStacks.length > 0 && (
         <section className="mb-12">
           <div className="flex items-center gap-3 mb-5">
-            <div className="h-px flex-1" style={{ backgroundColor: "rgba(232,201,110,0.2)" }} />
+            <div className="h-px flex-1" style={{ backgroundColor: "rgba(201,151,58,0.2)" }} />
             <h2
               className="text-xs uppercase tracking-widest px-3 flex items-center gap-2"
               style={{
                 fontFamily: "'DM Mono', monospace",
-                color: "#e8c96e",
+                color: "#c9973a",
                 flexShrink: 0,
               }}
             >
               ✦ Signature Stacks — CA Peptide Labs
             </h2>
-            <div className="h-px flex-1" style={{ backgroundColor: "rgba(232,201,110,0.2)" }} />
+            <div className="h-px flex-1" style={{ backgroundColor: "rgba(201,151,58,0.2)" }} />
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -99,32 +99,32 @@ export default async function ProtocolSelectorPage() {
       {Object.keys(byCategory).length > 0 && (
         <section>
           <div className="flex items-center gap-3 mb-6">
-            <div className="h-px flex-1" style={{ backgroundColor: "#1e3055" }} />
+            <div className="h-px flex-1" style={{ backgroundColor: "#e8e0d0" }} />
             <h2
               className="text-xs uppercase tracking-widest px-3"
-              style={{ fontFamily: "'DM Mono', monospace", color: "#6e88b0", flexShrink: 0 }}
+              style={{ fontFamily: "'DM Mono', monospace", color: "#5a6a7a", flexShrink: 0 }}
             >
               Condition-Based Protocols
             </h2>
-            <div className="h-px flex-1" style={{ backgroundColor: "#1e3055" }} />
+            <div className="h-px flex-1" style={{ backgroundColor: "#e8e0d0" }} />
           </div>
 
           <div className="space-y-8">
             {Object.entries(byCategory).map(([category, protos]) => (
               <div key={category}>
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="h-px flex-1" style={{ backgroundColor: "#1e3055" }} />
+                  <div className="h-px flex-1" style={{ backgroundColor: "#e8e0d0" }} />
                   <h3
                     className="text-xs uppercase tracking-widest px-3"
                     style={{
                       fontFamily: "'DM Mono', monospace",
-                      color: categoryColors[category] || "#6e88b0",
+                      color: categoryColors[category] || "#5a6a7a",
                       flexShrink: 0,
                     }}
                   >
                     {category}
                   </h3>
-                  <div className="h-px flex-1" style={{ backgroundColor: "#1e3055" }} />
+                  <div className="h-px flex-1" style={{ backgroundColor: "#e8e0d0" }} />
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -132,7 +132,7 @@ export default async function ProtocolSelectorPage() {
                     <ProtocolCard
                       key={protocol.id}
                       protocol={protocol}
-                      accentColor={categoryColors[category] || "#e8c96e"}
+                      accentColor={categoryColors[category] || "#c9973a"}
                       brandedPeptideNames={brandedNames}
                     />
                   ))}

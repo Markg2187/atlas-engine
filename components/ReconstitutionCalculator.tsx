@@ -126,15 +126,15 @@ function calcRecon(
 
 const s = {
   card: {
-    backgroundColor: "#0f1a2e",
-    border: "1px solid #1e3055",
+    backgroundColor: "#ffffff",
+    border: "1px solid #e8e0d0",
     borderRadius: "0.75rem",
     overflow: "hidden",
   } as React.CSSProperties,
   input: {
-    backgroundColor: "#142035",
-    border: "1px solid #1e3055",
-    color: "#ccd9ee",
+    backgroundColor: "#f5f3ee",
+    border: "1px solid #e8e0d0",
+    color: "#0f1a2e",
     borderRadius: "0.5rem",
     padding: "0.5rem 0.75rem",
     fontSize: "0.875rem",
@@ -146,20 +146,20 @@ const s = {
     fontSize: "0.65rem",
     letterSpacing: "0.08em",
     textTransform: "uppercase" as const,
-    color: "#6e88b0",
+    color: "#5a6a7a",
     display: "block",
     marginBottom: "0.3rem",
   },
   result: {
-    backgroundColor: "#142035",
-    border: "1px solid #1e3055",
+    backgroundColor: "#f5f3ee",
+    border: "1px solid #e8e0d0",
     borderRadius: "0.5rem",
     padding: "0.75rem 1rem",
   } as React.CSSProperties,
   resultLabel: {
     fontSize: "0.65rem",
     fontFamily: "'DM Mono', monospace",
-    color: "#6e88b0",
+    color: "#5a6a7a",
     textTransform: "uppercase" as const,
     letterSpacing: "0.06em",
     marginBottom: "0.25rem",
@@ -167,12 +167,12 @@ const s = {
   resultValue: {
     fontFamily: "'DM Mono', monospace",
     fontSize: "0.85rem",
-    color: "#e8c96e",
+    color: "#c9973a",
     fontWeight: 600,
   } as React.CSSProperties,
   sectionHeader: {
     padding: "0.75rem 1.25rem",
-    borderBottom: "1px solid #1e3055",
+    borderBottom: "1px solid #e8e0d0",
     display: "flex",
     alignItems: "center",
     gap: "0.5rem",
@@ -183,14 +183,14 @@ const s = {
 
 function UnitToggle({ value, onChange }: { value: DoseUnit; onChange: (v: DoseUnit) => void }) {
   return (
-    <div style={{ display: "flex", border: "1px solid #1e3055", borderRadius: "0.5rem", overflow: "hidden" }}>
+    <div style={{ display: "flex", border: "1px solid #e8e0d0", borderRadius: "0.5rem", overflow: "hidden" }}>
       {(["mcg", "mg"] as DoseUnit[]).map(u => (
         <button key={u} onClick={() => onChange(u)}
           style={{
             flex: 1, padding: "0.5rem", fontSize: "0.75rem",
             fontFamily: "'DM Mono', monospace",
-            backgroundColor: value === u ? "#1e3055" : "transparent",
-            color: value === u ? "#e8c96e" : "#6e88b0",
+            backgroundColor: value === u ? "#e8e0d0" : "transparent",
+            color: value === u ? "#c9973a" : "#5a6a7a",
             border: "none", cursor: "pointer",
             fontWeight: value === u ? 600 : 400,
           }}>
@@ -211,9 +211,9 @@ function SyringeIndicator({ units, syringe, reason }: { units: number; syringe: 
   return (
     <div style={s.result}>
       <p style={s.resultLabel}>Recommended syringe</p>
-      <p style={{ ...s.resultValue, color: "#ccd9ee", fontSize: "0.8rem", marginBottom: "0.5rem" }}>{reason}</p>
+      <p style={{ ...s.resultValue, color: "#0f1a2e", fontSize: "0.8rem", marginBottom: "0.5rem" }}>{reason}</p>
       <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
-        <div style={{ flex: 1, height: "8px", backgroundColor: "#0b1120", borderRadius: "4px", overflow: "hidden" }}>
+        <div style={{ flex: 1, height: "8px", backgroundColor: "#ffffff", borderRadius: "4px", overflow: "hidden" }}>
           <div style={{ width: `${pct}%`, height: "100%", backgroundColor: color, borderRadius: "4px", transition: "width 0.3s ease" }} />
         </div>
         <span style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.75rem", color, minWidth: "60px", textAlign: "right" }}>
@@ -233,7 +233,7 @@ function VialSupplyCard({ label, vials, days, accent }: { label: string; vials: 
       <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "1.75rem", fontWeight: 700, color: accent, lineHeight: 1 }}>
         {vials}
       </p>
-      <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.65rem", color: "#6e88b0", marginTop: "0.2rem" }}>
+      <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.65rem", color: "#5a6a7a", marginTop: "0.2rem" }}>
         vial{vials !== 1 ? "s" : ""}
         {days ? ` · ${days}d` : ""}
       </p>
@@ -267,13 +267,13 @@ export default function ReconstitutionCalculator({
   return (
     <div style={s.card}>
       {/* Header */}
-      <div style={{ ...s.sectionHeader, borderTop: "2px solid #e8c96e" }}>
-        <Calculator size={15} style={{ color: "#e8c96e" }} />
+      <div style={{ ...s.sectionHeader, borderTop: "3px solid #c9973a" }}>
+        <Calculator size={15} style={{ color: "#c9973a" }} />
         <div style={{ flex: 1 }}>
-          <p style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#ccd9ee", fontWeight: 600, fontSize: "0.95rem" }}>
+          <p style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#0f1a2e", fontWeight: 600, fontSize: "0.95rem" }}>
             {peptideName ? `${peptideName} — Reconstitution` : "Reconstitution Calculator"}
           </p>
-          <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.65rem", color: "#6e88b0" }}>
+          <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.65rem", color: "#5a6a7a" }}>
             Enter vial size and BAC water to calculate everything
           </p>
         </div>
@@ -303,9 +303,9 @@ export default function ReconstitutionCalculator({
                   style={{
                     padding: "0.375rem 0.75rem", borderRadius: "0.375rem", fontSize: "0.75rem",
                     fontFamily: "'DM Mono', monospace", cursor: "pointer", border: "1px solid",
-                    backgroundColor: vialMg === v ? "rgba(232,201,110,0.15)" : "#142035",
-                    color: vialMg === v ? "#e8c96e" : "#6e88b0",
-                    borderColor: vialMg === v ? "#e8c96e" : "#1e3055",
+                    backgroundColor: vialMg === v ? "rgba(201,151,58,0.15)" : "#f5f3ee",
+                    color: vialMg === v ? "#c9973a" : "#5a6a7a",
+                    borderColor: vialMg === v ? "#c9973a" : "#e8e0d0",
                   }}>
                   {v}mg
                 </button>
@@ -326,9 +326,9 @@ export default function ReconstitutionCalculator({
                   style={{
                     padding: "0.375rem 0.75rem", borderRadius: "0.375rem", fontSize: "0.75rem",
                     fontFamily: "'DM Mono', monospace", cursor: "pointer", border: "1px solid",
-                    backgroundColor: bacMl === v ? "rgba(84,199,162,0.12)" : "#142035",
-                    color: bacMl === v ? "#54c7a2" : "#6e88b0",
-                    borderColor: bacMl === v ? "#54c7a2" : "#1e3055",
+                    backgroundColor: bacMl === v ? "rgba(84,199,162,0.12)" : "#f5f3ee",
+                    color: bacMl === v ? "#54c7a2" : "#5a6a7a",
+                    borderColor: bacMl === v ? "#54c7a2" : "#e8e0d0",
                   }}>
                   {v}ml
                 </button>
@@ -350,13 +350,13 @@ export default function ReconstitutionCalculator({
               {doseUnit === "mcg"
                 ? [100, 200, 250, 300, 400, 500, 600, 750, 1000].map(v => (
                   <button key={v} onClick={() => setDose(v)}
-                    style={{ padding: "0.2rem 0.5rem", borderRadius: "0.25rem", fontSize: "0.65rem", fontFamily: "'DM Mono', monospace", cursor: "pointer", backgroundColor: dose === v ? "rgba(232,201,110,0.15)" : "#142035", color: dose === v ? "#e8c96e" : "#6e88b0", border: `1px solid ${dose === v ? "#e8c96e" : "#1e3055"}` }}>
+                    style={{ padding: "0.2rem 0.5rem", borderRadius: "0.25rem", fontSize: "0.65rem", fontFamily: "'DM Mono', monospace", cursor: "pointer", backgroundColor: dose === v ? "rgba(201,151,58,0.15)" : "#f5f3ee", color: dose === v ? "#c9973a" : "#5a6a7a", border: `1px solid ${dose === v ? "#c9973a" : "#e8e0d0"}` }}>
                     {v}
                   </button>
                 ))
                 : [0.5, 1, 1.5, 2, 2.5, 4, 5, 10].map(v => (
                   <button key={v} onClick={() => setDose(v)}
-                    style={{ padding: "0.2rem 0.5rem", borderRadius: "0.25rem", fontSize: "0.65rem", fontFamily: "'DM Mono', monospace", cursor: "pointer", backgroundColor: dose === v ? "rgba(232,201,110,0.15)" : "#142035", color: dose === v ? "#e8c96e" : "#6e88b0", border: `1px solid ${dose === v ? "#e8c96e" : "#1e3055"}` }}>
+                    style={{ padding: "0.2rem 0.5rem", borderRadius: "0.25rem", fontSize: "0.65rem", fontFamily: "'DM Mono', monospace", cursor: "pointer", backgroundColor: dose === v ? "rgba(201,151,58,0.15)" : "#f5f3ee", color: dose === v ? "#c9973a" : "#5a6a7a", border: `1px solid ${dose === v ? "#c9973a" : "#e8e0d0"}` }}>
                     {v}
                   </button>
                 ))
@@ -366,7 +366,7 @@ export default function ReconstitutionCalculator({
 
           {/* Advanced toggle */}
           <button onClick={() => setShowAdvanced(p => !p)}
-            style={{ display: "flex", alignItems: "center", gap: "0.375rem", background: "none", border: "none", cursor: "pointer", color: "#6e88b0", fontFamily: "'DM Mono', monospace", fontSize: "0.65rem", textTransform: "uppercase", letterSpacing: "0.06em", padding: 0 }}>
+            style={{ display: "flex", alignItems: "center", gap: "0.375rem", background: "none", border: "none", cursor: "pointer", color: "#5a6a7a", fontFamily: "'DM Mono', monospace", fontSize: "0.65rem", textTransform: "uppercase", letterSpacing: "0.06em", padding: 0 }}>
             {showAdvanced ? <ChevronUp size={12} /> : <ChevronDown size={12} />}
             {showAdvanced ? "Hide" : "Show"} supply calculator
           </button>
@@ -378,7 +378,7 @@ export default function ReconstitutionCalculator({
                 <div style={{ display: "flex", gap: "0.5rem" }}>
                   {[1, 2, 3].map(v => (
                     <button key={v} onClick={() => setDailyDoses(v)}
-                      style={{ flex: 1, padding: "0.5rem", borderRadius: "0.375rem", fontSize: "0.75rem", fontFamily: "'DM Mono', monospace", cursor: "pointer", border: "1px solid", backgroundColor: dailyDoses === v ? "rgba(110,136,176,0.15)" : "#142035", color: dailyDoses === v ? "#6e88b0" : "#4a6080", borderColor: dailyDoses === v ? "#6e88b0" : "#1e3055" }}>
+                      style={{ flex: 1, padding: "0.5rem", borderRadius: "0.375rem", fontSize: "0.75rem", fontFamily: "'DM Mono', monospace", cursor: "pointer", border: "1px solid", backgroundColor: dailyDoses === v ? "#f5f3ee" : "#f5f3ee", color: dailyDoses === v ? "#5a6a7a" : "#8a7a5a", borderColor: dailyDoses === v ? "#5a6a7a" : "#e8e0d0" }}>
                       {v}x/day
                     </button>
                   ))}
@@ -389,7 +389,7 @@ export default function ReconstitutionCalculator({
                 <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
                   {[21, 30, 60, 90, 180, 365].map(v => (
                     <button key={v} onClick={() => setProtocolDays(v)}
-                      style={{ padding: "0.375rem 0.625rem", borderRadius: "0.375rem", fontSize: "0.7rem", fontFamily: "'DM Mono', monospace", cursor: "pointer", border: "1px solid", backgroundColor: protocolDays === v ? "rgba(110,136,176,0.15)" : "#142035", color: protocolDays === v ? "#6e88b0" : "#4a6080", borderColor: protocolDays === v ? "#6e88b0" : "#1e3055" }}>
+                      style={{ padding: "0.375rem 0.625rem", borderRadius: "0.375rem", fontSize: "0.7rem", fontFamily: "'DM Mono', monospace", cursor: "pointer", border: "1px solid", backgroundColor: protocolDays === v ? "#f5f3ee" : "#f5f3ee", color: protocolDays === v ? "#5a6a7a" : "#8a7a5a", borderColor: protocolDays === v ? "#5a6a7a" : "#e8e0d0" }}>
                       {v === 30 ? "1mo" : v === 60 ? "2mo" : v === 90 ? "3mo" : v === 180 ? "6mo" : v === 365 ? "1yr" : `${v}d`}
                     </button>
                   ))}
@@ -418,12 +418,12 @@ export default function ReconstitutionCalculator({
           </div>
 
           {/* Units — the KEY number */}
-          <div style={{ ...s.result, borderColor: "#e8c96e", borderWidth: "1px" }}>
+          <div style={{ ...s.result, borderColor: "#c9973a", borderWidth: "1px" }}>
             <p style={s.resultLabel}>Draw on syringe</p>
-            <p style={{ ...s.resultValue, fontSize: "1.5rem", color: "#e8c96e" }}>
-              {result.unitsU100.toFixed(1)} <span style={{ fontSize: "0.75rem", color: "#6e88b0" }}>units (U-100)</span>
+            <p style={{ ...s.resultValue, fontSize: "1.5rem", color: "#c9973a" }}>
+              {result.unitsU100.toFixed(1)} <span style={{ fontSize: "0.75rem", color: "#5a6a7a" }}>units (U-100)</span>
             </p>
-            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.7rem", color: "#6e88b0", marginTop: "0.25rem" }}>
+            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.7rem", color: "#5a6a7a", marginTop: "0.25rem" }}>
               = {result.volumePerDoseMl.toFixed(3)} ml
             </p>
           </div>
@@ -452,9 +452,9 @@ export default function ReconstitutionCalculator({
             <div>
               <p style={{ ...s.resultLabel, marginBottom: "0.5rem" }}>Vials needed</p>
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "0.5rem" }}>
-                <VialSupplyCard label="30 days" vials={result.vials30Days} days={30} accent="#6e88b0" />
+                <VialSupplyCard label="30 days" vials={result.vials30Days} days={30} accent="#5a6a7a" />
                 <VialSupplyCard label="60 days" vials={result.vials60Days} days={60} accent="#54c7a2" />
-                <VialSupplyCard label={`${protocolDays}d full`} vials={result.vialsFullProtocol} accent="#e8c96e" />
+                <VialSupplyCard label={`${protocolDays}d full`} vials={result.vialsFullProtocol} accent="#c9973a" />
               </div>
             </div>
           )}
@@ -462,7 +462,7 @@ export default function ReconstitutionCalculator({
       </div>
 
       {/* Formula reference footer */}
-      <div style={{ borderTop: "1px solid #1e3055", padding: "0.75rem 1.25rem" }}>
+      <div style={{ borderTop: "1px solid #e8e0d0", padding: "0.75rem 1.25rem" }}>
         <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
           {[
             { label: "Concentration", formula: `${vialMg}mg ÷ ${bacMl}ml = ${result.concentrationMgMl.toFixed(2)}mg/ml` },
@@ -470,8 +470,8 @@ export default function ReconstitutionCalculator({
             { label: "Doses/vial", formula: `floor(${vialMg * 1000}mcg ÷ ${result.doseInMcg}mcg) = ${result.dosesPerVial}` },
           ].map(({ label, formula }) => (
             <div key={label} style={{ flex: "1 1 200px" }}>
-              <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.6rem", color: "#e8c96e", textTransform: "uppercase", letterSpacing: "0.06em" }}>{label}</p>
-              <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.65rem", color: "#4a6080", marginTop: "0.125rem" }}>{formula}</p>
+              <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.6rem", color: "#c9973a", textTransform: "uppercase", letterSpacing: "0.06em" }}>{label}</p>
+              <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.65rem", color: "#8a7a5a", marginTop: "0.125rem" }}>{formula}</p>
             </div>
           ))}
         </div>

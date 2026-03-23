@@ -9,9 +9,9 @@ const animalEmoji: Record<string, string> = {
 };
 
 const animalColors: Record<string, string> = {
-  dog: "#e8c96e",
+  dog: "#c9973a",
   cat: "#54c7a2",
-  horse: "#6e88b0",
+  horse: "#5a6a7a",
   other: "#e8b86d",
 };
 
@@ -37,11 +37,11 @@ export default async function VetProtocolsPage() {
       <div className="mb-8">
         <h1
           className="text-3xl font-bold"
-          style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#ccd9ee" }}
+          style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#0f1a2e" }}
         >
           Veterinary Protocols
         </h1>
-        <p className="mt-1 text-sm" style={{ color: "#6e88b0" }}>
+        <p className="mt-1 text-sm" style={{ color: "#5a6a7a" }}>
           {protocols?.length ?? 0} peptide protocols for companion animals
         </p>
       </div>
@@ -64,14 +64,14 @@ export default async function VetProtocolsPage() {
       {/* By animal type */}
       <div className="space-y-8">
         {Object.entries(byAnimal).map(([animal, protos]) => {
-          const color = animalColors[animal] || "#e8c96e";
+          const color = animalColors[animal] || "#c9973a";
           const emoji = animalEmoji[animal] || "🐾";
           return (
             <div key={animal}>
               <div className="flex items-center gap-3 mb-4">
                 <div
                   className="h-px flex-1"
-                  style={{ backgroundColor: "#1e3055" }}
+                  style={{ backgroundColor: "#e8e0d0" }}
                 />
                 <h2
                   className="text-xs uppercase tracking-widest px-3 flex items-center gap-2"
@@ -82,7 +82,7 @@ export default async function VetProtocolsPage() {
                 </h2>
                 <div
                   className="h-px flex-1"
-                  style={{ backgroundColor: "#1e3055" }}
+                  style={{ backgroundColor: "#e8e0d0" }}
                 />
               </div>
 
@@ -92,20 +92,20 @@ export default async function VetProtocolsPage() {
                     key={protocol!.id}
                     className="rounded-xl p-5"
                     style={{
-                      backgroundColor: "#0f1a2e",
-                      border: "1px solid #1e3055",
+                      backgroundColor: "#ffffff",
+                      border: "1px solid #e8e0d0",
                       borderTop: `2px solid ${color}`,
                     }}
                   >
                     <h3
                       className="text-lg font-semibold mb-2"
-                      style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#ccd9ee" }}
+                      style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#0f1a2e" }}
                     >
                       {protocol!.condition_name}
                     </h3>
 
                     <div className="mb-3">
-                      <p className="text-xs uppercase tracking-widest mb-1" style={{ fontFamily: "'DM Mono', monospace", color: "#6e88b0" }}>
+                      <p className="text-xs uppercase tracking-widest mb-1" style={{ fontFamily: "'DM Mono', monospace", color: "#5a6a7a" }}>
                         Primary Peptide
                       </p>
                       <p className="text-sm font-medium" style={{ color }}>
@@ -115,7 +115,7 @@ export default async function VetProtocolsPage() {
 
                     {protocol!.adjunct_peptides && protocol!.adjunct_peptides.length > 0 && (
                       <div className="mb-3">
-                        <p className="text-xs uppercase tracking-widest mb-1.5" style={{ fontFamily: "'DM Mono', monospace", color: "#6e88b0" }}>
+                        <p className="text-xs uppercase tracking-widest mb-1.5" style={{ fontFamily: "'DM Mono', monospace", color: "#5a6a7a" }}>
                           Adjunct
                         </p>
                         <div className="flex flex-wrap gap-1.5">
@@ -125,8 +125,8 @@ export default async function VetProtocolsPage() {
                               className="text-xs px-2 py-0.5 rounded-full"
                               style={{
                                 fontFamily: "'DM Mono', monospace",
-                                backgroundColor: "rgba(110,136,176,0.15)",
-                                color: "#6e88b0",
+                                backgroundColor: "#f5f3ee",
+                                color: "#5a6a7a",
                                 border: "1px solid rgba(110,136,176,0.2)",
                               }}
                             >
@@ -140,12 +140,12 @@ export default async function VetProtocolsPage() {
                     {protocol!.dosing_notes && (
                       <div
                         className="p-3 rounded-lg mb-3"
-                        style={{ backgroundColor: "#142035", border: "1px solid #1e3055" }}
+                        style={{ backgroundColor: "#f5f3ee", border: "1px solid #e8e0d0" }}
                       >
-                        <p className="text-xs uppercase tracking-widest mb-1" style={{ fontFamily: "'DM Mono', monospace", color: "#6e88b0" }}>
+                        <p className="text-xs uppercase tracking-widest mb-1" style={{ fontFamily: "'DM Mono', monospace", color: "#5a6a7a" }}>
                           Dosing
                         </p>
-                        <p className="text-sm" style={{ color: "#ccd9ee", fontFamily: "'DM Mono', monospace" }}>
+                        <p className="text-sm" style={{ color: "#0f1a2e", fontFamily: "'DM Mono', monospace" }}>
                           {protocol!.dosing_notes}
                         </p>
                       </div>
@@ -154,19 +154,19 @@ export default async function VetProtocolsPage() {
                     {protocol!.dose_per_kg_mcg && protocol!.dose_per_kg_mcg > 0 && (
                       <div className="flex gap-4 mb-3">
                         <div>
-                          <p className="text-xs uppercase tracking-widest mb-0.5" style={{ fontFamily: "'DM Mono', monospace", color: "#6e88b0" }}>
+                          <p className="text-xs uppercase tracking-widest mb-0.5" style={{ fontFamily: "'DM Mono', monospace", color: "#5a6a7a" }}>
                             Dose per kg
                           </p>
-                          <p className="text-sm font-medium" style={{ color: "#e8c96e", fontFamily: "'DM Mono', monospace" }}>
+                          <p className="text-sm font-medium" style={{ color: "#c9973a", fontFamily: "'DM Mono', monospace" }}>
                             {protocol!.dose_per_kg_mcg} mcg/kg
                           </p>
                         </div>
                         {protocol!.cycle_length && (
                           <div>
-                            <p className="text-xs uppercase tracking-widest mb-0.5" style={{ fontFamily: "'DM Mono', monospace", color: "#6e88b0" }}>
+                            <p className="text-xs uppercase tracking-widest mb-0.5" style={{ fontFamily: "'DM Mono', monospace", color: "#5a6a7a" }}>
                               Cycle
                             </p>
-                            <p className="text-sm" style={{ color: "#ccd9ee", fontFamily: "'DM Mono', monospace" }}>
+                            <p className="text-sm" style={{ color: "#0f1a2e", fontFamily: "'DM Mono', monospace" }}>
                               {protocol!.cycle_length}
                             </p>
                           </div>
@@ -175,7 +175,7 @@ export default async function VetProtocolsPage() {
                     )}
 
                     {protocol!.clinical_notes && (
-                      <p className="text-xs leading-relaxed" style={{ color: "#6e88b0" }}>
+                      <p className="text-xs leading-relaxed" style={{ color: "#5a6a7a" }}>
                         {protocol!.clinical_notes}
                       </p>
                     )}

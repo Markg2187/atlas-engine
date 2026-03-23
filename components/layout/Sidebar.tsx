@@ -69,13 +69,13 @@ export default function Sidebar({ user, overdueCount = 0 }: SidebarProps) {
         <Link href="/dashboard" className="flex items-center gap-3">
           <div
             className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0"
-            style={{ backgroundColor: "rgba(232, 201, 110, 0.12)", border: "1px solid rgba(232, 201, 110, 0.3)" }}
+            style={{ backgroundColor: "rgba(201, 151, 58, 0.12)", border: "1px solid rgba(201, 151, 58, 0.3)" }}
           >
-            <span style={{ color: "#e8c96e", fontSize: "1.1rem" }}>⬡</span>
+            <span style={{ color: "#c9973a", fontSize: "1.1rem" }}>⬡</span>
           </div>
           <span
             className="text-lg font-bold"
-            style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#e8c96e" }}
+            style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#c9973a" }}
           >
             Atlas Engine
           </span>
@@ -93,19 +93,20 @@ export default function Sidebar({ user, overdueCount = 0 }: SidebarProps) {
               onClick={() => setMobileOpen(false)}
               className="flex items-center justify-between px-3 py-2.5 rounded-lg text-sm transition-all"
               style={{
-                backgroundColor: active ? "rgba(232, 201, 110, 0.1)" : "transparent",
-                color: active ? "#e8c96e" : "#6e88b0",
+                backgroundColor: active ? "rgba(201, 151, 58, 0.12)" : "transparent",
+                color: active ? "#c9973a" : "#f0ead8",
+                borderLeft: active ? "2px solid #c9973a" : "2px solid transparent",
               }}
               onMouseEnter={(e) => {
                 if (!active) {
-                  e.currentTarget.style.backgroundColor = "#142035";
-                  e.currentTarget.style.color = "#ccd9ee";
+                  e.currentTarget.style.backgroundColor = "#162840";
+                  e.currentTarget.style.color = "#f0ead8";
                 }
               }}
               onMouseLeave={(e) => {
                 if (!active) {
                   e.currentTarget.style.backgroundColor = "transparent";
-                  e.currentTarget.style.color = "#6e88b0";
+                  e.currentTarget.style.color = "#f0ead8";
                 }
               }}
             >
@@ -137,23 +138,23 @@ export default function Sidebar({ user, overdueCount = 0 }: SidebarProps) {
           <div className="flex items-center gap-3 mb-3">
             <div
               className="w-9 h-9 rounded-full flex items-center justify-center text-sm font-semibold flex-shrink-0"
-              style={{ backgroundColor: "#1e3055", color: "#e8c96e" }}
+              style={{ backgroundColor: "#1e3055", color: "#c9973a" }}
             >
               {user.full_name
                 ? user.full_name.split(" ").map((n) => n[0]).join("").slice(0, 2).toUpperCase()
                 : "?"}
             </div>
             <div className="flex-1 min-w-0">
-              <p className="text-sm font-medium truncate" style={{ color: "#ccd9ee" }}>
+              <p className="text-sm font-medium truncate" style={{ color: "#f0ead8" }}>
                 {user.full_name || "Unknown User"}
               </p>
               <span
                 className="text-xs px-2 py-0.5 rounded-full mt-0.5 inline-block"
                 style={{
                   fontFamily: "'DM Mono', monospace",
-                  backgroundColor: "rgba(232, 201, 110, 0.1)",
-                  color: "#e8c96e",
-                  border: "1px solid rgba(232, 201, 110, 0.2)",
+                  backgroundColor: "rgba(201, 151, 58, 0.1)",
+                  color: "#c9973a",
+                  border: "1px solid rgba(201, 151, 58, 0.2)",
                   fontSize: "0.6rem",
                 }}
               >
@@ -165,14 +166,14 @@ export default function Sidebar({ user, overdueCount = 0 }: SidebarProps) {
             onClick={handleLogout}
             disabled={loggingOut}
             className="w-full flex items-center gap-2 px-3 py-2 rounded-lg text-sm transition-all"
-            style={{ color: "#6e88b0" }}
+            style={{ color: "#f0ead8" }}
             onMouseEnter={(e) => {
               e.currentTarget.style.backgroundColor = "rgba(224, 90, 106, 0.1)";
               e.currentTarget.style.color = "#e05a6a";
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.backgroundColor = "transparent";
-              e.currentTarget.style.color = "#6e88b0";
+              e.currentTarget.style.color = "#f0ead8";
             }}
           >
             <LogOut size={15} />
@@ -188,7 +189,7 @@ export default function Sidebar({ user, overdueCount = 0 }: SidebarProps) {
       {/* Mobile hamburger */}
       <button
         className="fixed top-4 left-4 z-50 p-2 rounded-lg lg:hidden"
-        style={{ backgroundColor: "#0f1a2e", border: "1px solid #1e3055", color: "#ccd9ee" }}
+        style={{ backgroundColor: "#0f1a2e", border: "1px solid #1e3055", color: "#f0ead8" }}
         onClick={() => setMobileOpen(!mobileOpen)}
       >
         {mobileOpen ? <X size={20} /> : <Menu size={20} />}

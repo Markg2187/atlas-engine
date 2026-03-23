@@ -37,56 +37,56 @@ export interface PeptideForPDF {
 
 const styles = StyleSheet.create({
   page: {
-    backgroundColor: "#0b1120",
+    backgroundColor: "#ffffff",
     padding: 40,
     fontFamily: "DM Sans",
-    color: "#ccd9ee",
+    color: "#0f1a2e",
   },
   header: {
     marginBottom: 24,
     paddingBottom: 16,
-    borderBottom: "2 solid #e8c96e",
+    borderBottom: "2 solid #c9973a",
   },
-  logoText: { fontSize: 22, fontWeight: 700, color: "#e8c96e", marginBottom: 4 },
-  tagline: { fontSize: 9, color: "#6e88b0", letterSpacing: 1, textTransform: "uppercase" },
-  title: { fontSize: 20, fontWeight: 700, color: "#ccd9ee", marginBottom: 4 },
-  subtitle: { fontSize: 11, color: "#6e88b0", marginBottom: 16 },
+  logoText: { fontSize: 22, fontWeight: 700, color: "#c9973a", marginBottom: 4 },
+  tagline: { fontSize: 9, color: "#5a6a7a", letterSpacing: 1, textTransform: "uppercase" },
+  title: { fontSize: 20, fontWeight: 700, color: "#0f1a2e", marginBottom: 4 },
+  subtitle: { fontSize: 11, color: "#5a6a7a", marginBottom: 16 },
   section: {
     marginBottom: 16,
     padding: 14,
-    backgroundColor: "#0f1a2e",
+    backgroundColor: "#ffffff",
     borderRadius: 6,
-    borderLeft: "2 solid #e8c96e",
+    borderLeft: "2 solid #c9973a",
   },
   sectionTitle: {
     fontSize: 9,
     fontWeight: 700,
-    color: "#e8c96e",
+    color: "#c9973a",
     letterSpacing: 1,
     textTransform: "uppercase",
     marginBottom: 8,
   },
   row: { flexDirection: "row", justifyContent: "space-between", marginBottom: 4 },
-  label: { fontSize: 8, color: "#6e88b0", textTransform: "uppercase", letterSpacing: 0.5, width: "40%" },
-  value: { fontSize: 9, color: "#ccd9ee", width: "58%" },
-  peptideBadge: { backgroundColor: "#1e3055", borderRadius: 4, padding: "3 8", marginRight: 4, marginBottom: 4 },
-  peptideBadgeText: { fontSize: 8, color: "#e8c96e" },
+  label: { fontSize: 8, color: "#5a6a7a", textTransform: "uppercase", letterSpacing: 0.5, width: "40%" },
+  value: { fontSize: 9, color: "#0f1a2e", width: "58%" },
+  peptideBadge: { backgroundColor: "#e8e0d0", borderRadius: 4, padding: "3 8", marginRight: 4, marginBottom: 4 },
+  peptideBadgeText: { fontSize: 8, color: "#c9973a" },
   badgeRow: { flexDirection: "row", flexWrap: "wrap", marginTop: 4 },
-  monthCard: { backgroundColor: "#142035", borderRadius: 4, padding: 10, marginBottom: 8 },
-  monthTitle: { fontSize: 10, fontWeight: 700, color: "#ccd9ee", marginBottom: 6 },
-  monthNote: { fontSize: 8, color: "#6e88b0", marginBottom: 6, lineHeight: 1.4 },
-  tableHeader: { flexDirection: "row", borderBottom: "1 solid #1e3055", paddingBottom: 4, marginBottom: 4 },
-  tableHeaderText: { fontSize: 7, color: "#6e88b0", textTransform: "uppercase", letterSpacing: 0.5 },
+  monthCard: { backgroundColor: "#f5f3ee", borderRadius: 4, padding: 10, marginBottom: 8 },
+  monthTitle: { fontSize: 10, fontWeight: 700, color: "#0f1a2e", marginBottom: 6 },
+  monthNote: { fontSize: 8, color: "#5a6a7a", marginBottom: 6, lineHeight: 1.4 },
+  tableHeader: { flexDirection: "row", borderBottom: "1 solid #e8e0d0", paddingBottom: 4, marginBottom: 4 },
+  tableHeaderText: { fontSize: 7, color: "#5a6a7a", textTransform: "uppercase", letterSpacing: 0.5 },
   tableRow: { flexDirection: "row", paddingVertical: 3 },
-  tableCell: { fontSize: 8, color: "#ccd9ee" },
+  tableCell: { fontSize: 8, color: "#0f1a2e" },
   disclaimer: {
     marginTop: 20,
     padding: 10,
-    backgroundColor: "#142035",
+    backgroundColor: "#f5f3ee",
     borderRadius: 4,
     borderLeft: "2 solid #e8b86d",
   },
-  disclaimerText: { fontSize: 7, color: "#6e88b0", lineHeight: 1.5 },
+  disclaimerText: { fontSize: 7, color: "#5a6a7a", lineHeight: 1.5 },
   footer: {
     position: "absolute",
     bottom: 24,
@@ -94,33 +94,33 @@ const styles = StyleSheet.create({
     right: 40,
     flexDirection: "row",
     justifyContent: "space-between",
-    borderTop: "1 solid #1e3055",
+    borderTop: "1 solid #e8e0d0",
     paddingTop: 8,
   },
-  footerText: { fontSize: 7, color: "#6e88b0" },
+  footerText: { fontSize: 7, color: "#5a6a7a" },
 
   // Page 2 — peptide guide styles
   guideHeader: {
     marginBottom: 20,
     paddingBottom: 12,
-    borderBottom: "2 solid #e8c96e",
+    borderBottom: "2 solid #c9973a",
   },
-  guideTitle: { fontSize: 18, fontWeight: 700, color: "#e8c96e", marginBottom: 4 },
-  guideSubtitle: { fontSize: 9, color: "#6e88b0", textTransform: "uppercase", letterSpacing: 1 },
+  guideTitle: { fontSize: 18, fontWeight: 700, color: "#c9973a", marginBottom: 4 },
+  guideSubtitle: { fontSize: 9, color: "#5a6a7a", textTransform: "uppercase", letterSpacing: 1 },
   peptideSection: {
     marginBottom: 18,
     padding: 14,
-    backgroundColor: "#0f1a2e",
+    backgroundColor: "#ffffff",
     borderRadius: 6,
-    borderLeft: "3 solid #e8c96e",
+    borderLeft: "3 solid #c9973a",
   },
   peptideName: {
     fontSize: 14,
     fontWeight: 700,
-    color: "#e8c96e",
+    color: "#c9973a",
     marginBottom: 3,
   },
-  peptideMeta: { fontSize: 8, color: "#6e88b0", marginBottom: 8 },
+  peptideMeta: { fontSize: 8, color: "#5a6a7a", marginBottom: 8 },
   subHeading: {
     fontSize: 8,
     fontWeight: 700,
@@ -130,35 +130,35 @@ const styles = StyleSheet.create({
     marginTop: 8,
     marginBottom: 4,
   },
-  bodyText: { fontSize: 9, color: "#ccd9ee", lineHeight: 1.5 },
+  bodyText: { fontSize: 9, color: "#0f1a2e", lineHeight: 1.5 },
   bulletRow: { flexDirection: "row", marginBottom: 3 },
-  bullet: { fontSize: 9, color: "#e8c96e", width: 12 },
-  bulletText: { fontSize: 9, color: "#ccd9ee", flex: 1, lineHeight: 1.4 },
+  bullet: { fontSize: 9, color: "#c9973a", width: 12 },
+  bulletText: { fontSize: 9, color: "#0f1a2e", flex: 1, lineHeight: 1.4 },
   stepRow: { flexDirection: "row", marginBottom: 4 },
   stepNum: {
     fontSize: 8,
     fontWeight: 700,
-    color: "#e8c96e",
+    color: "#c9973a",
     width: 18,
     height: 14,
-    backgroundColor: "#1e3055",
+    backgroundColor: "#e8e0d0",
     borderRadius: 3,
     textAlign: "center",
     paddingTop: 1,
   },
-  stepText: { fontSize: 9, color: "#ccd9ee", flex: 1, lineHeight: 1.4, marginLeft: 6 },
+  stepText: { fontSize: 9, color: "#0f1a2e", flex: 1, lineHeight: 1.4, marginLeft: 6 },
   infoBox: {
-    backgroundColor: "#142035",
+    backgroundColor: "#f5f3ee",
     borderRadius: 4,
     padding: "6 10",
     marginTop: 6,
     flexDirection: "row",
     gap: 6,
   },
-  infoLabel: { fontSize: 7, color: "#6e88b0", textTransform: "uppercase", letterSpacing: 0.5, marginBottom: 2 },
-  infoValue: { fontSize: 8, color: "#ccd9ee" },
+  infoLabel: { fontSize: 7, color: "#5a6a7a", textTransform: "uppercase", letterSpacing: 0.5, marginBottom: 2 },
+  infoValue: { fontSize: 8, color: "#0f1a2e" },
   brandBadge: {
-    backgroundColor: "rgba(84,199,162,0.15)",
+    backgroundColor: "#eaf3de",
     borderRadius: 3,
     padding: "2 6",
     marginLeft: 6,
@@ -257,7 +257,7 @@ export function ClientProtocolPDF({
           </View>
           <View style={styles.row}>
             <Text style={styles.label}>Primary Peptide</Text>
-            <Text style={[styles.value, { color: "#e8c96e" }]}>{protocol.primary_peptide}</Text>
+            <Text style={[styles.value, { color: "#c9973a" }]}>{protocol.primary_peptide}</Text>
           </View>
           {protocol.adjunct_peptides && protocol.adjunct_peptides.length > 0 && (
             <View>
@@ -272,7 +272,7 @@ export function ClientProtocolPDF({
             </View>
           )}
           {protocol.cycle_intro && (
-            <Text style={[styles.value, { marginTop: 8, fontSize: 8, lineHeight: 1.5, color: "#6e88b0" }]}>
+            <Text style={[styles.value, { marginTop: 8, fontSize: 8, lineHeight: 1.5, color: "#5a6a7a" }]}>
               {protocol.cycle_intro}
             </Text>
           )}
@@ -299,11 +299,11 @@ export function ClientProtocolPDF({
                     </View>
                     {month.rows.map((row) => (
                       <View key={row.id} style={styles.tableRow}>
-                        <Text style={[styles.tableCell, { width: "35%", color: "#e8c96e" }]}>
+                        <Text style={[styles.tableCell, { width: "35%", color: "#c9973a" }]}>
                           {row.peptide_name}
                         </Text>
                         <Text style={[styles.tableCell, { width: "30%" }]}>{row.dose}</Text>
-                        <Text style={[styles.tableCell, { width: "35%", color: "#6e88b0" }]}>
+                        <Text style={[styles.tableCell, { width: "35%", color: "#5a6a7a" }]}>
                           {row.schedule}
                         </Text>
                       </View>

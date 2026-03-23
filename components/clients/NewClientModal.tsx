@@ -430,9 +430,9 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
   // ── Styles ────────────────────────────────────────────────────────────────
 
   const inputStyle: React.CSSProperties = {
-    backgroundColor: "#142035",
-    border: "1px solid #1e3055",
-    color: "#ccd9ee",
+    backgroundColor: "#f5f3ee",
+    border: "1px solid #e8e0d0",
+    color: "#0f1a2e",
     borderRadius: "0.5rem",
     padding: "0.625rem 0.875rem",
     fontSize: "0.875rem",
@@ -444,7 +444,7 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
     fontSize: "0.65rem",
     letterSpacing: "0.1em",
     textTransform: "uppercase",
-    color: "#6e88b0",
+    color: "#5a6a7a",
     display: "block",
     marginBottom: "0.375rem",
   };
@@ -458,8 +458,8 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
       <div
         className="flex items-start gap-3 rounded-lg px-3 py-2.5"
         style={{
-          backgroundColor: "#0f1a2e",
-          border: `1px solid ${reason ? "rgba(232,184,109,0.25)" : "#1e3055"}`,
+          backgroundColor: "#ffffff",
+          border: `1px solid ${reason ? "rgba(232,184,109,0.25)" : "#e8e0d0"}`,
         }}
       >
         <button
@@ -469,7 +469,7 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
             width: "2rem",
             height: "1.125rem",
             borderRadius: "9999px",
-            backgroundColor: enabled ? "#54c7a2" : "#1e3055",
+            backgroundColor: enabled ? "#54c7a2" : "#e8e0d0",
           }}
         >
           <div
@@ -484,7 +484,7 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
         <div className="flex-1 min-w-0">
           <p
             className="text-xs font-medium"
-            style={{ color: enabled ? "#ccd9ee" : "#6e88b0" }}
+            style={{ color: enabled ? "#0f1a2e" : "#5a6a7a" }}
           >
             {name}
           </p>
@@ -525,8 +525,8 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
       <div
         className="rounded-xl overflow-hidden"
         style={{
-          border: `1px solid ${isSelected ? accentColor + "66" : "#1e3055"}`,
-          backgroundColor: isSelected ? accentBg : "#142035",
+          border: `1px solid ${isSelected ? accentColor + "66" : "#e8e0d0"}`,
+          backgroundColor: isSelected ? accentBg : "#f5f3ee",
         }}
       >
         <button
@@ -542,9 +542,9 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
                   className="inline-block text-xs px-1.5 py-0.5 rounded mb-1.5"
                   style={{
                     fontSize: "0.55rem",
-                    backgroundColor: "rgba(84,199,162,0.15)",
+                    backgroundColor: "#eaf3de",
                     color: "#54c7a2",
-                    border: "1px solid rgba(84,199,162,0.3)",
+                    border: "1px solid #c0dd97",
                     fontFamily: "'DM Mono', monospace",
                   }}
                 >
@@ -554,7 +554,7 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
               <p
                 className="text-sm font-semibold"
                 style={{
-                  color: isSelected ? accentColor : "#ccd9ee",
+                  color: isSelected ? accentColor : "#0f1a2e",
                   fontFamily: "'Playfair Display', Georgia, serif",
                 }}
               >
@@ -562,7 +562,7 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
               </p>
               <p
                 className="text-xs mt-0.5"
-                style={{ color: "#6e88b0", fontFamily: "'DM Mono', monospace" }}
+                style={{ color: "#5a6a7a", fontFamily: "'DM Mono', monospace" }}
               >
                 {protocol.primary_peptide} · {protocol.category}
               </p>
@@ -571,7 +571,7 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
               className="w-5 h-5 rounded-full flex-shrink-0 flex items-center justify-center"
               style={{
                 backgroundColor: isSelected ? accentColor : "transparent",
-                border: `1px solid ${isSelected ? accentColor : "#1e3055"}`,
+                border: `1px solid ${isSelected ? accentColor : "#e8e0d0"}`,
               }}
             >
               {isSelected && <Check size={10} style={{ color: "#0b1120" }} />}
@@ -605,9 +605,9 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
       <div
         className="w-full max-w-lg rounded-2xl overflow-hidden"
         style={{
-          backgroundColor: "#0f1a2e",
-          border: "1px solid #1e3055",
-          borderTop: "2px solid #e8c96e",
+          backgroundColor: "#ffffff",
+          border: "1px solid #e8e0d0",
+          borderTop: "3px solid #c9973a",
           maxHeight: "90vh",
           display: "flex",
           flexDirection: "column",
@@ -616,21 +616,21 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
         {/* Header */}
         <div
           className="flex items-center justify-between px-6 py-5 border-b flex-shrink-0"
-          style={{ borderColor: "#1e3055" }}
+          style={{ borderColor: "#e8e0d0" }}
         >
           <div>
             <h2
               className="text-xl font-semibold"
               style={{
                 fontFamily: "'Playfair Display', Georgia, serif",
-                color: "#ccd9ee",
+                color: "#0f1a2e",
               }}
             >
               New Client Intake
             </h2>
             <p
               className="text-xs mt-0.5"
-              style={{ color: "#6e88b0", fontFamily: "'DM Mono', monospace" }}
+              style={{ color: "#5a6a7a", fontFamily: "'DM Mono', monospace" }}
             >
               Step {step + 1} of {STEPS.length} — {STEPS[step]}
             </p>
@@ -639,9 +639,9 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
             <button
               onClick={onClose}
               className="p-2 rounded-lg"
-              style={{ color: "#6e88b0" }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = "#ccd9ee")}
-              onMouseLeave={(e) => (e.currentTarget.style.color = "#6e88b0")}
+              style={{ color: "#5a6a7a" }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = "#0f1a2e")}
+              onMouseLeave={(e) => (e.currentTarget.style.color = "#5a6a7a")}
             >
               <X size={18} />
             </button>
@@ -655,7 +655,7 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
               <div
                 key={i}
                 className="h-1 flex-1 rounded-full transition-all"
-                style={{ backgroundColor: i <= step ? "#e8c96e" : "#1e3055" }}
+                style={{ backgroundColor: i <= step ? "#c9973a" : "#e8e0d0" }}
               />
             ))}
           </div>
@@ -713,7 +713,7 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
                 />
                 <p
                   className="text-xs mt-1"
-                  style={{ color: "#6e88b0", fontFamily: "'DM Mono', monospace" }}
+                  style={{ color: "#5a6a7a", fontFamily: "'DM Mono', monospace" }}
                 >
                   Phone is the unique client identifier
                 </p>
@@ -765,17 +765,17 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
               {/* Screening lookup */}
               <div
                 className="rounded-xl p-4 space-y-3"
-                style={{ backgroundColor: "#142035", border: "1px solid #1e3055" }}
+                style={{ backgroundColor: "#f5f3ee", border: "1px solid #e8e0d0" }}
               >
                 <div className="flex items-center gap-2">
-                  <Shield size={13} style={{ color: "#6e88b0" }} />
+                  <Shield size={13} style={{ color: "#5a6a7a" }} />
                   <p
                     style={{
                       fontFamily: "'DM Mono', monospace",
                       fontSize: "0.65rem",
                       letterSpacing: "0.1em",
                       textTransform: "uppercase",
-                      color: "#6e88b0",
+                      color: "#5a6a7a",
                     }}
                   >
                     Link Screening Record
@@ -784,7 +784,7 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
                     className="ml-auto text-xs px-1.5 py-0.5 rounded"
                     style={{
                       fontSize: "0.55rem",
-                      color: "#6e88b0",
+                      color: "#5a6a7a",
                       backgroundColor: "rgba(110,136,176,0.1)",
                       border: "1px solid rgba(110,136,176,0.2)",
                       fontFamily: "'DM Mono', monospace",
@@ -809,8 +809,8 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
                     disabled={screeningLoading}
                     className="px-4 py-2 rounded-lg text-xs font-semibold flex-shrink-0 transition-colors"
                     style={{
-                      backgroundColor: "#1e3055",
-                      color: "#ccd9ee",
+                      backgroundColor: "#e8e0d0",
+                      color: "#0f1a2e",
                       border: "1px solid #2a4066",
                       fontFamily: "'DM Mono', monospace",
                       opacity: screeningLoading ? 0.7 : 1,
@@ -819,7 +819,7 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
                       (e.currentTarget.style.backgroundColor = "#2a4066")
                     }
                     onMouseLeave={(e) =>
-                      (e.currentTarget.style.backgroundColor = "#1e3055")
+                      (e.currentTarget.style.backgroundColor = "#e8e0d0")
                     }
                   >
                     {screeningLoading ? "Looking..." : "Look up"}
@@ -855,7 +855,7 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
                             style={{
                               backgroundColor: "rgba(232,184,109,0.12)",
                               color: "#e8b86d",
-                              border: "1px solid rgba(232,184,109,0.3)",
+                              border: "1px solid #fac775",
                               fontFamily: "'DM Mono', monospace",
                               fontSize: "0.6rem",
                             }}
@@ -895,7 +895,7 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
                   if (validateStep1()) setStep(1);
                 }}
                 className="w-full py-3 rounded-lg font-semibold text-sm flex items-center justify-center gap-2"
-                style={{ backgroundColor: "#e8c96e", color: "#0b1120" }}
+                style={{ backgroundColor: "#c9973a", color: "#0b1120" }}
               >
                 Continue <ChevronRight size={16} />
               </button>
@@ -918,12 +918,12 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
                         className="rounded-xl p-3 text-left transition-all"
                         style={{
                           backgroundColor: active
-                            ? "rgba(232,201,110,0.1)"
-                            : "#142035",
+                            ? "rgba(201,151,58,0.1)"
+                            : "#f5f3ee",
                           border: `1px solid ${
                             active
-                              ? "rgba(232,201,110,0.4)"
-                              : "#1e3055"
+                              ? "rgba(201,151,58,0.4)"
+                              : "#e8e0d0"
                           }`,
                         }}
                       >
@@ -931,7 +931,7 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
                         <p
                           className="text-xs font-medium leading-tight"
                           style={{
-                            color: active ? "#e8c96e" : "#ccd9ee",
+                            color: active ? "#c9973a" : "#0f1a2e",
                             fontFamily: "'DM Mono', monospace",
                           }}
                         >
@@ -941,7 +941,7 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
                           <Check
                             size={10}
                             className="mt-1"
-                            style={{ color: "#e8c96e" }}
+                            style={{ color: "#c9973a" }}
                           />
                         )}
                       </button>
@@ -989,7 +989,7 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
                   <Search
                     size={13}
                     className="absolute left-3 top-1/2 -translate-y-1/2"
-                    style={{ color: "#6e88b0" }}
+                    style={{ color: "#5a6a7a" }}
                   />
                   <input
                     style={{ ...inputStyle, paddingLeft: "2.25rem" }}
@@ -1002,13 +1002,13 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
 
                 {/* Category accordion */}
                 {browseLoading ? (
-                  <p className="text-xs py-3 text-center" style={{ color: "#6e88b0" }}>
+                  <p className="text-xs py-3 text-center" style={{ color: "#5a6a7a" }}>
                     Loading...
                   </p>
                 ) : (
                   <div
                     className="rounded-lg overflow-hidden"
-                    style={{ border: "1px solid #1e3055", maxHeight: "260px", overflowY: "auto" }}
+                    style={{ border: "1px solid #e8e0d0", maxHeight: "260px", overflowY: "auto" }}
                   >
                     {(() => {
                       const term = conditionSearch.toLowerCase();
@@ -1030,26 +1030,26 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
                       const cats = Object.keys(grouped).sort();
                       if (cats.length === 0)
                         return (
-                          <p className="text-xs px-4 py-3" style={{ color: "#6e88b0" }}>
+                          <p className="text-xs px-4 py-3" style={{ color: "#5a6a7a" }}>
                             No conditions match
                           </p>
                         );
                       return cats.map((cat) => {
                         const open = expandedCategories.has(cat) || !!conditionSearch;
                         return (
-                          <div key={cat} style={{ borderBottom: "1px solid #1e3055" }}>
+                          <div key={cat} style={{ borderBottom: "1px solid #e8e0d0" }}>
                             <button
                               className="w-full flex items-center justify-between px-4 py-2.5 text-left"
-                              style={{ backgroundColor: "#0f1a2e" }}
+                              style={{ backgroundColor: "#ffffff" }}
                               onClick={() => toggleCategory(cat)}
                             >
                               <span
                                 className="text-xs font-medium"
-                                style={{ color: "#6e88b0", fontFamily: "'DM Mono', monospace" }}
+                                style={{ color: "#5a6a7a", fontFamily: "'DM Mono', monospace" }}
                               >
                                 {cat}
                               </span>
-                              <span className="text-xs" style={{ color: "#4a6080" }}>
+                              <span className="text-xs" style={{ color: "#8a7a5a" }}>
                                 {grouped[cat].length} · {open ? "▲" : "▼"}
                               </span>
                             </button>
@@ -1069,13 +1069,13 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
                                     }}
                                     className="w-full text-left px-5 py-2 flex items-center justify-between border-t"
                                     style={{
-                                      borderColor: "rgba(30,48,85,0.4)",
+                                      borderColor: "rgba(232,224,208,0.4)",
                                       backgroundColor: already
                                         ? "rgba(84,199,162,0.04)"
                                         : "transparent",
                                     }}
                                     onMouseEnter={(e) => {
-                                      e.currentTarget.style.backgroundColor = already ? "rgba(224,90,106,0.06)" : "#142035";
+                                      e.currentTarget.style.backgroundColor = already ? "rgba(224,90,106,0.06)" : "#f5f3ee";
                                     }}
                                     onMouseLeave={(e) => {
                                       e.currentTarget.style.backgroundColor = already ? "rgba(84,199,162,0.04)" : "transparent";
@@ -1084,13 +1084,13 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
                                     <div className="flex-1 min-w-0">
                                       <p
                                         className="text-xs font-medium"
-                                        style={{ color: already ? "#54c7a2" : "#ccd9ee" }}
+                                        style={{ color: already ? "#54c7a2" : "#0f1a2e" }}
                                       >
                                         {p.condition_name}
                                       </p>
                                       <p
                                         className="text-xs mt-0.5"
-                                        style={{ color: "#6e88b0", fontFamily: "'DM Mono', monospace", fontSize: "0.6rem" }}
+                                        style={{ color: "#5a6a7a", fontFamily: "'DM Mono', monospace", fontSize: "0.6rem" }}
                                       >
                                         {p.primary_peptide}
                                       </p>
@@ -1098,7 +1098,7 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
                                     {already ? (
                                       <Check size={12} style={{ color: "#54c7a2", flexShrink: 0 }} />
                                     ) : (
-                                      <Plus size={12} style={{ color: "#6e88b0", flexShrink: 0 }} />
+                                      <Plus size={12} style={{ color: "#5a6a7a", flexShrink: 0 }} />
                                     )}
                                   </button>
                                 );
@@ -1125,13 +1125,13 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
                         style={{
                           fontFamily: "'DM Mono', monospace",
                           backgroundColor: active
-                            ? "rgba(232,184,109,0.15)"
-                            : "#142035",
-                          color: active ? "#e8b86d" : "#6e88b0",
+                            ? "#faeeda"
+                            : "#f5f3ee",
+                          color: active ? "#e8b86d" : "#5a6a7a",
                           border: `1px solid ${
                             active
                               ? "rgba(232,184,109,0.4)"
-                              : "#1e3055"
+                              : "#e8e0d0"
                           }`,
                         }}
                       >
@@ -1149,8 +1149,8 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
                 <div
                   className="rounded-lg p-3 space-y-2"
                   style={{
-                    backgroundColor: "rgba(232,201,110,0.04)",
-                    border: "1px solid rgba(232,201,110,0.15)",
+                    backgroundColor: "rgba(201,151,58,0.04)",
+                    border: "1px solid rgba(201,151,58,0.15)",
                   }}
                 >
                   <p
@@ -1159,7 +1159,7 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
                       fontSize: "0.6rem",
                       letterSpacing: "0.1em",
                       textTransform: "uppercase",
-                      color: "#e8c96e",
+                      color: "#c9973a",
                     }}
                   >
                     Profile Preview
@@ -1171,8 +1171,8 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
                           key={g}
                           className="text-xs px-2 py-0.5 rounded-full"
                           style={{
-                            backgroundColor: "rgba(232,201,110,0.1)",
-                            color: "#e8c96e",
+                            backgroundColor: "rgba(201,151,58,0.1)",
+                            color: "#c9973a",
                             fontFamily: "'DM Mono', monospace",
                             fontSize: "0.6rem",
                           }}
@@ -1228,9 +1228,9 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
                   onClick={() => setStep(0)}
                   className="flex-1 py-3 rounded-lg font-semibold text-sm flex items-center justify-center gap-2"
                   style={{
-                    backgroundColor: "#142035",
-                    color: "#ccd9ee",
-                    border: "1px solid #1e3055",
+                    backgroundColor: "#f5f3ee",
+                    color: "#0f1a2e",
+                    border: "1px solid #e8e0d0",
                   }}
                 >
                   <ChevronLeft size={16} /> Back
@@ -1238,7 +1238,7 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
                 <button
                   onClick={() => setStep(2)}
                   className="flex-1 py-3 rounded-lg font-semibold text-sm flex items-center justify-center gap-2"
-                  style={{ backgroundColor: "#e8c96e", color: "#0b1120" }}
+                  style={{ backgroundColor: "#c9973a", color: "#0b1120" }}
                 >
                   Continue <ChevronRight size={16} />
                 </button>
@@ -1299,18 +1299,18 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
               <div
                 className="rounded-xl p-4 flex items-center gap-3"
                 style={{
-                  border: "1px dashed rgba(110,136,176,0.3)",
+                  border: "1px dashed #e8e0d0",
                   backgroundColor: "rgba(110,136,176,0.03)",
                 }}
               >
                 <FlaskConical
                   size={18}
-                  style={{ color: "#6e88b0", flexShrink: 0 }}
+                  style={{ color: "#5a6a7a", flexShrink: 0 }}
                 />
                 <div>
                   <p
                     className="text-xs font-medium"
-                    style={{ color: "#6e88b0" }}
+                    style={{ color: "#5a6a7a" }}
                   >
                     Lab Work — Coming Soon
                   </p>
@@ -1331,9 +1331,9 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
                   onClick={() => setStep(1)}
                   className="flex-1 py-3 rounded-lg font-semibold text-sm flex items-center justify-center gap-2"
                   style={{
-                    backgroundColor: "#142035",
-                    color: "#ccd9ee",
-                    border: "1px solid #1e3055",
+                    backgroundColor: "#f5f3ee",
+                    color: "#0f1a2e",
+                    border: "1px solid #e8e0d0",
                   }}
                 >
                   <ChevronLeft size={16} /> Back
@@ -1341,7 +1341,7 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
                 <button
                   onClick={() => setStep(3)}
                   className="flex-1 py-3 rounded-lg font-semibold text-sm flex items-center justify-center gap-2"
-                  style={{ backgroundColor: "#e8c96e", color: "#0b1120" }}
+                  style={{ backgroundColor: "#c9973a", color: "#0b1120" }}
                 >
                   Continue <ChevronRight size={16} />
                 </button>
@@ -1355,7 +1355,7 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
               {protocolsLoading ? (
                 <p
                   className="text-sm py-8 text-center"
-                  style={{ color: "#6e88b0" }}
+                  style={{ color: "#5a6a7a" }}
                 >
                   Loading protocols...
                 </p>
@@ -1388,8 +1388,8 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
                           <ProtocolCard
                             key={p.id}
                             protocol={p}
-                            accentColor="#e8c96e"
-                            accentBg="rgba(232,201,110,0.05)"
+                            accentColor="#c9973a"
+                            accentBg="rgba(201,151,58,0.05)"
                             badge={
                               idx === 0 && conditionMatchedProtocols.length === 0
                                 ? "Best Match"
@@ -1414,8 +1414,8 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
                           <ProtocolCard
                             key={p.id}
                             protocol={p}
-                            accentColor="#e8c96e"
-                            accentBg="rgba(232,201,110,0.05)"
+                            accentColor="#c9973a"
+                            accentBg="rgba(201,151,58,0.05)"
                           />
                         ))}
                       </div>
@@ -1428,11 +1428,11 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
                     <div
                       className="rounded-xl p-4"
                       style={{
-                        border: "1px dashed #1e3055",
+                        border: "1px dashed #e8e0d0",
                         backgroundColor: "rgba(110,136,176,0.03)",
                       }}
                     >
-                      <p className="text-xs" style={{ color: "#6e88b0" }}>
+                      <p className="text-xs" style={{ color: "#5a6a7a" }}>
                         Build a custom protocol after creating the client —
                         use the Protocol Selector or Custom Builder from the
                         client&apos;s profile.
@@ -1445,9 +1445,9 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
                       onClick={() => setStep(2)}
                       className="flex-1 py-3 rounded-lg font-semibold text-sm flex items-center justify-center gap-2"
                       style={{
-                        backgroundColor: "#142035",
-                        color: "#ccd9ee",
-                        border: "1px solid #1e3055",
+                        backgroundColor: "#f5f3ee",
+                        color: "#0f1a2e",
+                        border: "1px solid #e8e0d0",
                       }}
                     >
                       <ChevronLeft size={16} /> Back
@@ -1455,7 +1455,7 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
                     <button
                       onClick={() => setStep(4)}
                       className="flex-1 py-3 rounded-lg font-semibold text-sm flex items-center justify-center gap-2"
-                      style={{ backgroundColor: "#e8c96e", color: "#0b1120" }}
+                      style={{ backgroundColor: "#c9973a", color: "#0b1120" }}
                     >
                       Review <ChevronRight size={16} />
                     </button>
@@ -1471,15 +1471,15 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
               <div
                 className="rounded-xl p-4 space-y-3"
                 style={{
-                  backgroundColor: "#142035",
-                  border: "1px solid #1e3055",
-                  borderTop: "2px solid #e8c96e",
+                  backgroundColor: "#f5f3ee",
+                  border: "1px solid #e8e0d0",
+                  borderTop: "3px solid #c9973a",
                 }}
               >
                 <h3
                   className="font-semibold text-sm"
                   style={{
-                    color: "#e8c96e",
+                    color: "#c9973a",
                     fontFamily: "'Playfair Display', Georgia, serif",
                   }}
                 >
@@ -1535,7 +1535,7 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
                   >
                     <span
                       style={{
-                        color: "#6e88b0",
+                        color: "#5a6a7a",
                         fontFamily: "'DM Mono', monospace",
                         fontSize: "0.7rem",
                         flexShrink: 0,
@@ -1545,7 +1545,7 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
                     </span>
                     <span
                       style={{
-                        color: "#ccd9ee",
+                        color: "#0f1a2e",
                         textAlign: "right",
                         fontSize: "0.8rem",
                       }}
@@ -1570,21 +1570,21 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
                         backgroundColor:
                           paymentStatus === status
                             ? status === "paid"
-                              ? "rgba(84,199,162,0.15)"
+                              ? "#eaf3de"
                               : "rgba(232,90,106,0.1)"
-                            : "#142035",
+                            : "#f5f3ee",
                         color:
                           paymentStatus === status
                             ? status === "paid"
                               ? "#54c7a2"
                               : "#e05a6a"
-                            : "#6e88b0",
+                            : "#5a6a7a",
                         border: `1px solid ${
                           paymentStatus === status
                             ? status === "paid"
-                              ? "rgba(84,199,162,0.3)"
-                              : "rgba(224,90,106,0.3)"
-                            : "#1e3055"
+                              ? "#c0dd97"
+                              : "#f7c1c1"
+                            : "#e8e0d0"
                         }`,
                       }}
                     >
@@ -1599,9 +1599,9 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
                   onClick={() => setStep(3)}
                   className="flex-1 py-3 rounded-lg font-semibold text-sm flex items-center justify-center gap-2"
                   style={{
-                    backgroundColor: "#142035",
-                    color: "#ccd9ee",
-                    border: "1px solid #1e3055",
+                    backgroundColor: "#f5f3ee",
+                    color: "#0f1a2e",
+                    border: "1px solid #e8e0d0",
                   }}
                 >
                   <ChevronLeft size={16} /> Back
@@ -1611,7 +1611,7 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
                   disabled={submitting}
                   className="flex-1 py-3 rounded-lg font-semibold text-sm flex items-center justify-center gap-2"
                   style={{
-                    backgroundColor: "#e8c96e",
+                    backgroundColor: "#c9973a",
                     color: "#0b1120",
                     opacity: submitting ? 0.8 : 1,
                   }}
@@ -1635,8 +1635,8 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
                 <div
                   className="w-16 h-16 rounded-full flex items-center justify-center mb-4"
                   style={{
-                    backgroundColor: "rgba(84,199,162,0.15)",
-                    border: "1px solid rgba(84,199,162,0.3)",
+                    backgroundColor: "#eaf3de",
+                    border: "1px solid #c0dd97",
                   }}
                 >
                   <Check size={28} style={{ color: "#54c7a2" }} />
@@ -1645,12 +1645,12 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
                   className="text-xl font-semibold mb-1"
                   style={{
                     fontFamily: "'Playfair Display', Georgia, serif",
-                    color: "#ccd9ee",
+                    color: "#0f1a2e",
                   }}
                 >
                   {firstName} {lastName}
                 </h3>
-                <p className="text-sm" style={{ color: "#6e88b0" }}>
+                <p className="text-sm" style={{ color: "#5a6a7a" }}>
                   Client successfully created
                 </p>
               </div>
@@ -1658,8 +1658,8 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
               <div
                 className="rounded-xl p-4 space-y-3"
                 style={{
-                  backgroundColor: "#142035",
-                  border: "1px solid #1e3055",
+                  backgroundColor: "#f5f3ee",
+                  border: "1px solid #e8e0d0",
                 }}
               >
                 {(
@@ -1687,14 +1687,14 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
                   >
                     <span
                       style={{
-                        color: "#6e88b0",
+                        color: "#5a6a7a",
                         fontFamily: "'DM Mono', monospace",
                         fontSize: "0.7rem",
                       }}
                     >
                       {label}
                     </span>
-                    <span style={{ color: "#ccd9ee", fontSize: "0.8rem" }}>
+                    <span style={{ color: "#0f1a2e", fontSize: "0.8rem" }}>
                       {value}
                     </span>
                   </div>
@@ -1709,7 +1709,7 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
                     onSuccess();
                   }}
                   className="w-full py-3 rounded-lg font-semibold text-sm flex items-center justify-center gap-2"
-                  style={{ backgroundColor: "#e8c96e", color: "#0b1120" }}
+                  style={{ backgroundColor: "#c9973a", color: "#0b1120" }}
                 >
                   <User size={15} /> View Client Profile
                 </button>
@@ -1717,9 +1717,9 @@ export default function NewClientModal({ onClose, onSuccess }: Props) {
                   onClick={resetForm}
                   className="w-full py-3 rounded-lg font-semibold text-sm flex items-center justify-center gap-2"
                   style={{
-                    backgroundColor: "#142035",
-                    color: "#ccd9ee",
-                    border: "1px solid #1e3055",
+                    backgroundColor: "#f5f3ee",
+                    color: "#0f1a2e",
+                    border: "1px solid #e8e0d0",
                   }}
                 >
                   Start Another Intake
