@@ -2,23 +2,31 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import Link from "next/link";
 import { createClient } from "@/lib/supabase/client";
 
-export default function LoginPage() {
-  const [email, setEmail] = useState("");
+export default function ResetPasswordPage() {
   const [password, setPassword] = useState("");
+  const [confirm, setConfirm] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const router = useRouter();
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    setLoading(true);
     setError(null);
 
+    if (password !== confirm) {
+      setError("Passwords do not match.");
+      return;
+    }
+    if (password.length < 8) {
+      setError("Password must be at least 8 characters.");
+      return;
+    }
+
+    setLoading(true);
     const supabase = createClient();
-    const { error } = await supabase.auth.signInWithPassword({ email, password });
+    const { error } = await supabase.auth.updateUser({ password });
 
     if (error) {
       setError(error.message);
@@ -65,11 +73,14 @@ export default function LoginPage() {
           }}
         >
           <h2
-            className="text-xl font-semibold mb-6"
+            className="text-xl font-semibold mb-2"
             style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#1a2744" }}
           >
-            Sign In
+            Set New Password
           </h2>
+          <p className="text-sm mb-6" style={{ color: "#5a6a7a" }}>
+            Choose a strong password for your account.
+          </p>
 
           <form onSubmit={handleSubmit} className="space-y-5">
             <div>
@@ -77,14 +88,14 @@ export default function LoginPage() {
                 className="block text-xs uppercase tracking-widest mb-2"
                 style={{ fontFamily: "'DM Mono', monospace", color: "#5a6a7a" }}
               >
-                Email Address
+                New Password
               </label>
               <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 required
-                placeholder="you@clinic.com"
+                placeholder="••••••••"
                 className="w-full rounded-lg px-4 py-3 text-sm transition-all focus:outline-none"
                 style={{
                   backgroundColor: "#f5f3ee",
@@ -103,27 +114,16 @@ export default function LoginPage() {
             </div>
 
             <div>
-              <div className="flex items-center justify-between mb-2">
-                <label
-                  className="block text-xs uppercase tracking-widest"
-                  style={{ fontFamily: "'DM Mono', monospace", color: "#5a6a7a" }}
-                >
-                  Password
-                </label>
-                <Link
-                  href="/forgot-password"
-                  className="text-xs transition-colors"
-                  style={{ color: "#c9973a", fontFamily: "'DM Mono', monospace" }}
-                  onMouseEnter={(e) => (e.currentTarget.style.color = "#a87c2e")}
-                  onMouseLeave={(e) => (e.currentTarget.style.color = "#c9973a")}
-                >
-                  Forgot password?
-                </Link>
-              </div>
+              <label
+                className="block text-xs uppercase tracking-widest mb-2"
+                style={{ fontFamily: "'DM Mono', monospace", color: "#5a6a7a" }}
+              >
+                Confirm Password
+              </label>
               <input
                 type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                value={confirm}
+                onChange={(e) => setConfirm(e.target.value)}
                 required
                 placeholder="••••••••"
                 className="w-full rounded-lg px-4 py-3 text-sm transition-all focus:outline-none"
@@ -167,17 +167,10 @@ export default function LoginPage() {
                 opacity: loading ? 0.8 : 1,
               }}
             >
-              {loading ? "Signing in..." : "Sign In"}
+              {loading ? "Updating..." : "Set New Password"}
             </button>
           </form>
         </div>
-
-        <p
-          className="text-center text-xs mt-6"
-          style={{ color: "#5a6a7a" }}
-        >
-          Contact your administrator for access. Self-registration is not available.
-        </p>
       </div>
     </div>
   );
