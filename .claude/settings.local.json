@@ -56,7 +56,10 @@
       "Bash(vercel --prod)",
       "Bash(npx vercel:*)",
       "Bash(node -e \":*)",
-      "Bash(find /Users/mark/Desktop/atlas-engine/app -name *.tsx)"
+      "Bash(find /Users/mark/Desktop/atlas-engine/app -name *.tsx)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)"
     ]
   }
 }

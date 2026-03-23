@@ -44,6 +44,20 @@ export default function ClientsPage() {
     fetchClients();
   }, [fetchClients]);
 
+  // Auto-open modal if ?new=1 in URL
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get("new") === "1") {
+        setShowModal(true);
+        // Clean up URL without navigation
+        const url = new URL(window.location.href);
+        url.searchParams.delete("new");
+        window.history.replaceState({}, "", url.toString());
+      }
+    }
+  }, []);
+
   const statusColors: Record<string, { bg: string; color: string; border: string }> = {
     active: {
       bg: "rgba(84,199,162,0.15)",
